@@ -1,0 +1,46 @@
+<rdf:RDF xmlns:ore="http://www.openarchives.org/ore/terms/"
+  xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:cito4data="http://purl.org/spar/cito4data/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:frapo="http://purl.org/cerif/frapo/"
+  xmlns:pro="http://purl.org/spar/pro/" xmlns:oai2_record="http://www.openarchives.org/OAI/2.0/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:datacite="http://purl.org/spar/datacite/"
+  xmlns:dcterms="http://purl.org/dc/terms/" xmlns:scoro="http://purl.org/spar/scoro/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:kernel2-2="http://datacite.org/schema/kernel-2.2"
+  xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:rmap="http://rmap-project.org/rmap/terms/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:cito="http://purl.org/spar/cito/" xmlns:fabio="http://purl.org/spar/fabio/">
+  <!-- RMap DiSCO -->
+  <rmap:DiSCO>
+    <rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO" />
+    <dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/rmap-bench" />
+    <ore:aggregates rdf:resource="__URI_1__" />
+  </rmap:DiSCO>
+  <!-- Aggregated Resources -->
+  <rdf:Description rdf:about="__URI_1__">
+    <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Software" />
+    <dc:identifier>__URI__</dc:identifier>
+    <frbr:supplementOf rdf:resource="__URI__" />
+    <cito:cites rdf:resource="__LITERAL__" />
+    <cito:cites rdf:resource="__LITERAL__" />
+    <dcterms:isVersionOf rdf:resource="__URI__" />
+    <dc:title>__LITERAL__</dc:title>
+    <dcterms:abstract>__LITERAL__</dcterms:abstract>
+    <dcterms:description>__LITERAL__</dcterms:description>
+    <dcterms:creator rdf:nodeID="N65570" />
+    <dcterms:creator rdf:nodeID="N65575" />
+    <dcterms:creator rdf:nodeID="N65580" />
+  </rdf:Description>
+  <!-- Other resources and bNodes -->
+  <rdf:Description rdf:nodeID="N65570">
+    <foaf:name>__LITERAL__</foaf:name>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Agent" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65575">
+    <foaf:name>__LITERAL__</foaf:name>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Agent" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65580">
+    <foaf:name>__LITERAL__</foaf:name>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Agent" />
+  </rdf:Description>
+</rdf:RDF>

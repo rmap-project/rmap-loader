@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>info.rmapproject</groupId>
+  <artifactId>rmap-loader</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>rmap-loader</name>
+  <description>rmap-loader</description>
+
+  <properties>
+    <maven-bundle-plugin.version>2.5.3</maven-bundle-plugin.version>
+    <osgi.version>5.0.0</osgi.version>
+    <camel.version>2.15.2</camel.version>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${maven-bundle-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.core</artifactId>
+        <version>${osgi.version}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <modules>
+    <module>rmap-loader-framework</module>
+    <module>rmap-loader-api</module>
+    <module>rmap-loader-experimental</module>
+    <module>rmap-loader-transform-xsl</module>
+    <module>rmap-loader-extractor-oai</module>
+    <module>rmap-loader-deposit-disco</module>
+    <module>rmap-loader-camel</module>
+    <module>rmap-loader-osgi</module>
+  </modules>
+</project>

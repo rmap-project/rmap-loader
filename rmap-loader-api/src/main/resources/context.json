@@ -1,0 +1,27 @@
+{
+	"load": "http://example.org/loader#",
+	"xsd": "http://www.w3.org/2001/XMLSchema#",
+	"retrieveDate": 
+	{
+		"@id": "load:retrieveDate",
+		"@type": "xsd:dateTime"
+	},
+
+	"recordDate": 
+	{
+		"@id": "load:retrieveDate",
+		"@type": "xsd:dateTime"
+	},
+
+	"src": 
+	{
+		"@id": "load:src",
+		"@type": "@id"
+	},
+
+	"format": 
+	{
+		"@id": "load:format",
+		"@type": "xsd:String"
+	}
+}

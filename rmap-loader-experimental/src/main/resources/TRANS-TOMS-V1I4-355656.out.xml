@@ -1,0 +1,1142 @@
+J782TOMSACM Transactions on Mathematical Software (TOMS)ACM Trans. Math. Softw.0098-35001557-7295transactionPP45024532813395241311JohnR.RiceEditorPUB27ACMNYACM2 Penn Plaza, Suite 701New YorkNYUSA10121-0701Bernard Rous212 869-7440www.acm.org/publications35565614Dec. 197512-01-1975F.0G.00.10002950CCS-&gt;Mathematics of computing1000.10003752CCS-&gt;Theory of computation500TheoryACM1975<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355657"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355657">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355657"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Parallel Tridiagonal Equation Solvers</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:nodeID="citation2"/>
+<cito:cites rdf:nodeID="citation3"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=321259"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=355658"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=321741"/>
+<cito:cites rdf:nodeID="citation7"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=63112"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=322116"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355947"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=806769"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=321983"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=357116"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=314499"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=322057"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=324582"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=352333"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=110597"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=637546"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355658"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=76299"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=255147"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1746141"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=15298"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=185302"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=203187"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1789297"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2492887"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1311858"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1882748"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1824875"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1361039"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2733649"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1831790"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2316990"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2688425"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2748751"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>PP31096081</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>Harold S.</foaf:givenName>
+<foaf:familyName>Stone</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60014313"/>
+<vcard:extended-address>Department of Electrical and Computer Engineering, University of Massachusetts, Amherst, Mass.</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>BUZBEE, B.L., GObUB, G.H., AND ~IELSON, C.W. On direct methods for solving Poisson's equations. SIAM J. Numer. Anal. 7, 4 (Dec. 1970), 627-656.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation2">
+<dcterms:bibliographicCitation>GAu~scHI, W. Computatlonul aspects of three-term recurrence re|atlons. SIAM Rev. 9, (Jan. 1967), 24-82.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation3">
+<dcterms:bibliographicCitation>GOLUB, G.H. Private commumcatmns, 1973.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=321259">
+<dcterms:bibliographicCitation>HOCKNEY, R.W. A fast direct solution of Poisson's equation using Fourier analysis. J. ACM 12, (Jan, 1965), 95-113.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355658">
+<dcterms:bibliographicCitation>I~AMBIOTTE, J.J., AND VOIGT, R.G. The solution of tridlagonal hnear systems on the CDC STAR-100 computer. ACM Trans. Math. Software 1, 4 (Dec 1975), 308-329.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=321741">
+<dcterms:bibliographicCitation>STON~, H.S. An efficmnt parallel algorithm for the solution of a tridmgonal hnear system of equations. J. ACM 20, 1 (jan. 1973), 27-38.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation7">
+<dcterms:bibliographicCitation>TRAUB, J.F. iterative solution of tndiagonal systems on parallel or vector computers. In Complexity of Sequentzal and Parallel Numerical Algorithms, J.F. Traub, Ed. Academic Press, New York, 1973.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=63112">
+<dcterms:bibliographicCitation>O. Egecioglu , C. K. Koc , A. J. Laub, Prefix algorithms for tridiagonal systems on hypercube multiprocessors, Proceedings of the third conference on Hypercube concurrent computers and applications, p.1539-1545, January 1989, Pasadena, California, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=322116">
+<dcterms:bibliographicCitation>Garry H. Rodrigue , Niel K. Madsen , Jack I. Karush, Odd-Even Reduction for Banded Linear Equations, Journal of the ACM (JACM), v.26 n.1, p.72-81, Jan. 1979</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355947">
+<dcterms:bibliographicCitation>H. H. Wang, A Parallel Method for Tridiagonal Equations, ACM Transactions on Mathematical Software (TOMS), v.7 n.2, p.170-183, June 1981</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=806769">
+<dcterms:bibliographicCitation>H. A. Presnell , R. P. Pargas, Communication along shortest paths in a tree machine, Proceedings of the 1981 conference on Functional programming languages and computer architecture, p.107-114, October 18-22, 1981, Portsmouth, New Hampshire, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=321983">
+<dcterms:bibliographicCitation>D. E. Heller , D. K. Stevenson , J. F. Traub, Accelerated Iterative Methods for the Solution of Tridiagonal Systems on Parallel Computers, Journal of the ACM (JACM), v.23 n.4, p.636-654, Oct. 1976</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=357116">
+<dcterms:bibliographicCitation>Jacob T. Schwartz, Ultracomputers, ACM Transactions on Programming Languages and Systems (TOPLAS), v.2 n.4, p.484-521, Oct. 1980</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=314499">
+<dcterms:bibliographicCitation>Michael T. Goodrich , Yossi Matias , Uzi Vishkin, Optimal parallel approximation for prefix sums and integer sorting, Proceedings of the fifth annual ACM-SIAM symposium on Discrete algorithms, p.241-250, January 23-25, 1994, Arlington, Virginia, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=322057">
+<dcterms:bibliographicCitation>W. Morven Gentleman, Some Complexity Results for Matrix Computations on Parallel Processors, Journal of the ACM (JACM), v.25 n.1, p.112-115, Jan. 1978</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=324582">
+<dcterms:bibliographicCitation>S. Lakshmivarahan , Sudarshan K. Dhall, A new class of parallel algorithms for solving linear tridiagonal systems, Proceedings of 1986 ACM Fall joint computer conference, p.315-324, November 1986, Dallas, Texas, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=352333">
+<dcterms:bibliographicCitation>Jaime Seguel , Dorothy Bollman , John Feo, A Framework for the Design and Implementation of FFT Permutation Algorithms, IEEE Transactions on Parallel and Distributed Systems, v.11 n.7, p.625-635, July 2000</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=110597">
+<dcterms:bibliographicCitation>Siddhartha Chatterjee , Guy E. Blelloch , Marco Zagha, Scan primitives for vector computers, Proceedings of the 1990 conference on Supercomputing, p.666-675, October 1990, New York, New York, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=637546">
+<dcterms:bibliographicCitation>R. Barrio , B. Melendo , S. Serrano, On the numerical evaluation of linear recurrences, Journal of Computational and Applied Mathematics, v.150 n.1, p.71-86, January 2003</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355658">
+<dcterms:bibliographicCitation>Jules J. Lambiotte, Jr. , Robert G. Voigt, The Solution of Tridiagonal Linear Systems on the CDC STAR 100 Computer, ACM Transactions on Mathematical Software (TOMS), v.1 n.4, p.308-329, Dec. 1975</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=76299">
+<dcterms:bibliographicCitation>C. Levit, Parallel solution of pentadiagonal systems using generalized odd-even elimination, Proceedings of the 1989 ACM/IEEE conference on Supercomputing, p.333-336, November 12-17, 1989, Reno, Nevada, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=255147">
+<dcterms:bibliographicCitation>Kuo-Liang Chung , Ferng-Ching Lin , Wen-Chin Chen, Cost-optimal parallel B-spline interpolations, ACM SIGARCH Computer Architecture News, v.18 n.3b, p.121-131, Sept. 1990</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1746141">
+<dcterms:bibliographicCitation>Stefan Bondeli, Paper: Divide and conquer: a parallel algorithm for the solution of a tridiagonal linear system of equations, Parallel Computing, v.17 n.4-5, p.419-434, July, 1991</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=15298">
+<dcterms:bibliographicCitation>J Gazdag , G Radicati , P Sguazzero , H H Wang, Seismic migration on the IBM 3090 Vector facility, IBM Journal of Research and Development, v.30 n.2, p.172-183, March 1986</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=185302">
+<dcterms:bibliographicCitation>Omer Berkman , Uzi Vishkin, Finding level-ancestors in trees, Journal of Computer and System Sciences, v.48 n.2, p.214-230, April 1994</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=203187">
+<dcterms:bibliographicCitation>Kuo-Liang Chung, Prefix Computations on a Generalized Mesh-Connected Computer with Multiple Buses, IEEE Transactions on Parallel and Distributed Systems, v.6 n.2, p.196-199, February 1995</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1789297">
+<dcterms:bibliographicCitation>Okon H. Akpan, On a high-order compact scheme and its utilization in parallel solution of a time-dependent system on a distributed memory processor, Proceedings of the 2007 IFIP international conference on Network and parallel computing, September 18-21, 2007, Dalian, China</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2492887">
+<dcterms:bibliographicCitation>Georgios Chatziparaskevas , Andreas Brokalakis , Ioannis Papaefstathiou, An FPGA-based parallel processor for black-scholes option pricing using finite differences schemes, Proceedings of the Conference on Design, Automation and Test in Europe, March 12-16, 2012, Dresden, Germany</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1311858">
+<dcterms:bibliographicCitation>Q. F. Stout, Mesh-Connected Computers with Broadcasting, IEEE Transactions on Computers, v.32 n.9, p.826-830, September 1983</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1882748">
+<dcterms:bibliographicCitation>Guy E. Blelloch , Bruce M. Maggs, Parallel algorithms, Algorithms and theory of computation handbook: special topics and techniques, Chapman &amp; Hall/CRC, 2010</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1824875">
+<dcterms:bibliographicCitation>Andrew V. Terekhov, Parallel Dichotomy Algorithm for solving tridiagonal system of linear equations with multiple right-hand sides, Parallel Computing, v.36 n.8, p.423-438, August, 2010</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1361039">
+<dcterms:bibliographicCitation>S. Chandra Sekhara Rao , Sarita, Parallel solution of large symmetric tridiagonal linear systems, Parallel Computing, v.34 n.3, p.177-197, March, 2008</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2733649">
+<dcterms:bibliographicCitation>Di Zhao , Jinhang Yu, Efficiently solving tri-diagonal system by chunked cyclic reduction and single-GPU shared memory, The Journal of Supercomputing, v.71 n.2, p.369-390, February  2015</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1831790">
+<dcterms:bibliographicCitation>S. P. Hirshman , K. S. Perumalla , V. E. Lynch , R. Sanchez, BCYCLIC: A parallel block tridiagonal matrix cyclic solver, Journal of Computational Physics, v.229 n.18, p.6392-6404, September, 2010</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2316990">
+<dcterms:bibliographicCitation>Okon H. Akpan, On a high-order compact scheme and its utilization in parallel solution of a time-dependent system on a distributed memory processor, The Journal of Supercomputing, v.60 n.3, p.410-419, June      2012</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2688425">
+<dcterms:bibliographicCitation>Mike Giles , Endre L&amp;#225;szl&amp;#243; , Istv&amp;#225;n Reguly , Jeremy Appleyard , Julien Demouth, GPU implementation of finite difference solvers, Proceedings of the 7th Workshop on High Performance Computational Finance, p.1-8, November 16-21, 2014, New Orleans, Louisiana</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2748751">
+<dcterms:bibliographicCitation>Swarn P. Kumar, Solving Tridiagonal Linear Systems On the Butterfly Parallel Computer, International Journal of High Performance Computing Applications, v.3 n.1, p.75-81, March     1989</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- SUPPLEMENTARY FILES -->
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355658"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355658">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355658"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>The Solution of Tridiagonal Linear Systems on the CDC STAR 100 Computer</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<dcterms:creator rdf:nodeID="author2"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+<rdf:li rdf:nodeID="author2"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:nodeID="citation2"/>
+<cito:cites rdf:nodeID="citation3"/>
+<cito:cites rdf:nodeID="citation4"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=321259"/>
+<cito:cites rdf:nodeID="citation6"/>
+<cito:cites rdf:nodeID="citation7"/>
+<cito:cites rdf:nodeID="citation8"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=321741"/>
+<cito:cites rdf:nodeID="citation10"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=355657"/>
+<cito:cites rdf:nodeID="citation12"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=321076"/>
+<cito:cites rdf:nodeID="citation14"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=63111"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=357116"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355947"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=321983"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=322030"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=181573"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=324582"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=76318"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355657"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=627048"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1746141"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=15298"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2416474"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1240136"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1361039"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1150553"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1693472"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2640534"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2717880"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>P150704</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>Jules J.</foaf:givenName>
+<foaf:familyName>Lambiotte</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60000854"/>
+<vcard:extended-address>NASA Langley Research Center, Hampton, VA</vcard:extended-address>
+</rdf:Description>
+<rdf:Description rdf:nodeID="author2">
+<dcterms:identifier>P246782</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>Robert G.</foaf:givenName>
+<foaf:familyName>Voigt</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role2"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role2">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org2"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org2">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60000854"/>
+<vcard:extended-address>Institute for Computer Applications in Science and Engineering (ICASE), NASA Langley Research Center, Hampton, VA</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>Control Data Corp. CDC STAR-100 Instruction Execution Times, Rev. 2, 1974.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation2">
+<dcterms:bibliographicCitation>GOLUB, G. Private commumcation, 1974.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation3">
+<dcterms:bibliographicCitation>HELLER, D. Some aspects of the cyclic reduction algorithm for block tndiagonal linear systems. ICASE Rep, NASA Langley Research Center, Hampton, Va., 1974.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation4">
+<dcterms:bibliographicCitation>HELLER, D., STEVENSON, D, AND TRAUB, J Accelerated iterative methods for the solution of tridlagonal systems on parallel computers. Rep, Dep. Computer Sci., Carnegie-Mellon U., Pittsburgh, Pa, 1974.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=321259">
+<dcterms:bibliographicCitation>HOCKNEY, R.W. A fast direct solution of Poisson's equation using Fourier analysis. J. ACM 12, 1 (Jan. 1965), 95-113.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation6">
+<dcterms:bibliographicCitation>HOCKNEY, R.W. The potential calculation and some applications. Methods Computatwnal Phys. 9 (1970), 135-211.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation7">
+<dcterms:bibliographicCitation>HOUSEHOLDER, A.S. The Theory of Matrices ~n Numerical Analyszs. Blaisdell, New York, 1964.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation8">
+<dcterms:bibliographicCitation>SLOTNICK, D.L, BORCK, W.C, AND McREVNOLDS, R.C. The SOLOMON computer. In Proc. AFIPS 1962 Fall Joint Computer Conf, vol. 22, pp. 97-107.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=321741">
+<dcterms:bibliographicCitation>STONE, H.S. An efficmnt parallel algorithm for the solution of a tndiagonal linear system of equations. J. ACM 20, 1 (Jan. 1973), 27-38.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation10">
+<dcterms:bibliographicCitation>STONE, H.S. Parallel processing with the perfect shuffle. IEEE Trans. Computers C-20 (1971), 153-161.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355657">
+<dcterms:bibliographicCitation>STONE, H.S. Parallel tridiagonal equation solvers. ACM Trans. Mathematical Software 1, 4 (Dec. 1975), 289-307.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation12">
+<dcterms:bibliographicCitation>TR.~UB, J.F. Iterative solution of tridiagonal systems on parallel or vector computers. In Complexity of Sequential and Parallel Numemcal A lgomthms, J.F. Traub, Ed., Academic Press, New York, 1973, pp. 49-82.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=321076">
+<dcterms:bibliographicCitation>WILKINSON, J.H. Error analysis of direct methods of matrix inversion. J. A CM 8, 3 (July 1961 ), 281-330.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation14">
+<dcterms:bibliographicCitation>YOUNG, D.M. Iterative Solutwn of Large In'near Systems. Academic Press, New York, 1971.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=63111">
+<dcterms:bibliographicCitation>C. L. Cox, Implemention of a divide and conquer cyclic reduction algorithm on the FPS T-20 hypercube, Proceedings of the third conference on Hypercube concurrent computers and applications, p.1532-1538, January 1989, Pasadena, California, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=357116">
+<dcterms:bibliographicCitation>Jacob T. Schwartz, Ultracomputers, ACM Transactions on Programming Languages and Systems (TOPLAS), v.2 n.4, p.484-521, Oct. 1980</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355947">
+<dcterms:bibliographicCitation>H. H. Wang, A Parallel Method for Tridiagonal Equations, ACM Transactions on Mathematical Software (TOMS), v.7 n.2, p.170-183, June 1981</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=321983">
+<dcterms:bibliographicCitation>D. E. Heller , D. K. Stevenson , J. F. Traub, Accelerated Iterative Methods for the Solution of Tridiagonal Systems on Parallel Computers, Journal of the ACM (JACM), v.23 n.4, p.636-654, Oct. 1976</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=322030">
+<dcterms:bibliographicCitation>L. Hyafil , H. T. Kung, The Complexity of Parallel Evaluation of Linear Recurrences, Journal of the ACM (JACM), v.24 n.3, p.513-521, July 1977</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=181573">
+<dcterms:bibliographicCitation>Josep-L. Larriba-Pey , Juan J. Navarro , Oriol Roig , Angel Jorba, A generalized vision of some parallel bidiagonal systems solvers, Proceedings of the 8th international conference on Supercomputing, p.404-411, July 11-15, 1994, Manchester, England</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=324582">
+<dcterms:bibliographicCitation>S. Lakshmivarahan , Sudarshan K. Dhall, A new class of parallel algorithms for solving linear tridiagonal systems, Proceedings of 1986 ACM Fall joint computer conference, p.315-324, November 1986, Dallas, Texas, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=76318">
+<dcterms:bibliographicCitation>T. Shirakawa , T. Hoshino , Y. Oyanagi , Y. Iwasaki , T. Yoshie, QCDPAX-an MIMD array of vector processors for the numerical simulation of quantum chromodynamics, Proceedings of the 1989 ACM/IEEE conference on Supercomputing, p.495-504, November 12-17, 1989, Reno, Nevada, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355657">
+<dcterms:bibliographicCitation>Harold S. Stone, Parallel Tridiagonal Equation Solvers, ACM Transactions on Mathematical Software (TOMS), v.1 n.4, p.289-307, Dec. 1975</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=627048">
+<dcterms:bibliographicCitation>L. Dekker , E. Dekker, Parallel Minimal Norm Method for Tridiagonal Linear Systems, IEEE Transactions on Computers, v.44 n.7, p.942-946, July 1995</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1746141">
+<dcterms:bibliographicCitation>Stefan Bondeli, Paper: Divide and conquer: a parallel algorithm for the solution of a tridiagonal linear system of equations, Parallel Computing, v.17 n.4-5, p.419-434, July, 1991</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=15298">
+<dcterms:bibliographicCitation>J Gazdag , G Radicati , P Sguazzero , H H Wang, Seismic migration on the IBM 3090 Vector facility, IBM Journal of Research and Development, v.30 n.2, p.172-183, March 1986</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2416474">
+<dcterms:bibliographicCitation>Sudip K. Seal , Kalyan S. Perumalla , Steven P. Hirshman, Research note: Revisiting parallel cyclic reduction and parallel prefix-based algorithms for block tridiagonal systems of equations, Journal of Parallel and Distributed Computing, v.73 n.2, p.273-280, February, 2013</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1240136">
+<dcterms:bibliographicCitation>H. X. Lin, Graph transformation and designing parallel sparse matrix algorithms beyond data dependence analysis, Scientific Programming, v.12 n.2, p.91-100, April 2004</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1361039">
+<dcterms:bibliographicCitation>S. Chandra Sekhara Rao , Sarita, Parallel solution of large symmetric tridiagonal linear systems, Parallel Computing, v.34 n.3, p.177-197, March, 2008</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1150553">
+<dcterms:bibliographicCitation>J. Verkaik , H. X. Lin, A class of novel parallel algorithms for the solution of tridiagonal systems, Parallel Computing, v.31 n.6, p.563-587, June 2005</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1693472">
+<dcterms:bibliographicCitation>Yao Zhang , Jonathan Cohen , John D. Owens, Fast tridiagonal solvers on the GPU, ACM SIGPLAN Notices, v.45 n.5, May 2010</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2640534">
+<dcterms:bibliographicCitation>Li Yuan , Hong Guo , Zhaohua Yin, On optimal message vector length for block single parallel partition algorithm in a three-dimensional ADI solver, Applied Mathematics and Computation, v.215 n.7, p.2565-2577, December, 2009</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2717880">
+<dcterms:bibliographicCitation>Markus Hegland, On the parallel solution of tridiagonal systems by wrap-around partitioning and incomplete LU factorization, Numerische Mathematik, v.59 n.1, p.453-472, December  1991</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- SUPPLEMENTARY FILES -->
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355659"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355659">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355659"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Two Efficient Algorithms with Guaranteed Convergence for Finding a Zero of a Function</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<dcterms:creator rdf:nodeID="author2"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+<rdf:li rdf:nodeID="author2"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:nodeID="citation2"/>
+<cito:cites rdf:nodeID="citation3"/>
+<cito:cites rdf:nodeID="citation4"/>
+<cito:cites rdf:nodeID="citation5"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=695453"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=214416"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=210111"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=192155"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355856"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=214396"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1221636"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1993920"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1733603"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1892791"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=603330"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2722782"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>P120914</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>J. C. P.</foaf:givenName>
+<foaf:familyName>Bus</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60011575"/>
+<vcard:extended-address>J.C.P. Bus, Mathematical Centre, Tweede Boerhaavestraat 49, Amsterdam, The Netherlands</vcard:extended-address>
+</rdf:Description>
+<rdf:Description rdf:nodeID="author2">
+<dcterms:identifier>PP14133352</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>T. J.</foaf:givenName>
+<foaf:familyName>Dekker</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role2"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role2">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org2"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org2">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60002483"/>
+<vcard:extended-address>University of Amsterdam, Roetersstraat 15, Amsterdam, The Netherlands</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>ANDERSON, N., AND BJ0~tCK, A. A new high order method of regula falsi type for computing a root of an equation. BIT 13 (1973), 253-264.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation2">
+<dcterms:bibliographicCitation>BRENT, R.P. An algorithm with guaranteed convergence for finding a zero of a function. Computer J. 1~ (1971), 422-425.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation3">
+<dcterms:bibliographicCitation>DEKKER, T.J. Finding a zero by means of successive linear interpolation. In Constructive Aspects of the Fundamental Theorem of Algebra, B. Dejon and P. Henrici, Eds., Wiley Interscience, London, 1969.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation4">
+<dcterms:bibliographicCitation>DOWELL, M., AND JARRATT, P. A modified regula falsi method for computing the root of an equation. BIT 11 (1971), 168-174.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation5">
+<dcterms:bibliographicCitation>JARRATT, P., AND NUDDS, D. The use of rational functions in the iterative solution of equations on a digital computer. Computer J. 8 (1965), 62-65.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=695453">
+<dcterms:bibliographicCitation>Esa Falkenroth, Computational Indexes for Time Series, Proceedings of the Eighth International Conference on Scientific and Statistical Database Management, p.242-251, June 18-20, 1996</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=214416">
+<dcterms:bibliographicCitation>D. Le, An efficient derivative-free method for solving nonlinear equations, ACM Transactions on Mathematical Software (TOMS), v.11 n.3, p.250-262, Sept. 1985</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=210111">
+<dcterms:bibliographicCitation>G. E. Alefeld , F. A. Potra , Yixun Shi, Algorithm 748: enclosing zeros of continuous functions, ACM Transactions on Mathematical Software (TOMS), v.21 n.3, p.327-344, Sept. 1995</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=192155">
+<dcterms:bibliographicCitation>Barry W. Brown , Lawrence B. Levy, Certification of Algorithm 708: significant-digit computation of the incomplete beta, ACM Transactions on Mathematical Software (TOMS), v.20 n.3, p.393-397, Sept. 1994</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355856">
+<dcterms:bibliographicCitation>Ian Gladwell, Initial Value Routines in the NAG Library, ACM Transactions on Mathematical Software (TOMS), v.5 n.4, p.386-400, Dec. 1979</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=214396">
+<dcterms:bibliographicCitation>Victor Norton, ALGORITHM 631: finding a bracketed zero by Larkin's method of rational interpolation, ACM Transactions on Mathematical Software (TOMS), v.11 n.2, p.120-134, June 1985</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1221636">
+<dcterms:bibliographicCitation>M.A. Salgueiro da Silva, A novel method for robust minimisation of univariate functions with quadratic convergence, Journal of Computational and Applied Mathematics, v.200 n.1, p.168-177, March, 2007</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1993920">
+<dcterms:bibliographicCitation>Michael Kerber , Michael Sagraloff, Efficient real root approximation, Proceedings of the 36th international symposium on Symbolic and algebraic computation, June 08-11, 2011, San Jose, California, USA</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1733603">
+<dcterms:bibliographicCitation>Rayomand Vatcha , Jing Xiao, Perceiving guaranteed continuously collision-free robot trajectories in an unknown and unpredictable environment, Proceedings of the 2009 IEEE/RSJ international conference on Intelligent robots and systems, p.1433-1438, October 10-15, 2009, St. Louis, MO, USA</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1892791">
+<dcterms:bibliographicCitation>Angelo Brambilla , Giambattista Gruosso , Giancarlo Storti Gajani, Robust Harmonic-Probe method for the simulation of oscillators, IEEE Transactions on Circuits and Systems Part I: Regular Papers, v.57 n.9, p.2531-2541, September 2010</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=603330">
+<dcterms:bibliographicCitation>N. Prabhu , W. He, A quartic nonlinear optimization method, Neural, Parallel &amp;amp; Scientific Computations, v.10 n.2, p.209-226, June 2002</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2722782">
+<dcterms:bibliographicCitation>J. J. Cuppen, A divide and conquer method for the symmetric tridiagonal eigenproblem, Numerische Mathematik, v.36 n.2, p.177-195, June      1980</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- SUPPLEMENTARY FILES -->
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355660"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355660">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355660"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Computing with Formal Power Series</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:nodeID="citation2"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=806278"/>
+<cito:cites rdf:nodeID="citation4"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=1086846"/>
+<cito:cites rdf:nodeID="citation6"/>
+<cito:cites rdf:nodeID="citation7"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=805866"/>
+<cito:cites rdf:nodeID="citation9"/>
+<cito:cites rdf:nodeID="citation10"/>
+<cito:cites rdf:nodeID="citation11"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=806344"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=810338"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=96899"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=322099"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355835"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=87850"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=32460"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=636429"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1088249"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=766453"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2338503"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2429168"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>PP39076701</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>A. C.</foaf:givenName>
+<foaf:familyName>Norman</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60031101"/>
+<vcard:extended-address>University Computer Laboratory, Corn Exchange Street, Cambridge, CB2 3QG, England</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>BARTON, D , AND :FITCH, J.P. Reports on Progress ~n Physics 35, 3 (1972), 235-314.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation2">
+<dcterms:bibliographicCitation>BARTON, O., WILLERS, I.M., AND ZAHAR, R.V.M. The automatic solution of systems of ordinary differential equations by the method of Taylor series. In Best Computer Papers of 1971, O.R. Petrocelli, Ed., Auerbach Pubhshers, Inc., Philadelphia, Pa., 1971, pp. 147-163.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=806278">
+<dcterms:bibliographicCitation>BOURNE, S.R., AND HORTON, J R. The design of the Cambridge Algebra System. Proc. ACM 2nd Syrup. on Symbohc and Algebraic Mampulation, 1971.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation4">
+<dcterms:bibliographicCitation>BROWN, W.S. ALTRAN User's Manual, Bell Labs., 1971.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1086846">
+<dcterms:bibliographicCitation>GENTLEMAN, W.i. Experience with truncated power series. In Proc. EUROSAM 74, ACM SIGSAM Bull. 8, 3 (Aug. 1974), 61-62.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation6">
+<dcterms:bibliographicCitation>GRIESMER, J., AND JENKS, R.D. Experience with an on-hne symbohc mathematics system. In Proc. ONLINE 72, Vol. I, Brunel U, Uxbridge, Middx., England, 1972, pp. 457-476.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation7">
+<dcterms:bibliographicCitation>KoPAL, Z. Numerwal Analys~s. Wiley, New York, 1955.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=805866">
+<dcterms:bibliographicCitation>NORMAN, A.C. A system for the solution of initial and two-point boundary value problems. In Proc. ACM 25th Anniversary Conf., 1972, Vol. II, pp. 826-834.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation9">
+<dcterms:bibliographicCitation>NORMAN, A.C. Expanding the solutions of implicit sets of ordinary differential equations in power series. Computer J., to appear; Rep. RC 4903, IBM Corp., Yorktown Heights, N.Y., 1974.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation10">
+<dcterms:bibliographicCitation>SILVER, A., AND SULLIVAN, E. The numerical solution of ordinary differential equations by the Taylor series method. Doc. X-641-73-202, Goddard Space Flight Center, Greenbel(, Md., 1973.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation11">
+<dcterms:bibliographicCitation>Z{PPEL, R. Power serms expansion in MACSYMA. Presented at Mathematical Software II, a conference held at Purdue U., West Lafayette, Ind., May 29-31, 1974.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=806344">
+<dcterms:bibliographicCitation>John D. Lipson, Newton's method: a great algebraic algorithm, Proceedings of the third ACM symposium on Symbolic and algebraic computation, p.260-270, August 10-12, 1976, Yorktown Heights, New York, United States</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=810338">
+<dcterms:bibliographicCitation>James H. Griesmer , Richard D. Jenks, The SCRATCHPAD system, Proceedings of the 1975 annual conference, p.266-267, January 1975</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=96899">
+<dcterms:bibliographicCitation>J. Padget , A. Barnes, Univariate power series expansions in REDUCE, Proceedings of the international symposium on Symbolic and algebraic computation, p.82-87, August 20-24, 1990, Tokyo, Japan</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=322099">
+<dcterms:bibliographicCitation>R. P. Brent , H. T. Kung, Fast Algorithms for Manipulating Formal Power Series, Journal of the ACM (JACM), v.25 n.4, p.581-595, Oct. 1978</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355835">
+<dcterms:bibliographicCitation>K. O. Geddes, Symbolic Computation of Pad&amp;eacute; Approximants, ACM Transactions on Mathematical Software (TOMS), v.5 n.2, p.218-233, June 1979</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=87850">
+<dcterms:bibliographicCitation>Michael. F Singer, Formal solutions of differential equations, Journal of Symbolic Computation, v.10 n.1, p.59-94, July 1990</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=32460">
+<dcterms:bibliographicCitation>R. J. Bradford , A. C. Hearn , J. A. Padget , E. Schr&amp;#252;fer, Enlarging the REDUCE domain of computation, Proceedings of the fifth ACM symposium on Symbolic and algebraic computation, p.100-106, July 21-23, 1986, Waterloo, Ontario, Canada</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=636429">
+<dcterms:bibliographicCitation>James H. Davenport, Equality in computer algebra and beyond, Journal of Symbolic Computation, v.34 n.4, p.259-270, October 2002</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1088249">
+<dcterms:bibliographicCitation>B. F. Caviness , H. I. Epstein, A note on the complexity of algebraic differentiation, ACM SIGSAM Bulletin, v.11 n.3, p.4-6, August 1977</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=766453">
+<dcterms:bibliographicCitation>Joris Van der Hoeven, Relax, but don't be too lazy, Journal of Symbolic Computation, v.34 n.6, p.479-542, December 2002</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2338503">
+<dcterms:bibliographicCitation>David R. Stoutemyer, Series crimes, ACM Communications in Computer Algebra, v.46 n.1/2, March/June 2012</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2429168">
+<dcterms:bibliographicCitation>David R. Stoutemyer, Series misdemeanors, ACM Communications in Computer Algebra, v.46 n.3/4, September/December 2012</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- SUPPLEMENTARY FILES -->
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355661"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355661">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355661"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Automatic Integration of Functional Differential Equations: An Approach</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=578374"/>
+<cito:cites rdf:nodeID="citation3"/>
+<cito:cites rdf:nodeID="citation4"/>
+<cito:cites rdf:nodeID="citation5"/>
+<cito:cites rdf:nodeID="citation6"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=540426"/>
+<cito:cites rdf:nodeID="citation8"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=355662"/>
+<cito:cites rdf:nodeID="citation10"/>
+<cito:cites rdf:nodeID="citation11"/>
+<cito:cites rdf:nodeID="citation12"/>
+<cito:cites rdf:nodeID="citation13"/>
+<cito:cites rdf:nodeID="citation14"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1642929"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355662"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355974"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1393367"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1399767"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1141185"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1141171"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2613216"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1642918"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2561811"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1716481"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2716166"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2717849"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2728913"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2722753"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=2716180"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>PP31088423</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>Kenneth W.</foaf:givenName>
+<foaf:familyName>Neves</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60022595"/>
+<vcard:extended-address>Babcock &amp; Wilcox Co, P.O. Box 1260, Lynchburg, VA</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>CHRISTIANSEN, J. Numerical solution of ordinary s~multaneous d~fferentml equatmns of the first order using a method of step changes Numer. Math., 14, 4 (1970), 317-324 Erratum, Numer. Math. 15, 1 (1970).</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=578374">
+<dcterms:bibliographicCitation>CONTE, S D., AND DE BOOR, C. Elementary Numerical Analys,s An Algomthm,c Approach. McGraw-Hill, New York, 1972, pp. 233-235.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation3">
+<dcterms:bibliographicCitation>CRIER, C.W. Numerical methods for functional differential equations. In Delay D,fferent~al Eq~atzons and Their A pphcatwns, K Schmltt, Ed., Academic Press, New York, 1972, pp. i7-102.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation4">
+<dcterms:bibliographicCitation>ELDSTEIN, A. Discretizatlon methods for retarded ordinary differential equations. Doctoral Dlss, U. of Cahforma, Los Angeles, 1964.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation5">
+<dcterms:bibliographicCitation>FELDSTEIN, A, AND NEVES, K W High order methods for state dependent delay differential equations with non-smooth solutions. Presented at the SIAM Nat. Meeting, Hampton, Va., June 1973, Chronicle, SIAM Re~,., 16, 1 (1974), 134.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation6">
+<dcterms:bibliographicCitation>FELDSTEIN, A, AND SOPKA, J. Numerical methods for nonhnear Volterra lntegro-dlffe~entml equatmns. To appear.{</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=540426">
+<dcterms:bibliographicCitation>GEAR, C.W. Numemcal Initial Value Problems ,n Ordtnary Differential Equatzons (Prentice- Hall Ser. m Automatm Computatmn) Prentice-Hall, Englewood Chffs, N. J., 1971, pp. 158- 166.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation8">
+<dcterms:bibliographicCitation>LAPIDUS, L, AND SEINFELD, J. Numerwal Solt~tzon of Ordinary Dzfferentzal Equatwns. Academic Press, New York, 197i.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355662">
+<dcterms:bibliographicCitation>NEVES, K.W. Algorithm 497, Automatm integratmn of functional d~fferential equations. ACM Trans. Math. Software 1, 4 (Dec. 1975), 369-371 (introductory comment listing only); complete listmg in "Collected Algorithms from ACM," and available from ACM Algorithms Distribution Service, Houston, TX 77036.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation10">
+<dcterms:bibliographicCitation>NEVES, K.W. Numerical solution of functional differential equations with state dependent lags. Doctoral Diss., Arizona State U., Tempe, Ariz., Oct. 1973.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation11">
+<dcterms:bibliographicCitation>NEVES, K.W., AND FELDSTEIN, A. Characterization of jump discontinuities for state dependent delay d~fferentml equations. Presented at the SIAM Nat. Meeting, Hampton, Va., June 1973, also J. Math. Anal. and Appl., to appear.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation12">
+<dcterms:bibliographicCitation>SCHMITT, K, Ed. Delay and Functwnal D~fferent, al Equatwns and Their Apphcations. Academm Press, New York, 1972.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation13">
+<dcterms:bibliographicCitation>TAVERNINI, L. One step methods for the numerical solution of Volterra-functlonal differential equations. SIAM J. Numer. Anal. 8, 4 (1971), 786-795.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation14">
+<dcterms:bibliographicCitation>User's Manual, IMSL Library 3, Edltmn 3, Vol. 1. International Mathematical and Statistical Libraries, Inc., Houston, Tex., 1974, pp. D-l, D-2.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1642929">
+<dcterms:bibliographicCitation>Christopher T. H. Baker , Christopher A. H. Paul, Discontinuous solutions of neutral delay differential equations, Applied Numerical Mathematics, v.56 n.3-4, p.284-304, March, 2006</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355662">
+<dcterms:bibliographicCitation>Kenneth W. Neves, Algorithm 497: Automatic Integration of Functional Differential Equations [D2], ACM Transactions on Mathematical Software (TOMS), v.1 n.4, p.369-371, Dec. 1975</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355974">
+<dcterms:bibliographicCitation>Kenneth W. Neves, Control of Interpolatory Error in Retarded Differential Equations, ACM Transactions on Mathematical Software (TOMS), v.7 n.4, p.421-444, Dec. 1981</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1393367">
+<dcterms:bibliographicCitation>S. M. Mahmoud, A class of three-point spline collocation methods for solving delay differential equations, International Journal of Computer Mathematics, v.84 n.10, p.1495-1508, October 2007</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1399767">
+<dcterms:bibliographicCitation>Z. Bartoszewski , Z. Jackiewicz, Construction of highly stable parallel two-step Runge-Kutta methods for delay differential equations, Journal of Computational and Applied Mathematics, v.220 n.1-2, p.257-270, October, 2008</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1141185">
+<dcterms:bibliographicCitation>Alan Feldstein , Kenneth W. Neves , Skip Thompson, Sharpness results for state dependent delay differential equations: an overview, Applied Numerical Mathematics, v.56 n.3, p.472-487, March 2006</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1141171">
+<dcterms:bibliographicCitation>Christopher T. H. Baker , Christopher A. H. Paul, Discontinuous solutions of neutral delay differential equations, Applied Numerical Mathematics, v.56 n.3, p.284-304, March 2006</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2613216">
+<dcterms:bibliographicCitation>J. A. Burns , P. D. Hirsch, A difference equation approach to parameter estimation for differential-delay equations, Applied Mathematics and Computation, v.7 n.4, p.281-311, December, 1980</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1642918">
+<dcterms:bibliographicCitation>Alan Feldstein , Kenneth W. Neves , Skip Thompson, Sharpness results for state dependent delay differential equations: An overview, Applied Numerical Mathematics, v.56 n.3-4, p.472-487, March, 2006</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2561811">
+<dcterms:bibliographicCitation>Simon M. Lenz , Johannes P. Schl&amp;#246;der , H. Georg Bock, Original article: Numerical computation of derivatives in systems of delay differential equations, Mathematics and Computers in Simulation, 96, p.124-156, February, 2014</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1716481">
+<dcterms:bibliographicCitation>S. Thompson, Stepsize control for delay differential equations using continuously imbedded runge-kutta methods of sarafyan, Journal of Computational and Applied Mathematics, v.31 n.2, p.267-275, August, 1990</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2716166">
+<dcterms:bibliographicCitation>Herbert Arndt, Numerical solution of retarded initial value problems: Local and global error and stepsize control, Numerische Mathematik, v.43 n.3, p.343-360, October   1984</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2717849">
+<dcterms:bibliographicCitation>Lucio Torelli, A sufficient condition for GPN-stability for delay differential equations, Numerische Mathematik, v.59 n.1, p.311-320, December  1991</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2728913">
+<dcterms:bibliographicCitation>David Ross , John M. Horowitz , Richard E. Plant, Oscillatory neural networks in the rabbit hippocampus, Biological Cybernetics, v.37 n.2, p.115-124, June      1980</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2722753">
+<dcterms:bibliographicCitation>H. J. Oberle , H. J. Pesch, Numerical treatment of delay differential equations by Hermite Interpolation, Numerische Mathematik, v.37 n.2, p.235-255, June      1981</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=2716180">
+<dcterms:bibliographicCitation>Alfredo Bellen , Marino Zennaro, Numerical solution of delay differential equations by uniform corrections to an implicit Runge-Kutta method, Numerische Mathematik, v.47 n.2, p.301-316, June      1985</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- SUPPLEMENTARY FILES -->
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355662"/>
+<ore:aggregates rdf:resource="http://netlib.org/toms/497.gz"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355662">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355662"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Algorithm 497: Automatic Integration of Functional Differential Equations [D2]</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=355661"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355974"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1141185"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1642918"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=355661"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1716481"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+<frbr:supplement rdf:resource="http://netlib.org/toms/497.gz"/>
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>PP31088423</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>Kenneth W.</foaf:givenName>
+<foaf:familyName>Neves</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60022595"/>
+<vcard:extended-address>Babcock &amp; Wilcox Co., P.O. Box 1260, Lynchburg, VA</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355661">
+<dcterms:bibliographicCitation>NEv~s, K.W. Automatic integration of functional d~fferentml equations: an approach. ACM Trans. Math. Software 1, 4 (Dec. 1975), 357-368.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355974">
+<dcterms:bibliographicCitation>Kenneth W. Neves, Control of Interpolatory Error in Retarded Differential Equations, ACM Transactions on Mathematical Software (TOMS), v.7 n.4, p.421-444, Dec. 1981</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1141185">
+<dcterms:bibliographicCitation>Alan Feldstein , Kenneth W. Neves , Skip Thompson, Sharpness results for state dependent delay differential equations: an overview, Applied Numerical Mathematics, v.56 n.3, p.472-487, March 2006</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1642918">
+<dcterms:bibliographicCitation>Alan Feldstein , Kenneth W. Neves , Skip Thompson, Sharpness results for state dependent delay differential equations: An overview, Applied Numerical Mathematics, v.56 n.3-4, p.472-487, March, 2006</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=355661">
+<dcterms:bibliographicCitation>Kenneth W. Neves, Automatic Integration of Functional Differential Equations: An Approach, ACM Transactions on Mathematical Software (TOMS), v.1 n.4, p.357-368, Dec. 1975</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1716481">
+<dcterms:bibliographicCitation>S. Thompson, Stepsize control for delay differential equations using continuously imbedded runge-kutta methods of sarafyan, Journal of Computational and Applied Mathematics, v.31 n.2, p.267-275, August, 1990</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- SUPPLEMENTARY FILES -->
+<rdf:Description rdf:about="http://netlib.org/toms/497.gz">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/Algorithm"/>
+<dcterms:title>integration of functional differential equations, such as retarded		ordinary differential equations, Volterra integro-differential equations,		and difference differential equations Gams: I1a1a</dcterms:title>
+<frbr:supplementOf rdf:resource="http://dx.doi.org/10.1145/355656.355662"/>
+</rdf:Description>
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355663"/>
+<ore:aggregates rdf:resource="http://netlib.org/toms/498.gz"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355663">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355663"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Algorithm 498: Airy Functions Using Chebyshev Series Approximations</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:resource="http://dl.acm.org/citation.cfm?id=363302"/>
+<cito:cites rdf:nodeID="citation3"/>
+<cito:cites rdf:nodeID="citation4"/>
+<cito:cites rdf:nodeID="citation5"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1039818"/>
+<cito:isCitedBy rdf:resource="http://dl.acm.org/citation.cfm?id=1039819"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+<frbr:supplement rdf:resource="http://netlib.org/toms/498.gz"/>
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>P217282</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>P. J.</foaf:givenName>
+<foaf:familyName>Prince</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60025655"/>
+<vcard:extended-address>Mathematics Department, Teesside Polytechnic, Middlesbrough, Cleveland, TS1 3BA, Great Britain</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>ABRAMOWlTZ, M., AND STEGUN, I.A. Handbook of Mathematical Functwns. Dover Publications, New York, 1965, pp. 446, 448-449, 475-477.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=363302">
+<dcterms:bibliographicCitation>BOND, G., AND PITTEWAY, M.L.V. Algorithm 301, Airy function. Comm. ACM 10, 5 (May 1967), 291-293.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation3">
+<dcterms:bibliographicCitation>Fox, L., AND PARKER, I.B. Chebyshev Polynomzals zn Numerical Analysis. Oxford U. Press, London, 1968, pp. 48-58, 65-68.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation4">
+<dcterms:bibliographicCitation>ABRAMOWITZ, M., AND STEGUN, I A., Eds. Handbook of Mathematical F~tnchons. Nat. Bur. Standards Appl. Math. Serms 55, U.S. Govt. Printing Office, Washington, D.C., 1964, pp. 267-273.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation5">
+<dcterms:bibliographicCitation>DAvis, H.T. Tables of Mathematwal Functwns, Vol. II, revised. Prmclpla Press, Tnmty U., San Antomo, Tex., 1963.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1039818">
+<dcterms:bibliographicCitation>B. R. Fabijonas , D. W. Lozier , F. W. J. Olver, Computation of complex Airy functions and their zeros using asymptotics and the differential equation, ACM Transactions on Mathematical Software (TOMS), v.30 n.4, p.471-490, December 2004</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:about="http://dl.acm.org/citation.cfm?id=1039819">
+<dcterms:bibliographicCitation>B. R. Fabijonas, Algorithm 838: Airy Functions, ACM Transactions on Mathematical Software (TOMS), v.30 n.4, p.491-501, December 2004</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- SUPPLEMENTARY FILES -->
+<rdf:Description rdf:about="http://netlib.org/toms/498.gz">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/Algorithm"/>
+<dcterms:title>Chebyshev series approximations: Airy functions Ai(z), Bi(z) and derivatives for real values of z Gams: C10d</dcterms:title>
+<frbr:supplementOf rdf:resource="http://dx.doi.org/10.1145/355656.355663"/>
+</rdf:Description>
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355664"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355664">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355664"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Certification of &amp;#8220;Algorithm 349: Polygamma Functions with Arbitrary Precision&amp;#8221;</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:nodeID="citation2"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>PP39075030</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>John Gregg</foaf:givenName>
+<foaf:familyName>Lewis</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60012708"/>
+<vcard:extended-address>Computer Science Department, Stanford University, Stanford, CA</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>ABRAMOWITZ, M., AND STEGUN, I A., Eds. Handbook of Mathematical Functios. Nat. Bur. Standards Appl. Math. Series 55, U.S. Govt. Printing Office, Washington, D.C., 1964, pp. 267-273.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation2">
+<dcterms:bibliographicCitation>DAVIS, H.T. Tables of Mathematical Functions, Vol. II, revised. Principia Press, Trinity U., San Antonio, Tex., 1963.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<!-- SUPPLEMENTARY FILES -->
+</rdf:RDF><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:rmap="http://rmap-project.org/rmap/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:fabio="http://purl.org/spar/fabio/" xmlns:cito="http://purl.org/spar/cito/" xmlns:pro="http://purl.org/spar/pro/" xmlns:vcard="http://www.w3.org/2006/vcard/ns#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<!-- DISCO DETAILS -->
+<rmap:DiSCO>
+<rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO"/>
+<dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1"/>
+<dcterms:description>Description of ACM Transactions on Mathematical Software article.</dcterms:description>
+<ore:aggregates rdf:resource="http://dx.doi.org/10.1145/355656.355665"/>
+</rmap:DiSCO>
+<!-- ARTICLE DETAILS -->
+<rdf:Description rdf:about="http://dx.doi.org/10.1145/355656.355665">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/citation.cfm?id=355665"/>
+<dcterms:isPartOf rdf:resource="urn:issn:0098-3500"/>
+<dcterms:publisher rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:rightsHolder rdf:resource="http://dbpedia.org/resource/Association_for_Computing_Machinery"/>
+<dcterms:title>Certification of &amp;#8220;Algorithm 475: Visible Surface Plotting Program [J6]&amp;#8221;</dcterms:title>
+<dcterms:creator rdf:nodeID="author1"/>
+<bibo:authorList>
+<rdf:Seq>
+<rdf:li rdf:nodeID="author1"/>
+</rdf:Seq>
+</bibo:authorList>
+<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1975-12-01</dcterms:issued>
+<bibo:volume>1</bibo:volume>
+<bibo:issue>4</bibo:issue>
+<!-- CITATIONS LIST -->
+<cito:cites rdf:nodeID="citation1"/>
+<cito:cites rdf:nodeID="citation2"/>
+<!-- SUPPLEMENTARY MATERIAL LIST -->
+</rdf:Description>
+<!-- AUTHOR DETAILS -->
+<rdf:Description rdf:nodeID="author1">
+<dcterms:identifier>P98774</dcterms:identifier>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+<foaf:givenName>Gordon E.</foaf:givenName>
+<foaf:familyName>Bromage</foaf:familyName>
+<pro:holdsRoleInTime rdf:nodeID="org_role1"/>
+</rdf:Description>
+<!-- AUTHOR ROLES / AFFILIATION -->
+<rdf:Description rdf:nodeID="org_role1">
+<rdf:type rdf:resource="http://purl.org/spar/pro/RoleInTime"/>
+<pro:withRole rdf:resource="http://purl.org/spar/scoro/affiliate"/>
+<pro:relatesToOrganization rdf:nodeID="org1"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="org1">
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+<rdfs:seeAlso rdf:resource="http://dl.acm.org/inst_page.cfm?id=60008524"/>
+<vcard:extended-address>S.R.C. Astrophysics Research Division, Culham Laboratory, Abingdon, Oxon., U.K. and University of Bradford, West Yorkshire, U.K.</vcard:extended-address>
+</rdf:Description>
+<!-- CITATION DETAILS -->
+<rdf:Description rdf:nodeID="citation1">
+<dcterms:bibliographicCitation>ABRAMOWITZ, M., AND STEGUN, I A., Eds. Handbook of Mathematical Functios. Nat. Bur. Standards Appl. Math. Series 55, U.S. Govt. Printing Office, Washington, D.C., 1964, pp. 267-273.</dcterms:bibliographicCitation>
+</rdf:Description>
+<rdf:Description rdf:nodeID="citation2">
+<dcterms:bibliographicCitation>DAVIS, H.T. Tables of Mathematical Functions, Vol. II, revised. Principia Press, Trinity U., San Antonio, Tex., 1963.</dcterms:bibliographicCitation>
+</rdf:Description>
+<!-- CITED BY DETAILS -->
+<!-- SUPPLEMENTARY FILES -->
+</rdf:RDF>

@@ -1,0 +1,1505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2015-07-08T20:34:44Z</responseDate>
+  <request verb="ListRecords" metadataPrefix="oai_dc" set="bmcbioc">http://www.ncbi.nlm.nih.gov/oai/oai.cgi</request>
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:29057</identifier>
+        <datestamp>2001-03-22</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>DNA loops and semicatenated DNA junctions</dc:title>
+          <dc:creator>Gaillard, Claire</dc:creator>
+          <dc:creator>Strauss, François</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2000-07-19</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC29057/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11001588</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-1-1</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2000 Gaillard and Strauss; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:29058</identifier>
+        <datestamp>2001-03-22</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Identification of sites phosphorylated by the vaccinia virus B1R kinase in viral protein H5R</dc:title>
+          <dc:creator>Brown, Neil G</dc:creator>
+          <dc:creator>Nick Morrice, D</dc:creator>
+          <dc:creator>Beaud, Georges</dc:creator>
+          <dc:creator>Hardie, Grahame</dc:creator>
+          <dc:creator>Leader, David P</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2000-09-05</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC29058/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11001589</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-1-2</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2000 Brown et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:29059</identifier>
+        <datestamp>2001-03-22</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>A direct method to visualise the aryl acylamidase activity on cholinesterases in polyacrylamide gels</dc:title>
+          <dc:creator>Jaganathan, Lakshmanan</dc:creator>
+          <dc:creator>Boopathy, Rathanam</dc:creator>
+          <dc:subject>Methodology Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2000-12-20</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC29059/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11231883</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-1-3</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2000 Jaganathan and Boopathy; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:31329</identifier>
+        <datestamp>2001-05-11</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Plasma lipases and lipid transfer proteins increase phospholipid but not free cholesterol transfer from lipid emulsion to high density lipoproteins.</dc:title>
+          <dc:creator>Nunes, Valéria S</dc:creator>
+          <dc:creator>Quintão, Eder CR</dc:creator>
+          <dc:creator>Cazita, Patrícia M</dc:creator>
+          <dc:creator>Harada, Lila M</dc:creator>
+          <dc:creator>de Faria, Eliana C</dc:creator>
+          <dc:creator>Oliveira, Helena CF</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-02-20</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC31329/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11242564</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-1</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Nunes et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:31330</identifier>
+        <datestamp>2001-05-11</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Osmotic stress-dependent serine phosphorylation of the histidine kinase homologue DokA</dc:title>
+          <dc:creator>Oehme, Felix</dc:creator>
+          <dc:creator>Schuster, Stephan C</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-03-16</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC31330/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11299049</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-2</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Oehme and Schuster; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:31331</identifier>
+        <datestamp>2001-05-11</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Search for antisense copies of beta-globin mRNA in anemic mouse spleen</dc:title>
+          <dc:creator>Gudima, Severin O</dc:creator>
+          <dc:creator>Taylor, John M</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-03-21</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC31331/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11286637</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-3</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Gudima and Taylor; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:31332</identifier>
+        <datestamp>2001-05-11</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Upregulation of the SERCA-type Ca2+ pump activity in response to endoplasmic reticulum stress in PC12 cells</dc:title>
+          <dc:creator>Højmann Larsen, Annette</dc:creator>
+          <dc:creator>Frandsen, Aase</dc:creator>
+          <dc:creator>Treiman, Marek</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-04-11</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC31332/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11319943</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-4</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Højmann Larsen et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:31925</identifier>
+        <datestamp>2001-05-29</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Regulation of prostaglandin synthesis and cell adhesion by a tryptophan catabolizing enzyme</dc:title>
+          <dc:creator>Marshall, Brendan</dc:creator>
+          <dc:creator>Keskin, Derin Benerci</dc:creator>
+          <dc:creator>Mellor, Andrew L</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-05-17</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC31925/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11375052</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-5</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Marshall et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:34604</identifier>
+        <datestamp>2001-07-18</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Color transitions in coral's fluorescent proteins by site-directed mutagenesis</dc:title>
+          <dc:creator>Gurskaya, Nadya G</dc:creator>
+          <dc:creator>Savitsky, Alexander P</dc:creator>
+          <dc:creator>Yanushevich, Yurii G</dc:creator>
+          <dc:creator>Lukyanov, Sergey A</dc:creator>
+          <dc:creator>Lukyanov, Konstantin A</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-07-10</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC34604/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11459517</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-6</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Gurskaya et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:37391</identifier>
+        <datestamp>2001-08-16</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The fission yeast COP9/signalosome is involved in cullin modification by ubiquitin-related Ned8p</dc:title>
+          <dc:creator>Zhou, Chunshui</dc:creator>
+          <dc:creator>Seibert, Volker</dc:creator>
+          <dc:creator>Geyer, Rory</dc:creator>
+          <dc:creator>Rhee, Edward</dc:creator>
+          <dc:creator>Lyapina, Svetlana</dc:creator>
+          <dc:creator>Cope, Greg</dc:creator>
+          <dc:creator>Deshaies, Raymond J</dc:creator>
+          <dc:creator>Wolf, Dieter A</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-07-18</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC37391/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11504566</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-7</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Zhou et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:56634</identifier>
+        <datestamp>2001-09-25</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The effect of EGTA and Ca++ in regulation of the brain Na/K-ATP-ase by noradrenaline</dc:title>
+          <dc:creator>Abashidze, Shorena</dc:creator>
+          <dc:creator>Jariashvili, Tamar</dc:creator>
+          <dc:creator>Kometiani, Zurab</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-09-03</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC56634/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11570982</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-8</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Abashidze et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:57746</identifier>
+        <datestamp>2001-10-10</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The Metal Coordination of sCD39 during ATP Hydrolysis</dc:title>
+          <dc:creator>Chen, Wei</dc:creator>
+          <dc:creator>Guidotti, Guido</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-09-12</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC57746/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11591225</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-9</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Chen and Guidotti; licensee BioMed Central Ltd. Verbatim copying and redistribution of this article are permitted in any medium for any non-commercial purpose, provided this notice is preserved along with the article's original URL. For commercial use, contact info@biomedcentral.com</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:59658</identifier>
+        <datestamp>2001-11-06</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>β1 integrins show specific association with CD98 protein in low density membranes</dc:title>
+          <dc:creator>Kolesnikova, Tatiana V</dc:creator>
+          <dc:creator>Mannion, Brian A</dc:creator>
+          <dc:creator>Berditchevski, Fedor</dc:creator>
+          <dc:creator>Hemler, Martin E</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-10-15</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC59658/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11696247</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-10</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Kolesnikova et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:59694</identifier>
+        <datestamp>2001-11-14</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Differential modulation of cellular death and survival pathways by conjugated bile acids</dc:title>
+          <dc:creator>Torchia, Enrique C</dc:creator>
+          <dc:creator>Stolz, Andrew</dc:creator>
+          <dc:creator>Agellon, Luis B</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-10-15</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC59694/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11707155</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-11</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Torchia et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:60004</identifier>
+        <datestamp>2001-11-27</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Binding specificity of Bacillus thuringiensis Cry1Aa for purified, native Bombyx mori aminopeptidase N and cadherin-like receptors</dc:title>
+          <dc:creator>Jenkins, Jeremy L</dc:creator>
+          <dc:creator>Dean, Donald H</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-10-16</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC60004/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11722800</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-12</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Jenkins and Dean; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:60005</identifier>
+        <datestamp>2001-11-27</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The intein of the Thermoplasma A-ATPase A subunit: Structure, evolution and expression in E. coli</dc:title>
+          <dc:creator>Senejani, Alireza G</dc:creator>
+          <dc:creator>Hilario, Elena</dc:creator>
+          <dc:creator>Gogarten, J Peter</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-11-14</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC60005/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11722801</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-13</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Senejani et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:60661</identifier>
+        <datestamp>2001-12-09</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Effect of alpha-tocopherol on pulmonary antioxidant defence system and lipid peroxidation in cigarette smoke inhaling mice</dc:title>
+          <dc:creator>Koul, Ashwani</dc:creator>
+          <dc:creator>Bhatia, Vipin</dc:creator>
+          <dc:creator>Bansal, MP</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-11-16</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC60661/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11734073</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-14</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Koul et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:60996</identifier>
+        <datestamp>2001-12-17</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Reconstitution of licensed replication origins on Xenopus sperm nuclei using purified proteins</dc:title>
+          <dc:creator>Gillespie, Peter J</dc:creator>
+          <dc:creator>Li, Anatoliy</dc:creator>
+          <dc:creator>Blow, J Julian</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-12-05</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC60996/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11737877</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-15</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Gillespie et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:64496</identifier>
+        <datestamp>2002-01-11</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Isolation and characterization of a novel lepidopteran-selective toxin from the venom of South Indian red scorpion, Mesobuthus tamulus</dc:title>
+          <dc:creator>Wudayagiri, Rajendra</dc:creator>
+          <dc:creator>Inceoglu, Bora</dc:creator>
+          <dc:creator>Herrmann, Rafael</dc:creator>
+          <dc:creator>Derbel, Maher</dc:creator>
+          <dc:creator>Choudary, Prabhakara V</dc:creator>
+          <dc:creator>Hammock, Bruce D</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-12-17</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC64496/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11782289</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-16</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Wudayagiri et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:64563</identifier>
+        <datestamp>2002-01-23</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Acetylcholinesterase assay for cerebrospinal fluid using bupivacaine to inhibit butyrylcholinesterase</dc:title>
+          <dc:creator>Kluge, Wolfram H</dc:creator>
+          <dc:creator>Kluge, Harald H</dc:creator>
+          <dc:creator>Bauer, Heike I</dc:creator>
+          <dc:creator>Pietsch, Stefan</dc:creator>
+          <dc:creator>Anders, Jens</dc:creator>
+          <dc:creator>Venbrocks, Rudolf A</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2001-12-21</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC64563/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11801199</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-2-17</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2001 Kluge et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:65044</identifier>
+        <datestamp>2002-01-31</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Kinetic comparison of tissue non-specific and placental human alkaline phosphatases expressed in baculovirus infected cells: application to screening for Down's syndrome</dc:title>
+          <dc:creator>Denier, Colette C</dc:creator>
+          <dc:creator>Brisson-Lougarre, Andrée A</dc:creator>
+          <dc:creator>Biasini, Ghislaine G</dc:creator>
+          <dc:creator>Grozdea, Jean J</dc:creator>
+          <dc:creator>Fournier, Didier D</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-01-15</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC65044/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11818032</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-2</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Denier et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:65510</identifier>
+        <datestamp>2002-02-14</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Decreased insulin binding to mononuclear leucocytes and erythrocytes from dogs after S-Nitroso-N-Acetypenicillamine administration</dc:title>
+          <dc:creator>McGrowder, Donovan</dc:creator>
+          <dc:creator>Ragoobirsingh, Dalip</dc:creator>
+          <dc:creator>Dasgupta, Tara</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-01-02</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC65510/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11825341</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-1</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 McGrowder et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:65675</identifier>
+        <datestamp>2002-02-25</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Characterization of a protease produced by a Trichoderma harzianum isolate which controls cocoa plant witches' broom disease</dc:title>
+          <dc:creator>De Marco, Janice L</dc:creator>
+          <dc:creator>Felix, Carlos Roberto</dc:creator>
+          <dc:subject>Methodology Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-01-22</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC65675/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11835696</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-3</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 De Marco and Felix; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:77373</identifier>
+        <datestamp>2002-03-07</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Probing substrate binding to Metallo-β-Lactamase L1 from Stenotrophomonas maltophilia by using site-directed mutagenesis</dc:title>
+          <dc:creator>Carenbauer, Anne L</dc:creator>
+          <dc:creator>Garrity, James D</dc:creator>
+          <dc:creator>Periyannan, Gopal</dc:creator>
+          <dc:creator>Yates, Robert B</dc:creator>
+          <dc:creator>Crowder, Michael W</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-02-13</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC77373/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11876827</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-4</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Carenbauer et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:101403</identifier>
+        <datestamp>2002-04-12</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The Caenorhabditis elegans Y87G2A.14 Nudix hydrolase is a peroxisomal coenzyme A diphosphatase</dc:title>
+          <dc:creator>AbdelRaheim, Salama R</dc:creator>
+          <dc:creator>McLennan, Alexander G</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-03-27</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC101403/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11943069</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-5</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 AbdelRaheim and McLennan; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:102758</identifier>
+        <datestamp>2002-04-25</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Identification of protein tyrosine phosphatase 1B and casein as substrates for 124-v-Mos</dc:title>
+          <dc:creator>Proikas-Cezanne, Tassula</dc:creator>
+          <dc:creator>Stabel, Silvia</dc:creator>
+          <dc:creator>Riethmacher, Dieter</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-04-04</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC102758/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12022922</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-6</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Proikas-Cezanne et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:111190</identifier>
+        <datestamp>2002-05-17</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mitochondria from cultured cells derived from normal and thiamine-responsive megaloblastic anemia individuals efficiently import thiamine diphosphate</dc:title>
+          <dc:creator>Song, Qilin</dc:creator>
+          <dc:creator>Singleton, Charles K</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-04-25</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC111190/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12014993</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-8</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Song and Singleton; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:113743</identifier>
+        <datestamp>2002-05-30</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Interconversion of Anthozoa GFP-like fluorescent and non-fluorescent proteins by mutagenesis</dc:title>
+          <dc:creator>Bulina, Maria E</dc:creator>
+          <dc:creator>Chudakov, Dmitry M</dc:creator>
+          <dc:creator>Mudrik, Nikolay N</dc:creator>
+          <dc:creator>Lukyanov, Konstantin A</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-04-24</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC113743/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11972899</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-7</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Bulina et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:113744</identifier>
+        <datestamp>2002-05-30</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Expression of monolysocardiolipin acyltransferase activity is regulated in concert with the level of cardiolipin and cardiolipin biosynthesis in the mammalian heart</dc:title>
+          <dc:creator>Taylor, William A</dc:creator>
+          <dc:creator>Xu, Fred Y</dc:creator>
+          <dc:creator>Ma, Brian J</dc:creator>
+          <dc:creator>Mutter, Thomas C</dc:creator>
+          <dc:creator>Dolinsky, Vernon W</dc:creator>
+          <dc:creator>Hatch, Grant M</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-05-04</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC113744/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12019031</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-9</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Taylor et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:115839</identifier>
+        <datestamp>2002-06-14</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The role of the Zn(II) binding domain in the mechanism of E. coli DNA topoisomerase I</dc:title>
+          <dc:creator>Ahumada, Adriana</dc:creator>
+          <dc:creator>Tse-Dinh, Yuk-Ching</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-05-29</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC115839/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12052259</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-13</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Ahumada and Tse-Dinh; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:115871</identifier>
+        <datestamp>2002-06-17</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Hisactophilin is involved in osmoprotection in Dictyostelium</dc:title>
+          <dc:creator>Pintsch, Tanja</dc:creator>
+          <dc:creator>Zischka, Hans</dc:creator>
+          <dc:creator>Schuster, Stephan C</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-05-07</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC115871/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/11996675</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-10</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Pintsch et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:116439</identifier>
+        <datestamp>2002-06-21</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The regulation of protein synthesis and translation factors by CD3 and CD28 in human primary T lymphocytes</dc:title>
+          <dc:creator>Kleijn, Miranda</dc:creator>
+          <dc:creator>Proud, Christopher G</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-05-17</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC116439/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12028592</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-11</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Kleijn and Proud; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:116585</identifier>
+        <datestamp>2002-06-27</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mutational analysis of human profilin I reveals a second PI(4,5)-P2 binding site neighbouring the poly(L-proline) binding site</dc:title>
+          <dc:creator>Lambrechts, Anja</dc:creator>
+          <dc:creator>Jonckheere, Veronique</dc:creator>
+          <dc:creator>Dewitte, Daisy</dc:creator>
+          <dc:creator>Vandekerckhove, Joel</dc:creator>
+          <dc:creator>Ampe, Christophe</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-05-28</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC116585/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12052260</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-12</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Lambrechts et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:116586</identifier>
+        <datestamp>2002-06-27</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Gene expression profile of HIV-1 Tat expressing cells: a close interplay between proliferative and differentiation signals</dc:title>
+          <dc:creator>de la Fuente, Cynthia</dc:creator>
+          <dc:creator>Santiago, Francisco</dc:creator>
+          <dc:creator>Deng, Longwen</dc:creator>
+          <dc:creator>Eadie, Carolyne</dc:creator>
+          <dc:creator>Zilberman, Irene</dc:creator>
+          <dc:creator>Kehn, Kylene</dc:creator>
+          <dc:creator>Maddukuri, Anil</dc:creator>
+          <dc:creator>Baylor, Shanese</dc:creator>
+          <dc:creator>Wu, Kaili</dc:creator>
+          <dc:creator>Lee, Chee Gun</dc:creator>
+          <dc:creator>Pumfery, Anne</dc:creator>
+          <dc:creator>Kashanchi, Fatah</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-06-10</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC116586/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12069692</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-14</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 de la Fuente et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:116678</identifier>
+        <datestamp>2002-07-05</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Functional group interactions of a 5-HT3R antagonist</dc:title>
+          <dc:creator>Venkataraman, Padmavati</dc:creator>
+          <dc:creator>Joshi, Prasad</dc:creator>
+          <dc:creator>Venkatachalan, Srinivasan P</dc:creator>
+          <dc:creator>Muthalagi, Mani</dc:creator>
+          <dc:creator>Parihar, Harish S</dc:creator>
+          <dc:creator>Kirschbaum, Karen S</dc:creator>
+          <dc:creator>Schulte, Marvin K</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-06-13</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC116678/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12079499</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-16</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Venkataraman et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:116679</identifier>
+        <datestamp>2002-07-05</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Low solubility of unconjugated bilirubin in dimethylsulfoxide – water systems: implications for pKa determinations</dc:title>
+          <dc:creator>Mukerjee, Pasupati</dc:creator>
+          <dc:creator>Ostrow, J Donald</dc:creator>
+          <dc:creator>Tiribelli, Claudio</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-06-17</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC116679/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12079498</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-17</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright ©2002 Mukerjee et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:117120</identifier>
+        <datestamp>2002-07-12</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Identification of critical residues in loop E in the 5-HT3ASR binding site</dc:title>
+          <dc:creator>Venkataraman, Padmavati</dc:creator>
+          <dc:creator>Venkatachalan, Srinivasan P</dc:creator>
+          <dc:creator>Joshi, Prasad R</dc:creator>
+          <dc:creator>Muthalagi, Mani</dc:creator>
+          <dc:creator>Schulte, Marvin K</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-06-13</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC117120/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12079500</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-15</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Venkataraman et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:117134</identifier>
+        <datestamp>2002-07-12</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Insertion of a small peptide of six amino acids into the β7–β8 loop of the p51 subunit of HIV-1 reverse transcriptase perturbs the heterodimer and affects its activities</dc:title>
+          <dc:creator>Pandey, Pradeep K</dc:creator>
+          <dc:creator>Kaushik, Neerja</dc:creator>
+          <dc:creator>Singh, Kamalendra</dc:creator>
+          <dc:creator>Sharma, Bechan</dc:creator>
+          <dc:creator>Upadhyay, Alok K</dc:creator>
+          <dc:creator>Kumar, Suriender</dc:creator>
+          <dc:creator>Harris, Dylan</dc:creator>
+          <dc:creator>Pandey, Virendra N</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-06-18</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC117134/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12086585</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-18</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Pandey et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:117216</identifier>
+        <datestamp>2002-07-17</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Molecular cloning and tissue distribution of mammalian L-threonine 3-dehydrogenases</dc:title>
+          <dc:creator>Edgar, Alasdair J</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-06-25</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC117216/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12097150</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-19</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Edgar; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:117780</identifier>
+        <datestamp>2002-08-13</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Cloning and characterisation of hAps1 and hAps2, human diadenosine polyphosphate-metabolising Nudix hydrolases</dc:title>
+          <dc:creator>Leslie, Nick R</dc:creator>
+          <dc:creator>McLennan, Alexander G</dc:creator>
+          <dc:creator>Safrany, Stephen T</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-07-16</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC117780/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12121577</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-20</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Leslie et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:117796</identifier>
+        <datestamp>2002-08-14</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Improvement of Drosophila acetylcholinesterase stability by elimination of a free cysteine</dc:title>
+          <dc:creator>Fremaux, Isabelle</dc:creator>
+          <dc:creator>Mazères, Serge</dc:creator>
+          <dc:creator>Brisson-Lougarre, Andrée</dc:creator>
+          <dc:creator>Arnaud, Muriel</dc:creator>
+          <dc:creator>Ladurantie, Caroline</dc:creator>
+          <dc:creator>Fournier, Didier</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-07-30</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC117796/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12149129</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-21</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Fremaux et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:122095</identifier>
+        <datestamp>2002-09-09</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>A ~35 kDa polypeptide from insect cells binds to yeast ACS like elements in the presence of ATP</dc:title>
+          <dc:creator>Dhar, Suman K</dc:creator>
+          <dc:creator>Mondal, Neelima</dc:creator>
+          <dc:creator>Soni, Rajesh K</dc:creator>
+          <dc:creator>Mukhopadhyay, Gauranga</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-08-19</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC122095/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12186657</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-23</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Dhar et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:126212</identifier>
+        <datestamp>2002-09-18</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Delineation of RAID1, the RACK1 interaction domain located within the unique N-terminal region of the cAMP-specific phosphodiesterase, PDE4D5</dc:title>
+          <dc:creator>Bolger, Graeme B</dc:creator>
+          <dc:creator>McCahill, Angela</dc:creator>
+          <dc:creator>Yarwood, Stephen J</dc:creator>
+          <dc:creator>Steele, Michael R</dc:creator>
+          <dc:creator>Warwicker, Jim</dc:creator>
+          <dc:creator>Houslay, Miles D</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-08-23</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC126212/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12193273</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-24</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Bolger et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:126479</identifier>
+        <datestamp>2002-09-25</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Pro-domain removal in ASP-2 and the cleavage of the amyloid precursor are influenced by pH</dc:title>
+          <dc:creator>Sidera, Christina</dc:creator>
+          <dc:creator>Liu, Chibuu</dc:creator>
+          <dc:creator>Austen, Brian</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-08-31</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC126479/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12204094</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-25</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Sidera et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:128819</identifier>
+        <datestamp>2002-10-25</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Prolonged exposure of chromaffin cells to nitric oxide down-regulates the activity of soluble guanylyl cyclase and corresponding mRNA and protein levels</dc:title>
+          <dc:creator>Ferrero, Rut</dc:creator>
+          <dc:creator>Torres, Magdalena</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-09-12</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC128819/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12350235</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-26</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Ferrero and Torres; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:128820</identifier>
+        <datestamp>2002-10-23</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Specificity of DNA triple helix formation analyzed by a FRET assay</dc:title>
+          <dc:creator>Reither, Sabine</dc:creator>
+          <dc:creator>Jeltsch, Albert</dc:creator>
+          <dc:subject>Methodology Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-09-12</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC128820/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12323077</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-27</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Reither and Jeltsch; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:128837</identifier>
+        <datestamp>2002-10-23</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Combinatorial diversity of fission yeast SCF ubiquitin ligases by homo- and heterooligomeric assemblies of the F-box proteins Pop1p and Pop2p</dc:title>
+          <dc:creator>Seibert, Volker</dc:creator>
+          <dc:creator>Prohl, Corinna</dc:creator>
+          <dc:creator>Schoultz, Ida</dc:creator>
+          <dc:creator>Rhee, Edward</dc:creator>
+          <dc:creator>Lopez, Rebecca</dc:creator>
+          <dc:creator>Abderazzaq, Kareem</dc:creator>
+          <dc:creator>Zhou, Chunshui</dc:creator>
+          <dc:creator>Wolf, Dieter A</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-08-07</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC128837/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12167173</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-22</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Seibert et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:129983</identifier>
+        <datestamp>2002-11-01</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>MPN+, a putative catalytic motif found in a subset of MPN domain proteins from eukaryotes and prokaryotes, is critical for Rpn11 function</dc:title>
+          <dc:creator>Maytal-Kivity, Vered</dc:creator>
+          <dc:creator>Reis, Noa</dc:creator>
+          <dc:creator>Hofmann, Kay</dc:creator>
+          <dc:creator>Glickman, Michael H</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-09-20</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC129983/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12370088</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-28</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Maytal-Kivity et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:130031</identifier>
+        <datestamp>2002-10-25</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The PEST sequence does not contribute to the stability of the cystic fibrosis transmembrane conductance regulator</dc:title>
+          <dc:creator>Chen, Eva Y</dc:creator>
+          <dc:creator>Clarke, David M</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-10-02</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC130031/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12361483</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-29</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Chen and Clarke; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:pubmedcentral.nih.gov:130032</identifier>
+        <datestamp>2002-10-25</datestamp>
+        <setSpec>bmcbioc</setSpec>
+        <setSpec>pmc-open</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+          xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Inhibition of the MEK1/ERK pathway reduces arachidonic acid release independently of cPLA2 phosphorylation and translocation</dc:title>
+          <dc:creator>Evans, John H</dc:creator>
+          <dc:creator>Fergus, Daniel J</dc:creator>
+          <dc:creator>Leslie, Christina C</dc:creator>
+          <dc:subject>Research Article</dc:subject>
+          <dc:description />
+          <dc:publisher>BioMed Central</dc:publisher>
+          <dc:date>2002-10-08</dc:date>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC130032/</dc:identifier>
+          <dc:identifier>http://www.ncbi.nlm.nih.gov/pubmed/12370087</dc:identifier>
+          <dc:identifier>http://dx.doi.org/10.1186/1471-2091-3-30</dc:identifier>
+          <dc:type>Text</dc:type>
+          <dc:language>en</dc:language>
+          <dc:rights>Copyright © 2002 Evans et al; licensee BioMed Central Ltd. This is an Open Access article: verbatim copying and redistribution of this article are permitted in all media for any purpose, provided this notice is preserved along with the article's original URL.</dc:rights>
+        </oai_dc:dc>
+
+      </metadata>
+    </record>
+    <resumptionToken>oai%3Apubmedcentral.nih.gov%3A139967!!!oai_dc!bmcbioc</resumptionToken>
+  </ListRecords>
+</OAI-PMH>

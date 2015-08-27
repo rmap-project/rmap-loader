@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0"
+  name="rmap-loader-camel">
+  <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
+  <feature name="rmap-loader-camel" description="rmap-loader-camel"
+    version="0.0.1.SNAPSHOT">
+    <details>rmap-loader-camel</details>
+    <feature version="${camel.version}">camel</feature>
+    <feature version="${camel.version}">camel-http4</feature>
+    <feature version="${camel.version}">camel-context</feature>
+  </feature>
+</features>
