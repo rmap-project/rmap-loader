@@ -47,6 +47,12 @@
       <version>${project.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>net.sf.saxon</groupId>
+      <artifactId>Saxon-HE</artifactId>
+      <version>9.5.1-8</version>
+    </dependency>
+
 
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -59,6 +65,13 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test</artifactId>
       <version>${camel.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-camel</artifactId>
+      <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
 
