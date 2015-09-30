@@ -34,6 +34,7 @@ public class Xslt2SplitterTest
     @EndpointInject(uri = "mock:out")
     private MockEndpoint mock_out;
 
+    /* Verifies that result-document are captured */
     @Test
     public void outputFileCountTest() throws Exception {
 
@@ -49,6 +50,7 @@ public class Xslt2SplitterTest
         mock_out.assertIsSatisfied();
     }
 
+    /* Verifies that xsl:include files in the same basedir as the transform work */
     @Test
     public void includeFileTest() throws Exception {
 
@@ -60,7 +62,22 @@ public class Xslt2SplitterTest
                 .getResourceAsStream("/xslt2/input.xml"), headers);
 
         mock_out.setExpectedCount(5);
-        
+
+        mock_out.assertIsSatisfied();
+    }
+
+    /* Verifies that plain old XSLT 1.0 transforms work too */
+    @Test
+    public void defaultResultOutputTest() throws Exception {
+        Map<String, Object> headers = new HashMap<>();
+        headers.put(Xslt2Splitter.HEADER_XSLT_FILE_NAME, basedir
+                + "/transform-simple.xsl");
+
+        template.sendBodyAndHeaders("direct:in", getClass()
+                .getResourceAsStream("/xslt2/input.xml"), headers);
+
+        mock_out.setExpectedCount(1);
+
         mock_out.assertIsSatisfied();
     }
 

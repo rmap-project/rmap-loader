@@ -1,8 +1,6 @@
 
 package info.rmapproject.loader.transform.xsl.impl;
 
-import static info.rmapproject.loader.camel.Lambdas.processor;
-
 import java.nio.file.Paths;
 
 import org.apache.camel.EndpointInject;
@@ -12,6 +10,8 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
+
+import static info.rmapproject.loader.transform.xsl.impl.Xslt2Splitter.HEADER_XSLT_FILE_NAME;
 
 public class ACMTransformIT
         extends CamelTestSupport {
@@ -35,13 +35,13 @@ public class ACMTransformIT
     private MockEndpoint mock_out;
 
     @Test
-    public void XTest() throws Exception {
+    public void basicTest() throws Exception {
         template.sendBody("direct:in",
                           getClass()
                                   .getResourceAsStream("/ACM/TRANS-TOMS-V1I4-355656.xml"));
-        mock_out.setExpectedCount(2);
+        mock_out.setExpectedCount(9);
         mock_out.assertIsSatisfied();
-        mock_out.setResultWaitTime(10000);
+        
     }
 
     @Override
@@ -49,15 +49,15 @@ public class ACMTransformIT
 
         return new RouteBuilder() {
 
+            Xslt2Splitter xslt2 = new Xslt2Splitter();
+
             public void configure() {
 
                 try {
                     from("direct:in")
-                            .to("xslt:file:" + basedir + "/acm_to_disco.xsl?saxon=true")
-                            .process(processor(e -> {
-                                System.out.println(
-                                        e.getIn().getBody(String.class) + "\n");
-                            })).to("mock:out");
+                            .setHeader(HEADER_XSLT_FILE_NAME,
+                                       constant(basedir + "/acm_to_disco.xsl"))
+                            .process(xslt2).split(body()).to("mock:out");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

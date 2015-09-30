@@ -3,11 +3,16 @@ package info.rmapproject.loader.transform.xsl.impl;
 
 import java.util.Map;
 
+import org.apache.camel.Processor;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+
+import static info.rmapproject.loader.transform.xsl.impl.Xslt2Splitter.HEADER_XSLT_FILE_NAME;
 
 /**
  * Short and sweet: runs the specified XSLT transform.
@@ -23,6 +28,8 @@ import org.osgi.service.component.annotations.ConfigurationPolicy;
 public class XSLTransform
         extends RouteBuilder {
 
+    private Processor xsltSplit;
+
     /**
      * Absolute or relative path to XSLT file.
      * <p>
@@ -36,7 +43,11 @@ public class XSLTransform
 
     private String xslt_file;
 
-    /* TODO: Provenance, when we get that sorted out */
+    @Reference(cardinality = ReferenceCardinality.MANDATORY, target = "(name=xslt2split)")
+    public void setXsltSplitter(Processor processor) {
+        xsltSplit = processor;
+    }
+
     @Activate
     public void start(Map<String, String> config) {
         this.xslt_file = config.get(CONFIG_PARAM_XSLT_FILE);
@@ -44,7 +55,8 @@ public class XSLTransform
 
     @Override
     public void configure() throws Exception {
-        from("direct:in").to("xslt:file:" + xslt_file).to("direct:out");
+        /* TODO: Provenance, when we get that sorted out */
+        from("direct:in").setHeader(HEADER_XSLT_FILE_NAME, constant(xslt_file))
+                .process(xsltSplit).split(body()).to("direct:out");
     }
-
 }
