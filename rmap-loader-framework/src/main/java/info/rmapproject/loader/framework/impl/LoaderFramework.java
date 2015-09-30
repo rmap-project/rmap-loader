@@ -290,6 +290,20 @@ public class LoaderFramework {
         }
     }
 
+    public void removeRoutes(CamelContext cxtToStop) {
+        try {
+            if (cxt.getRoute(getWiringRouteId(Direction.FROM, cxtToStop)) != null) {
+                cxt.removeRoute(getWiringRouteId(Direction.FROM, cxtToStop));
+            }
+
+            if (cxt.getRoute(getWiringRouteId(Direction.TO, cxtToStop)) != null) {
+                cxt.removeRoute(getWiringRouteId(Direction.TO, cxtToStop));
+            }
+        } catch (Exception e) {
+            /* TODO: Something */
+        }
+    }
+
     public void removeRoutes(RoutesBuilder routes) {
         CamelContext cxtToStop = blackBoxContexts.remove(routes);
         try {

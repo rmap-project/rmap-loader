@@ -17,6 +17,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.impl.ExplicitCamelContextNameStrategy;
 import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.test.junit4.CamelTestSupport;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @SuppressWarnings("serial")
@@ -42,6 +43,7 @@ public class LoaderFrameworkTest
      * based on format
      */
     @Test
+    @Ignore
     public void fromExtractorToQueueTest() {
 
         ContextFactory cxtFactory = new BasicContextFactory(registry);

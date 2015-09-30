@@ -22,7 +22,7 @@ public class OaiHarvestService
         cxtFactory = factory;
     }
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, target = "(&(role=oai)(!oneTime=true))")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, target = "(&(role=oai)(!(oneTime=true)))")
     public void addHarvest(RoutesBuilder routes) throws Exception {
         CamelContext context = cxtFactory.newContext(routes);
         addCamelContext(context);

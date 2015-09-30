@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>info.rmapproject</groupId>
+    <artifactId>rmap-loader</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>rmap-loader-karaf</artifactId>
+  <packaging>feature</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+        <version>4.0.1</version>
+        <extensions>true</extensions>
+        <configuration>
+          <resolver>(OBR)</resolver>
+          <includeProjectArtifact>true</includeProjectArtifact>
+          <includeTransitiveDependency>true</includeTransitiveDependency>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-osgi</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-framework</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-extractor-oai</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-transform-xsl</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-deposit-disco</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+</project>
