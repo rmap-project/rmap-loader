@@ -12,7 +12,7 @@
   <properties>
     <maven-bundle-plugin.version>2.5.3</maven-bundle-plugin.version>
     <osgi.version>5.0.0</osgi.version>
-    <camel.version>2.15.2</camel.version>
+    <camel.version>2.15.3</camel.version>
   </properties>
 
   <build>
@@ -56,5 +56,6 @@
     <module>rmap-loader-deposit-disco</module>
     <module>rmap-loader-camel</module>
     <module>rmap-loader-osgi</module>
+    <module>rmap-loader-karaf</module>
   </modules>
 </project>
