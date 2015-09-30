@@ -4,6 +4,8 @@ package info.rmapproject.loader.experimental;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
@@ -28,8 +30,8 @@ public class ContextComponentTest
     @Produce
     protected ProducerTemplate template;
 
-    //@EndpointInject(uri = "mock:end")
-    private MockEndpoint mock_end;
+    @EndpointInject(uri = "mock:out")
+    private MockEndpoint mock_out;
 
     private JndiRegistry registry;
 
@@ -83,9 +85,9 @@ public class ContextComponentTest
          * Send a message to 'direct:start'. It should be routed through the
          * black boxes, and end up in mock:end
          */
-        template.sendBody("testing", "direct:start");
+        template.sendBody("direct:start", "testing");
 
-        //mock_end.expectedMessageCount(1);
+        mock_out.expectedMessageCount(1);
 
     }
 
@@ -112,69 +114,110 @@ public class ContextComponentTest
         return parentContext = fix(super.createCamelContext());
     }
 
+    @Override
+    protected RouteBuilder createRouteBuilder() throws Exception {
+
+        return new RouteBuilder() {
+
+            public void configure() {
+
+                from("direct:end").to("mock:out");
+            }
+        };
+    }
+
+    /*
+     * This "fixes" a black box CamelContext by proxying its Endpoints with a
+     * modified .equals() method that returns false when comparing endpoints in
+     * from different contexts.
+     */
     private CamelContext fix(final CamelContext cxt) {
 
-        return (CamelContext) Proxy
-                .newProxyInstance(CamelContext.class.getClassLoader(),
-                                  new Class[] {CamelContext.class, ModelCamelContext.class},
-                                  new InvocationHandler() {
+        return (CamelContext) Proxy.newProxyInstance(CamelContext.class
+                .getClassLoader(), new Class[] {CamelContext.class,
+                ModelCamelContext.class}, new InvocationHandler() {
 
-                                      @Override
-                                      public Object invoke(Object proxy,
-                                                           Method method,
-                                                           Object[] args)
-                                              throws Throwable {
-                                          
-                                          System.out.println(cxt.getName() + ": " + method.getName());
-                                          if (method.getName()
-                                                  .equals("getEndpoint")) {
-                                              final Endpoint delegate =
-                                                      (Endpoint) method
-                                                              .invoke(cxt, args);
+            @SuppressWarnings("unchecked")
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args)
+                    throws Throwable {
 
-                                              return (Endpoint) Proxy
-                                                      .newProxyInstance(Endpoint.class
-                                                                                .getClassLoader(),
-                                                                        new Class[] {Endpoint.class},
-                                                                        new InvocationHandler() {
+                if (method.getName().equals("getEndpointMap")) {
+                    final Map<String, Endpoint> resultMap = new HashMap<>();
 
-                                                                            @Override
-                                                                            public Object invoke(Object proxy,
-                                                                                                 Method method,
-                                                                                                 Object[] args)
-                                                                                    throws Throwable {
+                    for (Map.Entry<String, Endpoint> original : ((Map<String, Endpoint>) method
+                            .invoke(cxt, args)).entrySet()) {
+                        resultMap.put(original.getKey(),
+                                      wrap(original.getValue()));
+                    }
 
-                                                                                if (method
-                                                                                        .getName()
-                                                                                        .equals("equals")
-                                                                                        && args.length == 1) {
-                                                                                    
-                                                                                    System.out.println("Equals? ");
+                    return resultMap;
 
-                                                                                    if (args[0] instanceof DefaultEndpoint) {
-                                                                                        DefaultEndpoint that =
-                                                                                                (DefaultEndpoint) args[0];
-                                                                                        return ObjectHelper
-                                                                                                .equal(delegate.getEndpointUri(),
-                                                                                                       that.getEndpointUri())
-                                                                                                && ObjectHelper
-                                                                                                        .equal(delegate.getCamelContext()
-                                                                                                                       .getName(),
-                                                                                                               that.getCamelContext()
-                                                                                                                       .getName());
-                                                                                    }
-                                                                                    return false;
+                }
 
-                                                                                }
-                                                                                return method
-                                                                                        .invoke(delegate,
-                                                                                                args);
-                                                                            }
+                if (method.getName().equals("getEndpoint")) {
+                    final Endpoint delegate =
+                            (Endpoint) method.invoke(cxt, args);
 
-                                                                        });
-                                          }
-                                          return method.invoke(cxt, args);
-                                      }
-                                  });
+                    return wrap(delegate);
+                }
+                return method.invoke(cxt, args);
+            }
+        });
+    }
+
+    private static Endpoint wrap(Endpoint delegate) {
+        if (delegate == null) {
+            return null;
+        }
+
+        /*
+         * For some unknown reason, this is necessary for the unit test to work,
+         * otherwise it complains that it cannot inject a MockEndpoint via
+         * @EndpointInject
+         */
+        if (delegate instanceof MockEndpoint) {
+            return delegate;
+        }
+
+        return (Endpoint) Proxy.newProxyInstance(Endpoint.class
+                                                         .getClassLoader(),
+                                                 new Class[] {Endpoint.class},
+                                                 new InvocationHandler() {
+
+                                                     @Override
+                                                     public Object invoke(Object proxy,
+                                                                          Method method,
+                                                                          Object[] args)
+                                                             throws Throwable {
+
+                                                         if (method
+                                                                 .getName()
+                                                                 .equals("equals")
+                                                                 && args.length == 1) {
+
+                                                             if (args[0] instanceof DefaultEndpoint) {
+                                                                 DefaultEndpoint that =
+                                                                         (DefaultEndpoint) args[0];
+                                                                 return ObjectHelper
+                                                                         .equal(delegate.getEndpointUri(),
+                                                                                that.getEndpointUri())
+                                                                         && ObjectHelper
+                                                                                 .equal(delegate.getCamelContext()
+                                                                                                .getName(),
+                                                                                        that.getCamelContext()
+                                                                                                .getName());
+                                                             }
+                                                             return false;
+
+                                                         }
+
+                                                         return method
+                                                                 .invoke(delegate,
+                                                                         args);
+
+                                                     }
+
+                                                 });
     }
 }
