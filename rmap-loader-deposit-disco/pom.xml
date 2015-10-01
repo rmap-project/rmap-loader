@@ -17,7 +17,6 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Export-Package>nfo.rmapproject.loader.camel*;version=${project.version}</Export-Package>
             <Import-Package>*</Import-Package>
             <_dsannotations>*</_dsannotations>
           </instructions>

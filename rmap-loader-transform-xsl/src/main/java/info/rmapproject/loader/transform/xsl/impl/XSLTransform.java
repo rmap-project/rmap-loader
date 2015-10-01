@@ -56,6 +56,7 @@ public class XSLTransform
     @Override
     public void configure() throws Exception {
         /* TODO: Provenance, when we get that sorted out */
+
         from("direct:in").setHeader(HEADER_XSLT_FILE_NAME, constant(xslt_file))
                 .process(xsltSplit).split(body()).to("direct:out");
     }

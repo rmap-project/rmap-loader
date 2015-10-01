@@ -20,7 +20,6 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Export-Package>nfo.rmapproject.loader.camel*;version=${project.version}</Export-Package>
             <Import-Package>*</Import-Package>
             <_dsannotations>*</_dsannotations>
           </instructions>
@@ -32,7 +31,7 @@
       <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>karaf-maven-plugin</artifactId>
-        <version>3.0.3</version>
+        <version>${karaf.version}</version>
         <extensions>true</extensions>
         <executions>
           <execution>
@@ -93,12 +92,19 @@
       <version>${camel.version}</version>
       <scope>provided</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test</artifactId>
       <version>${camel.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <scope>test</scope>
+      <version>${slf4j.version}</version>
     </dependency>
   </dependencies>
 

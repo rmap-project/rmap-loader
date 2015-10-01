@@ -3,21 +3,27 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0"
   name="rmap-loader">
-  <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
+  <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features
+  </repository>
+  <repository>mvn:io.hawt/hawtio-karaf/${hawtio.version}/xml/features
+  </repository>
   <repository>
-    mvn:org.apache.activemq/activemq-karaf/${activemq.version}/xml/features</repository>
-  <feature name="rmap-loader-camel" description="rmap-loader-camel"
-    version="0.0.1.SNAPSHOT">
-    <details>rmap-loader-camel</details>
+    mvn:org.apache.activemq/activemq-karaf/${activemq.version}/xml/features
+  </repository>
+  <feature name="rmap-loader" description="rmap-loader" version="0.0.1.SNAPSHOT">
+    <details>rmap-loader</details>
 
-    <!-- ActiveMQ for message queues -->
+    <feature>scr</feature>
+
+    <!-- ActiveMQ for message queues between loader components -->
     <feature version="${activemq.version}">activemq-broker</feature>
     <feature version="${activemq.version}">activemq-camel</feature>
 
-    <!-- Camel -->
-    <feature version="${camel.version}">camel</feature>
-    <feature version="${camel.version}">camel-http4</feature>
-    <feature version="${camel.version}">camel-context</feature>
+    <!-- Hawtio for monitoring -->
+    <feature version="${hawtio.version}">hawtio</feature>
+
+    <!-- RMap individual features -->
+    <feature version="${project.version}">rmap-loader-transform-xsl</feature>
 
   </feature>
 </features>

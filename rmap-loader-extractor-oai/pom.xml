@@ -17,7 +17,6 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Export-Package>nfo.rmapproject.loader.camel*;version=${project.version}</Export-Package>
             <Import-Package>*</Import-Package>
             <_dsannotations>*</_dsannotations>
           </instructions>
@@ -108,9 +107,9 @@
       <artifactId>commons-logging</artifactId>
       <version>1.2</version>
     </dependency>
-    
+
     <dependency>
-     <groupId>org.apache.camel</groupId>
+      <groupId>org.apache.camel</groupId>
       <artifactId>camel-context</artifactId>
       <version>${camel.version}</version>
       <scope>test</scope>
@@ -135,6 +134,13 @@
       <artifactId>cxf-rt-frontend-jaxrs</artifactId>
       <version>3.0.0</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <scope>test</scope>
+      <version>${slf4j.version}</version>
     </dependency>
 
   </dependencies>

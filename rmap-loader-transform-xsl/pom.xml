@@ -7,7 +7,13 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>rmap-loader-transform-xsl</artifactId>
+  <description>RMap loader XSL transform component</description>
   <packaging>bundle</packaging>
+
+  <properties>
+    <saxon.version>9.6.0-7_1</saxon.version>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
@@ -17,14 +23,51 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Export-Package>nfo.rmapproject.loader.camel*;version=${project.version}</Export-Package>
             <Import-Package>*</Import-Package>
             <_dsannotations>*</_dsannotations>
           </instructions>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- for karaf feature.xml descriptor -->
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+        <version>${karaf.version}</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>generate-features-descriptor</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>features-generate-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+        <!-- 
+          <resolver>(OBR)</resolver> -->
+          <includeProjectArtifact>true</includeProjectArtifact>
+          <includeTransitiveDependency>true</includeTransitiveDependency>
+        </configuration>
+      </plugin>
     </plugins>
+
   </build>
+
 
   <dependencies>
 
@@ -47,12 +90,25 @@
       <version>${project.version}</version>
     </dependency>
 
+    <!-- We want to depend on the OSGi bundle wrapped by ServiceMix, not 
+      rely on wrapping raw saxon ourselves. -->
     <dependency>
-      <groupId>net.sf.saxon</groupId>
-      <artifactId>Saxon-HE</artifactId>
-      <version>9.6.0-7</version>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.saxon</artifactId>
+      <version>${saxon.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>net.sf.saxon</groupId>
+          <artifactId>Saxon-HE</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.xmlresolver</artifactId>
+      <version>1.2_5</version>
+    </dependency>
 
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -69,10 +125,10 @@
     </dependency>
 
     <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-camel</artifactId>
-      <version>${project.version}</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
+      <version>${slf4j.version}</version>
     </dependency>
 
   </dependencies>
