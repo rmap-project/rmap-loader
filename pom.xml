@@ -12,7 +12,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven-bundle-plugin.version>2.5.3</maven-bundle-plugin.version>
+    <maven-bundle-plugin.version>3.0.0</maven-bundle-plugin.version>
     <osgi.version>5.0.0</osgi.version>
     <camel.version>2.15.3</camel.version>
     <karaf.version>4.0.1</karaf.version>
