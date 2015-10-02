@@ -1,10 +1,6 @@
 
 package info.rmapproject.loader.osgi.impl;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.apache.camel.CamelContext;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.core.osgi.OsgiCamelContextPublisher;
@@ -13,7 +9,6 @@ import org.apache.camel.core.osgi.utils.BundleDelegatingClassLoader;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.impl.ExplicitCamelContextNameStrategy;
 import org.osgi.framework.BundleContext;
-import org.osgi.service.component.ComponentInstance;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 
@@ -31,15 +26,6 @@ public class OsgiContextFactory
     OsgiCamelContextPublisher publisher;
 
     private BundleContext bundleContext;
-
-    private Map<String, CamelContext> oneTimeContexts =
-            new ConcurrentHashMap<>();
-
-    private Map<String, RoutesBuilder> oneTimeRouteBuilders =
-            new ConcurrentHashMap<>();
-
-    private Map<RoutesBuilder, ComponentInstance> oneTimeRouteBuilderComponents =
-            new ConcurrentHashMap<>();
 
     @Activate
     public void activate(BundleContext bundleContext) {
@@ -80,14 +66,11 @@ public class OsgiContextFactory
         context.setUseBreadcrumb(true);
 
         if (routes != null) {
-            oneTimeRouteBuilders.put(context.getName(), routes);
             try {
                 routes.addRoutesToCamelContext(context);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-
-            oneTimeContexts.put(context.getName(), context);
         }
 
         return context;
@@ -97,22 +80,9 @@ public class OsgiContextFactory
     public void disposeContext(CamelContext context) {
         if (context == null) return;
 
-        /*
-         * Remove the managed RouteBuilder from the list of manged buildders,
-         * and dispose it
-         */
-        RoutesBuilder managedBuilder =
-                oneTimeRouteBuilders.remove(context.getName());
-
-        if (managedBuilder != null) {
-            Optional.of(oneTimeRouteBuilderComponents.remove(managedBuilder))
-                    .ifPresent(ComponentInstance::dispose);
-        }
-
-        /* Now stop and remove any managed contexts that were derived from it */
+        /* Stop the context */
         try {
             context.stop();
-            oneTimeContexts.remove(context.getName());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

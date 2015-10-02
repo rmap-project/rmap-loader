@@ -2,10 +2,10 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0"
-  name="rmap-loader">
+  name="${project.artifactId}">
   <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
   <feature name="${project.artifactId}" description="${project.description}"
-    version="0.0.1.SNAPSHOT">
+    version="${project.version}">
     <details>${project.artifactId}</details>
 
     <!-- Camel -->

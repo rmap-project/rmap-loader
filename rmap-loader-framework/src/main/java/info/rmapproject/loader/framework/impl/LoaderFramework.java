@@ -317,11 +317,7 @@ public class LoaderFramework {
         } catch (Exception e) {
             /* log, or something */
         } finally {
-            try {
-                cxtToStop.stop();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            factory.disposeContext(cxtToStop);
         }
     }
 

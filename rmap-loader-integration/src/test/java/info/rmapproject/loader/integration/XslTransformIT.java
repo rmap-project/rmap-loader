@@ -1,5 +1,7 @@
 
-package info.rmapproject.loader.transform.xsl.impl;
+package info.rmapproject.loader.integration;
+
+import info.rmapproject.loader.camel.ContextFactory;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -11,7 +13,6 @@ import org.apache.camel.ProducerTemplate;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +33,11 @@ import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.karafDist
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.keepRuntimeFolder;
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.replaceConfigurationFile;
 
+/**
+ * Verify that XSL transform routes can be successfully run in karaf.
+ * 
+ * @author apb18
+ */
 @RunWith(PaxExam.class)
 public class XslTransformIT
         extends CamelTestSupport {
@@ -44,6 +50,9 @@ public class XslTransformIT
     @Inject
     @Filter("(&(loader.role=transformer)(loader.format=test))")
     public RoutesBuilder xslRoutes;
+
+    @Inject
+    public ContextFactory factory;
 
     @Configuration
     public Option[] config() {
@@ -94,8 +103,7 @@ public class XslTransformIT
 
     @Test
     public void smokeTest() throws Exception {
-        CamelContext context = new DefaultCamelContext();
-        context.addRoutes(xslRoutes);
+        CamelContext context = factory.newContext(xslRoutes);
 
         context.addRoutes(new RouteBuilder() {
 
@@ -115,5 +123,7 @@ public class XslTransformIT
 
         test_out.setExpectedMessageCount(5);
         test_out.assertIsSatisfied();
+
+        factory.disposeContext(context);
     }
 }

@@ -43,7 +43,6 @@
           </execution>
         </executions>
         <configuration>
-          <resolver>(OBR)</resolver>
           <includeProjectArtifact>true</includeProjectArtifact>
           <includeTransitiveDependency>true</includeTransitiveDependency>
         </configuration>
@@ -76,6 +75,12 @@
     <dependency>
       <groupId>info.rmapproject</groupId>
       <artifactId>rmap-loader-camel</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-osgi</artifactId>
       <version>${project.version}</version>
     </dependency>
 

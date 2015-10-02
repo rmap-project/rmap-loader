@@ -139,6 +139,13 @@
       <version>${camel.version}</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-camel</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
 
     <!-- test logging -->
     <dependency>

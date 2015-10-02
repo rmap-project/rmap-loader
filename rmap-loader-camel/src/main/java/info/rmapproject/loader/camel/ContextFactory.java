@@ -43,6 +43,10 @@ public interface ContextFactory {
         return newContext(routes, null);
     }
 
+    public default CamelContext newContext(String id) {
+        return newContext(null, id);
+    }
+
     /**
      * Creates a new, empty CamelContext.
      * 
