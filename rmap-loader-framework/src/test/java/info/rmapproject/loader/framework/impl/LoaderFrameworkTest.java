@@ -17,7 +17,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.impl.ExplicitCamelContextNameStrategy;
 import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.test.junit4.CamelTestSupport;
-import org.junit.Ignore;
+
 import org.junit.Test;
 
 @SuppressWarnings("serial")
@@ -43,8 +43,7 @@ public class LoaderFrameworkTest
      * based on format
      */
     @Test
-    @Ignore
-    public void fromExtractorToQueueTest() {
+    public void endToEndTest() throws Exception {
 
         ContextFactory cxtFactory = new BasicContextFactory(registry);
 
@@ -53,10 +52,8 @@ public class LoaderFrameworkTest
         fwk.setContextFactory(cxtFactory);
 
         Map<String, String> config = new HashMap<>();
-        config.put(LoaderFramework.CONFIG_EXTRACTED_QUEUE_URI,
-                   "file:extracted/$format");
-        config.put(LoaderFramework.CONFIG_TRANSFORMED_QUEUE_URI,
-                   "file:translated/$format");
+        config.put(LoaderFramework.CONFIG_EXTRACTED_QUEUE_URI, "testCxt:extracted_$format");
+        config.put(LoaderFramework.CONFIG_TRANSFORMED_QUEUE_URI, "testCxt:translated_$format");
 
         fwk.start(config);
 
@@ -64,8 +61,8 @@ public class LoaderFrameworkTest
 
             @Override
             public void configure() throws Exception {
-                from(String.format("%s:input", TEST_CONTEXT_ID)).loop(2)
-                        .setBody(constant("extractor")).to("direct:out");
+                from(String.format("%s:input", TEST_CONTEXT_ID)).loop(2).setBody(constant("extractor"))
+                        .to("direct:out");
 
             }
         }, new HashMap<String, String>() {
@@ -79,21 +76,17 @@ public class LoaderFrameworkTest
 
             @Override
             public void configure() throws Exception {
-                from("direct:in").setBody(constant("transformed"))
-                        .to("direct:out");
+                from("direct:in").setBody(constant("transformed")).to("direct:out");
 
             }
-        },
-                                 new HashMap<String, String>() {
+        }, new HashMap<String, String>() {
 
-                                     {
-                                         put(LoaderFramework.PROPERTY_EXTRACTED_FORMAT,
-                                             EXTRACTED_FORMAT);
-                                         put(LoaderFramework.PROPERTY_DOMAIN_MODEL,
-                                             DOMAIN_MODEL);
-                                     }
+            {
+                put(LoaderFramework.PROPERTY_EXTRACTED_FORMAT, EXTRACTED_FORMAT);
+                put(LoaderFramework.PROPERTY_DOMAIN_MODEL, DOMAIN_MODEL);
+            }
 
-                                 });
+        });
 
         /*
          * Add this as a context, as we want to inspect the output message by
@@ -103,20 +96,21 @@ public class LoaderFrameworkTest
 
             @Override
             public void configure() throws Exception {
-                from("direct:in").to(String
-                        .format("%s:output", TEST_CONTEXT_ID));
+                from("direct:in").to(String.format("%s:output", TEST_CONTEXT_ID));
 
             }
-        },
-                            new HashMap<String, String>() {
+        }, new HashMap<String, Object>() {
 
-                                {
-                                    put(LoaderFramework.PROPERTY_EXTRACTED_FORMAT,
-                                        EXTRACTED_FORMAT);
-                                }
-                            });
+            {
+                put(LoaderFramework.PROPERTY_EXTRACTED_FORMAT, EXTRACTED_FORMAT);
+                put(LoaderFramework.PROPERTY_DOMAIN_MODEL, DOMAIN_MODEL);
+            }
+        });
 
         template.sendBody("direct:start", "start");
+
+        mock_end.setExpectedCount(2);
+        assertMockEndpointsSatisfied();
 
     }
 
@@ -136,7 +130,6 @@ public class LoaderFrameworkTest
          */
         createRegistry();
 
-        System.out.println("Creatig test context");
         CamelContext testCxt = super.createCamelContext();
         testCxt.setNameStrategy(new ExplicitCamelContextNameStrategy(TEST_CONTEXT_ID));
 
@@ -153,6 +146,10 @@ public class LoaderFrameworkTest
             public void configure() {
                 from("direct:start").to("direct:input");
                 from("direct:output").to("mock:end");
+
+                /* Just to make sure endpoints are here */
+                from("direct:noop1").to("seda:extracted_exf");
+                from("direct:noop2").to("seda:translated_dom");
             }
         };
     }

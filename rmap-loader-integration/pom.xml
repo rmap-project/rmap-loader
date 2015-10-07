@@ -56,8 +56,15 @@
 
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.compendium</artifactId>
-      <version>${osgi.version}</version>
+      <artifactId>org.osgi.service.component.annotations</artifactId>
+      <version>${osgi.component.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.service.metatype.annotations</artifactId>
+      <version>${osgi.metatype.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -139,7 +146,7 @@
       <version>${camel.version}</version>
       <scope>test</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>info.rmapproject</groupId>
       <artifactId>rmap-loader-camel</artifactId>

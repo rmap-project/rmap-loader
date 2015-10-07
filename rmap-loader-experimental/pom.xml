@@ -18,7 +18,6 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Export-Package>nfo.rmapproject.loader.camel*;version=${project.version}</Export-Package>
             <Import-Package>*</Import-Package>
             <_dsannotations>*</_dsannotations>
           </instructions>
@@ -50,14 +49,15 @@
 
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.compendium</artifactId>
-      <version>${osgi.version}</version>
+      <artifactId>org.osgi.service.component.annotations</artifactId>
+      <version>${osgi.component.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
+      <artifactId>org.osgi.service.metatype.annotations</artifactId>
+      <version>${osgi.metatype.version}</version>
       <scope>provided</scope>
     </dependency>
 

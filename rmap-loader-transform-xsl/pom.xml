@@ -58,8 +58,7 @@
           </execution>
         </executions>
         <configuration>
-        <!-- 
-          <resolver>(OBR)</resolver> -->
+          <!-- <resolver>(OBR)</resolver> -->
           <includeProjectArtifact>true</includeProjectArtifact>
           <includeTransitiveDependency>true</includeTransitiveDependency>
         </configuration>
@@ -73,14 +72,15 @@
 
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.compendium</artifactId>
-      <version>${osgi.version}</version>
+      <artifactId>org.osgi.service.component.annotations</artifactId>
+      <version>${osgi.component.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
+      <artifactId>org.osgi.service.metatype.annotations</artifactId>
+      <version>${osgi.metatype.version}</version>
       <scope>provided</scope>
     </dependency>
 

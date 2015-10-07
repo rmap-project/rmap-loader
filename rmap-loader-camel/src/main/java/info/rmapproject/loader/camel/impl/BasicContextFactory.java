@@ -11,6 +11,8 @@ import org.osgi.service.component.annotations.ConfigurationPolicy;
 
 import info.rmapproject.loader.camel.ContextFactory;
 
+import static info.rmapproject.loader.camel.ContextHelper.fix;
+
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE)
 public class BasicContextFactory
         implements ContextFactory {
@@ -28,7 +30,7 @@ public class BasicContextFactory
     @Override
     public CamelContext newContext(RoutesBuilder routes, String id) {
 
-        CamelContext cxt = new DefaultCamelContext(registry);
+        CamelContext cxt = fix(new DefaultCamelContext(registry));
 
         if (id != null) {
             cxt.setNameStrategy(new ExplicitCamelContextNameStrategy(id));

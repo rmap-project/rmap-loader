@@ -14,6 +14,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven-bundle-plugin.version>3.0.0</maven-bundle-plugin.version>
     <osgi.version>5.0.0</osgi.version>
+    <osgi.component.version>1.3.0</osgi.component.version>
+    <osgi.metatype.version>1.3.0</osgi.metatype.version>
     <camel.version>2.15.3</camel.version>
     <karaf.version>4.0.1</karaf.version>
     <pax-exam.version>4.6.0</pax-exam.version>

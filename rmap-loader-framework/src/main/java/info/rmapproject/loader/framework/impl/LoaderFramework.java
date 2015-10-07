@@ -22,6 +22,9 @@ import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Main loader framework.
@@ -32,8 +35,18 @@ import org.osgi.service.component.annotations.ReferencePolicy;
  * 
  * @author apb18
  */
+@ObjectClassDefinition
+@interface LoderFrameworkConfig {
+
+    String queue_extracted();
+
+    String queue_transformed();
+}
+
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE, immediate = true)
 public class LoaderFramework {
+
+    static Logger LOG = LoggerFactory.getLogger(LoaderFramework.class);
 
     public static final String HEADER_EXTRACT_INFO = "record.extracted";
 
@@ -45,8 +58,7 @@ public class LoaderFramework {
     public static final String CONFIG_EXTRACTED_QUEUE_URI = "queue.extracted";
 
     /** Service property which identifies the queue for transformed records */
-    public static final String CONFIG_TRANSFORMED_QUEUE_URI =
-            "queue.transformed";
+    public static final String CONFIG_TRANSFORMED_QUEUE_URI = "queue.transformed";
 
     /**
      * Service property which identifies a domain model.
@@ -65,8 +77,7 @@ public class LoaderFramework {
 
     private CamelContext cxt;
 
-    private Map<RoutesBuilder, CamelContext> blackBoxContexts =
-            new ConcurrentHashMap<>();
+    private Map<RoutesBuilder, CamelContext> blackBoxContexts = new ConcurrentHashMap<>();
 
     private Queue<RoutesBuilder> wiringQueue = new ConcurrentLinkedQueue<>();
 
@@ -85,7 +96,7 @@ public class LoaderFramework {
 
         cxt = factory.newContext();
 
-        extractedQueueURI = config.get(CONFIG_TRANSFORMED_QUEUE_URI);
+        extractedQueueURI = config.get(CONFIG_EXTRACTED_QUEUE_URI);
         transformedQueueURI = config.get(CONFIG_TRANSFORMED_QUEUE_URI);
 
         try {
@@ -131,8 +142,7 @@ public class LoaderFramework {
      *        individual messages emitted by the extractor routes.
      */
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(loader.role=extractor)", unbind = "removeRoutes")
-    public void addExtractorRoutes(RoutesBuilder routes,
-                                   Map<String, String> properties) {
+    public void addExtractorRoutes(RoutesBuilder routes, Map<String, String> properties) {
 
         /* First create a black box camel context */
         CamelContext extractorCxt = factory.newContext(routes);
@@ -147,16 +157,13 @@ public class LoaderFramework {
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(loader.role=extractor)", unbind = "removeRoutes")
-    public void addExtractor(CamelContext extractorCxt,
-                             Map<String, String> properties) {
+    public void addExtractor(CamelContext extractorCxt, Map<String, String> properties) {
 
         /* Add a route from the context to the queue */
-        System.out.println("Wiring in extractor context "
-                + extractorCxt.getName());
-        System.out.println(extractorCxt.getEndpointMap().keySet());
-        wire(extractorCxt,
-             new QueueSpec().to(extractedQueueURI).withFormat(properties
-                     .get(PROPERTY_EXTRACTED_FORMAT)));
+        LOG.info("Wiring in extractor context {} with endpoints {}",
+                 extractorCxt.getName(),
+                 extractorCxt.getEndpointMap().keySet());
+        wire(extractorCxt, new QueueSpec().to(extractedQueueURI).withFormat(properties.get(PROPERTY_EXTRACTED_FORMAT)));
     }
 
     /**
@@ -167,8 +174,7 @@ public class LoaderFramework {
      * contain a body containing an instance of a domain model
      */
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=transformer)(loader.format=*))", unbind = "removeRoutes")
-    public void addTransformerRoutes(RoutesBuilder routes,
-                                     Map<String, String> properties) {
+    public void addTransformerRoutes(RoutesBuilder routes, Map<String, String> properties) {
 
         /* First create a black box camel context */
         CamelContext transformerCxt = factory.newContext(routes);
@@ -183,13 +189,12 @@ public class LoaderFramework {
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=transformer)(loader.format=*))", unbind = "removeRoutes")
-    public void addTransformer(CamelContext transformerCxt,
-                               Map<String, String> properties) {
+    public void addTransformer(CamelContext transformerCxt, Map<String, String> properties) {
 
         /* Now add a route from the context to the queue */
-        System.out.println("Wiring in transformer context "
-                + transformerCxt.getName());
-        System.out.println(transformerCxt.getEndpointMap().keySet());
+        LOG.info("Wiring in transformer context {} with endpoints {}",
+                 transformerCxt.getName(),
+                 transformerCxt.getEndpointMap().keySet());
         wire(transformerCxt,
              new QueueSpec().to(transformedQueueURI).from(extractedQueueURI)
                      .withFormat(properties.get(PROPERTY_EXTRACTED_FORMAT))
@@ -197,8 +202,7 @@ public class LoaderFramework {
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=loader)(loader.domain=*))", unbind = "removeRoutes")
-    public void addLoaderRoutes(RoutesBuilder routes,
-                                Map<String, String> properties) {
+    public void addLoaderRoutes(RoutesBuilder routes, Map<String, Object> properties) {
 
         /* First create a black box camel context */
         CamelContext loaderCxt = factory.newContext(routes);
@@ -213,12 +217,14 @@ public class LoaderFramework {
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=loader)(loader.domain=*))", unbind = "removeRoutes")
-    public void addLoader(CamelContext loaderCxt, Map<String, String> properties) {
+    public void addLoader(CamelContext loaderCxt, Map<String, Object> properties) {
 
         /* Now add a route from the context to the queue */
+        LOG.info("Wiring in loader context {} with endpoints {}",
+                 loaderCxt.getName(),
+                 loaderCxt.getEndpointMap().keySet());
         wire(loaderCxt,
-             new QueueSpec().from(transformedQueueURI).withDomain(properties
-                     .get(PROPERTY_DOMAIN_MODEL)));
+             new QueueSpec().from(transformedQueueURI).withDomain((String) properties.get(PROPERTY_DOMAIN_MODEL)));
     }
 
     /*
@@ -226,11 +232,9 @@ public class LoaderFramework {
      * CamelContext
      */
     private void wire(CamelContext blackBoxContext, QueueSpec routing) {
-        final String blackBoxOut =
-                String.format("%s:out", blackBoxContext.getName());
+        final String blackBoxOut = String.format("%s:out", blackBoxContext.getName());
 
-        final String blackBoxIn =
-                String.format("%s:in", blackBoxContext.getName());
+        final String blackBoxIn = String.format("%s:in", blackBoxContext.getName());
 
         /* Now route it */
         RouteBuilder wiring = new RouteBuilder() {
@@ -239,38 +243,26 @@ public class LoaderFramework {
             public void configure() throws Exception {
 
                 if (routing.from != null) {
-                    System.out
-                            .println(String
-                                    .format("Wiring in route (%s) from %s to %s",
-                                            getWiringRouteId(Direction.TO,
-                                                             blackBoxContext),
-                                            routingURI(routing.from,
-                                                       Optional.ofNullable(routing.format)
-                                                               .orElse(Optional
-                                                                       .ofNullable(routing.domain)
-                                                                       .orElse("unspecified"))),
-                                            blackBoxIn));
+                    LOG.info(String.format("Wiring in route (%s) from %s to %s",
+                                           getWiringRouteId(Direction.TO, blackBoxContext),
+                                           routingURI(routing.from, Optional.ofNullable(routing.format)
+                                                   .orElse(Optional.ofNullable(routing.domain).orElse("unspecified"))),
+                                           blackBoxIn));
+
+                    if (routing.domain == null) new Exception().printStackTrace(System.out);
                     from(routingURI(routing.from,
                                     Optional.ofNullable(routing.format)
-                                            .orElse(Optional
-                                                    .ofNullable(routing.domain)
-                                                    .orElse("unspecified"))))
-                            .id(getWiringRouteId(Direction.TO, blackBoxContext))
-                            .to(blackBoxIn);
+                                            .orElse(Optional.ofNullable(routing.domain).orElse("unspecified"))))
+                                                    .id(getWiringRouteId(Direction.TO, blackBoxContext)).to(blackBoxIn);
                 }
 
-                System.out.println(String
-                        .format("Wiring in route (%s) from %s to %s",
-                                getWiringRouteId(Direction.FROM,
-                                                 blackBoxContext),
-                                blackBoxOut,
-                                "header('dest')"));
+                LOG.info(String.format("Wiring in route (%s) from %s to %s",
+                                       getWiringRouteId(Direction.FROM, blackBoxContext),
+                                       blackBoxOut,
+                                       "header('dest')"));
 
                 if (routing.to != null) {
-                    from(blackBoxOut)
-                            .id(getWiringRouteId(Direction.FROM,
-                                                 blackBoxContext))
-                            .process(setDest(routing))
+                    from(blackBoxOut).id(getWiringRouteId(Direction.FROM, blackBoxContext)).process(setDest(routing))
                             .recipientList(header("dest"));
                 }
 
@@ -300,7 +292,7 @@ public class LoaderFramework {
                 cxt.removeRoute(getWiringRouteId(Direction.TO, cxtToStop));
             }
         } catch (Exception e) {
-            /* TODO: Something */
+            throw new RuntimeException(e);
         }
     }
 
@@ -315,17 +307,14 @@ public class LoaderFramework {
                 cxt.removeRoute(getWiringRouteId(Direction.TO, cxtToStop));
             }
         } catch (Exception e) {
-            /* log, or something */
+            throw new RuntimeException(e);
         } finally {
             factory.disposeContext(cxtToStop);
         }
     }
 
-    private static String getWiringRouteId(Direction direction,
-                                           CamelContext blackBox) {
-        return String.format("wiring-%s-%s",
-                             direction.toString(),
-                             blackBox.getName());
+    private static String getWiringRouteId(Direction direction, CamelContext blackBox) {
+        return String.format("wiring-%s-%s", direction.toString(), blackBox.getName());
     }
 
     private static String routingURI(String uri, String format) {
@@ -342,26 +331,15 @@ public class LoaderFramework {
 
                 if (routing.to != null && routing.from != null) {
                     /* We're sending to a domain destination */
-                    modifier =
-                            exchange.getIn()
-                                    .getHeader("domain",
-                                               Optional.ofNullable(routing.domain)
-                                                       .orElse(modifier),
-                                               String.class);
+                    modifier = exchange.getIn()
+                            .getHeader("domain", Optional.ofNullable(routing.domain).orElse(modifier), String.class);
                 } else {
 
-                    modifier =
-                            exchange.getIn()
-                                    .getHeader("format",
-                                               Optional.ofNullable(routing.format)
-                                                       .orElse(modifier),
-                                               String.class);
+                    modifier = exchange.getIn()
+                            .getHeader("format", Optional.ofNullable(routing.format).orElse(modifier), String.class);
                 }
 
-                System.err.println("Setting dest to "
-                        + routingURI(routing.to, modifier));
-                exchange.getIn().setHeader("dest",
-                                           routingURI(routing.to, modifier));
+                exchange.getIn().setHeader("dest", routingURI(routing.to, modifier));
             }
         };
 

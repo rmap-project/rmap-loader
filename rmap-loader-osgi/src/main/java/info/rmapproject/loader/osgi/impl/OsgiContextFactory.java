@@ -3,7 +3,6 @@ package info.rmapproject.loader.osgi.impl;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.RoutesBuilder;
-import org.apache.camel.core.osgi.OsgiCamelContextPublisher;
 import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.core.osgi.utils.BundleDelegatingClassLoader;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -23,14 +22,14 @@ import info.rmapproject.loader.camel.ContextFactory;
 public class OsgiContextFactory
         implements ContextFactory {
 
-    OsgiCamelContextPublisher publisher;
+    ContextFixerPublisher publisher;
 
     private BundleContext bundleContext;
 
     @Activate
     public void activate(BundleContext bundleContext) {
         this.bundleContext = bundleContext;
-        publisher = new OsgiCamelContextPublisher(bundleContext);
+        publisher = new ContextFixerPublisher(bundleContext);
         try {
             publisher.start();
         } catch (Exception e) {
@@ -45,10 +44,8 @@ public class OsgiContextFactory
         if (bundleContext != null) {
 
             context = new OsgiDefaultCamelContext(bundleContext);
-            context.setApplicationContextClassLoader(new BundleDelegatingClassLoader(bundleContext
-                    .getBundle()));
-            Thread.currentThread()
-                    .setContextClassLoader(context.getApplicationContextClassLoader());
+            context.setApplicationContextClassLoader(new BundleDelegatingClassLoader(bundleContext.getBundle()));
+            Thread.currentThread().setContextClassLoader(context.getApplicationContextClassLoader());
 
         } else {
             context = new DefaultCamelContext();
