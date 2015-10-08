@@ -22,6 +22,27 @@
           </instructions>
         </configuration>
       </plugin>
+      <!-- for karaf feature.xml descriptor -->
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+        <version>${karaf.version}</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>generate-features-descriptor</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>features-generate-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- <resolver>(OBR)</resolver> -->
+          <includeProjectArtifact>true</includeProjectArtifact>
+          <includeTransitiveDependency>true</includeTransitiveDependency>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

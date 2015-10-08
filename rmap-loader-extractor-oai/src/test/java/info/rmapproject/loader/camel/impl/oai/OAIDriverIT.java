@@ -1,8 +1,6 @@
 
 package info.rmapproject.loader.camel.impl.oai;
 
-import info.rmapproject.loader.camel.impl.oai.OAIHarvest;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.URL;
@@ -25,6 +23,7 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
 import org.apache.camel.EndpointInject;
+import org.apache.camel.Exchange;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
@@ -36,12 +35,18 @@ import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
+import org.apache.http.client.utils.URIBuilder;
+
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class OaiHarvestIT
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_VERB;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_METADATA_PREFIX;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_RECORDS;
+
+public class OAIDriverIT
         extends CamelTestSupport {
 
     @Produce
@@ -65,8 +70,6 @@ public class OaiHarvestIT
     private static final String METADATA_PREFIX = "prefix";
 
     private static final String RESUMPTION_TOKEN = "resumptionToken";
-
-    private static final HashMap<String, String> oaiConfig = new HashMap<>();
 
     @Path("oai")
     public static class OaiServer {
@@ -97,9 +100,8 @@ public class OaiHarvestIT
     /* Simple test for single-resource harvest with no resumption */
     @Test
     public void noResumptionTest() throws Exception {
-        String content =
-                IOUtils.readStringFromStream(OaiHarvestTest.class
-                        .getResourceAsStream("/oai/pubmed_50_oai_dc_noResumption.xml"));
+        String content = IOUtils.readStringFromStream(OAIDriverTest.class
+                .getResourceAsStream("/oai/pubmed_50_oai_dc_noResumption.xml"));
         oai.content = new ByteArrayInputStream(content.getBytes());
 
         mock_out.setExpectedCount(50);
@@ -107,8 +109,12 @@ public class OaiHarvestIT
         mock_err.setExpectedCount(0);
         mock_err.setAssertPeriod(500);
 
-        /* Empty message */
-        template.sendBody("direct:start", "");
+        template.sendBodyAndHeader("direct:start",
+                                   "",
+                                   Exchange.HTTP_URI,
+                                   new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
+                                           .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
+                                           .toString());
 
         mock_out.assertIsSatisfied();
     }
@@ -132,16 +138,13 @@ public class OaiHarvestIT
                     case 0:
                         /* First request, not from resumption token */
                         assertNull(param(RESUMPTION_TOKEN, uri));
-                        oai.content =
-                                OaiHarvestIT.class
-                                        .getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+                        oai.content = OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
                         break;
                     case 1:
                         /* Second request, from resumption token */
                         assertNotNull(param(RESUMPTION_TOKEN, uri));
                         oai.content =
-                                OaiHarvestIT.class
-                                        .getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
+                                OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
                         break;
                     default:
                         fail("only should have been two requests!");
@@ -159,7 +162,12 @@ public class OaiHarvestIT
         mock_err.setAssertPeriod(500);
 
         /* Empty message */
-        template.sendBody("direct:start", "");
+        template.sendBodyAndHeader("direct:start",
+                                   "",
+                                   Exchange.HTTP_URI,
+                                   new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
+                                           .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
+                                           .toString());
 
         mock_out.assertIsSatisfied();
 
@@ -179,14 +187,12 @@ public class OaiHarvestIT
             public void onRequest(UriInfo uri) {
                 int request = requestNumber.getAndIncrement();
 
-                System.out.println("Request: " + request  + ", " + uri.getRequestUri().toString());
+                System.out.println("Request: " + request + ", " + uri.getRequestUri().toString());
                 switch (request) {
                     case 0:
                         /* First request, not from resumption token */
                         assertNull(param(RESUMPTION_TOKEN, uri));
-                        oai.content =
-                                OaiHarvestIT.class
-                                        .getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+                        oai.content = OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
                         break;
                     case 1:
                         oai.status = Status.SERVICE_UNAVAILABLE.getStatusCode();
@@ -195,16 +201,17 @@ public class OaiHarvestIT
                         retryAt.set(new Date().getTime());
                         break;
                     case 2:
-                        /* Third request; after delay, and from resumption token */
-                        
+                        /*
+                         * Third request; after delay, and from resumption token
+                         */
+
                         oai.status = Status.OK.getStatusCode();
                         oai.headers.clear();
-                        
+
                         assertNotNull(param(RESUMPTION_TOKEN, uri));
-                        
+
                         oai.content =
-                                OaiHarvestIT.class
-                                        .getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
+                                OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
                         break;
                     default:
                         fail("only should have been two requests!");
@@ -222,7 +229,12 @@ public class OaiHarvestIT
         mock_err.setAssertPeriod(1500);
 
         /* Empty message */
-        template.sendBody("direct:start", "");
+        template.sendBodyAndHeader("direct:start",
+                                   "",
+                                   Exchange.HTTP_URI,
+                                   new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
+                                           .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
+                                           .toString());
 
         mock_out.assertIsSatisfied();
     }
@@ -235,8 +247,7 @@ public class OaiHarvestIT
         JAXRSServerFactoryBean sf = new JAXRSServerFactoryBean();
         sf.setResourceClasses(OaiServer.class);
 
-        sf.setResourceProvider(OaiServer.class,
-                               new SingletonResourceProvider(oai, true));
+        sf.setResourceProvider(OaiServer.class, new SingletonResourceProvider(oai, true));
         sf.setAddress(ENDPOINT_ADDRESS);
 
         server = sf.create();
@@ -264,13 +275,7 @@ public class OaiHarvestIT
         DefaultCamelContext testShim = new DefaultCamelContext(registry);
         testShim.setName("testShim");
 
-        OAIHarvest oai = new OAIHarvest();
-
-        oaiConfig.put("oai.baseURI", url.toString());
-        oaiConfig.put("oai.metadataPrefix", METADATA_PREFIX);
-
-        oai.configure(oaiConfig);
-
+        OAIDriver oai = new OAIDriver();
         testShim.addRoutes(oai);
 
         testShim.start();
@@ -288,7 +293,7 @@ public class OaiHarvestIT
             public void configure() {
 
                 /* In */
-                from("direct:start").to("toTest:start");
+                from("direct:start").to("toTest:oai.request");
 
                 /* Outs */
                 from("toTest:out").to("mock:out");

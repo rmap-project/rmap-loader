@@ -1,8 +1,6 @@
 
 package info.rmapproject.loader.camel.impl.oai;
 
-import info.rmapproject.loader.camel.impl.oai.OAIHarvest;
-
 import java.io.InputStream;
 
 import org.apache.camel.EndpointInject;
@@ -17,7 +15,7 @@ import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Before;
 import org.junit.Test;
 
-public class OaiHarvestTest
+public class OAIDriverTest
         extends CamelTestSupport {
 
     private static final String MOCK_OAI_ENDPOINT_ID = "mock.oai.request";
@@ -37,7 +35,7 @@ public class OaiHarvestTest
     @Test
     public void splitTest() throws Exception {
         InputStream toSplit =
-                OaiHarvestTest.class
+                OAIDriverTest.class
                         .getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
 
         mock_out.setExpectedCount(50);
@@ -50,7 +48,7 @@ public class OaiHarvestTest
     @Test
     public void stopWhenNoResumptionTest() throws Exception {
         InputStream oaiListRecords =
-                OaiHarvestTest.class
+                OAIDriverTest.class
                         .getResourceAsStream("/oai/pubmed_50_oai_dc_noResumption.xml");
 
         mock_stop.setExpectedCount(1);
@@ -65,7 +63,7 @@ public class OaiHarvestTest
     @Test
     public void stopWhenEmptyResumptionTest() throws Exception {
         InputStream oaiListRecords =
-                OaiHarvestTest.class
+                OAIDriverTest.class
                         .getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
 
         mock_stop.setExpectedCount(1);
@@ -80,7 +78,7 @@ public class OaiHarvestTest
     @Test
     public void resumeWhenResumptionTokenTest() throws Exception {
         InputStream oaiListRecords =
-                OaiHarvestTest.class
+                OAIDriverTest.class
                         .getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
 
         mock_oai.setExpectedCount(1);
@@ -110,11 +108,11 @@ public class OaiHarvestTest
 
         DefaultCamelContext testShim = new DefaultCamelContext(registry);
         testShim.setName("testShim");
-        testShim.addRoutes(new OAIHarvest());
+        testShim.addRoutes(new OAIDriver());
 
         testShim.start();
 
-        testShim.getRouteDefinition(OAIHarvest.ROUTE_OAI_RESUME)
+        testShim.getRouteDefinition(OAIDriver.ROUTE_OAI_RESUME)
                 .adviceWith(testShim, new AdviceWithRouteBuilder() {
 
                     @Override
