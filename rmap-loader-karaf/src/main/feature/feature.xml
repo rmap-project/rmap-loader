@@ -14,6 +14,7 @@
     <details>rmap-loader</details>
 
     <feature>scr</feature>
+    <feature>webconsole</feature>
 
     <!-- ActiveMQ for message queues between loader components -->
     <feature version="${activemq.version}">activemq-broker</feature>
@@ -25,6 +26,8 @@
     <!-- RMap individual features -->
     <feature version="${project.version}">rmap-loader-framework</feature>
     <feature version="${project.version}">rmap-loader-transform-xsl</feature>
+    <feature version="${project.version}">rmap-loader-deposit-disco</feature>
+    <feature version="${project.version}">rmap-loader-extractor-oai</feature>
 
   </feature>
 </features>
