@@ -40,9 +40,11 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 public class OAIDriver
         extends RouteBuilder {
 
-    public static final String ROUTE_OAI_RESUME = "oai.resume";
+    public static final String ROUTE_OAI_RESUME = "oai-resume";
 
-    public static final String ROUTE_OAI_REQUEST = "oai.request";
+    public static final String ROUTE_OAI_REQUEST = "oai-request";
+
+    public static final String ROUTE_OAI_STOP = "oai-stop";
 
     public static final String OAI_NS = "http://www.openarchives.org/OAI/2.0/";
 
@@ -115,9 +117,12 @@ public class OAIDriver
         from("direct:oai.resume").routeId(ROUTE_OAI_RESUME)
                 .setHeader("oai.resumptionToken", ns.xpath("//oai:resumptionToken/text()", String.class))
                 //
-                .choice().when(header("oai.resumptionToken").isEqualTo("")).stop()
+                .choice().when(header("oai.resumptionToken").isEqualTo("")).to("direct:stop").id("doStop")
                 //Stop
                 .otherwise().delay(delay).to("direct:oai.request").id("doResume"); // Delay and resume
+
+        /* Stop.  Tests can override this to verify stoppage */
+        from("direct:stop").routeId(ROUTE_OAI_STOP).process(e -> System.out.println("STOP")).stop();
     }
 
     static final Processor resumptionToken = (e -> {

@@ -42,7 +42,7 @@ import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_REC
     String oai_until();
 }
 
-@Designate(ocd = OneTimeHarvestConfig.class)
+@Designate(ocd = OneTimeHarvestConfig.class, factory = true)
 @Component(service = RoutesBuilder.class, configurationPolicy = ConfigurationPolicy.REQUIRE, property = {
         "extractor.role=oai", "loader.role=extractor"})
 public class OneTimeHarvest

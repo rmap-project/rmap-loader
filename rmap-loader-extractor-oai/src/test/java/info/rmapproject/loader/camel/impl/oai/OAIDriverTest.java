@@ -3,6 +3,7 @@ package info.rmapproject.loader.camel.impl.oai;
 
 import java.io.InputStream;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
@@ -20,6 +21,8 @@ public class OAIDriverTest
 
     private static final String MOCK_OAI_ENDPOINT_ID = "mock.oai.request";
 
+    private static final String MOCK_OAI_STOP_ENDPOINT_ID = "mock.oai.stop";
+
     @Produce
     protected ProducerTemplate template;
 
@@ -34,9 +37,7 @@ public class OAIDriverTest
 
     @Test
     public void splitTest() throws Exception {
-        InputStream toSplit =
-                OAIDriverTest.class
-                        .getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+        InputStream toSplit = OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
 
         mock_out.setExpectedCount(50);
 
@@ -47,9 +48,7 @@ public class OAIDriverTest
 
     @Test
     public void stopWhenNoResumptionTest() throws Exception {
-        InputStream oaiListRecords =
-                OAIDriverTest.class
-                        .getResourceAsStream("/oai/pubmed_50_oai_dc_noResumption.xml");
+        InputStream oaiListRecords = OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_noResumption.xml");
 
         mock_stop.setExpectedCount(1);
         mock_oai.setExpectedCount(0);
@@ -63,8 +62,7 @@ public class OAIDriverTest
     @Test
     public void stopWhenEmptyResumptionTest() throws Exception {
         InputStream oaiListRecords =
-                OAIDriverTest.class
-                        .getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
+                OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
 
         mock_stop.setExpectedCount(1);
         mock_oai.setExpectedCount(0);
@@ -77,9 +75,7 @@ public class OAIDriverTest
 
     @Test
     public void resumeWhenResumptionTokenTest() throws Exception {
-        InputStream oaiListRecords =
-                OAIDriverTest.class
-                        .getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+        InputStream oaiListRecords = OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
 
         mock_oai.setExpectedCount(1);
         mock_stop.setExpectedCount(0);
@@ -89,12 +85,9 @@ public class OAIDriverTest
 
         assertMockEndpointsSatisfied();
 
-        String token =
-                mock_oai.getExchanges().get(0).getIn()
-                        .getHeader("oai.resumptionToken", String.class);
+        String token = mock_oai.getExchanges().get(0).getIn().getHeader("oai.resumptionToken", String.class);
 
-        assertEquals("oai%3Apubmedcentral.nih.gov%3A139967!!!oai_dc!bmcbioc",
-                     token);
+        assertEquals("oai%3Apubmedcentral.nih.gov%3A139967!!!oai_dc!bmcbioc", token);
     }
 
     @Before
@@ -112,15 +105,14 @@ public class OAIDriverTest
 
         testShim.start();
 
-        testShim.getRouteDefinition(OAIDriver.ROUTE_OAI_RESUME)
-                .adviceWith(testShim, new AdviceWithRouteBuilder() {
+        testShim.getRouteDefinition(OAIDriver.ROUTE_OAI_RESUME).adviceWith(testShim, new AdviceWithRouteBuilder() {
 
-                    @Override
-                    public void configure() throws Exception {
-                        weaveById("doResume").replace().to("direct:"
-                                + MOCK_OAI_ENDPOINT_ID);
-                    }
-                });
+            @Override
+            public void configure() throws Exception {
+                weaveById("doResume").replace().to("direct:" + MOCK_OAI_ENDPOINT_ID);
+                weaveById("doStop").replace().to("direct:" + MOCK_OAI_STOP_ENDPOINT_ID);
+            }
+        });
 
         registry.bind("toTest", testShim);
         return registry;
@@ -140,8 +132,8 @@ public class OAIDriverTest
 
                 /* ResumptionToken */
                 from("direct:resumption").to("toTest:oai.resume");
-                from("toTest:stop").to("mock:stop");
                 from("toTest:" + MOCK_OAI_ENDPOINT_ID).to("mock:oai");
+                from("toTest:" + MOCK_OAI_STOP_ENDPOINT_ID).to("mock:stop");
             }
         };
     }
