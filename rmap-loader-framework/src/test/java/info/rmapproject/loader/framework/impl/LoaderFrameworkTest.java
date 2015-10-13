@@ -92,7 +92,7 @@ public class LoaderFrameworkTest
          * Add this as a context, as we want to inspect the output message by
          * routing it to a mock
          */
-        fwk.addLoaderRoutes(new RouteBuilder() {
+        fwk.addDepositRoutes(new RouteBuilder() {
 
             @Override
             public void configure() throws Exception {

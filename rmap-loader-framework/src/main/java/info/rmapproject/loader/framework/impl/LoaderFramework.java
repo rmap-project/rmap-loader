@@ -14,7 +14,11 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.RoutesBuilder;
+import org.apache.camel.StartupListener;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.context.QualifiedContextComponent;
+import org.apache.camel.impl.DefaultCamelContext;
+
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
@@ -22,6 +26,8 @@ import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,14 +41,17 @@ import org.slf4j.LoggerFactory;
  * 
  * @author apb18
  */
-@ObjectClassDefinition
+@ObjectClassDefinition(name = "info.rmapproject.loader.framework.impl.LoaderFramework", description = "Main RMap harvest framework")
 @interface LoderFrameworkConfig {
 
+    @AttributeDefinition(description = "Queue that will hold the extracted records for processing")
     String queue_extracted();
 
+    @AttributeDefinition(description = "Queue that will hold transformed records prior to deposit")
     String queue_transformed();
 }
 
+@Designate(ocd = LoderFrameworkConfig.class)
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE, immediate = true)
 public class LoaderFramework {
 
@@ -149,11 +158,11 @@ public class LoaderFramework {
         blackBoxContexts.put(routes, extractorCxt);
 
         try {
+            extractorCxt.addStartupListener((cxt, started) -> addExtractor(cxt, properties));
             extractorCxt.start();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        addExtractor(extractorCxt, properties);
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(loader.role=extractor)", unbind = "removeRoutes")
@@ -181,11 +190,11 @@ public class LoaderFramework {
         blackBoxContexts.put(routes, transformerCxt);
 
         try {
+            transformerCxt.addStartupListener((cxt, started) -> addTransformer(cxt, properties));
             transformerCxt.start();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        addTransformer(transformerCxt, properties);
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=transformer)(loader.format=*))", unbind = "removeRoutes")
@@ -201,30 +210,31 @@ public class LoaderFramework {
                      .withDomain(properties.get(PROPERTY_DOMAIN_MODEL)));
     }
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=loader)(loader.domain=*))", unbind = "removeRoutes")
-    public void addLoaderRoutes(RoutesBuilder routes, Map<String, Object> properties) {
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=deposit)(loader.domain=*))", unbind = "removeRoutes")
+    public void addDepositRoutes(RoutesBuilder routes, Map<String, Object> properties) {
 
         /* First create a black box camel context */
-        CamelContext loaderCxt = factory.newContext(routes);
-        blackBoxContexts.put(routes, loaderCxt);
+        CamelContext depositCxt = factory.newContext(routes);
+        blackBoxContexts.put(routes, depositCxt);
 
         try {
-            loaderCxt.start();
+            depositCxt.addStartupListener((cxt, started) -> addDepositor(depositCxt, properties));
+            depositCxt.start();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        addLoader(loaderCxt, properties);
     }
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=loader)(loader.domain=*))", unbind = "removeRoutes")
-    public void addLoader(CamelContext loaderCxt, Map<String, Object> properties) {
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=deposit)(loader.domain=*))", unbind = "removeRoutes")
+    public void addDepositor(CamelContext depositCxt, Map<String, Object> properties) {
 
         /* Now add a route from the context to the queue */
         LOG.info("Wiring in loader context {} with endpoints {}",
-                 loaderCxt.getName(),
-                 loaderCxt.getEndpointMap().keySet());
-        wire(loaderCxt,
+                 depositCxt.getName(),
+                 depositCxt.getEndpointMap().keySet());
+        wire(depositCxt,
              new QueueSpec().from(transformedQueueURI).withDomain((String) properties.get(PROPERTY_DOMAIN_MODEL)));
+
     }
 
     /*
@@ -232,9 +242,13 @@ public class LoaderFramework {
      * CamelContext
      */
     private void wire(CamelContext blackBoxContext, QueueSpec routing) {
+
         final String blackBoxOut = String.format("%s:out", blackBoxContext.getName());
 
         final String blackBoxIn = String.format("%s:in", blackBoxContext.getName());
+
+        LOG.info("Context component is {}", cxt.getComponent("context"));
+        LOG.info("Found contexts {}" + cxt.getRegistry().findByType(CamelContext.class));
 
         /* Now route it */
         RouteBuilder wiring = new RouteBuilder() {
@@ -275,6 +289,10 @@ public class LoaderFramework {
                 cxt.addRoutes(wiring);
             } else {
                 wiringQueue.add(wiring);
+            }
+
+            if (blackBoxContext.getEndpointMap().containsKey("direct:start")) {
+                blackBoxContext.createProducerTemplate().sendBody("direct:start", null);
             }
 
         } catch (Exception e) {
