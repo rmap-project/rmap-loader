@@ -14,10 +14,7 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.RoutesBuilder;
-import org.apache.camel.StartupListener;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.context.QualifiedContextComponent;
-import org.apache.camel.impl.DefaultCamelContext;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -103,7 +100,7 @@ public class LoaderFramework {
     @Activate
     public void start(Map<String, String> config) {
 
-        cxt = factory.newContext();
+        cxt = factory.newContext("loader-framework");
 
         extractedQueueURI = config.get(CONFIG_EXTRACTED_QUEUE_URI);
         transformedQueueURI = config.get(CONFIG_TRANSFORMED_QUEUE_URI);
@@ -154,15 +151,15 @@ public class LoaderFramework {
     public void addExtractorRoutes(RoutesBuilder routes, Map<String, String> properties) {
 
         /* First create a black box camel context */
-        CamelContext extractorCxt = factory.newContext(routes);
+        CamelContext extractorCxt = factory.newContext(routes, "extractor");
         blackBoxContexts.put(routes, extractorCxt);
 
         try {
-            extractorCxt.addStartupListener((cxt, started) -> addExtractor(cxt, properties));
             extractorCxt.start();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        addExtractor(extractorCxt, properties);
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(loader.role=extractor)", unbind = "removeRoutes")
@@ -186,15 +183,15 @@ public class LoaderFramework {
     public void addTransformerRoutes(RoutesBuilder routes, Map<String, String> properties) {
 
         /* First create a black box camel context */
-        CamelContext transformerCxt = factory.newContext(routes);
+        CamelContext transformerCxt = factory.newContext(routes, "transformer");
         blackBoxContexts.put(routes, transformerCxt);
 
         try {
-            transformerCxt.addStartupListener((cxt, started) -> addTransformer(cxt, properties));
             transformerCxt.start();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        addTransformer(transformerCxt, properties);
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=transformer)(loader.format=*))", unbind = "removeRoutes")
@@ -214,15 +211,15 @@ public class LoaderFramework {
     public void addDepositRoutes(RoutesBuilder routes, Map<String, Object> properties) {
 
         /* First create a black box camel context */
-        CamelContext depositCxt = factory.newContext(routes);
+        CamelContext depositCxt = factory.newContext(routes, "deposit");
         blackBoxContexts.put(routes, depositCxt);
 
         try {
-            depositCxt.addStartupListener((cxt, started) -> addDepositor(depositCxt, properties));
             depositCxt.start();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        addDepositor(depositCxt, properties);
     }
 
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=deposit)(loader.domain=*))", unbind = "removeRoutes")
@@ -247,8 +244,20 @@ public class LoaderFramework {
 
         final String blackBoxIn = String.format("%s:in", blackBoxContext.getName());
 
-        LOG.info("Context component is {}", cxt.getComponent("context"));
+        /*
+         * Wait until blackbox context is truly up and registered to the context
+         * component
+         */
+        while (blackBoxContext.isStartingRoutes() || cxt.getComponent(blackBoxContext.getName()) == null) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
         LOG.info("Found contexts {}" + cxt.getRegistry().findByType(CamelContext.class));
+        LOG.info("I am {}", blackBoxContext.getName());
+        LOG.info("Component is {}", cxt.getComponent(blackBoxContext.getName()));
 
         /* Now route it */
         RouteBuilder wiring = new RouteBuilder() {

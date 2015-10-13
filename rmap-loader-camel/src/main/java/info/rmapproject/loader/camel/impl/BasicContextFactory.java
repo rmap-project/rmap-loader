@@ -4,7 +4,7 @@ package info.rmapproject.loader.camel.impl;
 import org.apache.camel.CamelContext;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.impl.ExplicitCamelContextNameStrategy;
+import org.apache.camel.impl.DefaultCamelContextNameStrategy;
 import org.apache.camel.impl.JndiRegistry;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
@@ -16,7 +16,7 @@ import static info.rmapproject.loader.camel.ContextHelper.fix;
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE)
 public class BasicContextFactory
         implements ContextFactory {
-
+    
     private final JndiRegistry registry;
 
     public BasicContextFactory() {
@@ -33,7 +33,7 @@ public class BasicContextFactory
         CamelContext cxt = fix(new DefaultCamelContext(registry));
 
         if (id != null) {
-            cxt.setNameStrategy(new ExplicitCamelContextNameStrategy(id));
+            cxt.setNameStrategy(new DefaultCamelContextNameStrategy(id));
         }
 
         try {
