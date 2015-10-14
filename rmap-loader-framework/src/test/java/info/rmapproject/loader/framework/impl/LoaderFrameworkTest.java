@@ -114,6 +114,43 @@ public class LoaderFrameworkTest
 
     }
 
+    /*
+     * Verifies that contexts that have a "test:start" producer endpoint get a
+     * message sent to it upon startup
+     */
+    @Test
+    public void startMessageTest() throws Exception {
+        ContextFactory cxtFactory = new BasicContextFactory(registry);
+
+        /* Initialize the framework */
+        LoaderFramework fwk = new LoaderFramework();
+        fwk.setContextFactory(cxtFactory);
+
+        Map<String, String> config = new HashMap<>();
+        config.put(LoaderFramework.CONFIG_EXTRACTED_QUEUE_URI, "testCxt:extracted_$format");
+        config.put(LoaderFramework.CONFIG_TRANSFORMED_QUEUE_URI, "testCxt:translated_$format");
+
+        fwk.start(config);
+
+        fwk.addExtractorRoutes(new RouteBuilder() {
+
+            @Override
+            public void configure() throws Exception {
+                from(String.format("direct:start", TEST_CONTEXT_ID)).loop(2).setBody(constant("extractor"))
+                        .to("direct:out");
+            }
+        }, new HashMap<String, String>() {
+
+            {
+                put(LoaderFramework.PROPERTY_EXTRACTED_FORMAT, "testStart");
+            }
+        });
+
+        mock_end.setExpectedCount(2);
+        assertMockEndpointsSatisfied();
+
+    }
+
     protected JndiRegistry createRegistry() throws Exception {
         if (registry == null) {
             registry = super.createRegistry();
@@ -150,6 +187,10 @@ public class LoaderFrameworkTest
                 /* Just to make sure endpoints are here */
                 from("direct:noop1").to("seda:extracted_exf");
                 from("direct:noop2").to("seda:translated_dom");
+
+                /* For 'start' test */
+                from("direct:extracted_testStart").to("mock:end");
+
             }
         };
     }

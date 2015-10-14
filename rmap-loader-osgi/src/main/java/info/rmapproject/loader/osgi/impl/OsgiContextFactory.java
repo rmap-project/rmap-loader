@@ -6,7 +6,9 @@ import org.apache.camel.RoutesBuilder;
 import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.core.osgi.utils.BundleDelegatingClassLoader;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.impl.ExplicitCamelContextNameStrategy;
+import org.apache.camel.impl.JndiRegistry;
+import org.apache.camel.impl.SimpleRegistry;
+
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -23,6 +25,8 @@ public class OsgiContextFactory
         implements ContextFactory {
 
     ContextFixerPublisher publisher;
+
+    SimpleRegistry registry = new SimpleRegistry();
 
     private BundleContext bundleContext;
 
@@ -43,7 +47,7 @@ public class OsgiContextFactory
 
         if (bundleContext != null) {
 
-            context = new OsgiDefaultCamelContext(bundleContext);
+            context = new OsgiDefaultCamelContext(bundleContext, registry);
             context.setApplicationContextClassLoader(new BundleDelegatingClassLoader(bundleContext.getBundle()));
             Thread.currentThread().setContextClassLoader(context.getApplicationContextClassLoader());
 
@@ -55,8 +59,8 @@ public class OsgiContextFactory
             context.getManagementStrategy().addEventNotifier(publisher);
         }
 
-        if (id != null) {
-            context.setNameStrategy(new ExplicitCamelContextNameStrategy(id));
+        if (id != null && id != "") {
+            context.setNameStrategy(new ExplicitOsgiCamelContextNameStrategy(bundleContext, id));
         }
 
         context.setUseMDCLogging(true);
@@ -69,6 +73,8 @@ public class OsgiContextFactory
                 throw new RuntimeException(e);
             }
         }
+
+        registry.put(context.getName(), context);
 
         return context;
     }

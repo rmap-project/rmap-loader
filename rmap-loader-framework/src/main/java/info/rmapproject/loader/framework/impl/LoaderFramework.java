@@ -42,10 +42,10 @@ import org.slf4j.LoggerFactory;
 @interface LoderFrameworkConfig {
 
     @AttributeDefinition(description = "Queue that will hold the extracted records for processing")
-    String queue_extracted();
+    String queue_extracted() default "file:/tmp/extracted/$format";
 
     @AttributeDefinition(description = "Queue that will hold transformed records prior to deposit")
-    String queue_transformed();
+    String queue_transformed() default "file:/tmp/transformed/$format";
 }
 
 @Designate(ocd = LoderFrameworkConfig.class)
@@ -240,24 +240,29 @@ public class LoaderFramework {
      */
     private void wire(CamelContext blackBoxContext, QueueSpec routing) {
 
-        final String blackBoxOut = String.format("%s:out", blackBoxContext.getName());
+        final String blackBoxOut = String.format("context:%s:out", blackBoxContext.getName());
 
-        final String blackBoxIn = String.format("%s:in", blackBoxContext.getName());
+        final String blackBoxIn = String.format("context:%s:in", blackBoxContext.getName());
 
         /*
          * Wait until blackbox context is truly up and registered to the context
          * component
          */
-        while (blackBoxContext.isStartingRoutes() || cxt.getComponent(blackBoxContext.getName()) == null) {
+        LOG.info("Waiting for {} to be up", blackBoxContext.getName());
+        while (blackBoxContext.isStartingRoutes()
+                || cxt.getRegistry().lookupByName(blackBoxContext.getName()) == null) {
             try {
+                LOG.info(String.format("No.  Starting routes? %b, Context '%s' is resolvable? %b.  Known contexts: %s",
+                                       blackBoxContext.isStartingRoutes(),
+                                       blackBoxContext.getName(),
+                                       (cxt.getRegistry().lookupByName(blackBoxContext.getName()) != null),
+                                       cxt.getRegistry().findByTypeWithName(CamelContext.class).toString()));
+
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         }
-        LOG.info("Found contexts {}" + cxt.getRegistry().findByType(CamelContext.class));
-        LOG.info("I am {}", blackBoxContext.getName());
-        LOG.info("Component is {}", cxt.getComponent(blackBoxContext.getName()));
 
         /* Now route it */
         RouteBuilder wiring = new RouteBuilder() {
@@ -295,13 +300,19 @@ public class LoaderFramework {
         try {
             /* Add routes, or queue them if the context isn't up yet */
             if (cxt != null) {
+                LOG.info("Now adding wiring routes to framework for {}" + blackBoxContext.getName());
                 cxt.addRoutes(wiring);
             } else {
                 wiringQueue.add(wiring);
             }
 
-            if (blackBoxContext.getEndpointMap().containsKey("direct:start")) {
+            if (blackBoxContext.getEndpointMap().containsKey("direct://start")) {
+                LOG.info("Sending startup message to {}:start", blackBoxContext.getName());
                 blackBoxContext.createProducerTemplate().sendBody("direct:start", null);
+            } else {
+                LOG.info("Not sending startup message to context{}, {}",
+                         blackBoxContext.getName(),
+                         blackBoxContext.getEndpointMap().keySet());
             }
 
         } catch (Exception e) {
