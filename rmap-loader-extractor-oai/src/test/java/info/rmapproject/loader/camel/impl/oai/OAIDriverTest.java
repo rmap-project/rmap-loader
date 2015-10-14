@@ -3,8 +3,8 @@ package info.rmapproject.loader.camel.impl.oai;
 
 import java.io.InputStream;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
+import org.apache.camel.Exchange;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.AdviceWithRouteBuilder;
@@ -13,8 +13,14 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.test.junit4.CamelTestSupport;
+import org.apache.http.client.utils.URIBuilder;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_RESUMPTION_TOKEN;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_VERB;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_RECORDS;
 
 public class OAIDriverTest
         extends CamelTestSupport {
@@ -81,13 +87,20 @@ public class OAIDriverTest
         mock_stop.setExpectedCount(0);
         mock_stop.setAssertPeriod(100);
 
-        template.sendBody("direct:resumption", oaiListRecords);
+        URIBuilder uri = new URIBuilder("http://example.org");
+
+        String RESUMPTION_TOKEN = "oai%3Apubmedcentral.nih.gov%3A139967!!!oai_dc!bmcbioc";
+
+        template.sendBodyAndHeader("direct:resumption", oaiListRecords, Exchange.HTTP_URI, uri.build().toString());
 
         assertMockEndpointsSatisfied();
 
         String token = mock_oai.getExchanges().get(0).getIn().getHeader("oai.resumptionToken", String.class);
 
-        assertEquals("oai%3Apubmedcentral.nih.gov%3A139967!!!oai_dc!bmcbioc", token);
+        assertEquals(RESUMPTION_TOKEN, token);
+        assertEquals(uri.setParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
+                .setParameter(OAI_PARAM_RESUMPTION_TOKEN, RESUMPTION_TOKEN).build().toString(),
+                     mock_oai.getExchanges().get(0).getIn().getHeader(Exchange.HTTP_URI, String.class));
     }
 
     @Before

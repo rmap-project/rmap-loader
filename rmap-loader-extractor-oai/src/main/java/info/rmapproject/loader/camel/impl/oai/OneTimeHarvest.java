@@ -10,12 +10,16 @@ import org.apache.http.client.utils.URIBuilder;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.ENDPOINT_OAI_REQUEST;
 import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_FROM;
 import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_METADATA_PREFIX;
 import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_SET;
@@ -27,10 +31,10 @@ import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_REC
 @interface OneTimeHarvestConfig {
 
     @AttributeDefinition(description = "OAI baseURI")
-    String oai_baseURI() default "http://example.org/oai";
+    String oai_baseURI() default "http://oai.datacite.org/oai";
 
     @AttributeDefinition(description = "metadata format")
-    String oai_metadataPrefix() default "oai_dc";
+    String oai_metadataPrefix() default "datacite";
 
     @AttributeDefinition(description = "set (optional)")
     String oai_set();
@@ -48,6 +52,8 @@ import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_REC
 public class OneTimeHarvest
         extends RouteBuilder {
 
+    static Logger LOG = LoggerFactory.getLogger(OneTimeHarvest.class);
+
     static final String ROUTE_OAI_RESUME = "oai.resume";
 
     static final String ROUTE_OAI_REQUEST = "oai.request";
@@ -63,7 +69,7 @@ public class OneTimeHarvest
     private String until;
 
     private RoutesBuilder driver;
-
+    
     @Activate
     @Modified
     public void init(OneTimeHarvestConfig config) {
@@ -73,7 +79,7 @@ public class OneTimeHarvest
         from = config.oai_from();
         until = config.oai_until();
     }
-
+    
     @Reference(target = "(oai.role=driver)")
     public void setOaiDriver(RoutesBuilder driver) {
         this.driver = driver;
@@ -87,7 +93,9 @@ public class OneTimeHarvest
     @Override
     public void configure() throws Exception {
 
-        from("timer:oneTime?repeatCount=1").process(oaiURL).to("direct:oai.request");
+        from("direct:start").process(oaiURL)
+                .process(e -> LOG.info("Launching one time harvest to {}", e.getIn().getHeader(Exchange.HTTP_URI)))
+                .to(ENDPOINT_OAI_REQUEST);
     }
 
     private Processor oaiURL = (exchange -> {
@@ -103,7 +111,8 @@ public class OneTimeHarvest
 
     private static void addIfPresent(String value, String oaiParam, URIBuilder uri) {
 
-        if (value != null) {
+        if (value != null && !value.equals("")) {
+            LOG.info("Adding optional param {} = '{}'", oaiParam, value);
             uri.addParameter(oaiParam, value);
         }
     }

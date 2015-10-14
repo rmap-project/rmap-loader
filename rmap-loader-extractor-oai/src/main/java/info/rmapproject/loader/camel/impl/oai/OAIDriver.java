@@ -23,6 +23,8 @@ import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @ObjectClassDefinition(name = "info.rmapproject.loader.camel.impl.oai.OAIDriver", description = "Basic OAI driver for performing OAI-PMH harvests")
 @interface OAIDriverConfig {
@@ -39,6 +41,8 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
         "oai.role=driver"})
 public class OAIDriver
         extends RouteBuilder {
+
+    private static Logger LOG = LoggerFactory.getLogger(OAIDriver.class);
 
     public static final String ROUTE_OAI_RESUME = "oai-resume";
 
@@ -61,6 +65,8 @@ public class OAIDriver
     public static final String OAI_PARAM_RESUMPTION_TOKEN = "resumptionToken";
 
     public static final String OAI_VERB_LIST_RECORDS = "ListRecords";
+
+    public static final String ENDPOINT_OAI_REQUEST = "direct:oai.request";
 
     private long retryDelay = 60000l;
 
@@ -94,7 +100,8 @@ public class OAIDriver
          * Instead of multicast, do an xpath split with an OR:
          * //oai:metadata/*[1]|//oai:resumptionToken. Route based on element.
          */
-        from("direct:oai.request").routeId(ROUTE_OAI_REQUEST).process(resumptionToken)
+        from(ENDPOINT_OAI_REQUEST).routeId(ROUTE_OAI_REQUEST)
+                .process(e -> LOG.info("Fetching from {}", e.getIn().getHeader(Exchange.HTTP_URI)))
                 .to("http4:oai-host?throwExceptionOnFailure=false").streamCaching()
                 //
                 .choice()
@@ -103,36 +110,44 @@ public class OAIDriver
                 .otherwise().multicast().to("direct:in", "direct:oai.resume");
 
         /* Check a bad response */
-        from("direct:checkError").routeId("checkError").choice()
-                .when(header(Exchange.HTTP_RESPONSE_CODE).isNotEqualTo(503)).to("direct:err").otherwise()
-                .delay(retryAfter).to("direct:oai.request");
+        from("direct:checkError").routeId("checkError")
+                .process(e -> LOG.info("Got non-200 response: {}", e.getIn().getHeader(Exchange.HTTP_RESPONSE_CODE)))
+                .choice().when(header(Exchange.HTTP_RESPONSE_CODE).isNotEqualTo(503)).to("direct:err").otherwise()
+                .delay(retryAfter).to(ENDPOINT_OAI_REQUEST);
 
         /* Split into oai Records */
         from("direct:in").routeId("oai-split-response").split(ns.xpath("//oai:metadata/*[1]")).streaming()
-                .convertBodyTo(String.class).to("direct:out");
+                .convertBodyTo(String.class).to("direct:out").end();
 
         /*
          * See if there is a resumption token. If so, request anew. If not, stop
          */
         from("direct:oai.resume").routeId(ROUTE_OAI_RESUME)
                 .setHeader("oai.resumptionToken", ns.xpath("//oai:resumptionToken/text()", String.class))
+                .process(e -> LOG.info("Got resumption token '{}'", e.getIn().getHeader("oai.resumptionToken")))
                 //
                 .choice().when(header("oai.resumptionToken").isEqualTo("")).to("direct:stop").id("doStop")
                 //Stop
-                .otherwise().delay(delay).to("direct:oai.request").id("doResume"); // Delay and resume
+                .otherwise().delay(delay).process(resumptionToken).to(ENDPOINT_OAI_REQUEST).id("doResume"); // Delay and resume
 
-        /* Stop.  Tests can override this to verify stoppage */
-        from("direct:stop").routeId(ROUTE_OAI_STOP).process(e -> System.out.println("STOP")).stop();
+        /* Stop. Tests can override this to verify stoppage */
+        from("direct:stop").routeId(ROUTE_OAI_STOP).process(e -> LOG.info("Terminating harvest")).stop();
     }
 
     static final Processor resumptionToken = (e -> {
         String resumptionToken = e.getIn().getHeader("oai.resumptionToken", String.class);
         if (resumptionToken != null) {
-            URIBuilder newURI = new URIBuilder(e.getIn().getHeader(Exchange.HTTP_URI, String.class))
+            URIBuilder newURI = new URIBuilder(baseURI(e.getIn().getHeader(Exchange.HTTP_URI, String.class)))
+                    .setParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
                     .setParameter(OAI_PARAM_RESUMPTION_TOKEN, resumptionToken);
             e.getIn().setHeader(Exchange.HTTP_URI, newURI.build().toString());
         }
     });
+
+    private static String baseURI(String uri) {
+
+        return uri.contains("?") ? uri.substring(0, uri.indexOf("?")) : uri;
+    }
 
     private class DelayExpression
             implements Expression {
