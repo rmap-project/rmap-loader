@@ -34,16 +34,13 @@ public class OsgiContextIT {
                 maven().groupId("org.apache.karaf").artifactId("apache-karaf")
                         .version(karafVersion()).type("zip");
 
-        MavenUrlReference rmapKarafl =
+        MavenUrlReference rmapKaraf =
                 maven().groupId("info.rmapproject")
                         .artifactId("rmap-loader-karaf").versionAsInProject()
                         .classifier("features").type("xml");
-
-        MavenUrlReference camelRepo =
-                maven().groupId("org.apache.camel.karaf")
-                        .artifactId("apache-camel").type("xml")
-                        .classifier("features").versionAsInProject();
-
+        MavenUrlReference camelRepo = maven().groupId("org.apache.camel.karaf")
+                .artifactId("apache-camel").type("xml").classifier("features")
+                .versionAsInProject();
         try {
 
             return new Option[] {
@@ -52,8 +49,9 @@ public class OsgiContextIT {
                             .useDeployFolder(false), keepRuntimeFolder(),
                     configureConsole().ignoreLocalConsole(),
 
-                    features(rmapKarafl, "rmap-loader"),
+                    features(rmapKaraf, "rmap-loader"),
                     features(camelRepo, "camel-test")};
+            
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

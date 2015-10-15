@@ -11,6 +11,9 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
 import static info.rmapproject.loader.transform.xsl.impl.Xslt2Splitter.HEADER_XSLT_FILE_NAME;
 
@@ -24,7 +27,22 @@ import static info.rmapproject.loader.transform.xsl.impl.Xslt2Splitter.HEADER_XS
  * 
  * @author apb18
  */
-@Component(service = RoutesBuilder.class, configurationPolicy = ConfigurationPolicy.REQUIRE, property = {"loader.role=transformer"})
+@ObjectClassDefinition(name = "info.rmapproject.loader.transform.xsl.impl.XSLTransform", description = "XSL transformer")
+@interface XSLTransformConfig {
+
+    @AttributeDefinition(description = "Input format id for XSLT. This is an arbitrary value used for connecting extractors to transformers wherever format IDs match")
+    String loader_format();
+
+    @AttributeDefinition(description = "Output domain model (usually DiSCO)")
+    String loader_domain() default "DiSCO";
+
+    @AttributeDefinition(description = "Path to the XSLT file.  Any included files are expected to be in the same directory as the indicated file.")
+    String xslt_file();
+}
+
+@Designate(ocd = XSLTransformConfig.class, factory = true)
+@Component(service = RoutesBuilder.class, configurationPolicy = ConfigurationPolicy.REQUIRE, property = {
+        "loader.role=transformer"})
 public class XSLTransform
         extends RouteBuilder {
 
@@ -57,7 +75,7 @@ public class XSLTransform
     public void configure() throws Exception {
         /* TODO: Provenance, when we get that sorted out */
 
-        from("direct:in").setHeader(HEADER_XSLT_FILE_NAME, constant(xslt_file))
-                .process(xsltSplit).split(body()).to("direct:out");
+        from("direct:in").setHeader(HEADER_XSLT_FILE_NAME, constant(xslt_file)).process(xsltSplit).split(body())
+                .to("direct:out");
     }
 }

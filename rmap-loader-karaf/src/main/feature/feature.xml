@@ -17,11 +17,15 @@
     <feature>webconsole</feature>
 
     <!-- ActiveMQ for message queues between loader components -->
+    <!--  
     <feature version="${activemq.version}">activemq-broker</feature>
     <feature version="${activemq.version}">activemq-camel</feature>
+    -->
 
     <!-- Hawtio for monitoring -->
+    <!-- 
     <feature version="${hawtio.version}">hawtio</feature>
+    -->
 
     <!-- RMap individual features -->
     <feature version="${project.version}">rmap-loader-framework</feature>

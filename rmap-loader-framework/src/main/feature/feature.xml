@@ -8,6 +8,8 @@
   <feature name="${project.artifactId}" description="${project.description}"
     version="${project.version}">
     <details>${project.artifactId}</details>
+    
+    <feature>scr</feature>
 
     <!-- Camel -->
     <feature version="${camel.version}">camel</feature>
