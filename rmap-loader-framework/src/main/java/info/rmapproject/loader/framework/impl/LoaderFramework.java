@@ -162,7 +162,7 @@ public class LoaderFramework {
         addExtractor(extractorCxt, properties);
     }
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(loader.role=extractor)", unbind = "removeRoutes")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(loader.role=extractor)", unbind = "removeContext")
     public void addExtractor(CamelContext extractorCxt, Map<String, String> properties) {
 
         /* Add a route from the context to the queue */
@@ -194,7 +194,7 @@ public class LoaderFramework {
         addTransformer(transformerCxt, properties);
     }
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=transformer)(loader.format=*))", unbind = "removeRoutes")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=transformer)(loader.format=*))", unbind = "removeContext")
     public void addTransformer(CamelContext transformerCxt, Map<String, String> properties) {
 
         /* Now add a route from the context to the queue */
@@ -222,7 +222,7 @@ public class LoaderFramework {
         addDepositor(depositCxt, properties);
     }
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=deposit)(loader.domain=*))", unbind = "removeRoutes")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, target = "(&(loader.role=deposit)(loader.domain=*))", unbind = "removeContext")
     public void addDepositor(CamelContext depositCxt, Map<String, Object> properties) {
 
         /* Now add a route from the context to the queue */
@@ -320,35 +320,37 @@ public class LoaderFramework {
         }
     }
 
-    public void removeRoutes(CamelContext cxtToStop) {
+    public void removeContext(CamelContext cxtToStop) {
+        LOG.info("Removing wiring to {} and stopping...", cxtToStop.getName());
         try {
             if (cxt.getRoute(getWiringRouteId(Direction.FROM, cxtToStop)) != null) {
+                LOG.info("Removing route {}", getWiringRouteId(Direction.FROM, cxtToStop));
                 cxt.removeRoute(getWiringRouteId(Direction.FROM, cxtToStop));
+            } else {
+                LOG.info("Did not remove route {}; not present", getWiringRouteId(Direction.FROM, cxtToStop));
             }
 
             if (cxt.getRoute(getWiringRouteId(Direction.TO, cxtToStop)) != null) {
+                LOG.info("Removing route {}", getWiringRouteId(Direction.TO, cxtToStop));
                 cxt.removeRoute(getWiringRouteId(Direction.TO, cxtToStop));
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void removeRoutes(RoutesBuilder routes) {
-        CamelContext cxtToStop = blackBoxContexts.remove(routes);
-        try {
-            if (cxt.getRoute(getWiringRouteId(Direction.FROM, cxtToStop)) != null) {
-                cxt.removeRoute(getWiringRouteId(Direction.FROM, cxtToStop));
-            }
-
-            if (cxt.getRoute(getWiringRouteId(Direction.TO, cxtToStop)) != null) {
-                cxt.removeRoute(getWiringRouteId(Direction.TO, cxtToStop));
+            } else {
+                LOG.info("Did not remove route {}; not present", getWiringRouteId(Direction.TO, cxtToStop));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
-            factory.disposeContext(cxtToStop);
+            try {
+                cxtToStop.stop();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
+    }
+
+    public void removeRoutes(RoutesBuilder routes) {
+        LOG.info("Unbinding routes");
+        CamelContext cxtToStop = blackBoxContexts.remove(routes);
+        removeContext(cxtToStop);
     }
 
     private static String getWiringRouteId(Direction direction, CamelContext blackBox) {

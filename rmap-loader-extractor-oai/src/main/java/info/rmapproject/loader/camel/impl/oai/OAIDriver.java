@@ -19,6 +19,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
@@ -50,6 +51,8 @@ public class OAIDriver
 
     public static final String ROUTE_OAI_STOP = "oai-stop";
 
+    public static final String ROUTE_OAI_REQUEST_PROCESS = "oai-request-process";
+
     public static final String OAI_NS = "http://www.openarchives.org/OAI/2.0/";
 
     public static final String OAI_PARAM_METADATA_PREFIX = "metadataPrefix";
@@ -79,8 +82,14 @@ public class OAIDriver
     @Activate
     @Modified
     public void configure(OAIDriverConfig config) {
+        LOG.info("Config updated");
         retryDelay = config.retry_delay();
         delay = config.fetch_delay();
+    }
+
+    @Deactivate
+    public void deactivate() {
+        LOG.info("Deactivating");
     }
 
     @Override
@@ -100,7 +109,9 @@ public class OAIDriver
          * Instead of multicast, do an xpath split with an OR:
          * //oai:metadata/*[1]|//oai:resumptionToken. Route based on element.
          */
-        from(ENDPOINT_OAI_REQUEST).routeId(ROUTE_OAI_REQUEST)
+        from(ENDPOINT_OAI_REQUEST).routeId(ROUTE_OAI_REQUEST).to("seda:_do_request");
+
+        from("seda:_do_request").routeId(ROUTE_OAI_REQUEST_PROCESS)
                 .process(e -> LOG.info("Fetching from {}", e.getIn().getHeader(Exchange.HTTP_URI)))
                 .to("http4:oai-host?throwExceptionOnFailure=false").streamCaching()
                 //

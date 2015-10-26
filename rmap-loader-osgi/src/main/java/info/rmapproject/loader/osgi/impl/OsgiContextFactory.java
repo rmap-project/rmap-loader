@@ -6,6 +6,7 @@ import org.apache.camel.RoutesBuilder;
 import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.core.osgi.utils.BundleDelegatingClassLoader;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.impl.DefaultShutdownStrategy;
 import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.impl.SimpleRegistry;
 
@@ -50,6 +51,10 @@ public class OsgiContextFactory
             context = new OsgiDefaultCamelContext(bundleContext, registry);
             context.setApplicationContextClassLoader(new BundleDelegatingClassLoader(bundleContext.getBundle()));
             Thread.currentThread().setContextClassLoader(context.getApplicationContextClassLoader());
+            
+            DefaultShutdownStrategy shutdown = new DefaultShutdownStrategy();
+            shutdown.setTimeout(10);
+            context.setShutdownStrategy(shutdown);
 
         } else {
             context = new DefaultCamelContext();

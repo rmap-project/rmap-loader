@@ -73,11 +73,17 @@ public class OneTimeHarvest
     @Activate
     @Modified
     public void init(OneTimeHarvestConfig config) {
+        LOG.info("Updating config");
         this.baseURI = config.oai_baseURI();
         this.metadataPrefix = config.oai_metadataPrefix();
         set = config.oai_set();
         from = config.oai_from();
         until = config.oai_until();
+    }
+    
+    @Deactivate
+    public void deactivate() {
+        LOG.info("Deactivating one time harvest");
     }
     
     @Reference(target = "(oai.role=driver)")
