@@ -44,6 +44,9 @@ import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_REC
 
     @AttributeDefinition(description = "from (YYYY-MM-DD, optional)")
     String oai_until();
+    
+    @AttributeDefinition(description = "Format ID (correlates extracted records to transformers that can process them")
+    String loader_format() default "datacite";
 }
 
 @Designate(ocd = OneTimeHarvestConfig.class, factory = true)
@@ -69,7 +72,7 @@ public class OneTimeHarvest
     private String until;
 
     private RoutesBuilder driver;
-    
+
     @Activate
     @Modified
     public void init(OneTimeHarvestConfig config) {
@@ -80,12 +83,12 @@ public class OneTimeHarvest
         from = config.oai_from();
         until = config.oai_until();
     }
-    
+
     @Deactivate
     public void deactivate() {
         LOG.info("Deactivating one time harvest");
     }
-    
+
     @Reference(target = "(oai.role=driver)")
     public void setOaiDriver(RoutesBuilder driver) {
         this.driver = driver;
