@@ -118,7 +118,7 @@ public class OAIDriverIT
 
         mock_out.assertIsSatisfied();
     }
-
+    
     /*
      * Harvester gets two records: The first one ends in a resumption token, the
      * second one terminates the harvest with an empty token.
@@ -298,7 +298,6 @@ public class OAIDriverIT
                 /* Outs */
                 from("toTest:out").to("mock:out");
                 from("toTest:err").to("mock:err");
-                from("toTest:stop").to("mock:stop");
 
             }
         };

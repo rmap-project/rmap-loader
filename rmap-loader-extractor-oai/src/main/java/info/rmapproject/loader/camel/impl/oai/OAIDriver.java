@@ -3,12 +3,15 @@ package info.rmapproject.loader.camel.impl.oai;
 
 import java.util.Date;
 
+import javax.xml.xpath.XPathFactory;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Expression;
 import org.apache.camel.Processor;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.builder.xml.Namespaces;
+import org.apache.camel.builder.xml.XPathBuilder;
 import org.apache.camel.component.http4.HttpClientConfigurer;
 import org.apache.camel.component.http4.HttpComponent;
 import org.apache.http.client.utils.DateUtils;
@@ -104,6 +107,8 @@ public class OAIDriver
             }
         });
 
+        LOG.info("Using XPath impl {} ", XPathFactory.newInstance().newXPath().getClass());
+
         /*
          * Perform an OAI http request. TODO: Do this entirely with streaming.
          * Instead of multicast, do an xpath split with an OR:
@@ -127,8 +132,8 @@ public class OAIDriver
                 .delay(retryAfter).to(ENDPOINT_OAI_REQUEST);
 
         /* Split into oai Records */
-        from("direct:in").routeId("oai-split-response").split(ns.xpath("//oai:metadata/*[1]")).streaming()
-                .convertBodyTo(String.class).to("direct:out").end();
+        from("direct:in").routeId("oai-split-response").split().xpath("//oai:metadata/*[1]", ns).streaming()
+                .to("direct:out").end();
 
         /*
          * See if there is a resumption token. If so, request anew. If not, stop
