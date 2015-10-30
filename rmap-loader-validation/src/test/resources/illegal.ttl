@@ -1,0 +1,145 @@
+@prefix ore:     <http://www.openarchives.org/ore/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix fabio:   <http://purl.org/spar/fabio/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard:   <http://www.w3.org/2006/vcard/ns#> .
+@prefix pro:     <http://purl.org/spar/pro/> .
+@prefix frbr:    <http://purl.org/vocab/frbr/core#> .
+@prefix cito:    <http://purl.org/spar/cito/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix bibo:    <http://purl.org/ontology/bibo/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix rmap:    <http://rmap-project.org/rmap/terms/> .
+
+<http://dl.acm.org/citation.cfm?id=806278>
+      dcterms:bibliographicCitation
+              "BOURNE, S.R., AND HORTON, J R. The design of the Cambridge Algebra System. Proc. ACM 2nd Syrup. on Symbohc and Algebraic Mampulation, 1971." .
+
+<http://dl.acm.org/citation.cfm?id=2429168>
+      dcterms:bibliographicCitation
+              "David R. Stoutemyer, Series misdemeanors, ACM Communications in Computer Algebra, v.46 n.3/4, September/December 2012" .
+
+<http://dl.acm.org/citation.cfm?id=766453>
+      dcterms:bibliographicCitation
+              "Joris Van der Hoeven, Relax, but don't be too lazy, Journal of Symbolic Computation, v.34 n.6, p.479-542, December 2002" .
+
+<http://dl.acm.org/citation.cfm?id=87850>
+      dcterms:bibliographicCitation
+              "Michael. F Singer, Formal solutions of differential equations, Journal of Symbolic Computation, v.10 n.1, p.59-94, July 1990" .
+
+<http://dl.acm.org/citation.cfm?id=805866>
+      dcterms:bibliographicCitation
+              "NORMAN, A.C. A system for the solution of initial and two-point boundary value problems. In Proc. ACM 25th Anniversary Conf., 1972, Vol. II, pp. 826-834." .
+
+<http://dl.acm.org/citation.cfm?id=2338503>
+      dcterms:bibliographicCitation
+              "David R. Stoutemyer, Series crimes, ACM Communications in Computer Algebra, v.46 n.1/2, March/June 2012" .
+
+<http://dl.acm.org/citation.cfm?id=355835>
+      dcterms:bibliographicCitation
+              "K. O. Geddes, Symbolic Computation of Pad&eacute; Approximants, ACM Transactions on Mathematical Software (TOMS), v.5 n.2, p.218-233, June 1979" .
+
+<http://dl.acm.org/citation.cfm?id=810338>
+      dcterms:bibliographicCitation
+              "James H. Griesmer , Richard D. Jenks, The SCRATCHPAD system, Proceedings of the 1975 annual conference, p.266-267, January 1975" .
+
+[]    a       rmap:DiSCO ;
+      dcterms:creator <http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1> ;
+      dcterms:description "Description of ACM Transactions on Mathematical Software article." ;
+      dcterms:illegal "whoops" ;
+      ore:aggregates <http://dx.doi.org/10.1145/355656.355660> .
+
+<http://dl.acm.org/citation.cfm?id=1088249>
+      dcterms:bibliographicCitation
+              "B. F. Caviness , H. I. Epstein, A note on the complexity of algebraic differentiation, ACM SIGSAM Bulletin, v.11 n.3, p.4-6, August 1977" .
+
+<http://dl.acm.org/citation.cfm?id=806344>
+      dcterms:bibliographicCitation
+              "John D. Lipson, Newton's method: a great algebraic algorithm, Proceedings of the third ACM symposium on Symbolic and algebraic computation, p.260-270, August 10-12, 1976, Yorktown Heights, New York, United States" .
+
+<http://dl.acm.org/citation.cfm?id=636429>
+      dcterms:bibliographicCitation
+              "James H. Davenport, Equality in computer algebra and beyond, Journal of Symbolic Computation, v.34 n.4, p.259-270, October 2002" .
+
+<http://dx.doi.org/10.1145/355656.355660>
+      a       fabio:JournalArticle ;
+      rdfs:seeAlso <http://dl.acm.org/citation.cfm?id=355660> ;
+      dcterms:creator _:b1 ;
+      dcterms:isPartOf <urn:issn:0098-3500> ;
+      dcterms:issued "1975-12-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+      dcterms:publisher <http://dbpedia.org/resource/Association_for_Computing_Machinery> ;
+      dcterms:rightsHolder
+              <http://dbpedia.org/resource/Association_for_Computing_Machinery> ;
+      dcterms:title "Computing with Formal Power Series" ;
+      bibo:authorList
+              [ a       rdf:Seq ;
+                rdf:_1  _:b1
+              ] ;
+      bibo:issue "4" ;
+      bibo:volume "1" ;
+      cito:cites <http://dl.acm.org/citation.cfm?id=806278> , <http://dl.acm.org/citation.cfm?id=805866> , <http://dl.acm.org/citation.cfm?id=1086846> ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "BARTON, O., WILLERS, I.M., AND ZAHAR, R.V.M. The automatic solution of systems of ordinary differential equations by the method of Taylor series. In Best Computer Papers of 1971, O.R. Petrocelli, Ed., Auerbach Pubhshers, Inc., Philadelphia, Pa., 1971, pp. 147-163."
+              ] ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "BARTON, D , AND :FITCH, J.P. Reports on Progress ~n Physics 35, 3 (1972), 235-314."
+              ] ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "BROWN, W.S. ALTRAN User's Manual, Bell Labs., 1971."
+              ] ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "KoPAL, Z. Numerwal Analys~s. Wiley, New York, 1955."
+              ] ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "GRIESMER, J., AND JENKS, R.D. Experience with an on-hne symbohc mathematics system. In Proc. ONLINE 72, Vol. I, Brunel U, Uxbridge, Middx., England, 1972, pp. 457-476."
+              ] ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "SILVER, A., AND SULLIVAN, E. The numerical solution of ordinary differential equations by the Taylor series method. Doc. X-641-73-202, Goddard Space Flight Center, Greenbel(, Md., 1973."
+              ] ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "NORMAN, A.C. Expanding the solutions of implicit sets of ordinary differential equations in power series. Computer J., to appear; Rep. RC 4903, IBM Corp., Yorktown Heights, N.Y., 1974."
+              ] ;
+      cito:cites
+              [ dcterms:bibliographicCitation
+                        "Z{PPEL, R. Power serms expansion in MACSYMA. Presented at Mathematical Software II, a conference held at Purdue U., West Lafayette, Ind., May 29-31, 1974."
+              ] ;
+      cito:isCitedBy <http://dl.acm.org/citation.cfm?id=1088249> , <http://dl.acm.org/citation.cfm?id=806344> , <http://dl.acm.org/citation.cfm?id=96899> , <http://dl.acm.org/citation.cfm?id=2429168> , <http://dl.acm.org/citation.cfm?id=636429> , <http://dl.acm.org/citation.cfm?id=766453> , <http://dl.acm.org/citation.cfm?id=810338> , <http://dl.acm.org/citation.cfm?id=87850> , <http://dl.acm.org/citation.cfm?id=322099> , <http://dl.acm.org/citation.cfm?id=32460> , <http://dl.acm.org/citation.cfm?id=2338503> , <http://dl.acm.org/citation.cfm?id=355835> .
+
+<http://dl.acm.org/citation.cfm?id=322099>
+      dcterms:bibliographicCitation
+              "R. P. Brent , H. T. Kung, Fast Algorithms for Manipulating Formal Power Series, Journal of the ACM (JACM), v.25 n.4, p.581-595, Oct. 1978" .
+
+<http://dl.acm.org/citation.cfm?id=96899>
+      dcterms:bibliographicCitation
+              "J. Padget , A. Barnes, Univariate power series expansions in REDUCE, Proceedings of the international symposium on Symbolic and algebraic computation, p.82-87, August 20-24, 1990, Tokyo, Japan" .
+
+<http://dl.acm.org/citation.cfm?id=32460>
+      dcterms:bibliographicCitation
+              "R. J. Bradford , A. C. Hearn , J. A. Padget , E. Schr&#252;fer, Enlarging the REDUCE domain of computation, Proceedings of the fifth ACM symposium on Symbolic and algebraic computation, p.100-106, July 21-23, 1986, Waterloo, Ontario, Canada" .
+
+<http://dl.acm.org/citation.cfm?id=1086846>
+      dcterms:bibliographicCitation
+              "GENTLEMAN, W.i. Experience with truncated power series. In Proc. EUROSAM 74, ACM SIGSAM Bull. 8, 3 (Aug. 1974), 61-62." .
+
+_:b1  a       foaf:Person ;
+      dcterms:identifier "PP39076701" ;
+      pro:holdsRoleInTime
+              [ a       pro:RoleInTime ;
+                pro:relatesToOrganization
+                        [ a       foaf:Organization ;
+                          rdfs:seeAlso <http://dl.acm.org/inst_page.cfm?id=60031101> ;
+                          vcard:extended-address
+                                  "University Computer Laboratory, Corn Exchange Street, Cambridge, CB2 3QG, England"
+                        ] ;
+                pro:withRole <http://purl.org/spar/scoro/affiliate>
+              ] ;
+      foaf:familyName "Norman" ;
+      foaf:givenName "A. C." .

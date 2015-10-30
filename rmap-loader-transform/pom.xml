@@ -89,6 +89,12 @@
       <artifactId>rmap-loader-api</artifactId>
       <version>${project.version}</version>
     </dependency>
+    
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-validation</artifactId>
+      <version>${project.version}</version>
+    </dependency>
 
     <!-- We want to depend on the OSGi bundle wrapped by ServiceMix, not 
       rely on wrapping raw saxon ourselves. -->

@@ -73,5 +73,6 @@
     <module>rmap-loader-osgi</module>
     <module>rmap-loader-karaf</module>
     <module>rmap-loader-integration</module>
+    <module>rmap-loader-validation</module>
   </modules>
 </project>
