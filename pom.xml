@@ -66,9 +66,9 @@
     <module>rmap-loader-framework</module>
     <module>rmap-loader-api</module>
     <module>rmap-loader-experimental</module>
-    <module>rmap-loader-transform-xsl</module>
-    <module>rmap-loader-extractor-oai</module>
-    <module>rmap-loader-deposit-disco</module>
+    <module>rmap-loader-transform</module>
+    <module>rmap-loader-extractor</module>
+    <module>rmap-loader-deposit</module>
     <module>rmap-loader-camel</module>
     <module>rmap-loader-osgi</module>
     <module>rmap-loader-karaf</module>

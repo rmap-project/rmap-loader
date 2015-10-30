@@ -39,7 +39,7 @@
 
     <dependency>
       <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-transform-xsl</artifactId>
+      <artifactId>rmap-loader-transform</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
@@ -47,7 +47,7 @@
 
     <dependency>
       <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-extractor-oai</artifactId>
+      <artifactId>rmap-loader-extractor</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
@@ -55,7 +55,7 @@
 
     <dependency>
       <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-deposit-disco</artifactId>
+      <artifactId>rmap-loader-deposit</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
       <type>xml</type>

@@ -29,9 +29,9 @@
 
     <!-- RMap individual features -->
     <feature version="${project.version}">rmap-loader-framework</feature>
-    <feature version="${project.version}">rmap-loader-transform-xsl</feature>
-    <feature version="${project.version}">rmap-loader-deposit-disco</feature>
-    <feature version="${project.version}">rmap-loader-extractor-oai</feature>
+    <feature version="${project.version}">rmap-loader-transform</feature>
+    <feature version="${project.version}">rmap-loader-deposit</feature>
+    <feature version="${project.version}">rmap-loader-extractor</feature>
 
   </feature>
 </features>
