@@ -46,7 +46,7 @@ public class NCBITransformIT
         template.sendBody("direct:in",
                           getClass()
                                   .getResourceAsStream("/NCBI/input/pubmedids_small.xml"));
-        mock_out.setExpectedCount(5);
+        mock_out.setExpectedCount(2);
         mock_out.assertIsSatisfied();
         mock_out.getExchanges().stream().map(Exchange::getIn).map(m -> m.getBody(InputStream.class))
         .forEach(i -> validate(i, RDF_XML));
