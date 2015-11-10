@@ -52,8 +52,8 @@ public class LoaderFrameworkTest
         fwk.setContextFactory(cxtFactory);
 
         Map<String, String> config = new HashMap<>();
-        config.put(LoaderFramework.CONFIG_EXTRACTED_QUEUE_URI, "testCxt:extracted_$format");
-        config.put(LoaderFramework.CONFIG_TRANSFORMED_QUEUE_URI, "testCxt:translated_$format");
+        config.put(LoaderFramework.CONFIG_QUEUE_TO_TRANSFORM_URI, "testCxt:extracted_$format");
+        config.put(LoaderFramework.CONFIG_QUEUE_TO_DEPOSIT_URI, "testCxt:translated_$format");
 
         fwk.start(config);
 
@@ -127,8 +127,8 @@ public class LoaderFrameworkTest
         fwk.setContextFactory(cxtFactory);
 
         Map<String, String> config = new HashMap<>();
-        config.put(LoaderFramework.CONFIG_EXTRACTED_QUEUE_URI, "testCxt:extracted_$format");
-        config.put(LoaderFramework.CONFIG_TRANSFORMED_QUEUE_URI, "testCxt:translated_$format");
+        config.put(LoaderFramework.CONFIG_QUEUE_TO_TRANSFORM_URI, "testCxt:extracted_$format");
+        config.put(LoaderFramework.CONFIG_QUEUE_TO_DEPOSIT_URI, "testCxt:translated_$format");
 
         fwk.start(config);
 

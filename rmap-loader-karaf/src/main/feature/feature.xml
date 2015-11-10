@@ -15,12 +15,8 @@
 
     <feature>scr</feature>
     <feature>webconsole</feature>
-
-    <!-- ActiveMQ for message queues between loader components -->
-    <!--  
-    <feature version="${activemq.version}">activemq-broker</feature>
-    <feature version="${activemq.version}">activemq-camel</feature>
-    -->
+    
+    <feature>activemq-broker</feature>
 
     <!-- Hawtio for monitoring -->
     <!-- 

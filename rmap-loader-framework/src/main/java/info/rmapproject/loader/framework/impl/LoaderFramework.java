@@ -42,10 +42,16 @@ import org.slf4j.LoggerFactory;
 @interface LoderFrameworkConfig {
 
     @AttributeDefinition(description = "Queue that will hold the extracted records for processing")
-    String queue_extracted() default "file:/tmp/extracted/$format";
+    String queue_to_transform() default "file:/tmp/extracted/$format";
+    
+    @AttributeDefinition(description = "Queue that will hold extracted records that failed transform")
+    String queue_fail_transformed() default "file:/tmp/extracted_fail/$format";
 
     @AttributeDefinition(description = "Queue that will hold transformed records prior to deposit")
     String queue_transformed() default "file:/tmp/transformed/$format";
+    
+    @AttributeDefinition(description = "Queue that will hold transformed records that failed deposit")
+    String queue_fail_deposit() default "file:/tmp/transformed_fail/$format";
 }
 
 @Designate(ocd = LoderFrameworkConfig.class)
@@ -61,10 +67,10 @@ public class LoaderFramework {
     public static final String HEADER_FORMAT = "format";
 
     /** Service property which identifies the queue for extracted records */
-    public static final String CONFIG_EXTRACTED_QUEUE_URI = "queue.extracted";
+    public static final String CONFIG_QUEUE_TO_TRANSFORM_URI = "queue.to.transform";
 
     /** Service property which identifies the queue for transformed records */
-    public static final String CONFIG_TRANSFORMED_QUEUE_URI = "queue.transformed";
+    public static final String CONFIG_QUEUE_TO_DEPOSIT_URI = "queue.to.deposit";
 
     /**
      * Service property which identifies a domain model.
@@ -87,7 +93,7 @@ public class LoaderFramework {
 
     private Queue<RoutesBuilder> wiringQueue = new ConcurrentLinkedQueue<>();
 
-    private String extractedQueueURI;
+    private String toTransformQueueURI;
 
     private String transformedQueueURI;
 
@@ -102,8 +108,8 @@ public class LoaderFramework {
 
         cxt = factory.newContext("loader-framework");
 
-        extractedQueueURI = config.get(CONFIG_EXTRACTED_QUEUE_URI);
-        transformedQueueURI = config.get(CONFIG_TRANSFORMED_QUEUE_URI);
+        toTransformQueueURI = config.get(CONFIG_QUEUE_TO_TRANSFORM_URI);
+        transformedQueueURI = config.get(CONFIG_QUEUE_TO_DEPOSIT_URI);
 
         try {
             cxt.start();
@@ -169,7 +175,7 @@ public class LoaderFramework {
         LOG.info("Wiring in extractor context {} with endpoints {}",
                  extractorCxt.getName(),
                  extractorCxt.getEndpointMap().keySet());
-        wire(extractorCxt, new QueueSpec().to(extractedQueueURI).withFormat(properties.get(PROPERTY_EXTRACTED_FORMAT)));
+        wire(extractorCxt, new QueueSpec().to(toTransformQueueURI).withFormat(properties.get(PROPERTY_EXTRACTED_FORMAT)));
     }
 
     /**
@@ -202,7 +208,7 @@ public class LoaderFramework {
                  transformerCxt.getName(),
                  transformerCxt.getEndpointMap().keySet());
         wire(transformerCxt,
-             new QueueSpec().to(transformedQueueURI).from(extractedQueueURI)
+             new QueueSpec().to(transformedQueueURI).from(toTransformQueueURI)
                      .withFormat(properties.get(PROPERTY_EXTRACTED_FORMAT))
                      .withDomain(properties.get(PROPERTY_DOMAIN_MODEL)));
     }
