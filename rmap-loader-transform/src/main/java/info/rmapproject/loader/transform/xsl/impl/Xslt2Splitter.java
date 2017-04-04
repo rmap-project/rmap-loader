@@ -1,6 +1,7 @@
 
 package info.rmapproject.loader.transform.xsl.impl;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Path;
@@ -10,17 +11,30 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.ErrorListener;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
+import javax.xml.transform.URIResolver;
+import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import net.sf.saxon.Controller;
+import net.sf.saxon.expr.XPathContext;
+import net.sf.saxon.lib.Logger;
 import net.sf.saxon.lib.OutputURIResolver;
+import net.sf.saxon.lib.TraceListener;
+import net.sf.saxon.om.Item;
 import net.sf.saxon.s9api.QName;
 import net.sf.saxon.s9api.XdmAtomicValue;
 import net.sf.saxon.s9api.XsltExecutable;
 import net.sf.saxon.s9api.XsltTransformer;
+import net.sf.saxon.trace.InstructionInfo;
+
+import org.apache.xml.resolver.tools.CatalogResolver;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
@@ -30,6 +44,19 @@ import org.apache.camel.builder.xml.ResultHandlerFactory;
 import org.apache.camel.builder.xml.StreamResultHandler;
 import org.apache.camel.builder.xml.StringResultHandlerFactory;
 import org.apache.camel.model.ProcessorDefinition;
+import org.apache.xerces.impl.XMLEntityManager;
+import org.apache.xerces.impl.XMLVersionDetector;
+import org.apache.xerces.jaxp.SAXParserImpl;
+import org.apache.xerces.parsers.XML11Configuration;
+import org.apache.xerces.parsers.XMLParser;
+
+import org.xml.sax.DTDHandler;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
+
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -67,26 +94,36 @@ import org.osgi.service.component.annotations.Component;
 public class Xslt2Splitter
         implements Processor {
 
-    private static final net.sf.saxon.s9api.Processor SAXON =
-            new net.sf.saxon.s9api.Processor(false);
+    private static final net.sf.saxon.s9api.Processor SAXON = new net.sf.saxon.s9api.Processor(false);
 
     private Map<String, TransformSpec> transformMap = new HashMap<>();
 
     public static final String HEADER_XSLT_FILE_NAME = "xslt2split.xsl_file";
 
+
     @Override
     public void process(Exchange exchange) throws Exception {
         Message msg = exchange.getIn();
 
-        CaptureTransformer transform =
-                new CaptureTransformer(getTransformer(msg),
-                                       new StringResultHandlerFactory());
+        CaptureTransformer transform = new CaptureTransformer(getTransformer(msg), new StringResultHandlerFactory());
 
         List<Message> splitMessages = new LinkedList<>();
 
+        SAXParser p = SAXParserFactory.newInstance().newSAXParser(); 
+        XMLReader reader = p.getXMLReader();
+        reader.setEntityResolver(new EntityResolver() {
+            CatalogResolver delegate = new CatalogResolver();
+
+            @Override
+            public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
+                System.out.println("RESOLVVE ENTITY: publicId: " + publicId + ", systemId" + systemId);
+                return delegate.resolveEntity(publicId, systemId);
+            }
+        });
+        
+
         for (Map.Entry<String, ResultHandler> result : transform
-                .transform(new StreamSource(msg.getBody(InputStream.class)))
-                .entrySet()) {
+                .transform(new SAXSource(reader, new InputSource(msg.getBody(InputStream.class)))).entrySet()) {
 
             Message outputDoc = msg.copy();
             outputDoc.setHeader(Exchange.FILE_NAME, result.getKey());
@@ -99,16 +136,13 @@ public class Xslt2Splitter
 
     private XsltTransformer getTransformer(Message msg) {
         if (msg.getHeader(HEADER_XSLT_FILE_NAME) == null) {
-            throw new RuntimeException("Header " + HEADER_XSLT_FILE_NAME
-                    + " is not defined");
+            throw new RuntimeException("Header " + HEADER_XSLT_FILE_NAME + " is not defined");
         }
 
         if (!transformMap.containsKey(HEADER_XSLT_FILE_NAME)) {
 
             transformMap.put(HEADER_XSLT_FILE_NAME,
-                             new TransformSpec(msg
-                                     .getHeader(HEADER_XSLT_FILE_NAME,
-                                                String.class)));
+                             new TransformSpec(msg.getHeader(HEADER_XSLT_FILE_NAME, String.class)));
         }
 
         XsltTransformer xslt;
@@ -123,8 +157,7 @@ public class Xslt2Splitter
         }
 
         for (Map.Entry<String, Object> header : msg.getHeaders().entrySet()) {
-            xslt.setParameter(new QName(header.getKey()),
-                              new XdmAtomicValue(header.getValue().toString()));
+            xslt.setParameter(new QName(header.getKey()), new XdmAtomicValue(header.getValue().toString()));
         }
 
         return xslt;
@@ -137,8 +170,7 @@ public class Xslt2Splitter
 
         private final ResultHandlerFactory handler;
 
-        public CaptureTransformer(XsltTransformer xslt,
-                                  ResultHandlerFactory handler) {
+        public CaptureTransformer(XsltTransformer xslt, ResultHandlerFactory handler) {
             this.xslt = xslt;
             this.handler = handler;
         }
@@ -146,18 +178,43 @@ public class Xslt2Splitter
         public Map<String, ResultHandler> transform(Source body) {
             Map<String, ResultHandler> capturedResults = new HashMap<>();
 
-            xslt.getUnderlyingController()
-                    .setOutputURIResolver(new OutputCapture(handler,
-                                                            capturedResults));
+            xslt.getUnderlyingController().setErrorListener(new ErrorListener() {
+                
+                XMLEntityManager m;
+                
+                @Override
+                public void warning(TransformerException exception) throws TransformerException {
+                   exception.printStackTrace(); 
+                }
+                
+                @Override
+                public void fatalError(TransformerException exception) throws TransformerException {
+                    exception.printStackTrace();
+                }
+                
+                @Override
+                public void error(TransformerException exception) throws TransformerException {
+                    exception.printStackTrace();
+                }
+            });
+            xslt.getUnderlyingController().setURIResolver(new URIResolver() {
+
+                CatalogResolver resolver = new CatalogResolver();
+
+                @Override
+                public Source resolve(String href, String base) throws TransformerException {
+                    System.out.println("Resolve uri href='" + href + "', base='" + base + "'");
+
+                    return resolver.resolve(href, base);
+                }
+            });
+            xslt.getUnderlyingController().setOutputURIResolver(new OutputCapture(handler, capturedResults));
 
             OutputStream out = null;
             try {
 
-                StreamResultHandler defaultResultHandler =
-                        new StreamResultHandler();
-                out =
-                        ((StreamResult) defaultResultHandler.getResult())
-                                .getOutputStream();
+                StreamResultHandler defaultResultHandler = new StreamResultHandler();
+                out = ((StreamResult) defaultResultHandler.getResult()).getOutputStream();
 
                 xslt.setSource(body);
                 xslt.setDestination(SAXON.newSerializer(out));
@@ -189,8 +246,7 @@ public class Xslt2Splitter
 
         private final Map<String, ResultHandler> container;
 
-        public OutputCapture(ResultHandlerFactory factory,
-                             Map<String, ResultHandler> container) {
+        public OutputCapture(ResultHandlerFactory factory, Map<String, ResultHandler> container) {
             this.factory = factory;
             this.container = container;
         }
@@ -201,8 +257,7 @@ public class Xslt2Splitter
         }
 
         @Override
-        public Result resolve(String href, String base)
-                throws TransformerException {
+        public Result resolve(String href, String base) throws TransformerException {
 
             try {
                 ResultHandler handler = factory.createResult(null);
@@ -231,9 +286,7 @@ public class Xslt2Splitter
             try {
                 synchronized (transformMap) {
 
-                    template =
-                            SAXON.newXsltCompiler()
-                                    .compile(new StreamSource(filePath.toFile()));
+                    template = SAXON.newXsltCompiler().compile(new StreamSource(filePath.toFile()));
 
                 }
             } catch (Exception e) {

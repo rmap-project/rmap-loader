@@ -1,64 +1,116 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>info.rmapproject</groupId>
-    <artifactId>rmap-loader</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>rmap-loader-karaf</artifactId>
-  <packaging>feature</packaging>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>info.rmapproject</groupId>
+		<artifactId>rmap-loader</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>rmap-loader-karaf</artifactId>
+	<packaging>bundle</packaging>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.karaf.tooling</groupId>
-        <artifactId>karaf-maven-plugin</artifactId>
-        <version>${karaf.version}</version>
-        <extensions>true</extensions>
-        <configuration>
-          <resolver>(OBR)</resolver>
-          <aggregateFeatures>true</aggregateFeatures>
-          <installAllFeaturesByDefault>true</installAllFeaturesByDefault>
-          <resolveDefinedRepositoriesRecursively>true</resolveDefinedRepositoriesRecursively>
-          <karafVersion>3.0.0</karafVersion>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Import-Package>*</Import-Package>
+						<_dsannotations>*</_dsannotations>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>karaf-maven-plugin</artifactId>
+				<version>${karaf.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<resolver>(OBR)</resolver>
+					<includeProjectArtifact>true</includeProjectArtifact>
+					<aggregateFeatures>true</aggregateFeatures>
+					<installAllFeaturesByDefault>true</installAllFeaturesByDefault>
+					<resolveDefinedRepositoriesRecursively>true</resolveDefinedRepositoriesRecursively>
+					<karafVersion>3.0.0</karafVersion>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate-features-descriptor</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>features-generate-descriptor</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
-  <dependencies>
+	<dependencies>
 
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-framework</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
+		<dependency>
+			<groupId>info.rmapproject</groupId>
+			<artifactId>rmap-loader-framework</artifactId>
+			<version>${project.version}</version>
+			<classifier>features</classifier>
+			<type>xml</type>
+		</dependency>
 
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-transform</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
+		<dependency>
+			<groupId>info.rmapproject</groupId>
+			<artifactId>rmap-loader-transform</artifactId>
+			<version>${project.version}</version>
+			<classifier>features</classifier>
+			<type>xml</type>
+		</dependency>
 
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-extractor</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
+		<dependency>
+			<groupId>info.rmapproject</groupId>
+			<artifactId>rmap-loader-extractor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-deposit</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-  </dependencies>
+		<dependency>
+			<groupId>info.rmapproject</groupId>
+			<artifactId>rmap-loader-validation</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>info.rmapproject</groupId>
+			<artifactId>rmap-loader-deposit-disco</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.camel</groupId>
+		  <artifactId>camel-zipfile</artifactId>
+		  <version>${camel.version}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.camel</groupId>
+		  <artifactId>camel-jetty</artifactId>
+		  <version>${camel.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>info.rmapproject</groupId>
+			<artifactId>rmap-loader-extractor</artifactId>
+			<version>${project.version}</version>
+			<classifier>features</classifier>
+			<type>xml</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test</artifactId>
+			<scope>test</scope>
+			<version>${camel.version}</version>
+		</dependency>
+
+	</dependencies>
 </project>

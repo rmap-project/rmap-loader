@@ -14,7 +14,6 @@
     <details>rmap-loader</details>
 
     <feature>scr</feature>
-    <feature>webconsole</feature>
 
     <!-- ActiveMQ for message queues between loader components -->
     <!--  
@@ -28,10 +27,10 @@
     -->
 
     <!-- RMap individual features -->
+    <feature version="${project.version}">rmap-loader-camel</feature>
     <feature version="${project.version}">rmap-loader-framework</feature>
     <feature version="${project.version}">rmap-loader-transform</feature>
-    <feature version="${project.version}">rmap-loader-deposit</feature>
-    <feature version="${project.version}">rmap-loader-extractor</feature>
+    <feature version="${project.version}">rmap-loader-validation</feature>
 
   </feature>
 </features>
