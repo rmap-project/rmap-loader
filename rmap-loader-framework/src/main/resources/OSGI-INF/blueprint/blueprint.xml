@@ -10,13 +10,5 @@
   <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
     <property name="brokerURL" value="tcp://localhost:61616" />
   </bean>
-  <service ref="activemq" interface="org.apache.camel.Component"
-    activation="eager">
-    <service-properties>
-      <entry key="name">
-        activemq
-      </entry>
-    </service-properties>
-  </service>
 
 </blueprint>

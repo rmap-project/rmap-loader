@@ -14,9 +14,12 @@
     <details>rmap-loader</details>
 
     <feature>scr</feature>
-    <feature>webconsole</feature>
-    
-    <feature>activemq-broker</feature>
+
+    <!-- ActiveMQ for message queues between loader components -->
+    <!--  
+    <feature version="${activemq.version}">activemq-broker</feature>
+    <feature version="${activemq.version}">activemq-camel</feature>
+    -->
 
     <!-- Hawtio for monitoring -->
     <!-- 
@@ -26,8 +29,6 @@
     <!-- RMap individual features -->
     <feature version="${project.version}">rmap-loader-framework</feature>
     <feature version="${project.version}">rmap-loader-transform</feature>
-    <feature version="${project.version}">rmap-loader-deposit</feature>
-    <feature version="${project.version}">rmap-loader-extractor</feature>
 
   </feature>
 </features>

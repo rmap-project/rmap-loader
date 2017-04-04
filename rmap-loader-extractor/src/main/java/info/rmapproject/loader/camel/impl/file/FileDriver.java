@@ -16,12 +16,11 @@
 
 package info.rmapproject.loader.camel.impl.file;
 
-
 import org.apache.camel.Exchange;
 import org.apache.camel.Expression;
 import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
-
+import org.apache.camel.model.dataformat.ZipFileDataFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,13 +31,17 @@ public class FileDriver
 
     EnhancedZipDataFormat zipFormat = new EnhancedZipDataFormat();
 
+    ZipFileDataFormat fmt = new ZipFileDataFormat();
+
     public static final String ENDPOINT_PROCESS_FILE = "file-process";
 
     @Override
     public void configure() throws Exception {
+        fmt.setUsingIterator(true);
 
-        from("direct:" + ENDPOINT_PROCESS_FILE).streamCaching().choice()
-                .when(e -> e.getIn().getHeader(Exchange.FILE_NAME, String.class).endsWith(".zip")).unmarshal(zipFormat)
+        from("direct:" + ENDPOINT_PROCESS_FILE).choice()
+                .when(e -> e.getIn().getHeader(Exchange.FILE_NAME, String.class).endsWith(".zip"))
+                .unmarshal(zipFormat)
                 .split(enhancedZipSplitter).streaming().to("direct:out").end().endChoice()
                 .otherwise().to("direct:out");
 
@@ -47,13 +50,13 @@ public class FileDriver
     private static final Expression enhancedZipSplitter = new Expression() {
 
         public Object evaluate(Exchange exchange) {
-            Message inputMessage = exchange.getIn();
+            final Message inputMessage = exchange.getIn();
             return new EnhancedZipIterator(inputMessage);
         }
 
         @Override
         public <T> T evaluate(Exchange exchange, Class<T> type) {
-            Object result = evaluate(exchange);
+            final Object result = evaluate(exchange);
             return exchange.getContext().getTypeConverter().convertTo(type, exchange, result);
         }
     };

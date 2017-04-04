@@ -22,6 +22,7 @@ import info.rmapproject.loader.validation.DiscoValidator.ValidationException;
 
 import static info.rmapproject.loader.validation.DiscoValidator.validate;
 import static info.rmapproject.loader.validation.DiscoValidator.Format.TURTLE;
+import static info.rmapproject.loader.validation.DiscoValidator.Format.RDF_XML;
 
 public class ValidatorTest {
 
@@ -38,6 +39,12 @@ public class ValidatorTest {
     @Test(expected = ValidationException.class)
     public void unconnectedTest() {
         validate(this.getClass().getResourceAsStream("/unconnected.ttl"), TURTLE);
+    }
+    
+
+    @Test
+    public void ieeeTest() throws Exception {
+        validate(this.getClass().getResourceAsStream("/6722410.xml"), RDF_XML);
     }
 
 }

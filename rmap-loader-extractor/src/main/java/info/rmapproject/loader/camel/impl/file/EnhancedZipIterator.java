@@ -29,7 +29,7 @@ public class EnhancedZipIterator
 
     public EnhancedZipIterator(Message inputMessage) {
         this.inputMessage = inputMessage;
-        InputStream inputStream = inputMessage.getBody(InputStream.class);
+        final InputStream inputStream = inputMessage.getBody(InputStream.class);
         if (inputStream instanceof ZipInputStream) {
             zipInputStream = (ZipInputStream) inputStream;
         } else {
@@ -56,8 +56,8 @@ public class EnhancedZipIterator
                 }
             }
             return availableDataInCurrentEntry;
-        } catch (IOException exception) {
-            //Just wrap the IOException as CamelRuntimeException
+        } catch (final IOException exception) {
+            // Just wrap the IOException as CamelRuntimeException
             throw new RuntimeCamelException(exception);
         }
     }
@@ -67,7 +67,7 @@ public class EnhancedZipIterator
         if (parent == null) {
             parent = getNextElement();
         }
-        Message answer = parent;
+        final Message answer = parent;
         parent = null;
         checkNullAnswer(answer);
 
@@ -79,7 +79,7 @@ public class EnhancedZipIterator
 
         if (zipInputStream != null) {
             try {
-                ZipEntry current = getNextEntry();
+                final ZipEntry current = getNextEntry();
 
                 if (current != null) {
                     answer = new DefaultMessage();
@@ -90,8 +90,8 @@ public class EnhancedZipIterator
                     return answer;
                 }
 
-            } catch (IOException exception) {
-                //Just wrap the IOException as CamelRuntimeException
+            } catch (final IOException exception) {
+                // Just wrap the IOException as CamelRuntimeException
                 throw new RuntimeCamelException(exception);
             }
         }
