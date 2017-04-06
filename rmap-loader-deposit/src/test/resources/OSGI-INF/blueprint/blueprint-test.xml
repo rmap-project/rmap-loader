@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+  xsi:schemaLocation="
+       http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.1.0.xsd
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+  <!-- XXX this is basically just a copy of what's in src/main/resources/OSGI-INF/blueprint/blueprint.xml, 
+    due to limitations in blueprint and CamelBlueprintTestSupport. Make sure 
+    you edit both! -->
+  <cm:property-placeholder persistent-id="info.rmapproject.deposit.disco.rdfxml"
+    update-strategy="reload">
+    <cm:default-properties>
+      <cm:property name="disco.src.uri" value="broker:queue:foo.format.disco_rdf" />
+      <cm:property name="disco.rmap.uri"
+        value="https://test.rmap-project.org/apitest/discos/" />
+      <cm:property name="disco.content.type"
+        value="application/vnd.rmap-project.disco+rdf+xml" />
+      <cm:property name="disco.deposit.threads" value="1" />
+      <cm:property name="disco.deposit.maximumRedeliveries"
+        value="2" />
+      <cm:property name="disco.deposit.redeliveryDelay_ms"
+        value="2000" />
+    </cm:default-properties>
+  </cm:property-placeholder>
+
+  <bean id="discoDepositService"
+    class="info.rmapproject.loader.deposit.disco.DiscoDepositService" />
+
+  <bean id="http" class="org.apache.camel.component.http4.HttpComponent" />
+  <bean id="https" class="org.apache.camel.component.http4.HttpComponent" />
+
+  <camelContext id="disco-deposit"
+    xmlns="http://camel.apache.org/schema/blueprint">
+
+    <errorHandler id="error-handler" type="DeadLetterChannel"
+      deadLetterUri="direct:error">
+      <redeliveryPolicy maximumRedeliveries="{{disco.deposit.maximumRedeliveries}}"
+        redeliveryDelay="{{disco.deposit.redeliveryDelay_ms}}"
+        allowRedeliveryWhileStopping="false" retryAttemptedLogLevel="INFO" />
+    </errorHandler>
+
+    <routeBuilder ref="discoDepositService" />
+
+  </camelContext>
+
+  <!-- XXX - end of copied blueprint.xml -->
+
+  <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+    <property name="brokerURL" value="vm://embedded-broker?create=false" />
+  </bean>
+
+  <bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+    init-method="start" destroy-method="stop">
+    <property name="maxConnections" value="2" />
+    <property name="connectionFactory" ref="connectionFactory" />
+  </bean>
+
+  <bean id="jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+    <property name="connectionFactory" ref="pooledConnectionFactory" />
+    <property name="concurrentConsumers" value="1" />
+  </bean>
+
+  <bean id="broker" class="org.apache.activemq.camel.component.ActiveMQComponent">
+    <property name="configuration" ref="jmsConfig" />
+  </bean>
+
+</blueprint>

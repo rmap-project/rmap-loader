@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+  xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0"
+  xmlns:camel="http://camel.apache.org/schema/blueprint"
+  xsi:schemaLocation="
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 https://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0 http://aries.apache.org/schemas/blueprint-ext/blueprint-ext.xsd
+       http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0  http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.1.0.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+  <!-- XXX this is basically copied almost verbatim to  src/test/resources/OSGI-INF/blueprint/blueprint-test.xml, 
+    due to limitations in blueprint and CamelBlueprintTestSupport. Make sure 
+    you edit both! -->
+  <cm:property-placeholder persistent-id="info.rmapproject.deposit.disco.rdfxml"
+    update-strategy="reload">
+    <cm:default-properties>
+      <cm:property name="disco.src.uri" value="broker:queue:*.format.disco_rdf" />
+      <cm:property name="disco.rmap.uri"
+        value="https://test.rmap-project.org/apitest/discos/" />
+      <cm:property name="disco.content.type"
+        value="application/vnd.rmap-project.disco+rdf+xml" />
+      <cm:property name="disco.deposit.threads" value="1" />
+      <cm:property name="disco.deposit.maximumRedeliveries"
+        value="2" />
+      <cm:property name="disco.deposit.redeliveryDelay_ms"
+        value="2000" />
+    </cm:default-properties>
+  </cm:property-placeholder>
+
+  <bean id="discoDepositService"
+    class="info.rmapproject.loader.deposit.disco.DiscoDepositService" />
+
+  <bean id="http" class="org.apache.camel.component.http4.HttpComponent" />
+  <bean id="https" class="org.apache.camel.component.http4.HttpComponent" />
+
+  <reference id="broker" interface="org.apache.camel.Component"
+    filter="(osgi.jndi.service.name=rmap/Broker)" />
+
+  <camelContext id="disco-deposit"
+    xmlns="http://camel.apache.org/schema/blueprint">
+
+    <errorHandler id="error-handler" type="DeadLetterChannel"
+      deadLetterUri="direct:error">
+      <redeliveryPolicy maximumRedeliveries="{{disco.deposit.maximumRedeliveries}}"
+        redeliveryDelay="{{disco.deposit.redeliveryDelay_ms}}"
+        allowRedeliveryWhileStopping="false" retryAttemptedLogLevel="INFO" />
+    </errorHandler>
+
+    <routeBuilder ref="discoDepositService" />
+
+  </camelContext>
+</blueprint>
