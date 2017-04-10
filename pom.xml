@@ -71,7 +71,6 @@
     </dependencies>
   </dependencyManagement>
   <modules>
-    <module>rmap-loader-framework</module>
     <module>rmap-loader-api</module>
     <module>rmap-loader-experimental</module>
     <module>rmap-loader-transform</module>
