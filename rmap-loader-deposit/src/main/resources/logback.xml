@@ -23,13 +23,13 @@
   </appender>
 
 
-  <logger name="org.apache.activemq" additivity="false" level="${apache.log:-DEBUG}">
+  <logger name="org.apache.activemq" additivity="false" level="${apache.log:-INFO}">
 
     <appender-ref ref="STDOUT" />
 
   </logger>
   
-  <logger name="info.rmapproject" additivity="false" level="${rmap.log:-DEBUG}">
+  <logger name="info.rmapproject" additivity="false" level="${rmap.log:-INFO}">
 
     <appender-ref ref="STDOUT" />
 

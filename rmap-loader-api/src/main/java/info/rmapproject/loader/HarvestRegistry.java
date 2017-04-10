@@ -18,30 +18,17 @@
 
 package info.rmapproject.loader;
 
+import java.net.URI;
+
 import info.rmapproject.loader.model.RecordInfo;
 
 /**
  * @author apb@jhu.edu
  */
-public class HarvestRecord {
+public interface HarvestRegistry {
 
-    RecordInfo recordInfo;
+    public void register(RecordInfo info, URI discoURI);
 
-    byte[] body;
+    public HarvestRecordStatus getStatus(RecordInfo info);
 
-    public RecordInfo getRecordInfo() {
-        return recordInfo;
-    }
-
-    public void setRecordInfo(RecordInfo info) {
-        this.recordInfo = info;
-    }
-
-    public byte[] getBody() {
-        return body;
-    }
-
-    public void setBody(byte[] body) {
-        this.body = body;
-    }
 }

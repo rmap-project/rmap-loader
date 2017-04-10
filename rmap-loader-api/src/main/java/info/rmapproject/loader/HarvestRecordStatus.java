@@ -18,30 +18,42 @@
 
 package info.rmapproject.loader;
 
-import info.rmapproject.loader.model.RecordInfo;
+import java.net.URI;
 
 /**
+ * Status of a harvest record.
+ *
  * @author apb@jhu.edu
  */
-public class HarvestRecord {
+public class HarvestRecordStatus {
 
-    RecordInfo recordInfo;
+    boolean recordExists;
 
-    byte[] body;
+    boolean isLatest;
 
-    public RecordInfo getRecordInfo() {
-        return recordInfo;
+    URI latest;
+
+    public boolean recordExists() {
+        return recordExists;
     }
 
-    public void setRecordInfo(RecordInfo info) {
-        this.recordInfo = info;
+    public void setRecordExists(boolean exists) {
+        this.recordExists = exists;
     }
 
-    public byte[] getBody() {
-        return body;
+    public boolean isLatest() {
+        return isLatest;
     }
 
-    public void setBody(byte[] body) {
-        this.body = body;
+    public void setIsLatest(boolean isLatest) {
+        this.isLatest = isLatest;
+    }
+
+    public URI latest() {
+        return latest;
+    }
+
+    public void setLatest(URI latest) {
+        this.latest = latest;
     }
 }

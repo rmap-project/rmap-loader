@@ -1,57 +1,81 @@
 
 package info.rmapproject.loader.deposit.disco;
 
-import static info.rmapproject.loader.camel.Lambdas.expression;
+import java.util.function.Consumer;
 
-import java.util.concurrent.atomic.AtomicLong;
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
-import org.apache.camel.builder.RouteBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class DiscoDepositService
-        extends RouteBuilder {
+import info.rmapproject.loader.HarvestRecord;
 
-    public static final String CONFIG_DISCO_API_URI = "rmap.disco.api.uri";
+/**
+ * Pulls from a queue, invokes a deposit action, and sends to an error queue if a failure occurs.
+ * <p>
+ * This manages the messaging aspect of depositing DiSCOs. It consumes messages containing {@link HarvestRecord} from
+ * a queue (typically named <code>rmap.harvest.disco.*</code>), and passes it on to a provided {@link Consumer} of
+ * harvest records to perform a deposit. If an exception is thrown by the consumer, a stack trace of the exception is
+ * added to the message, and the message is routed to an error queue <code>rmap.harvest.error.disco*</code>
+ * </p>
+ *
+ * @author apb@jhu.edu
+ */
+public class DiscoDepositService implements AutoCloseable {
 
-    public static final String CONFIG_DEPOSIT_THREADS = "deposit.threads";
+    private static final Logger LOG = LoggerFactory.getLogger(DiscoDepositService.class);
 
-    public static final String CONFIG_HTTP_SUCCESS = "deposit.success.httpcode";
+    private JmsClient jms;
 
-    private static int PAUSE_EVERY_N_RECORDS = 15000;
+    private ConnectionFactory connectionFactory;
 
-    private static int DEFAULT_THROTTLE_RATE_MIN = 50 * 60;
+    private String queueSpec;
 
-    private static String HEADER_SEQ_NUMBER = "sequence.number";
+    private Consumer<HarvestRecord> discoDeposit;
 
-    private static String HEADER_THROTTLE_RATE_MIN = "throttle.per.min";
-
-    private static final String FAIL_QUEUE = "queue.fail";
-
-    private final AtomicLong count = new AtomicLong(0);
-
-    @Override
-    public void configure() throws Exception {
-
-        System.err.println("CONFIGURING");
-
-        from("{{disco.src.uri}}?concurrentconsumers={{disco.deposit.threads}}").id("disco-load")
-                .setHeader(Exchange.CONTENT_TYPE).simple(
-                        "{{disco.content.type}}")
-                .process(e -> System.err.println("MESSAGE"))
-                .to("direct:throttle")
-                .to("{{disco.rmap.uri}}&authUsername={{auth.user}}&authPassword={{auth.passwd}}");
-
-        from("direct:throttle").id("disco-load-throttle")
-                .process(LABEL_WITH_SEQUENCE_NUMBER)
-                .setHeader(HEADER_THROTTLE_RATE_MIN,
-                        expression(e -> e.getIn().getHeader(HEADER_SEQ_NUMBER, Integer.class) %
-                                PAUSE_EVERY_N_RECORDS == 0 ? 1 : DEFAULT_THROTTLE_RATE_MIN))
-                .throttle(header(HEADER_THROTTLE_RATE_MIN)).timePeriodMillis(60 * 1000);
-
-        from("direct:error").id("disco-load-error").routingSlip(header(FAIL_QUEUE));
-
+    public void setConnectionFactory(ConnectionFactory factory) {
+        this.connectionFactory = factory;
     }
 
-    final Processor LABEL_WITH_SEQUENCE_NUMBER = e -> e.getIn().setHeader(HEADER_SEQ_NUMBER, count.incrementAndGet());
+    public void setQueueSpec(String spec) {
+        this.queueSpec = spec;
+    }
+
+    public void setDiscoConsumer(Consumer<HarvestRecord> consumer) {
+        this.discoDeposit = consumer;
+    }
+
+    public void start() {
+
+        jms = new JmsClient(connectionFactory);
+
+        jms.listen(queueSpec,
+                new HarvestRecordListener(discoDeposit)
+                        .withExceptionHandler((m, e) -> {
+                            try {
+                                final String dest = errorDestination(m.getJMSDestination().toString());
+
+                                if (LOG.isDebugEnabled()) {
+                                    LOG.debug("Record listener threw an exception", e);
+                                }
+                                LOG.info("Record listener threw an exception, routing to {}", dest);
+
+                                jms.write(dest, m);
+                            } catch (final JMSException j) {
+                                throw new RuntimeException("Error placing into error queue: " + j.getMessage());
+                            }
+                        }));
+
+        LOG.info("Disco deposit service started for " + queueSpec);
+    }
+
+    private String errorDestination(String src) {
+        return src.replace("queue://", "").replaceFirst("disco", "error.disco");
+    }
+
+    @Override
+    public void close() throws Exception {
+        jms.close();
+    }
 }
