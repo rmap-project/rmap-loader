@@ -31,7 +31,6 @@ import org.apache.camel.builder.xml.StreamResultHandler;
 import org.apache.camel.builder.xml.StringResultHandlerFactory;
 import org.apache.camel.model.ProcessorDefinition;
 import org.apache.xml.resolver.tools.CatalogResolver;
-import org.osgi.service.component.annotations.Component;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -68,7 +67,6 @@ import net.sf.saxon.s9api.XsltTransformer;
  *
  * @author apb18
  */
-@Component(service = Processor.class, property = { "name=xslt2split" })
 public class Xslt2Splitter
         implements Processor {
 
@@ -95,7 +93,6 @@ public class Xslt2Splitter
 
             @Override
             public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-                System.out.println("RESOLVVE ENTITY: publicId: " + publicId + ", systemId" + systemId);
                 return delegate.resolveEntity(publicId, systemId);
             }
         });
@@ -179,7 +176,6 @@ public class Xslt2Splitter
 
                 @Override
                 public Source resolve(String href, String base) throws TransformerException {
-                    System.out.println("Resolve uri href='" + href + "', base='" + base + "'");
 
                     return resolver.resolve(href, base);
                 }

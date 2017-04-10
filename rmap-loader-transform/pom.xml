@@ -89,7 +89,13 @@
       <artifactId>rmap-loader-api</artifactId>
       <version>${project.version}</version>
     </dependency>
-    
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-camel</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>info.rmapproject</groupId>
       <artifactId>rmap-loader-validation</artifactId>
