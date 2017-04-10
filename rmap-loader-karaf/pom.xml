@@ -60,7 +60,7 @@
 
     <dependency>
       <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-framework</artifactId>
+      <artifactId>rmap-loader-transform</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
@@ -68,12 +68,13 @@
 
     <dependency>
       <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-transform</artifactId>
+      <artifactId>rmap-loader-deposit-disco</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
     </dependency>
-    
+
+
     <dependency>
       <groupId>info.rmapproject</groupId>
       <artifactId>rmap-loader-extractor</artifactId>

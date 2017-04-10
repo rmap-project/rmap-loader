@@ -154,8 +154,7 @@ public class DiscoDepositConsumerIT extends RmapITBase {
         final HarvestRecordStatus status = new HarvestRecordStatus();
         status.setRecordExists(true);
         status.setIsLatest(true);
-
-        when(harvestRegistry.getStatus(any(RecordInfo.class))).thenReturn(status);
+        when(harvestRegistry.getStatus(any())).thenReturn(status);
 
         final HarvestRecord record = new HarvestRecord();
 
@@ -168,15 +167,13 @@ public class DiscoDepositConsumerIT extends RmapITBase {
         toTest.accept(record);
 
         assertFalse(handledRequest.get());
-        verify(harvestRegistry, times(0)).register(any(RecordInfo.class), any(URI.class));
+        verify(harvestRegistry, times(0)).register(any(), any());
     }
 
     @Test
     public void badHttpResponseTest() {
         final HarvestRecordStatus status = new HarvestRecordStatus();
         status.setRecordExists(false);
-
-        when(harvestRegistry.getStatus(any(RecordInfo.class))).thenReturn(status);
 
         final HarvestRecord record = new HarvestRecord();
 
