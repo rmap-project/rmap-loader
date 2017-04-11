@@ -13,6 +13,7 @@
     <!-- Camel -->
     <feature version="${camel.version}">camel</feature>
     <feature version="${camel.version}">camel-http4</feature>
+    
 
   </feature>
 </features>
