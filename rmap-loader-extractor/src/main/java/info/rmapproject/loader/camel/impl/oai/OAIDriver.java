@@ -11,26 +11,22 @@ import org.apache.camel.Processor;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.builder.xml.Namespaces;
-import org.apache.camel.builder.xml.XPathBuilder;
 import org.apache.camel.component.http4.HttpClientConfigurer;
 import org.apache.camel.component.http4.HttpComponent;
 import org.apache.http.client.utils.DateUtils;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.DefaultRedirectStrategy;
 import org.apache.http.impl.client.HttpClientBuilder;
-
-import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@ObjectClassDefinition(name = "info.rmapproject.loader.camel.impl.oai.OAIDriver", description = "Basic OAI driver for performing OAI-PMH harvests")
+@ObjectClassDefinition(name = "info.rmapproject.loader.camel.impl.oai.OAIDriver",
+        description = "Basic OAI driver for performing OAI-PMH harvests")
 @interface OAIDriverConfig {
 
     @AttributeDefinition(description = "Delay after fetching each record")
@@ -42,7 +38,7 @@ import org.slf4j.LoggerFactory;
 
 @Designate(ocd = OAIDriverConfig.class)
 @Component(service = RoutesBuilder.class, configurationPolicy = ConfigurationPolicy.OPTIONAL, property = {
-        "oai.role=driver"})
+    "oai.role=driver" })
 public class OAIDriver
         extends RouteBuilder {
 
@@ -78,26 +74,21 @@ public class OAIDriver
 
     private long delay = 0;
 
-    private DelayExpression retryAfter = new DelayExpression();
+    private final DelayExpression retryAfter = new DelayExpression();
 
     Namespaces ns = new Namespaces("oai", OAI_NS);
 
-    @Activate
-    @Modified
-    public void configure(OAIDriverConfig config) {
-        LOG.info("Config updated");
-        retryDelay = config.retry_delay();
-        delay = config.fetch_delay();
+    public void setRetryDelay(long delay) {
+        this.retryDelay = delay;
     }
 
-    @Deactivate
-    public void deactivate() {
-        LOG.info("Deactivating");
+    public void setRecordDelay(long delay) {
+        this.delay = delay;
     }
 
     @Override
     public void configure() throws Exception {
-        HttpComponent httpComponent = getContext().getComponent("http4", HttpComponent.class);
+        final HttpComponent httpComponent = getContext().getComponent("http4", HttpComponent.class);
         httpComponent.setHttpClientConfigurer(new HttpClientConfigurer() {
 
             @Override
@@ -110,9 +101,8 @@ public class OAIDriver
         LOG.info("Using XPath impl {} ", XPathFactory.newInstance().newXPath().getClass());
 
         /*
-         * Perform an OAI http request. TODO: Do this entirely with streaming.
-         * Instead of multicast, do an xpath split with an OR:
-         * //oai:metadata/*[1]|//oai:resumptionToken. Route based on element.
+         * Perform an OAI http request. TODO: Do this entirely with streaming. Instead of multicast, do an xpath split
+         * with an OR: //oai:metadata/*[1]|//oai:resumptionToken. Route based on element.
          */
         from(ENDPOINT_OAI_REQUEST).routeId(ROUTE_OAI_REQUEST).to("seda:_do_request");
 
@@ -143,17 +133,19 @@ public class OAIDriver
                 .process(e -> LOG.info("Got resumption token '{}'", e.getIn().getHeader("oai.resumptionToken")))
                 //
                 .choice().when(header("oai.resumptionToken").isEqualTo("")).to("direct:stop").id("doStop")
-                //Stop
-                .otherwise().delay(delay).process(resumptionToken).to(ENDPOINT_OAI_REQUEST).id("doResume"); // Delay and resume
+                // Stop
+                .otherwise().delay(delay).process(resumptionToken).to(ENDPOINT_OAI_REQUEST).id("doResume"); // Delay
+                                                                                                            // and
+                                                                                                            // resume
 
         /* Stop. Tests can override this to verify stoppage */
         from("direct:stop").routeId(ROUTE_OAI_STOP).process(e -> LOG.info("Terminating harvest")).stop();
     }
 
     static final Processor resumptionToken = (e -> {
-        String resumptionToken = e.getIn().getHeader("oai.resumptionToken", String.class);
+        final String resumptionToken = e.getIn().getHeader("oai.resumptionToken", String.class);
         if (resumptionToken != null) {
-            URIBuilder newURI = new URIBuilder(baseURI(e.getIn().getHeader(Exchange.HTTP_URI, String.class)))
+            final URIBuilder newURI = new URIBuilder(baseURI(e.getIn().getHeader(Exchange.HTTP_URI, String.class)))
                     .setParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
                     .setParameter(OAI_PARAM_RESUMPTION_TOKEN, resumptionToken);
             e.getIn().setHeader(Exchange.HTTP_URI, newURI.build().toString());
@@ -171,7 +163,7 @@ public class OAIDriver
         @Override
         public <T> T evaluate(Exchange exchange, Class<T> type) {
             Long delay = retryDelay;
-            String retry = exchange.getIn().getHeader("Retry-After", String.class);
+            final String retry = exchange.getIn().getHeader("Retry-After", String.class);
 
             if (retry.matches("^\\d+$")) {
                 /* Number of seconds. From rfc2616 */
@@ -183,7 +175,5 @@ public class OAIDriver
 
             return constant(delay).evaluate(exchange, type);
         }
-
     }
-
 }
