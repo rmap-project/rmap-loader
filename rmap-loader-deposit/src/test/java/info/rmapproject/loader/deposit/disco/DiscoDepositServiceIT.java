@@ -72,11 +72,15 @@ public class DiscoDepositServiceIT {
 
     HarvestRecordWriter writer = new HarvestRecordWriter();
 
+    JmsClient jms;
+
     @Before
     public void setUp() {
         connectionFactory = broker.createConnectionFactory();
 
-        writer = new HarvestRecordWriter(connectionFactory);
+        jms = new JmsClient(connectionFactory);
+
+        writer = new HarvestRecordWriter(jms);
 
         toTest.setQueueSpec(LISTEN_QUEUE);
         toTest.setConnectionFactory(broker.createConnectionFactory());
@@ -168,7 +172,7 @@ public class DiscoDepositServiceIT {
 
     @After
     public void disconnect() throws Exception {
-        writer.close();
+        jms.close();
         toTest.close();
     }
 

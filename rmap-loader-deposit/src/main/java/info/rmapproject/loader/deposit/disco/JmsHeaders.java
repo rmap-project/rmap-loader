@@ -47,4 +47,6 @@ public interface JmsHeaders {
 
     /** Source of the record, e.g a document URI if it has one (optional) */
     public static final String PROP_HARVEST_RECORD_SRC = "rmap.harvest.record.src";
+
+    public static final String PROP_HARVEST_RECORD_CONTENT_TYPE = "Content-Type";
 }

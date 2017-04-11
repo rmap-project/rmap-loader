@@ -22,7 +22,6 @@ import static info.rmapproject.loader.deposit.disco.HarvestRecordConverter.toMes
 
 import java.util.function.Supplier;
 
-import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.Session;
 
@@ -33,18 +32,16 @@ import info.rmapproject.loader.HarvestRecord;
  */
 public class HarvestRecordWriter implements AutoCloseable {
 
-    private ConnectionFactory factory;
-
     private JmsClient jms;
 
     private Supplier<Session> sessions;
 
-    public void setConnectionFactory(ConnectionFactory connectionFactory) {
-        this.factory = connectionFactory;
+    public void setJmsClient(JmsClient client) {
+        this.jms = client;
     }
 
-    public HarvestRecordWriter(ConnectionFactory factory) {
-        this.factory = factory;
+    public HarvestRecordWriter(JmsClient client) {
+        this.jms = client;
         init();
     }
 
@@ -61,7 +58,6 @@ public class HarvestRecordWriter implements AutoCloseable {
     }
 
     public void init() {
-        this.jms = new JmsClient(factory);
         this.sessions = jms.getSessionSupplier();
     }
 

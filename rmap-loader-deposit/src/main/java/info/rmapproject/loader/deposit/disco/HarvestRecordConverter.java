@@ -40,19 +40,7 @@ import info.rmapproject.loader.model.RecordInfo;
  *
  * @author apb@jhu.edu
  */
-public class HarvestRecordConverter {
-
-    private static final String PROP_HARVEST_ID = "rmap.harvest.id";
-
-    private static final String PROP_HARVEST_DATE = "rmap.harvest.date";
-
-    private static final String PROP_HARVEST_SRC = "rmap.harvest.src";
-
-    private static final String PROP_HARVEST_RECORD_ID = "rmap.harvest.record.id";
-
-    private static final String PROP_HARVEST_RECORD_DATE = "rmap.harvest.record.date";
-
-    private static final String PROP_HARVEST_RECORD_SRC = "rmap.harvest.record.src";
+public class HarvestRecordConverter implements JmsHeaders {
 
     /**
      * Create a HarvestRecord from a JMS message.
@@ -77,7 +65,9 @@ public class HarvestRecordConverter {
             writeRecordInfo(recordInfo, message);
         }
 
-        message.setText(new String(record.getBody()));
+        if (record.getBody() != null) {
+            message.setText(new String(record.getBody()));
+        }
         return message;
     }
 
@@ -119,6 +109,10 @@ public class HarvestRecordConverter {
             recordInfo.setSrc(URI.create(m.getStringProperty(PROP_HARVEST_RECORD_SRC)));
         }
 
+        if (m.propertyExists(PROP_HARVEST_RECORD_CONTENT_TYPE)) {
+            recordInfo.setContentType(m.getStringProperty(PROP_HARVEST_RECORD_CONTENT_TYPE));
+        }
+
         return recordInfo;
 
     }
@@ -134,6 +128,10 @@ public class HarvestRecordConverter {
 
         if (recordInfo.getSrc() != null) {
             message.setStringProperty(PROP_HARVEST_RECORD_SRC, recordInfo.getSrc().toString());
+        }
+
+        if (recordInfo.getContentType() != null) {
+            message.setStringProperty(PROP_HARVEST_RECORD_CONTENT_TYPE, recordInfo.getContentType());
         }
 
         if (recordInfo.getHarvestInfo() != null) {

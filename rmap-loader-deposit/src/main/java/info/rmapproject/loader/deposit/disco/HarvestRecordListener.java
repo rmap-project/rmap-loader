@@ -47,6 +47,10 @@ public class HarvestRecordListener implements MessageListener {
         this.consumer = consumer;
     }
 
+    public static HarvestRecordListener onHarvestRecord(Consumer<HarvestRecord> consumer) {
+        return new HarvestRecordListener(consumer);
+    }
+
     @Override
     public void onMessage(Message m) {
 
