@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import info.rmapproject.loader.HarvestRecord;
+import info.rmapproject.loader.jms.HarvestRecordListener;
+import info.rmapproject.loader.jms.JmsClient;
 
 /**
  * Pulls from a queue, invokes a deposit action, and sends to an error queue if a failure occurs.

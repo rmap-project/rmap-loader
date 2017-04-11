@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package info.rmapproject.loader.deposit.disco;
+package info.rmapproject.loader.jms;
 
 import java.util.ArrayList;
 import java.util.Collections;

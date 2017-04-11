@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package info.rmapproject.loader.deposit.disco;
+package info.rmapproject.loader.jms;
 
-import static info.rmapproject.loader.deposit.disco.HarvestRecordConverter.fromMessage;
+import static info.rmapproject.loader.jms.HarvestRecordConverter.fromMessage;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;

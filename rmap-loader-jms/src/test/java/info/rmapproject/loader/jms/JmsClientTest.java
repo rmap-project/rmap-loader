@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package info.rmapproject.loader.deposit.disco;
+package info.rmapproject.loader.jms;
 
 import static org.junit.Assert.assertTrue;
 
@@ -30,6 +30,8 @@ import javax.jms.Session;
 import org.apache.activemq.junit.EmbeddedActiveMQBroker;
 import org.junit.Rule;
 import org.junit.Test;
+
+import info.rmapproject.loader.jms.JmsClient;
 
 /**
  * @author apb@jhu.edu

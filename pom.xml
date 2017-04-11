@@ -72,6 +72,7 @@
   </dependencyManagement>
   <modules>
     <module>rmap-loader-api</module>
+    <module>rmap-loader-jms</module>
     <module>rmap-loader-experimental</module>
     <module>rmap-loader-transform</module>
     <module>rmap-loader-extractor</module>

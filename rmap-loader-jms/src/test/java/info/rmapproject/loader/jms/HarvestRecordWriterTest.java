@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package info.rmapproject.loader.deposit.disco;
+package info.rmapproject.loader.jms;
 
-import static info.rmapproject.loader.deposit.disco.HarvestRecordListener.onHarvestRecord;
+import static info.rmapproject.loader.jms.HarvestRecordListener.onHarvestRecord;
 import static org.junit.Assert.assertTrue;
 import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
 
@@ -34,6 +34,8 @@ import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionComparatorMode;
 
 import info.rmapproject.loader.HarvestRecord;
+import info.rmapproject.loader.jms.HarvestRecordWriter;
+import info.rmapproject.loader.jms.JmsClient;
 import info.rmapproject.loader.model.HarvestInfo;
 import info.rmapproject.loader.model.RecordInfo;
 

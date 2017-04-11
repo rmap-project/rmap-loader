@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package info.rmapproject.loader.deposit.disco;
+package info.rmapproject.loader.jms;
 
 /**
  * RMap harvest headers for JMS records.

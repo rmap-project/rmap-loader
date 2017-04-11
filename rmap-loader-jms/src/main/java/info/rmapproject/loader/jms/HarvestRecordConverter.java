@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package info.rmapproject.loader.deposit.disco;
+package info.rmapproject.loader.jms;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 

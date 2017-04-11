@@ -7,9 +7,8 @@
   <feature name="${project.artifactId}" description="${project.description}"
     version="${project.version}">
     <details>${project.artifactId}</details>
-
-    <!-- Camel -->
-    <feature version="${camel.version}">camel-http4</feature>
+    
+    <feature>scr</feature>
 
   </feature>
 </features>

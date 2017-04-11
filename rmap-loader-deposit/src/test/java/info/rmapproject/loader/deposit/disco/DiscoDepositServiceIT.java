@@ -42,6 +42,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import info.rmapproject.loader.HarvestRecord;
+import info.rmapproject.loader.jms.HarvestRecordWriter;
+import info.rmapproject.loader.jms.JmsClient;
 
 /**
  * @author apb@jhu.edu

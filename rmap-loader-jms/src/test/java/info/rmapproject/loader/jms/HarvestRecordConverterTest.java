@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package info.rmapproject.loader.deposit.disco;
+package info.rmapproject.loader.jms;
 
-import static info.rmapproject.loader.deposit.disco.HarvestRecordConverter.fromMessage;
-import static info.rmapproject.loader.deposit.disco.HarvestRecordConverter.toMessage;
+import static info.rmapproject.loader.jms.HarvestRecordConverter.fromMessage;
+import static info.rmapproject.loader.jms.HarvestRecordConverter.toMessage;
 import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
 
 import java.net.URI;
