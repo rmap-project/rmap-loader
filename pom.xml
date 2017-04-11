@@ -22,7 +22,7 @@
     <karaf.version>4.0.8</karaf.version>
     <mockito.version>2.7.22</mockito.version>
     <pax-exam.version>4.9.1</pax-exam.version>
-    <hawtio.version>2.0.0</hawtio.version>
+    <hawtio.version>1.5.0</hawtio.version>
     <activemq.version>5.14.4</activemq.version>
     <slf4j.version>1.7.13</slf4j.version>
   </properties>
@@ -82,5 +82,6 @@
     <module>rmap-loader-karaf</module>
     <module>rmap-loader-integration</module>
     <module>rmap-loader-validation</module>
+    <module>rmap-loader-activemq</module>
   </modules>
 </project>

@@ -7,13 +7,15 @@
   <feature name="${project.artifactId}" description="${project.description}"
     version="${project.version}">
     <details>${project.artifactId}</details>
-    
+
     <feature>scr</feature>
 
     <!-- Camel -->
     <feature version="${camel.version}">camel</feature>
     <feature version="${camel.version}">camel-http4</feature>
-    
+    <bundle>mvn:org.apache.camel/camel-core-osgi/${camel.version}</bundle>
+    <bundle>mvn:info.rmapproject/rmap-loader-camel/${project.version}</bundle>
+    <bundle>mvn:info.rmapproject/rmap-loader-osgi/${project.version}</bundle>
 
   </feature>
 </features>

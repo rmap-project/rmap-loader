@@ -7,21 +7,20 @@ import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.core.osgi.utils.BundleDelegatingClassLoader;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.impl.DefaultShutdownStrategy;
-import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.impl.SimpleRegistry;
-
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
 
 import info.rmapproject.loader.camel.ContextFactory;
 
 /**
  * Creates CamelContexts OSGI SCR-friendly manner.
- * 
+ *
  * @author apb18
  */
-@Component
+@Component(immediate = true, configurationPolicy = ConfigurationPolicy.IGNORE)
 public class OsgiContextFactory
         implements ContextFactory {
 
@@ -37,7 +36,7 @@ public class OsgiContextFactory
         publisher = new ContextFixerPublisher(bundleContext);
         try {
             publisher.start();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -51,8 +50,8 @@ public class OsgiContextFactory
             context = new OsgiDefaultCamelContext(bundleContext, registry);
             context.setApplicationContextClassLoader(new BundleDelegatingClassLoader(bundleContext.getBundle()));
             Thread.currentThread().setContextClassLoader(context.getApplicationContextClassLoader());
-            
-            DefaultShutdownStrategy shutdown = new DefaultShutdownStrategy();
+
+            final DefaultShutdownStrategy shutdown = new DefaultShutdownStrategy();
             shutdown.setTimeout(10);
             context.setShutdownStrategy(shutdown);
 
@@ -74,7 +73,7 @@ public class OsgiContextFactory
         if (routes != null) {
             try {
                 routes.addRoutesToCamelContext(context);
-            } catch (Exception e) {
+            } catch (final Exception e) {
                 throw new RuntimeException(e);
             }
         }
@@ -86,12 +85,14 @@ public class OsgiContextFactory
 
     @Override
     public void disposeContext(CamelContext context) {
-        if (context == null) return;
+        if (context == null) {
+            return;
+        }
 
         /* Stop the context */
         try {
             context.stop();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             throw new RuntimeException(e);
         }
     }

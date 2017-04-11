@@ -30,7 +30,7 @@ import info.rmapproject.loader.HarvestRecord;
 /**
  * @author apb@jhu.edu
  */
-public class HarvestRecordWriter implements AutoCloseable {
+public class HarvestRecordWriter {
 
     private JmsClient jms;
 
@@ -59,10 +59,5 @@ public class HarvestRecordWriter implements AutoCloseable {
 
     public void init() {
         this.sessions = jms.getSessionSupplier();
-    }
-
-    @Override
-    public void close() {
-        jms.close();
     }
 }

@@ -6,18 +6,30 @@
     <artifactId>rmap-loader</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>rmap-loader-karaf</artifactId>
-  <packaging>feature</packaging>
+  <artifactId>rmap-loader-activemq</artifactId>
+  <packaging>bundle</packaging>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Import-Package>*</Import-Package>
+            <_dsannotations>*</_dsannotations>
+          </instructions>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>karaf-maven-plugin</artifactId>
         <version>${karaf.version}</version>
         <extensions>true</extensions>
         <configuration>
-          <includeProjectArtifact>false</includeProjectArtifact>
+          <includeProjectArtifact>true</includeProjectArtifact>
           <aggregateFeatures>true</aggregateFeatures>
           <installAllFeaturesByDefault>true</installAllFeaturesByDefault>
           <resolveDefinedRepositoriesRecursively>true</resolveDefinedRepositoriesRecursively>
@@ -25,50 +37,29 @@
         </configuration>
         <executions>
           <execution>
-            <id>generate-kar</id>
-            <phase>package</phase>
+            <id>generate-features-descriptor</id>
+            <phase>generate-resources</phase>
             <goals>
-              <goal>kar</goal>
+              <goal>features-generate-descriptor</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
-
+  
   <dependencies>
-
     <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-extractor</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-camel</artifactId>
+      <version>${activemq.version}</version>
+      <scope>provided</scope>
     </dependency>
-
     <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-activemq</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-jms</artifactId>
+      <version>${camel.version}</version>
+      <scope>provided</scope>
     </dependency>
-
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-transform</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-deposit-disco</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-
   </dependencies>
 </project>

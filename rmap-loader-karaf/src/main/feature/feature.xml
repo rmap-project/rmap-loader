@@ -5,25 +5,31 @@
   name="rmap-loader">
   <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
   <repository>mvn:org.apache.activemq/activemq-karaf/${activemq.version}/xml/features</repository>
-  <feature name="rmap-loader" description="rmap-loader" version="0.0.1.SNAPSHOT">
+  <repository>mvn:io.hawt/hawtio-karaf/${hawtio.version}/xml/features</repository>
+
+  <feature name="rmap-loader" description="rmap-loader" version="${project.version}">
+    <feature version="${project.version}">rmap-loader-core</feature>
+    <feature version="${activemq.version}">activemq-broker</feature>
+    <feature version="${hawtio.version}">hawtio</feature>
+  </feature>
+
+  <feature name="rmap-loader-core" description="rmap-loader-core"
+    version="${project.version}">
     <details>rmap-loader</details>
 
     <feature>scr</feature>
 
-    <!-- ActiveMQ for message queues between loader components -->
-    <feature version="${activemq.version}">activemq-broker</feature>
     <feature version="${activemq.version}">activemq-camel</feature>
 
     <!-- Hawtio for monitoring -->
-    <!-- 
-    <feature version="${hawtio.version}">hawtio</feature>
-    -->
+    <!-- <feature version="${hawtio.version}">hawtio</feature> -->
 
     <!-- RMap individual features -->
-    
+
     <feature version="${project.version}">rmap-loader-deposit-disco</feature>
     <feature version="${project.version}">rmap-loader-transform</feature>
     <feature version="${project.version}">rmap-loader-extractor</feature>
+    <feature version="${project.version}">rmap-loader-activemq</feature>
 
   </feature>
 </features>
