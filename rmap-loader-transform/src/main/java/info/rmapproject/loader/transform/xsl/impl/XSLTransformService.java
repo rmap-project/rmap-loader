@@ -35,7 +35,9 @@ import info.rmapproject.loader.model.RecordInfo;
     @AttributeDefinition(description = "")
     String srcUri() default "activemq:queue:rmap.harvest.in_fmt.>";
 
-    String destUri() default "activemq:queue:rmap.harvest.out_fmt.>";
+    String destUri() default "activemq:queue:rmap.harvest.out_fmt.out";
+
+    String contentType();
 
 }
 
@@ -82,14 +84,6 @@ public class XSLTransformService extends RouteBuilder {
         this.contextFactory = factory;
     }
 
-    public void setRecordSourceURI(String uri) {
-        this.src = uri;
-    }
-
-    public void setResourceDestinationURI(String uri) {
-        this.src = uri;
-    }
-
     public void setOutputContentType(String contentType) {
         this.contentType = contentType;
     }
@@ -100,8 +94,9 @@ public class XSLTransformService extends RouteBuilder {
 
     @Activate
     public void start(XsltTransformConfig config) {
-        setRecordSourceURI(config.srcUri());
-        setResourceDestinationURI(config.destUri());
+        setSrcUri(config.srcUri());
+        setDestUri(config.destUri());
+        setOutputContentType(config.contentType());
         start();
     }
 
