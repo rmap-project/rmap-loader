@@ -48,14 +48,6 @@
 
     <dependency>
       <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-activemq</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-
-    <dependency>
-      <groupId>info.rmapproject</groupId>
       <artifactId>rmap-loader-transform</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>

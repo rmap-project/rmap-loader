@@ -82,6 +82,5 @@
     <module>rmap-loader-karaf</module>
     <module>rmap-loader-integration</module>
     <module>rmap-loader-validation</module>
-    <module>rmap-loader-activemq</module>
   </modules>
 </project>

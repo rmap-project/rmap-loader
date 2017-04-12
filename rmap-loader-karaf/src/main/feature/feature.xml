@@ -9,7 +9,6 @@
 
   <feature name="rmap-loader" description="rmap-loader" version="${project.version}">
     <feature version="${project.version}">rmap-loader-core</feature>
-    <feature version="${activemq.version}">activemq-broker</feature>
     <feature version="${hawtio.version}">hawtio</feature>
   </feature>
 
@@ -29,7 +28,6 @@
     <feature version="${project.version}">rmap-loader-deposit-disco</feature>
     <feature version="${project.version}">rmap-loader-transform</feature>
     <feature version="${project.version}">rmap-loader-extractor</feature>
-    <feature version="${project.version}">rmap-loader-activemq</feature>
 
   </feature>
 </features>
