@@ -23,153 +23,119 @@
         </executions>
         <configuration>
           <systemPropertyVariables>
-            <pax.exam.karaf.version>${karaf.version}</pax.exam.karaf.version>
+            <disco.loader.jar>${info.rmapproject:rmap-loader-deposit-disco:jar:exe}</disco.loader.jar>
+            <xsl.transform.jar>${info.rmapproject:rmap-loader-transform-xsl:jar:exe}</xsl.transform.jar>
+            <xslt.file>${project.build.testOutputDirectory}/xsl/transform-include.xsl</xslt.file>
+            <zip.extract.jar>${info.rmapproject:rmap-loader-extract-zip:jar:exe}</zip.extract.jar>
+            <input.data.dir>${project.build.sourceDirectory}/test/resources/data</input.data.dir>
+            <oai.extract.jar>${info.rmapproject:rmap-loader-extract-oai:jar:exe}</oai.extract.jar>
           </systemPropertyVariables>
+          <configuration>
+            <classpathDependencyScopeExclude>runtime</classpathDependencyScopeExclude>
+          </configuration>
         </configuration>
       </plugin>
 
-      <!-- Needed if you use versionAsInProject() -->
       <plugin>
-        <groupId>org.apache.servicemix.tooling</groupId>
-        <artifactId>depends-maven-plugin</artifactId>
-        <version>1.3</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
-            <id>generate-depends-file</id>
             <goals>
-              <goal>generate-depends-file</goal>
+              <goal>properties</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
-
-    <testResources>
-      <testResource>
-        <directory>src/test/resources</directory>
-        <filtering>true</filtering>
-      </testResource>
-    </testResources>
   </build>
 
   <dependencies>
 
     <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.service.component.annotations</artifactId>
-      <version>${osgi.component.version}</version>
-      <scope>provided</scope>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-deposit-disco</artifactId>
+      <version>${project.version}</version>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.service.metatype.annotations</artifactId>
-      <version>${osgi.metatype.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- RMap features -->
     <dependency>
       <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-karaf</artifactId>
+      <artifactId>rmap-loader-transform-xsl</artifactId>
       <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- For running a karaf container via pax exam -->
-    <dependency>
-      <groupId>org.apache.karaf.features</groupId>
-      <artifactId>standard</artifactId>
-      <version>${karaf.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-      <scope>test</scope>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.ops4j.pax.exam</groupId>
-      <artifactId>pax-exam-container-karaf</artifactId>
-      <version>${pax-exam.version}</version>
-      <scope>test</scope>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-extract-zip</artifactId>
+      <version>${project.version}</version>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.ops4j.pax.exam</groupId>
-      <artifactId>pax-exam-junit4</artifactId>
-      <version>${pax-exam.version}</version>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-extract-oai</artifactId>
+      <version>${project.version}</version>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.jetty.http2</groupId>
+      <artifactId>http2-server</artifactId>
+      <version>9.4.0.v20161208</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.ops4j.pax.exam</groupId>
-      <artifactId>pax-exam</artifactId>
-      <version>${pax-exam.version}</version>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>9.4.0.v20161208</version>
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.ops4j.pax.url</groupId>
-      <artifactId>pax-url-aether</artifactId>
-      <version>2.4.3</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
-      <version>1</version>
-      <scope>test</scope>
-    </dependency>
-    
     <!-- Activemq -->
-    
+
+    <dependency>
+      <groupId>org.apache.activemq.tooling</groupId>
+      <artifactId>activemq-junit</artifactId>
+      <version>${activemq.version}</version>
+      <scope>test</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-karaf</artifactId>
+      <artifactId>activemq-broker</artifactId>
       <version>${activemq.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-
-    <!-- for our camel tests -->
-
-    <dependency>
-      <groupId>org.apache.camel.karaf</groupId>
-      <artifactId>apache-camel</artifactId>
-      <version>${camel.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-test</artifactId>
-      <version>${camel.version}</version>
-      <scope>test</scope>
-    </dependency>
 
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-camel</artifactId>
-      <version>${project.version}</version>
-      <scope>test</scope>
-    </dependency>
 
     <!-- test logging -->
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.9</version>
       <scope>test</scope>
-      <version>1.7.12</version>
     </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 </project>

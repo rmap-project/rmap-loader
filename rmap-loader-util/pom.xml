@@ -6,7 +6,7 @@
     <artifactId>rmap-loader</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>rmap-loader-jms</artifactId>
+  <artifactId>rmap-loader-util</artifactId>
   <packaging>bundle</packaging>
   <build>
     <plugins>
@@ -18,65 +18,39 @@
   </build>
 
   <dependencies>
-
-    <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
     <dependency>
       <groupId>javax.jms</groupId>
       <artifactId>javax.jms-api</artifactId>
       <version>2.0.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.unitils</groupId>
-      <artifactId>unitils-core</artifactId>
-      <version>3.4.2</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.activemq.tooling</groupId>
-      <artifactId>activemq-junit</artifactId>
-      <version>${activemq.version}</version>
-      <scope>test</scope>
+      <optional>true</optional>
     </dependency>
 
     <dependency>
       <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-broker</artifactId>
+      <artifactId>activemq-client</artifactId>
       <version>${activemq.version}</version>
-      <scope>test</scope>
+      <optional>true</optional>
     </dependency>
 
     <dependency>
       <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-kahadb-store</artifactId>
+      <artifactId>activemq-pool</artifactId>
       <version>${activemq.version}</version>
-      <scope>test</scope>
+      <optional>true</optional>
     </dependency>
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-camel</artifactId>
+      <version>${activemq.version}</version>
+      <optional>true</optional>
     </dependency>
-
+    
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.1.9</version>
-      <scope>test</scope>
+      <version>${logback.version}</version>
+      <optional>true</optional>
     </dependency>
   </dependencies>
 </project>
