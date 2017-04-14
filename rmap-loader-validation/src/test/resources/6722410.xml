@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rmap="http://rmap-project.org/rmap/terms/1.0/"
+  xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:cito="http://purl.org/spar/cito/"
+  xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:fabio="http://purl.org/spar/fabio/"
+  xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+  xmlns:ieee="http://data.ieee.org/ieee/terms/">
+  <rdf:Description>
+    <rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO" />
+    <dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/IEEELoader"/>
+    <ore:aggregates rdf:resource="http://dx.doi.org/10.1109/SMC.2013.657" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dx.doi.org/10.1109/SMC.2013.657">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/ConferencePaper" />
+    <dc:title>Control System Software Design Methodology for Automotive
+      Industry</dc:title>
+    <ieee:content-type>orig-research</ieee:content-type>
+    <dcterms:isPartOf rdf:resource="ark:/35911/amsid/6689802" />
+    <dcterms:isPartOf rdf:resource="ark:/35911/amsid/6721750" />
+    <dcterms:identifier rdf:resource="ark:/35911/amsid/6722410" />
+    <dcterms:identifier rdf:resource="ark:/35911/idams/0b00006482013be2" />
+    <prism:doi rdf:resource="doi:10.1109/SMC.2013.657" />
+    <ieee:inspec-accession-number>14067195
+    </ieee:inspec-accession-number>
+    <dcterms:creator rdf:parseType="Resource">
+      <dcterms:identifier>A14067195.1</dcterms:identifier>
+      <foaf:name>Di Orio, G.</foaf:name>
+    </dcterms:creator>
+    <dcterms:creator rdf:parseType="Resource">
+      <dcterms:identifier>A14067195.1</dcterms:identifier>
+      <foaf:name>Barata, J.</foaf:name>
+    </dcterms:creator>
+    <dcterms:creator rdf:parseType="Resource">
+      <dcterms:identifier>A14067195.2</dcterms:identifier>
+      <foaf:name>Sousa, C.</foaf:name>
+    </dcterms:creator>
+    <dcterms:creator rdf:parseType="Resource">
+      <dcterms:identifier>A14067195.2</dcterms:identifier>
+      <foaf:name>Flores, L.</foaf:name>
+    </dcterms:creator>
+    <prism:keyword>software engineering</prism:keyword>
+    <prism:keyword>automobile industry</prism:keyword>
+    <prism:keyword>control engineering computing</prism:keyword>
+    <prism:keyword>manufacturing systems</prism:keyword>
+    <prism:keyword>production engineering computing</prism:keyword>
+    <prism:keyword>productivity</prism:keyword>
+    <prism:keyword>programmable controllers</prism:keyword>
+    <prism:keyword>code quality</prism:keyword>
+    <prism:keyword>control system software design methodology
+    </prism:keyword>
+    <prism:keyword>automotive industry</prism:keyword>
+    <prism:keyword>automated manufacturing systems</prism:keyword>
+    <prism:keyword>industrial monitoring solutions</prism:keyword>
+    <prism:keyword>industrial control solutions</prism:keyword>
+    <prism:keyword>programmable logic controllers</prism:keyword>
+    <prism:keyword>PLC</prism:keyword>
+    <prism:keyword>application domain meaning</prism:keyword>
+    <prism:keyword>factory</prism:keyword>
+    <prism:keyword>shop floor</prism:keyword>
+    <prism:keyword>ladder logic</prism:keyword>
+    <prism:keyword>cost reduction</prism:keyword>
+    <prism:keyword>product delivery</prism:keyword>
+    <prism:keyword>market condition</prism:keyword>
+    <prism:keyword>productivity gains</prism:keyword>
+    <prism:keyword>mechanical specifications</prism:keyword>
+    <prism:keyword>behavioural models</prism:keyword>
+    <prism:keyword>industrial logic</prism:keyword>
+    <prism:keyword>naming standard</prism:keyword>
+    <prism:keyword>Manufacturing</prism:keyword>
+    <prism:keyword>Monitoring</prism:keyword>
+    <prism:keyword>Standards</prism:keyword>
+    <prism:keyword>Software</prism:keyword>
+    <prism:keyword>Programming</prism:keyword>
+    <prism:keyword>Control systems</prism:keyword>
+    <prism:keyword>Industries</prism:keyword>
+    <prism:keyword>Automotive Industry</prism:keyword>
+    <prism:keyword>Behavioural Modelling</prism:keyword>
+    <prism:keyword>Design Methodology</prism:keyword>
+    <prism:keyword>Programmable Logic Controller</prism:keyword>
+    <prism:keyword>IEC-61131-3</prism:keyword>
+    <prism:keyword>C3350Z</prism:keyword>
+    <prism:keyword>C6110B</prism:keyword>
+    <prism:keyword>C3220B</prism:keyword>
+    <prism:keyword>C7420</prism:keyword>
+    <prism:keyword>C7480</prism:keyword>
+    <prism:keyword>E3650A</prism:keyword>
+    <prism:keyword>E1510</prism:keyword>
+    <prism:keyword>E1010</prism:keyword>
+    <prism:keyword>E1550</prism:keyword>
+    <prism:keyword>E0410D</prism:keyword>
+    <prism:keyword>P</prism:keyword>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>info.rmapproject</groupId>
+    <artifactId>rmap-loader</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>rmap-loader-integration</artifactId>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <systemPropertyVariables>
+            <disco.loader.jar>${info.rmapproject:rmap-loader-deposit-disco:jar:exe}</disco.loader.jar>
+            <xsl.transform.jar>${info.rmapproject:rmap-loader-transform-xsl:jar:exe}</xsl.transform.jar>
+            <xslt.file>${project.build.testOutputDirectory}/xsl/transform-include.xsl</xslt.file>
+            <zip.extract.jar>${info.rmapproject:rmap-loader-extract-zip:jar:exe}</zip.extract.jar>
+            <input.data.dir>${project.build.testOutputDirectory}/data</input.data.dir>
+            <oai.extract.jar>${info.rmapproject:rmap-loader-extract-oai:jar:exe}</oai.extract.jar>
+          </systemPropertyVariables>
+          <configuration>
+            <classpathDependencyScopeExclude>runtime</classpathDependencyScopeExclude>
+          </configuration>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-deposit-disco</artifactId>
+      <version>${project.version}</version>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-transform-xsl</artifactId>
+      <version>${project.version}</version>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-extract-zip</artifactId>
+      <version>${project.version}</version>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-extract-oai</artifactId>
+      <version>${project.version}</version>
+      <classifier>exe</classifier>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.jetty.http2</groupId>
+      <artifactId>http2-server</artifactId>
+      <version>9.4.0.v20161208</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>9.4.0.v20161208</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Activemq -->
+
+    <dependency>
+      <groupId>org.apache.activemq.tooling</groupId>
+      <artifactId>activemq-junit</artifactId>
+      <version>${activemq.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-broker</artifactId>
+      <version>${activemq.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+
+
+    <!-- test logging -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.9</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+</project>

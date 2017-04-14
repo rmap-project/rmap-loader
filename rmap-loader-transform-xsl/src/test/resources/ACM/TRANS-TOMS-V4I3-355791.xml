@@ -1,0 +1,2138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<periodical ver="5.0" ts="04/10/2010">
+<journal_rec>
+	<journal_id>J782</journal_id>
+	<journal_code>TOMS</journal_code>
+	<journal_name>ACM Transactions on Mathematical Software (TOMS)</journal_name>
+	<journal_abbr>ACM Trans. Math. Softw.</journal_abbr>
+	<issn>0098-3500</issn>
+	<eissn>1557-7295</eissn>
+	<language></language>
+	<periodical_type>transaction</periodical_type>
+	<editor>
+		<ed>
+			<person_id>PP45024532</person_id>
+			<author_profile_id><![CDATA[81339524131]]></author_profile_id>
+			<orcid_id></orcid_id>
+			<seq_no>1</seq_no>
+			<first_name><![CDATA[John]]></first_name>
+			<middle_name><![CDATA[R.]]></middle_name>
+			<last_name><![CDATA[Rice]]></last_name>
+			<suffix><![CDATA[]]></suffix>
+			<affiliation><![CDATA[]]></affiliation>
+			<role><![CDATA[Editor]]></role>
+			<email_address><![CDATA[]]></email_address>
+		</ed>
+	</editor>
+	<publisher>
+		<publisher_id>PUB27</publisher_id>
+		<publisher_code>ACMNY</publisher_code>
+		<publisher_name>ACM</publisher_name>
+		<publisher_address>2 Penn Plaza, Suite 701</publisher_address>
+		<publisher_city>New York</publisher_city>
+		<publisher_state>NY</publisher_state>
+		<publisher_country>USA</publisher_country>
+		<publisher_zip_code>10121-0701</publisher_zip_code>
+		<publisher_contact>Bernard Rous</publisher_contact>
+		<publisher_phone>212 869-7440</publisher_phone>
+		<publisher_isbn_prefix></publisher_isbn_prefix>
+		<publisher_url>www.acm.org/publications</publisher_url>
+	</publisher>
+</journal_rec>
+<issue_rec>
+	<issue_id>355791</issue_id>
+	<volume>4</volume>
+	<issue>3</issue>
+	<issue_date>Sept. 1978</issue_date>
+	<publication_date>09-01-1978</publication_date>
+	<special_issue_title><![CDATA[]]></special_issue_title>
+	<categories>
+		<primary_category>
+			<cat_node>G.0</cat_node>
+			<descriptor/>
+			<type/>
+		</primary_category>
+	</categories>
+	<ccs2012>
+		<concept>
+			<concept_id>0.10002950</concept_id>
+			<concept_desc>CCS->Mathematics of computing</concept_desc>
+			<concept_significance>100</concept_significance>
+		</concept>
+		<concept>
+			<concept_id>0.10002950</concept_id>
+			<concept_desc>CCS->Mathematics of computing</concept_desc>
+			<concept_significance>500</concept_significance>
+		</concept>
+	</ccs2012>
+	<general_terms>
+		<gt>Design</gt>
+		<gt>Theory</gt>
+	</general_terms>
+	<ccc>
+		<copyright_holder>
+			<copyright_holder_name>ACM</copyright_holder_name>
+			<copyright_holder_year>1978</copyright_holder_year>
+		</copyright_holder>
+	</ccc>
+	<issue_complete completed="YES" />
+</issue_rec>
+<content>
+	<article_rec>
+		<article_id>355792</article_id>
+		<sort_key>193</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>1</seq_no>
+		<title><![CDATA[Automatic Solution of the Sturm-Liouville Problem]]></title>
+		<page_from>193</page_from>
+		<page_to>208</page_to>
+		<doi_number>10.1145/355791.355792</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355792</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.1.3</cat_node>
+				<descriptor>Eigenvalues and eigenvectors (direct and iterative methods)</descriptor>
+				<type>S</type>
+			</primary_category>
+			<other_category>
+				<cat_node>G.1.7</cat_node>
+				<descriptor>Boundary value problems</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>G.4</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003714.10003727.10003728</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Differential equations->Ordinary differential equations</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Design</gt>
+			<gt>Performance</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP31071783</person_id>
+				<author_profile_id><![CDATA[81100645125]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[P.]]></first_name>
+				<middle_name><![CDATA[B.]]></middle_name>
+				<last_name><![CDATA[Bailey]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Numerical Mathematics Division 5122, Sandia Laboratories, Albuquerque, NM]]></affiliation>
+				<affil_inst_id><![CDATA[60007843]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>PP31077780</person_id>
+				<author_profile_id><![CDATA[81100038069]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>2</seq_no>
+				<first_name><![CDATA[M.]]></first_name>
+				<middle_name><![CDATA[K.]]></middle_name>
+				<last_name><![CDATA[Gordon]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Numerical Mathematics Division 5122, Sandia Laboratories, Albuquerque, NM]]></affiliation>
+				<affil_inst_id><![CDATA[60007843]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>PP40033371</person_id>
+				<author_profile_id><![CDATA[81100197580]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>3</seq_no>
+				<first_name><![CDATA[L.]]></first_name>
+				<middle_name><![CDATA[F.]]></middle_name>
+				<last_name><![CDATA[Shampine]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Numerical Mathematics Division 5122, Sandia Laboratories, Albuquerque, NM]]></affiliation>
+				<affil_inst_id><![CDATA[60007843]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[ADAM, G, IXARU, L G, AND CORCIOVEI, A A first-order perturbatlve numerical method for the solution of the radial Schrodmger equation J Comput Phys 22 {1976), 1-33]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[BAILEY, P B Sturm-Llouvflle elgenvalues vm a phase function. SIAM J. Appl. Math 14 (1966), 242-249]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[BAmE~', P.B., GORDON, M K, A~D SHAMPINt~, L F Solving Sturm-Llouvflle eigenva|ue problems Rep SAND76-0560, Sandla Labs, Albuquerque, N Mex, 1976]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>4</ref_seq_no>
+				<ref_text><![CDATA[BERTRAM, L Attenuation of Rayle~gh-Taylor mstablhtles m a Gaussian stratification Private C6mmumcatlon, Sandla Labs, Albuquerque, N Mex]]></ref_text>
+				<ref_id>4</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>5</ref_seq_no>
+				<ref_text><![CDATA[CODDINGTON, E.A. AND LEVINSON, N Theory of Ord,nary D~fferentlal Equations. McGraw- Hill, New York, 1955]]></ref_text>
+				<ref_id>5</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>6</ref_seq_no>
+				<ref_text><![CDATA[COLL, C.F, AND MF.HUS, C.F. Theoretical calculation of Raman scattering cross sections for use in flame analysis. Rep. SAND 76-8204, Sandia Labs., Livermore, Calif. (This report contains a description of the physical problem; the related eigenvalue problem was communicated to the authors privately.)]]></ref_text>
+				<ref_id>6</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>7</ref_seq_no>
+				<ref_text><![CDATA[HARGRAVE, B.A Numerical approximation of elgenvalues of Sturm-Llouville systems. J. Comp. Phys 20 (1976), 381-396.]]></ref_text>
+				<ref_id>7</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>8</ref_seq_no>
+				<ref_text><![CDATA[SCOTT, M.R., SHAMmNE, L.F., AND WING, G.M Invanant imbedding and the calculaUon of eigenvalues for Sturm-Liouville systems Computing 4 (1969), 10-23.]]></ref_text>
+				<ref_id>8</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>355687</ref_obj_id>
+				<ref_obj_pid>355681</ref_obj_pid>
+				<ref_seq_no>9</ref_seq_no>
+				<ref_text><![CDATA[SHAMPINE, L.F, AND WATTS, H.A Global error estimation for ordmary differential equations ACM Trans Math Software 2 (1976), 172-186.]]></ref_text>
+				<ref_id>9</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>10</ref_seq_no>
+				<ref_text><![CDATA[TITCHMARSH, E.C Ezgenfunctmn Expansmns, Part L Oxford U Press, London, 1962.]]></ref_text>
+				<ref_id>10</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355792\p193-bailey.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>13</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>279231</cited_by_object_id>
+				<cited_by_text><![CDATA[Leon Greenberg , Marco Marletta, Algorithm 775: the code SLEUTH for solving fourth-order Sturm-Liouville problems, ACM Transactions on Mathematical Software (TOMS), v.23 n.4, p.453-493, Dec. 1997]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2249221</cited_by_object_id>
+				<cited_by_text><![CDATA[Bilal Chanane, Computing the eigenvalues of a class of nonlocal Sturm-Liouville problems, Mathematical and Computer Modelling: An International Journal, v.50 n.1-2, p.225-232, July, 2009]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1282712</cited_by_object_id>
+				<cited_by_text><![CDATA[Hideaki Ishikawa, Numerical methods for the eigenvalue determination of second-order ordinary differential equations, Journal of Computational and Applied Mathematics, v.208 n.2, p.404-424, November, 2007]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1027216</cited_by_object_id>
+				<cited_by_text><![CDATA[M. Marletta, Eigenvalue problems on exterior domains and Dirichlet to Neumann maps, Journal of Computational and Applied Mathematics, v.171 n.1-2, p.367-391, 1 October 2004]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1958607</cited_by_object_id>
+				<cited_by_text><![CDATA[Veerle Ledoux , Marnix Van Daele, Solution of Sturm-Liouville Problems Using Modified Neumann Schemes, SIAM Journal on Scientific Computing, v.32 n.2, p.563-584, March 2010]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1114273</cited_by_object_id>
+				<cited_by_text><![CDATA[V. Ledoux , M. Van Daele , G. Vanden Berghe, MATSLISE: A MATLAB package for the numerical solution of Sturm-Liouville and Schr&ouml;dinger equations, ACM Transactions on Mathematical Software (TOMS), v.31 n.4, p.532-554, December 2005]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>155791</cited_by_object_id>
+				<cited_by_text><![CDATA[Steven Pruess , Charles T. Fulton, Mathematical software for Sturm-Liouville problems, ACM Transactions on Mathematical Software (TOMS), v.19 n.3, p.360-376, Sept. 1993]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>287651</cited_by_object_id>
+				<cited_by_text><![CDATA[J. D. Pryce, A test package for Sturm-Liouville solvers, ACM Transactions on Mathematical Software (TOMS), v.25 n.1, p.21-57, March 1999]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>383739</cited_by_object_id>
+				<cited_by_text><![CDATA[P. B. Bailey , W. N. Everitt , A. Zettl, Algorithm 810: The SLEIGN2 Sturm-Liouville Code, ACM Transactions on Mathematical Software (TOMS), v.27 n.2, p.143-192, June 2001]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2615342</cited_by_object_id>
+				<cited_by_text><![CDATA[Basem S. Attili, The Adomian decomposition method for computing eigenelements of Sturm-Liouville two point boundary value problems, Applied Mathematics and Computation, v.168 n.2, p.1306-1316, September, 2005]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1524028</cited_by_object_id>
+				<cited_by_text><![CDATA[L. Aceto , P. Ghelardoni , C. Magherini, Boundary Value Methods as an extension of Numerov's method for Sturm--Liouville eigenvalue estimates, Applied Numerical Mathematics, v.59 n.7, p.1644-1656, July, 2009]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>210238</cited_by_object_id>
+				<cited_by_text><![CDATA[Paul B. Bailey , Anton Zettl, Eigenvalue and eigenfunction computations for Sturm-Liouville problems, ACM Transactions on Mathematical Software (TOMS), v.17 n.4, p.491-499, Dec. 1991]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>235819</cited_by_object_id>
+				<cited_by_text><![CDATA[Michael S. P. Eastham , Charles T. Fulton , Steven Pruess, Using the SLEDGE package on Sturm-Liouville problems having nonempty essential spectra, ACM Transactions on Mathematical Software (TOMS), v.22 n.4, p.423-446, Dec. 1996]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355793</article_id>
+		<sort_key>209</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>2</seq_no>
+		<title><![CDATA[TEDDY2, A Program Package for Parabolic Composite Region Problems]]></title>
+		<page_from>209</page_from>
+		<page_to>227</page_to>
+		<doi_number>10.1145/355791.355793</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355793</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.4</cat_node>
+				<descriptor/>
+				<type/>
+			</primary_category>
+			<other_category>
+				<cat_node>G.1.8</cat_node>
+				<descriptor>Parabolic equations</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>D.3.2</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003714.10003727.10003729</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Differential equations->Partial differential equations</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10011007.10011006.10011008.10011009</concept_id>
+				<concept_desc>CCS->Software and its engineering->Software notations and tools->General programming languages->Language types</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Design</gt>
+			<gt>Languages</gt>
+			<gt>Performance</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP31092641</person_id>
+				<author_profile_id><![CDATA[81332521575]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[S.]]></first_name>
+				<middle_name><![CDATA[J.]]></middle_name>
+				<last_name><![CDATA[Polak]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[N.V. Philips' Gloeilampenfabrieken, ISA-DSA/SCA, Eindhoven, The Netherlands]]></affiliation>
+				<affil_inst_id><![CDATA[60016561]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>P127590</person_id>
+				<author_profile_id><![CDATA[81100176279]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>2</seq_no>
+				<first_name><![CDATA[J.]]></first_name>
+				<middle_name><![CDATA[]]></middle_name>
+				<last_name><![CDATA[Schrooten]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[N.V. Philips' Gloeilampenfabrieken, ISA-DSA/SCA, Eindhoven, The Netherlands]]></affiliation>
+				<affil_inst_id><![CDATA[60016561]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>P35267</person_id>
+				<author_profile_id><![CDATA[81100056471]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>3</seq_no>
+				<first_name><![CDATA[C.]]></first_name>
+				<middle_name><![CDATA[]]></middle_name>
+				<last_name><![CDATA[Barneveld Binkhuysen]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[N.V. Philips' Gloeilampenfabrieken, ISA-DSA/SCA, Eindhoven, The Netherlands]]></affiliation>
+				<affil_inst_id><![CDATA[60016561]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[BARNEVELD BINKHUYSEN, C F E, POLAK, S.J., SCHROOTEN, J.G., AND WACHTERS, A.J H TEDDY2 examples (prehm. issue). Publ. UDV-DSA/SCA/BB/SP/JS/AW/O75/O27/jf, Philips' Gloeilampenfabrieken, Eindhoven, The Netherlands, 1975.]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>362059</ref_obj_id>
+				<ref_obj_pid>362052</ref_obj_pid>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[CARDENAS, A.F., AND KARPLUS, W J PDEL--A language for partial differential equations. Comm. ACM 13, 3 (March 1970), 184-191.]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[CARVER, M B FORSIM A Fortran oriented simulation package for the automated solution of partial and ordinary differential systems Rep. AECL-4608, Atomic Energy of Canada Ltd, Chalk River, Ont., Canada.]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>4</ref_seq_no>
+				<ref_text><![CDATA[CSENDES, Z.J. DECL--A computer language for the solution of arbitrary partial differential equations. Advances in comp methods for partial differential equations. Assoc. Italiana peril Calcolo Automat, R. Vichnevetski, Ed., Comput Scl Dep, Rutgers U., N.J., pp. 159-166.]]></ref_text>
+				<ref_id>4</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>5</ref_seq_no>
+				<ref_text><![CDATA[DE BEER, A., POLAK, S.J., WACHTERS, A.J.H MAGGY2 User Manual. Publ. UDV- DSA/SCA/AdB/SP/AW/75/O22/jf, Philips Gloeflampenfabrieken, Eindhoven, The Netherlands.]]></ref_text>
+				<ref_id>5</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>6</ref_seq_no>
+				<ref_text><![CDATA[D'YAKONOV, E.G. Method of nets for the solution of parabolic equations of order 2m with separable variables (Rusman). Dokl. Akad Nauk SSSR 142 (1962), 1236-1238.]]></ref_text>
+				<ref_id>6</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>7</ref_seq_no>
+				<ref_text><![CDATA[FAIRWEATHER, G., AND MITCHELL, A.R. A new computatmnal procedure for A D.I. methods. Smm J. Numer. Anal. 4 (1967), 163-170.]]></ref_text>
+				<ref_id>7</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>8</ref_seq_no>
+				<ref_text><![CDATA[FRJAZINOV, I.V. The solution of the third boundary value problem for the two dimensional heat conduction equation m an arbitrary domain by a locally one dimensional method (Russian). Zh. Vychtsl. Mat. t Mat F~z 6, 3, (1966), 487-502.]]></ref_text>
+				<ref_id>8</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>9</ref_seq_no>
+				<ref_text><![CDATA[FRJAZlNOV, I.V A certain class of schemes for equations of parabolic type (Russian). Z. Vych~l. Mat. ~ Mat. F~z., 15, 1 (1976), 113-125.]]></ref_text>
+				<ref_id>9</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>10</ref_seq_no>
+				<ref_text><![CDATA[GARY, I., AND HELGASON, R. An extension of FORTRAN containing finite difference operators. Software--Practwe and Experience 2 (1972), 321-326]]></ref_text>
+				<ref_id>10</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>11</ref_seq_no>
+				<ref_text><![CDATA[HELGASON, R, AND GARY, I PDELAN Users Manual, Version I. Nat. Ctr. for Atmospheric Res., Boulder, Colo., 1975.]]></ref_text>
+				<ref_id>11</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>12</ref_seq_no>
+				<ref_text><![CDATA[ISAACSON, E., AND KELLER, H.B. Analysts of Numerwal Methods. Wiley, New York, 1966.]]></ref_text>
+				<ref_id>12</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>13</ref_seq_no>
+				<ref_text><![CDATA[NILSEN, R N, AND KARPLUS, W.J Continuous-system simulation languages: A state of the art survey. Annales de l'Assoc~atton Internattonale pour le Calcul Analogique, 1 (1974).]]></ref_text>
+				<ref_id>13</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>14</ref_seq_no>
+				<ref_text><![CDATA[MITCHELL, A.R Computatmnal Methods m Parttal D~fferent~al Equations. Wiley, New York, 1969]]></ref_text>
+				<ref_id>14</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>15</ref_seq_no>
+				<ref_text><![CDATA[POLAK, S.J., AND SCHROOTEN, J.G. Prehmmary TEDDY2 User Manual. Publ. UDV- DSA/SCA/SP/75/024/mw, Phflips' Gloedampenfabneken, Eindhoven, The Netherlands, 1975.]]></ref_text>
+				<ref_id>15</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>16</ref_seq_no>
+				<ref_text><![CDATA[SAMARSKrI, A.A. An efficmnt difference method for solwng a multidimensional parabolic equatmn m an arbitrary domain (Russmn). Z. Vychasl. Mat ~ Mat. F~z. 2 (1962), 787-811.]]></ref_text>
+				<ref_id>16</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>355649</ref_obj_id>
+				<ref_obj_pid>355644</ref_obj_pid>
+				<ref_seq_no>17</ref_seq_no>
+				<ref_text><![CDATA[SINCOVEC, R.F, AND MADSEN, N K. Software for nonlinear partml differential equations. A CM Trans. Math Software 1, 3 (1975), 232-260]]></ref_text>
+				<ref_id>17</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>18</ref_seq_no>
+				<ref_text><![CDATA[YANENKO, M.M The Method of Fractional Steps. Springer, New York, 1971.]]></ref_text>
+				<ref_id>18</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>19</ref_seq_no>
+				<ref_text><![CDATA[ASKA, Pt. 1. Rep. no. 73, ISD, U. of Stuttgart, Stuttgart, 1971]]></ref_text>
+				<ref_id>19</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>20</ref_seq_no>
+				<ref_text><![CDATA[Nastran, Users Guide Level 15. NASA CR-2504, Prepared by Umversal Analysis, NASA Langley Res. Ctr., Hampton, Va, April 1975.]]></ref_text>
+				<ref_id>20</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>21</ref_seq_no>
+				<ref_text><![CDATA[Continuous System Modehng Program III (CSMP III) and graphic features. General information manual, a program product, no GH 19-7000-1, 1971, available from IBM, White Plains, N Y.]]></ref_text>
+				<ref_id>21</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>22</ref_seq_no>
+				<ref_text><![CDATA[PHILPAC, User Reference Manual CACD, Vol. 1, Phfllps' Gloeilampenfabrieken, Eindhoven, The Netherlands, 1977.]]></ref_text>
+				<ref_id>22</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>23</ref_seq_no>
+				<ref_text><![CDATA[ARMSTRONG, A.G.A.M., COLLIE, C J., DISERENS, N.J., NEWMAN, M.J., SIMKIN, J., AND TROWBRIDGE, C W. New developments m the magnet design program GFUN. Rep. RL-75-066, Rutherford High Energy Physms Laboratory, Chflton, Dldcot, Berks, England.]]></ref_text>
+				<ref_id>23</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355793\p209-polak.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>1</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>355922</cited_by_object_id>
+				<cited_by_text><![CDATA[Marek Machura , Roland A. Sweet, A Survey of Software for Partial Differential Equations, ACM Transactions on Mathematical Software (TOMS), v.6 n.4, p.461-488, Dec. 1980]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355794</article_id>
+		<sort_key>228</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>3</seq_no>
+		<title><![CDATA[Efficient Calculation of the Effects of Roundoff Errors]]></title>
+		<page_from>228</page_from>
+		<page_to>236</page_to>
+		<doi_number>10.1145/355791.355794</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355794</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.1.0</cat_node>
+				<descriptor>Computer arithmetic</descriptor>
+				<type>S</type>
+			</primary_category>
+			<other_category>
+				<cat_node>G.1.0</cat_node>
+				<descriptor>Stability (and instability)</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>G.1.3</cat_node>
+				<descriptor>Linear systems (direct and iterative methods)</descriptor>
+				<type>S</type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10010147.10010148.10010149.10010158</concept_id>
+				<concept_desc>CCS->Computing methodologies->Symbolic and algebraic manipulation->Symbolic and algebraic algorithms->Linear algebra algorithms</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003719</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Computations on matrices</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003725</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Interval arithmetic</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003726</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Arbitrary-precision arithmetic</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Design</gt>
+			<gt>Performance</gt>
+			<gt>Reliability</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP40027624</person_id>
+				<author_profile_id><![CDATA[81339511367]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[John]]></first_name>
+				<middle_name><![CDATA[]]></middle_name>
+				<last_name><![CDATA[Larson]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Department of Computer Science, University of Illinois at Urbana-Champaign, Urbana, IL]]></affiliation>
+				<affil_inst_id><![CDATA[60000745]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>PP39040883</person_id>
+				<author_profile_id><![CDATA[81100395514]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>2</seq_no>
+				<first_name><![CDATA[Ahmed]]></first_name>
+				<middle_name><![CDATA[]]></middle_name>
+				<last_name><![CDATA[Sameh]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Center for Advanced Computation, University of Illinois at Urbana-Champaign, Urbana, IL]]></affiliation>
+				<affil_inst_id><![CDATA[60000745]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[BAUER, F.L. Computational graphs and rounding error SIAM J Numer Anal 11, 1 (March 1974).]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[LINNAINMAA, S. Taylor expansion of the accumulated roundmg error. BIT 16, 2 {1976)]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>355639</ref_obj_id>
+				<ref_obj_pid>355637</ref_obj_pid>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[MILLER, W. Software for roundoff analysis ACM Trans. Math. Software 1, 2 (June 1975), 108-128]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>356496</ref_obj_id>
+				<ref_obj_pid>356502</ref_obj_pid>
+				<ref_seq_no>4</ref_seq_no>
+				<ref_text><![CDATA[MILLER, W, and SPOONER, D. Software for roundoff analysis II ACM Trans. Math Software To appear]]></ref_text>
+				<ref_id>4</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>5</ref_seq_no>
+				<ref_text><![CDATA[STERBENZ, P H Floatmg Point Computatlon Prentice-Hall, Englewood Chffs, N J, 1974]]></ref_text>
+				<ref_id>5</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355794\p228-larson.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>6</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>356029</cited_by_object_id>
+				<cited_by_text><![CDATA[John L. Larson , Mary E. Pasternak , John A. Wisniewski, Algorithm 594: Software for Relative Error Analysis, ACM Transactions on Mathematical Software (TOMS), v.9 n.1, p.125-130, March 1983]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>355959</cited_by_object_id>
+				<cited_by_text><![CDATA[Esko Ukkonen, On the calculation of the effects of roundoff errors, ACM Transactions on Mathematical Software (TOMS), v.7 n.3, p.259-271, Sept. 1981]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>120758</cited_by_object_id>
+				<cited_by_text><![CDATA[J. H. J. Molenkamp , V. V. Goldman , J. A. van Hulzen, An improved approach to automatic error cumulation control, Proceedings of the 1991 international symposium on Symbolic and algebraic computation, p.414-418, July 15-17, 1991, Bonn, West Germany]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>322164</cited_by_object_id>
+				<cited_by_text><![CDATA[Donald B. Johnson , Webb Miller , Brian Minnihan , Celia Wrathall, Reducibility Among Floating-Point Graphs, Journal of the ACM (JACM), v.26 n.4, p.739-760, Oct. 1979]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>79818</cited_by_object_id>
+				<cited_by_text><![CDATA[V. S. S. Nair , Jacob A. Abraham, Real-Number Codes for Fault-Tolerant Matrix Operations on Processor Arrays, IEEE Transactions on Computers, v.39 n.4, p.426-435, April 1990]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1746047</cited_by_object_id>
+				<cited_by_text><![CDATA[Wolfgang R&#246;nsch, Stability aspects in using parallel algorithms, Parallel Computing, v.1 n.1, p.75-98, August, 1984]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355795</article_id>
+		<sort_key>237</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>4</seq_no>
+		<title><![CDATA[The Subresultant PRS Algorithm]]></title>
+		<page_from>237</page_from>
+		<page_to>249</page_to>
+		<doi_number>10.1145/355791.355795</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355795</url>
+		<categories>
+			<primary_category>
+				<cat_node>F.2.1</cat_node>
+				<descriptor>Number-theoretic computations (e.g., factoring, primality testing)</descriptor>
+				<type>S</type>
+			</primary_category>
+			<other_category>
+				<cat_node>G.1.3</cat_node>
+				<descriptor>Linear systems (direct and iterative methods)</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>G.4</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10010147.10010148.10010149.10010158</concept_id>
+				<concept_desc>CCS->Computing methodologies->Symbolic and algebraic manipulation->Symbolic and algebraic algorithms->Linear algebra algorithms</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003719</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Computations on matrices</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003721</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Number-theoretic computations</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Algorithms</gt>
+			<gt>Design</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP31071014</person_id>
+				<author_profile_id><![CDATA[81332491147]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[W.]]></first_name>
+				<middle_name><![CDATA[S.]]></middle_name>
+				<last_name><![CDATA[Brown]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Bell Laboratories, 600 Mountain Ave., Murray Hill, NJ]]></affiliation>
+				<affil_inst_id><![CDATA[60009151]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_obj_id>321664</ref_obj_id>
+				<ref_obj_pid>321662</ref_obj_pid>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[BROWN, W S On Euchd's algorithm and the computation of polynomial greatest common divisors J ACM 18, 4 (Oct. 1971), 478-504.]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>321665</ref_obj_id>
+				<ref_obj_pid>321662</ref_obj_pid>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[BROWN, W S, AND TRAUB, J.F. On Euclid's algorithm and the theory of subresultants. J. ACM 18, 4 (Oct. 1971), 505-514.]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>363017</ref_obj_id>
+				<ref_obj_pid>363011</ref_obj_pid>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[COLLINS, G E Comment on a paper by Ku and Alder. Comm. ACM 12, 6 (June 1969), 302-303.]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>321381</ref_obj_id>
+				<ref_obj_pid>321371</ref_obj_pid>
+				<ref_seq_no>4</ref_seq_no>
+				<ref_text><![CDATA[COLLtNS, G E Subresultants and reduced polynomial remainder sequences J ACM 14, 1 (Jan. 1967), 128-142.]]></ref_text>
+				<ref_id>4</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>355696</ref_obj_id>
+				<ref_obj_pid>355694</ref_obj_pid>
+				<ref_seq_no>5</ref_seq_no>
+				<ref_text><![CDATA[GENTLEMAN, W M, AND jOHNSON, S C Analysis of algorithms A case study' Determinants of matrices with polynomial entries ACM Trans Math Software 2, 3 (Sept 1976), 232-241.]]></ref_text>
+				<ref_id>5</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>6</ref_seq_no>
+				<ref_text><![CDATA[GOLDSTEIN, A J, AND GRAHAM, R.L A Hadamard-type bound on the coefficmnts of a determinant of polynomials SIAM Rev 16 {July 1974), 394-395.]]></ref_text>
+				<ref_id>6</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>1093524</ref_obj_id>
+				<ref_obj_pid>1093522</ref_obj_pid>
+				<ref_seq_no>7</ref_seq_no>
+				<ref_text><![CDATA[HEARN, A.C An unproved non-modular GCD algorithm. SIGSAM Bull. (ACM) 6 (July 1972), 10-15]]></ref_text>
+				<ref_id>7</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>270146</ref_obj_id>
+				<ref_seq_no>8</ref_seq_no>
+				<ref_text><![CDATA[KNUTH, D E The Art of Computer Programmtng, Vol 2. Addison-Wesley, Reading, Mass 1969.]]></ref_text>
+				<ref_id>8</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>362839</ref_obj_id>
+				<ref_obj_pid>362835</ref_obj_pid>
+				<ref_seq_no>9</ref_seq_no>
+				<ref_text><![CDATA[Ku, S Y, AND ADLER, R J Computing polynomial resultants Bezout's determinant vs. Collins' reduced PRS algorithm. Comm ACM 12, 1 (Jan. 1969), 23-30.]]></ref_text>
+				<ref_id>9</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>805698</ref_obj_id>
+				<ref_obj_pid>800192</ref_obj_pid>
+				<ref_seq_no>10</ref_seq_no>
+				<ref_text><![CDATA[MOSES, J, AND YUN, D Y Y. The EZ GCD algorithm Proc ACM Nat. Conf., Aug 1973, pp. 159-166.]]></ref_text>
+				<ref_id>10</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355795\p237-brown.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>17</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>120716</cited_by_object_id>
+				<cited_by_text><![CDATA[Lars Langemyr, An analysis of the subresultant algorithm over an algebraic number field, Proceedings of the 1991 international symposium on Symbolic and algebraic computation, p.167-172, July 15-17, 1991, Bonn, West Germany]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>806398</cited_by_object_id>
+				<cited_by_text><![CDATA[Paul S. Wang, A p-adic algorithm for univariate partial fractions, Proceedings of the fourth ACM symposium on Symbolic and algebraic computation, p.212-217, August 05-07, 1981, Snowbird, Utah, United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>777679</cited_by_object_id>
+				<cited_by_text><![CDATA[D. Castro , L. M. Pardo , J. San Mart&#237;n, Systems of rational polynomial equations have polynomial size approximate zeros on the average, Journal of Complexity, v.19 n.2, p.161-209, April 2003]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1937449</cited_by_object_id>
+				<cited_by_text><![CDATA[Michael Hemmer , Laurent Dupont , Sylvain Petitjean , Elmar Sch&#246;mer, A complete, exact and efficient implementation for computing the edge-adjacency graph of an arrangement of quadrics, Journal of Symbolic Computation, v.46 n.4, p.467-494, April, 2011]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1089228</cited_by_object_id>
+				<cited_by_text><![CDATA[Paul S. Wang, The EEZ-GCD algorithm, ACM SIGSAM Bulletin, v.14 n.2, p.50-60, May 1980]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1312283</cited_by_object_id>
+				<cited_by_text><![CDATA[M. L. Griss, Using an Efficient Sparse Minor Expansion Algorithm to Compute Polynomial Subresultants and the Greatest Common Denominator, IEEE Transactions on Computers, v.27 n.10, p.945-950, October 1978]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>77273</cited_by_object_id>
+				<cited_by_text><![CDATA[S. S. Abhyankar , C. J. Bajaj, Automatic parameterization of rational curves and surfaces IV: algebraic space curves, ACM Transactions on Graphics (TOG), v.8 n.4, p.325-334, Oct. 1989]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>773648</cited_by_object_id>
+				<cited_by_text><![CDATA[Joachim von zur Gathen , Thomas L&#252;cking, Subresultants revisited, Theoretical Computer Science, v.297 n.1-3, p.199-239, 17 March 2003]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2513895</cited_by_object_id>
+				<cited_by_text><![CDATA[Maximilian Jaroschek, Improved polynomial remainder sequences for Ore polynomials, Journal of Symbolic Computation, 58, p.64-76, November, 2013]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>102410</cited_by_object_id>
+				<cited_by_text><![CDATA[S. Cabay , P. Kossowski, Power series remainder sequences and Pad&#233; fractions over an integral domain, Journal of Symbolic Computation, v.10 n.2, p.139-163, Aug. 1990]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>65458</cited_by_object_id>
+				<cited_by_text><![CDATA[Bruce W. Char , Keith O. Geddes , Gaston H. Gonnet, GCDHEU: Heuristic polynomial GCD algorithm based on integer GCD computation, Journal of Symbolic Computation, v.7 n.1, p.31-48, Jan. 1989]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2429153</cited_by_object_id>
+				<cited_by_text><![CDATA[Maximilian Jaroschek, Improved polynomial remainder sequences for ore polynomials, ACM Communications in Computer Algebra, v.46 n.3/4, September/December 2012]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>130814</cited_by_object_id>
+				<cited_by_text><![CDATA[Tateaki Sasaki , Masayuki Suzuki, Three new algorithms for multivariate polynomial GCD, Journal of Symbolic Computation, v.13 n.4, p.395-411, April 1992]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1646579</cited_by_object_id>
+				<cited_by_text><![CDATA[Arno Eigenwillig , Lutz Kettner , Elmar Sch&#246;mer , Nicola Wolpert, Exact, efficient, and complete arrangement computation for cubic curves, Computational Geometry: Theory and Applications, v.35 n.1-2, p.36-73, August, 2006]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1148406</cited_by_object_id>
+				<cited_by_text><![CDATA[Arno Eigenwillig , Lutz Kettner , Elmar Sch&#246;mer , Nicola Wolpert, Exact, efficient, and complete arrangement computation for cubic curves, Computational Geometry: Theory and Applications, v.35 n.1, p.36-73, August 2006]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1778639</cited_by_object_id>
+				<cited_by_text><![CDATA[Laurent Dupont , Michael Hemmer , Sylvain Petitjean , Elmar Sch&#246;mer, Complete, exact and efficient implementation for computing the adjacency graph of an arrangement of quadrics, Proceedings of the 15th annual European conference on Algorithms, October 08-10, 2007, Eilat, Israel]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>7241</cited_by_object_id>
+				<cited_by_text><![CDATA[B. F. Caviness, Computer Algebra: Past and Future, Journal of Symbolic Computation, v.2 n.3, p.217-236, Sept. 1986]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355796</article_id>
+		<sort_key>250</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>5</seq_no>
+		<title><![CDATA[Two Fast Algorithms for Sparse Matrices: Multiplication and Permuted Transposition]]></title>
+		<page_from>250</page_from>
+		<page_to>269</page_to>
+		<doi_number>10.1145/355791.355796</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355796</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.4</cat_node>
+				<descriptor/>
+				<type/>
+			</primary_category>
+			<other_category>
+				<cat_node>F.2.1</cat_node>
+				<descriptor>Computations on matrices</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>G.2.1</cat_node>
+				<descriptor>Permutations and combinations</descriptor>
+				<type>S</type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003624.10003625.10003627</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Discrete mathematics->Combinatorics->Permutations and combinations</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003719</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Computations on matrices</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Algorithms</gt>
+			<gt>Design</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>P86581</person_id>
+				<author_profile_id><![CDATA[81100077741]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[Fred]]></first_name>
+				<middle_name><![CDATA[G.]]></middle_name>
+				<last_name><![CDATA[Gustavson]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Mathematical Sciences Department, IBM T.J. Watson Research Center, P.O. Box, 218, Yorktown Heights, NY]]></affiliation>
+				<affil_inst_id><![CDATA[60017366]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_obj_id>578775</ref_obj_id>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[AHO, A V., HOPCROFT, J.E., AND ULLMAN, J D. The Destgn and Analysis of Computer Algortthms. Addison-Wesley, Reading, Mass., 1974, chap. 6.]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[CURTIS, A., AND REID, J The solution of large sparse unsymmetric systems of linear equations J. Inst. Math Appl 8 (1971), 344-353.]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[GEORGE, J.A. On block ehmmatlon for sparse linear systems. SIAM J. Numer. Anal. 11 (1974), 585-6O3.]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>4</ref_seq_no>
+				<ref_text><![CDATA[GUSTAVSON, F G. Finding the block lower triangular form of a sparse matrix. In Sparse Matrix Computattons, J Bunch and D. Rose, Eds., Academic Press, New York, 1976, pp. 275-289]]></ref_text>
+				<ref_id>4</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>5</ref_seq_no>
+				<ref_text><![CDATA[GUSTAVSON, F G Some basic techmques for solving sparse systems of linear equations. In Sparse Matrtces and Thew Apphcattons, D. Rose and R. Wdloughby, Eds., Plenum Press, New York, Jan 1973, pp. 67-76.]]></ref_text>
+				<ref_id>5</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>6</ref_seq_no>
+				<ref_text><![CDATA[GUSTAVSON, F.G. Permuting matrices stored m sparse format. Disclosure No. 8-72-001, IBM Tech. D~sclosure Bull. 16, 1 (June 1973), 357-359]]></ref_text>
+				<ref_id>6</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>806333</ref_obj_id>
+				<ref_obj_pid>800205</ref_obj_pid>
+				<ref_seq_no>7</ref_seq_no>
+				<ref_text><![CDATA[GUSTAVSON, F.G., AND YUN, D.Y Y. Arithmetic complexity of unordered sparse polynomials. Proc 1976 ACM Syrup on Symbohc and Algebraic Computation, R. Jenks, Ed., Yorktown Heights, N Y, Aug 1976, pp 149-153.]]></ref_text>
+				<ref_id>7</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>8</ref_seq_no>
+				<ref_text><![CDATA[GUSTAVSON, F G. Some algorithms for sparse Gaussian elimination. To appear.]]></ref_text>
+				<ref_id>8</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>280635</ref_obj_id>
+				<ref_seq_no>9</ref_seq_no>
+				<ref_text><![CDATA[KNUTH, D.E. The Art of Computer Programmzng, Vol. 3. Sorting and Searching. Addison- Wesley, Reading, Mass., 1973, p. 78]]></ref_text>
+				<ref_id>9</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>10</ref_seq_no>
+				<ref_text><![CDATA[LORIN, H Sorting and Sort Systems. Addison-Wesley, Reading, Mass., 1975, p. 152.]]></ref_text>
+				<ref_id>10</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>362584</ref_obj_id>
+				<ref_obj_pid>362575</ref_obj_pid>
+				<ref_seq_no>11</ref_seq_no>
+				<ref_text><![CDATA[MCNAMEE, J M Algorithm 408 A sparse matrix package. Comm ACM 14, 4 (April 1971), 265-273.]]></ref_text>
+				<ref_id>11</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>12</ref_seq_no>
+				<ref_text><![CDATA[REID, J. Sparse matrices. Proc. IMA Conf on State-of-the-Art m Numer. Anal., York, April 1976, p6.]]></ref_text>
+				<ref_id>12</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>13</ref_seq_no>
+				<ref_text><![CDATA[ROSE, D., AND TARJAN, R. Algorithmic aspects of vertex elimination on directed graphs. To appear in SIAM J. Computng.]]></ref_text>
+				<ref_id>13</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>907984</ref_obj_id>
+				<ref_seq_no>14</ref_seq_no>
+				<ref_text><![CDATA[SHERMAN, A. On the efficient solution of sparse systems of linear and nonlinear equations. Th., Yale U., New Haven, Conn., Dec. 1975.]]></ref_text>
+				<ref_id>14</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>15</ref_seq_no>
+				<ref_text><![CDATA[STRASSEN, V. Gausslan ehmlnatlon is not optimal. Numer Math. 13 (1964), 354-356.]]></ref_text>
+				<ref_id>15</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>16</ref_seq_no>
+				<ref_text><![CDATA[TINNEY, W., AND WALKER, J. Dtrect solutions of sparse network equations optimally ordered triangular factonzation Proc. IEEE 55, 11 (Nov. 1967), 1801-1809]]></ref_text>
+				<ref_id>16</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>17</ref_seq_no>
+				<ref_text><![CDATA[WILLOUGHBY, R.A. Sparse matrix algorithms and their relation to problem classes and computer architecture. In Large Sparse Sets of L~near Equations, J. Reid, Ed., Academic Press, London and New York, pp. 255-277.]]></ref_text>
+				<ref_id>17</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355796\p250-gustavson.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>20</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>879568</cited_by_object_id>
+				<cited_by_text><![CDATA[Caching-Efficient Multithreaded Fast Multiplication of Sparse Matrices, Proceedings of the 12th. International Parallel Processing Symposium on International Parallel Processing Symposium, p.117, March 30-April 03, 1998]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>147901</cited_by_object_id>
+				<cited_by_text><![CDATA[R. C. Agarwal , F. G. Gustavson , M. Zubair, A high performance algorithm using pre-processing for the sparse matrix-vector multiplication, Proceedings of the 1992 ACM/IEEE conference on Supercomputing, p.32-41, November 16-20, 1992, Minneapolis, Minnesota, United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>357992</cited_by_object_id>
+				<cited_by_text><![CDATA[Nicola Santoro, Chain mulitplication of matrices of approximately or exactly the same size, Communications of the ACM, v.27 n.2, p.152-156, Feb. 1984]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>356049</cited_by_object_id>
+				<cited_by_text><![CDATA[J. M. McNamee, A Sparse Matrix Package&mdash;Part II: Special Cases, ACM Transactions on Mathematical Software (TOMS), v.9 n.3, p.340-343, Sept. 1983]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>356474</cited_by_object_id>
+				<cited_by_text><![CDATA[Fred G. Gustavson, Remark on algorithm 408: a sparse matrix package (part 1) [F4], ACM Transactions on Mathematical Software (TOMS), v.4 n.3, p.295, Sept. 1978]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>355801</cited_by_object_id>
+				<cited_by_text><![CDATA[John P. Coleman, Remark on &ldquo;Algorithm 49: Spherical Neumann Function&rdquo;, ACM Transactions on Mathematical Software (TOMS), v.4 n.3, p.295, Sept. 1978]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1775072</cited_by_object_id>
+				<cited_by_text><![CDATA[Emanuel H. Rubensson , Elias Rudberg , Pawe&#322; Sa&#322;ek, Sparse matrix algebra for quantum modeling of large systems, Proceedings of the 8th international conference on Applied parallel computing: state of the art in scientific computing, June 18-21, 2006, Ume&#229;, Sweden]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1743223</cited_by_object_id>
+				<cited_by_text><![CDATA[Steven Obua , Tobias Nipkow, Flyspeck II: the basic linear programs, Annals of Mathematics and Artificial Intelligence, v.56 n.3-4, p.245-272, August    2009]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2210877</cited_by_object_id>
+				<cited_by_text><![CDATA[P. Areias , T. Rabczuk , D. Dias-da-Costa , E. B. Pires, Implicit solutions with consistent additive and multiplicative components, Finite Elements in Analysis and Design, 57, p.15-31, September, 2012]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1024079</cited_by_object_id>
+				<cited_by_text><![CDATA[Timothy A. Davis , John R. Gilbert , Stefan I. Larimore , Esmond G. Ng, A column approximate minimum degree ordering algorithm, ACM Transactions on Mathematical Software (TOMS), v.30 n.3, p.353-376, September 2004]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1077466</cited_by_object_id>
+				<cited_by_text><![CDATA[Raphael Yuster , Uri Zwick, Fast sparse matrix multiplication, ACM Transactions on Algorithms (TALG), v.1 n.1, p.2-13, July 2005]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2208459</cited_by_object_id>
+				<cited_by_text><![CDATA[Noa Agmon , Gal A Kaminka , Sarit Kraus, Multi-robot adversarial patrolling: facing a full-knowledge opponent, Journal of Artificial Intelligence Research, v.42 n.1, p.887-916, September 2011]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2275466</cited_by_object_id>
+				<cited_by_text><![CDATA[Mar&#237;A-Jos&#233; Rodr&#237;Guez-Alvarez , Filomeno S&#225;Nchez , Antonio Soriano , Amadeo Iborra, Sparse Givens resolution of large system of linear equations: Applications to image reconstruction, Mathematical and Computer Modelling: An International Journal, v.52 n.7-8, p.1258-1264, October, 2010]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2063828</cited_by_object_id>
+				<cited_by_text><![CDATA[Roberto De Virgilio , Franco Milicchio, RFID data analysis using tensor calculus for supply chain management, Proceedings of the 20th ACM international conference on Information and knowledge management, October 24-28, 2011, Glasgow, Scotland, UK]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>229697</cited_by_object_id>
+				<cited_by_text><![CDATA[Aart J. C. Bik , Harry A. G. Wijshoff, Automatic Data Structure Selection and Transformation for Sparse Matrix Computations, IEEE Transactions on Parallel and Distributed Systems, v.7 n.2, p.109-126, February 1996]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2486196</cited_by_object_id>
+				<cited_by_text><![CDATA[Grey Ballard , Aydin Buluc , James Demmel , Laura Grigori , Benjamin Lipshitz , Oded Schwartz , Sivan Toledo, Communication optimal parallel multiplication of sparse random matrices, Proceedings of the 25th ACM symposium on Parallelism in algorithms and architectures, July 23-25, 2013, Montr&#233;al, Qu&#233;bec, Canada]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2145073</cited_by_object_id>
+				<cited_by_text><![CDATA[Steven Obua, Proving bounds for real linear programs in Isabelle/HOL, Proceedings of the 18th international conference on Theorem Proving in Higher Order Logics, August 22-25, 2005, Oxford, UK]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2304607</cited_by_object_id>
+				<cited_by_text><![CDATA[Andrea Pietracaprina , Geppino Pucci , Matteo Riondato , Francesco Silvestri , Eli Upfal, Space-round tradeoffs for MapReduce computations, Proceedings of the 26th ACM international conference on Supercomputing, June 25-29, 2012, San Servolo Island, Venice, Italy]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>209161</cited_by_object_id>
+				<cited_by_text><![CDATA[R. C. Agarwal , B. Alpern , L. Carter , F. G. Gustavson , D. J. Klepacki , R. Lawrence , M. Zubair, High-performance parallel implementations of the NAS kernel benchmarks on the IBM SP2, IBM Systems Journal, v.34 n.2, p.263-272, 1995]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2768027</cited_by_object_id>
+				<cited_by_text><![CDATA[Dan Zou , Yong Dou , Song Guo , Rongchun Li , Lin Deng, Supernodal sparse Cholesky factorization on graphics processing units, Concurrency and Computation: Practice &amp; Experience, v.26 n.16, p.2713-2726, November 2014]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355797</article_id>
+		<sort_key>270</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>6</seq_no>
+		<title><![CDATA[Practical Parallel Band Triangular System Solvers]]></title>
+		<page_from>270</page_from>
+		<page_to>277</page_to>
+		<doi_number>10.1145/355791.355797</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355797</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.1.0</cat_node>
+				<descriptor>Parallel algorithms</descriptor>
+				<type>S</type>
+			</primary_category>
+			<other_category>
+				<cat_node>F.1.2</cat_node>
+				<descriptor>Parallelism and concurrency</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>C.1.4</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+			<other_category>
+				<cat_node>C.4</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+			<other_category>
+				<cat_node>G.4</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10003752.10003753.10003761.10003762</concept_id>
+				<concept_desc>CCS->Theory of computation->Models of computation->Concurrency->Parallel computing models</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10010520.10010575</concept_id>
+				<concept_desc>CCS->Computer systems organization->Dependable and fault-tolerant systems and networks</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10003752.10003753.10003761</concept_id>
+				<concept_desc>CCS->Theory of computation->Models of computation->Concurrency</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10010520.10010521.10010528</concept_id>
+				<concept_desc>CCS->Computer systems organization->Architectures->Parallel architectures</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10003033.10003079</concept_id>
+				<concept_desc>CCS->Networks->Network performance evaluation</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002944.10011123.10011674</concept_id>
+				<concept_desc>CCS->General and reference->Cross-computing tools and techniques->Performance</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10003752.10003809.10010170</concept_id>
+				<concept_desc>CCS->Theory of computation->Design and analysis of algorithms->Parallel algorithms</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10010147.10010169.10010170</concept_id>
+				<concept_desc>CCS->Computing methodologies->Parallel computing methodologies->Parallel algorithms</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Algorithms</gt>
+			<gt>Design</gt>
+			<gt>Performance</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP36024024</person_id>
+				<author_profile_id><![CDATA[81340488347]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[S.]]></first_name>
+				<middle_name><![CDATA[C.]]></middle_name>
+				<last_name><![CDATA[Chen]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Department of Computer Science, University of Illinois at Urbana-Champaign, Urbana, IL]]></affiliation>
+				<affil_inst_id><![CDATA[60000745]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>PP40025201</person_id>
+				<author_profile_id><![CDATA[81406594662]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>2</seq_no>
+				<first_name><![CDATA[D.]]></first_name>
+				<middle_name><![CDATA[J.]]></middle_name>
+				<last_name><![CDATA[Kuck]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Department of Computer Science, University of Illinois at Urbana-Champaign, Urbana, IL]]></affiliation>
+				<affil_inst_id><![CDATA[60000745]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>PP39078299</person_id>
+				<author_profile_id><![CDATA[81100395514]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>3</seq_no>
+				<first_name><![CDATA[A.]]></first_name>
+				<middle_name><![CDATA[H.]]></middle_name>
+				<last_name><![CDATA[Sameh]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Department of Computer Science, University of Illinois at Urbana-Champaign, Urbana, IL]]></affiliation>
+				<affil_inst_id><![CDATA[60000745]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[BANK, R E, AND ROSE, D J An O(n2) method for solving constant coefficmnt boundary value problems m two dimensions SIAM J Numer Anal 12, 4 (Sept 1975), 529-540]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[BORODIN, A, AND MUNRO, I. Computational Complexity of Algebratc and Numertc Problems American Elsevmr, New York, 1975]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>907036</ref_obj_id>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[CHEN, S C, Speedup of tteratwe programs in multtprocessor systems. Ph.D. Th., Rep. No. 75-694, Dept Comptr Scl., U of ilhnols at Urbana-Champalgn, Jan 1975]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>4</ref_seq_no>
+				<ref_text><![CDATA[CHEN, S.C., AND KUCK, D J Time and parallel processor bounds for linear recurrence systems. IEEE Trans Comptr C-24, 7, (July 1975), 701-717]]></ref_text>
+				<ref_id>4</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>5</ref_seq_no>
+				<ref_text><![CDATA[CHEN, S C, AND SAMEH, A.H On parallel triangular system solvers Proc. 1975 Sagamore Comptr. Conf on Parallel Processmg, Aug 1975, pp 237-238]]></ref_text>
+				<ref_id>5</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>6</ref_seq_no>
+				<ref_text><![CDATA[HELLER, D. On the efficmnt computation of recurrence relations Inst for Comptr Appl. in Scl. and Eng. (ICASE), NASA Langley Res Ctr, Hampton, Va, June 1974]]></ref_text>
+				<ref_id>6</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>322030</ref_obj_id>
+				<ref_obj_pid>322017</ref_obj_pid>
+				<ref_seq_no>7</ref_seq_no>
+				<ref_text><![CDATA[HYAFIL, L, ANY) KUNG, H T The complexity of parallel evaluation of linear recurrence. J ACM 24, 3 (July 1977), 513-521.]]></ref_text>
+				<ref_id>7</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>8</ref_seq_no>
+				<ref_text><![CDATA[KUCK, D J. Parallel processing of ordinary programs Advances m Computers 15 (1976), 119-179.]]></ref_text>
+				<ref_id>8</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>9</ref_seq_no>
+				<ref_text><![CDATA[KtJCK, D.J, BUDNIK, P, CHEN, S.C, DAVIS, E, JR, HAN, J, KRASKA, P., LAWI~IE, D, MtmAOKA, Y, STREBENDT, R, AND TOWLE, R. Measurements of parallelism m ordinary FORTRAN programs. IEEE Comptr. 7, 1 (Jan 1974), 37-46.]]></ref_text>
+				<ref_id>9</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>10</ref_seq_no>
+				<ref_text><![CDATA[LAFON, J Base tensormlle des matrices de Hankel (on de Toephtz) Applications. Nurner. Math. 23 (1975), 349-361]]></ref_text>
+				<ref_id>10</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>892668</ref_obj_id>
+				<ref_seq_no>11</ref_seq_no>
+				<ref_text><![CDATA[OrtCWTW, S.E. Parallel solution methods for triangular hnear systems of equations Tech. Rep No 77, Digital Syst Lab., Stanford Electronics Labs, Stanford, Cahf., 1974]]></ref_text>
+				<ref_id>11</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>12</ref_seq_no>
+				<ref_text><![CDATA[SAMEH, A H., AND BRENT, R P. Solving triangular systems on a parallel computer SIAM J. Numer Analysts 14, 6 (Dec 1977), 1101-1113]]></ref_text>
+				<ref_id>12</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>13</ref_seq_no>
+				<ref_text><![CDATA[STOKES, R BSP The Burroughs SclenUfic Processor. In Hzgh Speed Computer and Algortthm Orgamzatton, D Kuck, D. Lawrm, and A Sameh, Eds Academm Press, New York, 1977]]></ref_text>
+				<ref_id>13</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355797\p270-chen.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>18</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>143440</cited_by_object_id>
+				<cited_by_text><![CDATA[L. DeRose , K. Gallivan , E. Gallopoulos, Experiments with an ocean circulation model on CEDAR, Proceedings of the 6th international conference on Supercomputing, p.397-408, July 19-24, 1992, Washington, D. C., United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>324582</cited_by_object_id>
+				<cited_by_text><![CDATA[S. Lakshmivarahan , Sudarshan K. Dhall, A new class of parallel algorithms for solving linear tridiagonal systems, Proceedings of 1986 ACM Fall joint computer conference, p.315-324, November 1986, Dallas, Texas, United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>93583</cited_by_object_id>
+				<cited_by_text><![CDATA[Zahira Ammarguellat , W. L. Harrison, III, Automatic recognition of induction variables and recurrence relations by abstract interpretation, ACM SIGPLAN Notices, v.25 n.6, p.283-295, Jun. 1990]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>143452</cited_by_object_id>
+				<cited_by_text><![CDATA[Haigeng Wang , Alexandru Nicolau, Speedup of band linear recurrences in the presence of resource constraints, Proceedings of the 6th international conference on Supercomputing, p.466-477, July 19-24, 1992, Washington, D. C., United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>161782</cited_by_object_id>
+				<cited_by_text><![CDATA[Haigeng Wang , Nikil Dutt , Alexandru Nicolau, Harmonic scheduling of linear recurrences for digital filter design, Proceedings of the conference on European design automation, p.396-401, November 1992, Congress Centrum Hamburg, Hamburg, Germany]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>801937</cited_by_object_id>
+				<cited_by_text><![CDATA[Mary Jane Irwin , Don Heller, Online pipeline systems for recursive numeric computations, Proceedings of the 7th annual symposium on Computer Architecture, p.292-299, May 06-08, 1980, La Baule, United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>203169</cited_by_object_id>
+				<cited_by_text><![CDATA[Gyungho Lee, Parallelizing Iterative Loops with Conditional Branching, IEEE Transactions on Parallel and Distributed Systems, v.6 n.2, p.185-189, February 1995]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>164920</cited_by_object_id>
+				<cited_by_text><![CDATA[Haigeng Wang , Nikil Dutt , Alexandru Nicolau , Kai-Yeung Sunny Siu, High-level synthesis of scalable architectures for IIR filters using multichip modules, Proceedings of the 30th international conference on Design automation, p.336-342, June 14-18, 1993, Dallas, Texas, United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>241382</cited_by_object_id>
+				<cited_by_text><![CDATA[Haigeng Wang , Alexandru Nicolau , Stephen Keung , Kai-Yeung Sunny Siu, Computing Programs Containing Band Linear Recurrences on Vector Supercomputers, IEEE Transactions on Parallel and Distributed Systems, v.7 n.8, p.769-782, August 1996]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2305906</cited_by_object_id>
+				<cited_by_text><![CDATA[Y. Robert , M. Tchuente, Parallel solution of band triangular linear systems on VLSI arrays with limited fan-out, Journal of Systems and Software, v.6 n.1-2, p.155-163, May, 1986]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2031117</cited_by_object_id>
+				<cited_by_text><![CDATA[Murat Manguoglu, A domain-decomposing parallel sparse linear system solver, Journal of Computational and Applied Mathematics, v.236 n.3, p.319-325, September, 2011]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1310620</cited_by_object_id>
+				<cited_by_text><![CDATA[D. J. Kuck , R. A. Stokes, The Burroughs Scientific Processor (BSP), IEEE Transactions on Computers, v.31 n.5, p.363-376, May 1982]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1309987</cited_by_object_id>
+				<cited_by_text><![CDATA[D. D. Gajski, An Algorithm for Solving Linear Recurrence Systems on Parallel and Pipelined Machines, IEEE Transactions on Computers, v.30 n.3, p.190-206, March 1981]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1616857</cited_by_object_id>
+				<cited_by_text><![CDATA[Murat Manguoglu , Ahmed H. Sameh , Olaf Schenk, PSPIKE: A Parallel Hybrid Sparse Linear System Solver, Proceedings of the 15th International Euro-Par Conference on Parallel Processing, August 25-28, 2009, Delft, The Netherlands]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>6048</cited_by_object_id>
+				<cited_by_text><![CDATA[Walid Abu-Sufah , Harlan E. Husmann , David J. Kuck, On input/output speedup in tightly coupled multiprocessors, IEEE Transactions on Computers, v.35 n.6, p.520-530, June 1986]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1958632</cited_by_object_id>
+				<cited_by_text><![CDATA[Murat Manguoglu , Mehmet Koyut&#252;rk , Ahmed H. Sameh , Ananth Grama, Weighted Matrix Ordering and Parallel Banded Preconditioners for Iterative Linear System Solvers, SIAM Journal on Scientific Computing, v.32 n.3, p.1201-1216, April 2010]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2036396</cited_by_object_id>
+				<cited_by_text><![CDATA[Murat Manguoglu , Kenji Takizawa , Ahmed H. Sameh , Tayfun E. Tezduyar, A parallel sparse algorithm targeting arterial fluid mechanics computations, Computational Mechanics, v.48 n.3, p.377-384, September 2011]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1971902</cited_by_object_id>
+				<cited_by_text><![CDATA[Murat Manguoglu , Faisal Saied , Ahmed Sameh , Ananth Grama, Performance models for the Spike banded linear system solver, Scientific Programming, v.19 n.1, p.13-25, January 2011]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355798</article_id>
+		<sort_key>278</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>7</seq_no>
+		<title><![CDATA[Eigensystem Computation for Skew-Symmetric and a Class of Symmetric Matrices]]></title>
+		<page_from>278</page_from>
+		<page_to>285</page_to>
+		<doi_number>10.1145/355791.355798</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355798</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.1.3</cat_node>
+				<descriptor>Eigenvalues and eigenvectors (direct and iterative methods)</descriptor>
+				<type>S</type>
+			</primary_category>
+			<other_category>
+				<cat_node>F.2.1</cat_node>
+				<descriptor>Computations on matrices</descriptor>
+				<type>S</type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003719</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Computations on matrices</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Algorithms</gt>
+			<gt>Design</gt>
+			<gt>Performance</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP36043137</person_id>
+				<author_profile_id><![CDATA[81544187456]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[R.]]></first_name>
+				<middle_name><![CDATA[C.]]></middle_name>
+				<last_name><![CDATA[Ward]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Computer Sciences Division, Mathematics and Statistics Research Department, Nuclear Division, Union Carbide Corporation, P.O. Box Y, Oak Ridge, TN]]></affiliation>
+				<affil_inst_id><![CDATA[60030726]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>PP14141956</person_id>
+				<author_profile_id><![CDATA[81100401348]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>2</seq_no>
+				<first_name><![CDATA[L.]]></first_name>
+				<middle_name><![CDATA[J.]]></middle_name>
+				<last_name><![CDATA[Gray]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Computer Sciences Division, Mathematics and Statistics Research Department, Nuclear Division, Union Carbide Corporation, P.O. Box Y, Oak Ridge, TN]]></affiliation>
+				<affil_inst_id><![CDATA[60030726]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[GOLUB, G H Least squares, singular values and matrix approximations Aplikace Matemattky 13 (1968), 44-51]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[GOLUB, G H., AND REINSCH, C. Singular value decompos~tmn and least squares solutions. Numer Math 14 (1970), 403-420]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[MARTIN, R.S., REINSCH, C., AND WILKINSON, j H Householder's tridlagonalization of a symmetric matrLx. Numer Math 11 (1968), i81-195]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>4</ref_seq_no>
+				<ref_text><![CDATA[PAARDEKOOPER, M H.C An elgenvalue algorithm for skew-symmetric matrices. Numer. Math 17 (1971), 189-202]]></ref_text>
+				<ref_id>4</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>5</ref_seq_no>
+				<ref_text><![CDATA[SMITH, B.T, ET AL. Matrix eigensystem routmes--EISPACK guide. In Lecture Notes in Computer Sctence, Vol 6, Sprmger-Verlag, New York, 1974]]></ref_text>
+				<ref_id>5</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>59657</ref_obj_id>
+				<ref_seq_no>6</ref_seq_no>
+				<ref_text><![CDATA[WILKINSON, J.H. The Algebraic Etgenvalue Problem Clarendon Press, Oxford, England, 1965]]></ref_text>
+				<ref_id>6</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>7</ref_seq_no>
+				<ref_text><![CDATA[WILKINSON, J.H Global convergence of tmdlagonal QR algorithm with origin shifts Linear Algebra and Appl 1(1968), 409-420]]></ref_text>
+				<ref_id>7</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>8</ref_seq_no>
+				<ref_text><![CDATA[WILKINSON, J.H, AND REINSCH, C Handbook for Automatic Computation, Vol. II. Ltnear Algebra Spnnger-Verlag, New York, 1971.]]></ref_text>
+				<ref_id>8</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355798\p278-ward.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>3</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>355799</cited_by_object_id>
+				<cited_by_text><![CDATA[R. C. Ward , L. J. Gray, Algorithm 530: An Algorithm for Computing the Eigensystem of Skew-Symmetric Matrices and a Class of Symmetric Matrices [F2], ACM Transactions on Mathematical Software (TOMS), v.4 n.3, p.286-289, Sept. 1978]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2331138</cited_by_object_id>
+				<cited_by_text><![CDATA[M. Wimmer, Algorithm 923: Efficient Numerical Computation of the Pfaffian for Dense and Banded Skew-Symmetric Matrices, ACM Transactions on Mathematical Software (TOMS), v.38 n.4, p.1-17, August 2012]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2174394</cited_by_object_id>
+				<cited_by_text><![CDATA[Christian Pich, Drawing directed graphs clockwise, Proceedings of the 17th international conference on Graph Drawing, September 22-25, 2009, Chicago, IL]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355799</article_id>
+		<sort_key>286</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>8</seq_no>
+		<title><![CDATA[Algorithm 530: An Algorithm for Computing the Eigensystem of Skew-Symmetric Matrices and a Class of Symmetric Matrices [F2]]]></title>
+		<page_from>286</page_from>
+		<page_to>289</page_to>
+		<doi_number>10.1145/355791.355799</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355799</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.1.3</cat_node>
+				<descriptor>Eigenvalues and eigenvectors (direct and iterative methods)</descriptor>
+				<type>S</type>
+			</primary_category>
+			<other_category>
+				<cat_node>F.2.1</cat_node>
+				<descriptor>Computations on matrices</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>G.4</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715.10003719</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis->Computations on matrices</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Algorithms</gt>
+			<gt>Design</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP36043137</person_id>
+				<author_profile_id><![CDATA[81544187456]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[R.]]></first_name>
+				<middle_name><![CDATA[C.]]></middle_name>
+				<last_name><![CDATA[Ward]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Computer Sciences Division, Mathematics and Statistics Research Department, Nuclear Division, Union Carbide Corporation, P.O. Box Y, Oak Ridge, TN]]></affiliation>
+				<affil_inst_id><![CDATA[60030726]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+			<au>
+				<person_id>PP14141956</person_id>
+				<author_profile_id><![CDATA[81100401348]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>2</seq_no>
+				<first_name><![CDATA[L.]]></first_name>
+				<middle_name><![CDATA[J.]]></middle_name>
+				<last_name><![CDATA[Gray]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Computer Sciences Division, Mathematics and Statistics Research Department, Nuclear Division, Union Carbide Corporation, P.O. Box Y, Oak Ridge, TN]]></affiliation>
+				<affil_inst_id><![CDATA[60030726]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[MARTIN, R S, REINSCH, C, AND WILKINSON, J.H. Householder's tridlagonalization of a symmetric matrix Numer Math 11 (1968), 181-95]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[SMITH, B T, ET AL Matrix elgensystem routmes--EISPACK guide. In Lecture Notes in Computer Science, Vol 6, Sprlnger-Verlag, New York, 1974.]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>355798</ref_obj_id>
+				<ref_obj_pid>355791</ref_obj_pid>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[WARD, R C , AND GRAY, L.J. E,gensystem computation for skew-symmetric matrices and a class of symmetric matrices ACM Trans. Math Software 4, 3 (Sept 1978), 278-285.]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355799\p286-ward.pdf</fname>
+			</file>
+		</fulltext>
+		<supplements>
+			<supple>
+				<supple_file>530.gz</supple_file>
+				<supple_link_disp>TRIZD, IMZD, and TBAKZD (530.gz)</supple_link_disp>
+				<supple_text>orthogonal similarity transformations: eigenvalues and eigenvectors of real skew-symmetric matrices or		real tridiagonal symmetric matrices with constant diagonals<br/> Gams: D4a1,D4a2,D4a5</supple_text>
+				<access_flag>NO</access_flag>
+				<collection></collection>
+			</supple>
+		</supplements>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>1</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>2331138</cited_by_object_id>
+				<cited_by_text><![CDATA[M. Wimmer, Algorithm 923: Efficient Numerical Computation of the Pfaffian for Dense and Banded Skew-Symmetric Matrices, ACM Transactions on Mathematical Software (TOMS), v.38 n.4, p.1-17, August 2012]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355800</article_id>
+		<sort_key>290</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>9</seq_no>
+		<title><![CDATA[Algorithm 531: Contour Plotting [J6]]]></title>
+		<page_from>290</page_from>
+		<page_to>294</page_to>
+		<doi_number>10.1145/355791.355800</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355800</url>
+		<categories>
+			<primary_category>
+				<cat_node>F.2.2</cat_node>
+				<descriptor>Geometrical problems and computations</descriptor>
+				<type>S</type>
+			</primary_category>
+			<other_category>
+				<cat_node>I.3.5</cat_node>
+				<descriptor>Curve, surface, solid, and object representations</descriptor>
+				<type>S</type>
+			</other_category>
+			<other_category>
+				<cat_node>G.2.0</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10010147.10010371.10010396</concept_id>
+				<concept_desc>CCS->Computing methodologies->Computer graphics->Shape modeling</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10010147.10010371.10010396.10010401</concept_id>
+				<concept_desc>CCS->Computing methodologies->Computer graphics->Shape modeling->Volumetric models</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003624</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Discrete mathematics</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10010147.10010371.10010396.10010399</concept_id>
+				<concept_desc>CCS->Computing methodologies->Computer graphics->Shape modeling->Parametric curve and surface models</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10003752.10010061.10010063</concept_id>
+				<concept_desc>CCS->Theory of computation->Randomness, geometry and discrete structures->Computational geometry</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10003752.10010061</concept_id>
+				<concept_desc>CCS->Theory of computation->Randomness, geometry and discrete structures</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Algorithms</gt>
+			<gt>Design</gt>
+			<gt>Performance</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>P300028</person_id>
+				<author_profile_id><![CDATA[81100598947]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[William]]></first_name>
+				<middle_name><![CDATA[V.]]></middle_name>
+				<last_name><![CDATA[Snyder]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Jet Propulsion Laboratory, California Institute of Technology, 4800 Oak Grove Drive, Pasadena, CA]]></affiliation>
+				<affil_inst_id><![CDATA[60009037]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_obj_id>363172</ref_obj_id>
+				<ref_obj_pid>363156</ref_obj_pid>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[COTTAFAVA, G., AND LE MOLl, G. Automatic contour map. Comm. ACM 12, 7 (July 1969), 386-391]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[CRANE, C M. Contour plotting for functions specified at nodal points of an irregular mesh based on an arbitrary two parameter co-ordinate system. Comptr. J. 15 (1972), 382-384.]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+			<ref>
+				<ref_seq_no>3</ref_seq_no>
+				<ref_text><![CDATA[McCONALOGUE, D J An automatic french-curve procedure for use with an incremental plotter. Comptr J. 14 (1971), 207-209.]]></ref_text>
+				<ref_id>3</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355800\p290-snyder.pdf</fname>
+			</file>
+		</fulltext>
+		<supplements>
+			<supple>
+				<supple_file>531.gz</supple_file>
+				<supple_link_disp>GCONTR (531.gz)</supple_link_disp>
+				<supple_text>contours through equal values of a surface<br/> Gams: Q</supple_text>
+				<access_flag>NO</access_flag>
+				<collection></collection>
+			</supple>
+		</supplements>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>8</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>42289</cited_by_object_id>
+				<cited_by_text><![CDATA[Granville Sewell, Plotting contour surfaces of a function of three variables, ACM Transactions on Mathematical Software (TOMS), v.14 n.1, p.33-41, March 1988]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>2770</cited_by_object_id>
+				<cited_by_text><![CDATA[Albrecht Preusser, Computing contours by successive solution of quintic polynomial equations, ACM Transactions on Mathematical Software (TOMS), v.10 n.4, p.463-472, Dec. 1984]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>617486</cited_by_object_id>
+				<cited_by_text><![CDATA[Robert R. Dickinson , Richard H. Bartels , Allan H. Vermeulen, The Interactive Editing and Contouring of Empirical Fields, IEEE Computer Graphics and Applications, v.9 n.3, p.34-43, May 1989]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1533956</cited_by_object_id>
+				<cited_by_text><![CDATA[Chun Sheng Chen , Vadeerat Rinsurongkawong , Christoph F. Eick , Michael D. Twa, Change Analysis in Spatial Data by Combining Contouring Algorithms with Supervised Density Functions, Proceedings of the 13th Pacific-Asia Conference on Advances in Knowledge Discovery and Data Mining, April 27-30, 2009, Bangkok, Thailand]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>141090</cited_by_object_id>
+				<cited_by_text><![CDATA[P. J. Elliott , J. M. Knapman , W. Schlegel, Interactive image segmentation for radiation treatment planning, IBM Systems Journal, v.31 n.4, p.620-634, 1992]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>69651</cited_by_object_id>
+				<cited_by_text><![CDATA[A. Preusser, Algorithm 671: FARB-E-2D: fill area with bicubics on rectangles&mdash;a contour plot program, ACM Transactions on Mathematical Software (TOMS), v.15 n.1, p.79-89, March 1989]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1823880</cited_by_object_id>
+				<cited_by_text><![CDATA[Vadeerat Rinsurongkawong , Chun Sheng Chen , Christoph F. Eick , Michael D. Twa, Analyzing change in spatial data by utilizing polygon models, Proceedings of the 1st International Conference and Exhibition on Computing for Geospatial Research &#38; Application, June 21-23, 2010, Washington, D.C.]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>1924840</cited_by_object_id>
+				<cited_by_text><![CDATA[Gen-Tao Chiang , Toby O. H. White , Martin T. Dove , C. Isabella Bovolo , John Ewen, Geo-visualization Fortran library, Computers &amp; Geosciences, v.37 n.1, p.65-74, January, 2011]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>356474</article_id>
+		<sort_key>295</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>10</seq_no>
+		<title><![CDATA[Remark on algorithm 408]]></title>
+		<subtitle><![CDATA[a sparse matrix package (part 1) [F4]]]></subtitle>
+		<page_from>295</page_from>
+		<doi_number>10.1145/355791.356474</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=356474</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.4</cat_node>
+				<descriptor/>
+				<type/>
+			</primary_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<authors>
+			<au>
+				<person_id>P86581</person_id>
+				<author_profile_id><![CDATA[81100077741]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[Fred]]></first_name>
+				<middle_name><![CDATA[G.]]></middle_name>
+				<last_name><![CDATA[Gustavson]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[T.J. Watson Research Center, IBM, Yorktown Heights, NY]]></affiliation>
+				<affil_inst_id><![CDATA[60017366]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_obj_id>355796</ref_obj_id>
+				<ref_obj_pid>355791</ref_obj_pid>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[GUSTAVSON, F G Two fast algorithms for sparse matrices Multlpl,cation and permuted transposition ACM Trans. Math Software 4, 3 (Sept. 1978), 250-269.]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>355757</ref_obj_id>
+				<ref_obj_pid>355744</ref_obj_pid>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[SIPALA, P., Remark on Algorithm 408. ACM Trans. Math, Software 3, 3 (Sept. 1977), 303.]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>356474\p295-gustavson.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+		<cited_by_list>
+			<cited_by_number>5</cited_by_number>
+			<cited_by>
+				<cited_by_object_id>226310</cited_by_object_id>
+				<cited_by_text><![CDATA[Richard A. DeMillo , Hsin Pan , Eugene H. Spafford, Critical slicing for software fault localization, ACM SIGSOFT Software Engineering Notes, v.21 n.3, p.121-134, May 1996]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>355920</cited_by_object_id>
+				<cited_by_text><![CDATA[U. Harms , H. Kollakowski , G. M&#246;ller, Remark on &ldquo;Algorithm 408: A Sparse Matrix Package (Part 1) [F4]&rdquo;, ACM Transactions on Mathematical Software (TOMS), v.6 n.3, p.456-457, Sept. 1980]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>802530</cited_by_object_id>
+				<cited_by_text><![CDATA[Joe W. Duran , Simeon Ntafos, A report on random testing, Proceedings of the 5th international conference on Software engineering, p.179-183, March 09-12, 1981, San Diego, California, United States]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>631068</cited_by_object_id>
+				<cited_by_text><![CDATA[P. G. Frankl , S. N. Weiss, An Experimental Comparison of the Effectiveness of Branch Testing and Data Flow Testing, IEEE Transactions on Software Engineering, v.19 n.8, p.774-787, August 1993]]></cited_by_text>
+			</cited_by>
+			<cited_by>
+				<cited_by_object_id>120821</cited_by_object_id>
+				<cited_by_text><![CDATA[Phyllis G. Frankl , Stewart N. Weiss, An experimental comparison of the effectiveness of the all-uses and all-edges adequacy criteria, Proceedings of the symposium on Testing, analysis, and verification, p.154-164, October 08-10, 1991, Victoria, British Columbia, Canada]]></cited_by_text>
+			</cited_by>
+		</cited_by_list>
+	</article_rec>
+	<article_rec>
+		<article_id>355801</article_id>
+		<sort_key>295</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>11</seq_no>
+		<title><![CDATA[Remark on &#8220;Algorithm 49: Spherical Neumann Function&#8221;]]></title>
+		<page_from>295</page_from>
+		<doi_number>10.1145/355791.355801</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355801</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.4</cat_node>
+				<descriptor/>
+				<type/>
+			</primary_category>
+			<other_category>
+				<cat_node>G.1.0</cat_node>
+				<descriptor></descriptor>
+				<type></type>
+			</other_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003714.10003715</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical analysis->Numerical analysis</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<general_terms>
+			<gt>Algorithms</gt>
+			<gt>Design</gt>
+			<gt>Theory</gt>
+		</general_terms>
+		<authors>
+			<au>
+				<person_id>PP31072973</person_id>
+				<author_profile_id><![CDATA[81100290464]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[John]]></first_name>
+				<middle_name><![CDATA[P.]]></middle_name>
+				<last_name><![CDATA[Coleman]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Department of Mathematics, University of Durham, Durham, England]]></affiliation>
+				<affil_inst_id><![CDATA[60022175]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_obj_id>355796</ref_obj_id>
+				<ref_obj_pid>355791</ref_obj_pid>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[GUSTAVSON, F G Two fast algorithms for sparse matrices Multlpl,cation and permuted transposition ACM Trans. Math Software 4, 3 (Sept. 1978), 250-269.]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+			<ref>
+				<ref_obj_id>355757</ref_obj_id>
+				<ref_obj_pid>355744</ref_obj_pid>
+				<ref_seq_no>2</ref_seq_no>
+				<ref_text><![CDATA[SIPALA, P., Remark on Algorithm 408. ACM Trans. Math, Software 3, 3 (Sept. 1977), 303.]]></ref_text>
+				<ref_id>2</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355801\p295-coleman.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+	</article_rec>
+	<article_rec>
+		<article_id>355803</article_id>
+		<sort_key>296</sort_key>
+		<display_label></display_label>
+		<article_publication_date>09-01-1978</article_publication_date>
+		<seq_no>12</seq_no>
+		<title><![CDATA[Remark on &#8220;Algorithm 435: Modified Incomplete Gamma Function [S14]&#8221;]]></title>
+		<page_from>296</page_from>
+		<page_to>304</page_to>
+		<doi_number>10.1145/355791.355803</doi_number>
+		<url>http://dl.acm.org/citation.cfm?id=355803</url>
+		<categories>
+			<primary_category>
+				<cat_node>G.4</cat_node>
+				<descriptor/>
+				<type/>
+			</primary_category>
+		</categories>
+		<ccs2012>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>100</concept_significance>
+			</concept>
+			<concept>
+				<concept_id>0.10002950.10003705</concept_id>
+				<concept_desc>CCS->Mathematics of computing->Mathematical software</concept_desc>
+				<concept_significance>500</concept_significance>
+			</concept>
+		</ccs2012>
+		<authors>
+			<au>
+				<person_id>P18320</person_id>
+				<author_profile_id><![CDATA[81100466966]]></author_profile_id>
+				<orcid_id></orcid_id>
+				<seq_no>1</seq_no>
+				<first_name><![CDATA[Andrew]]></first_name>
+				<middle_name><![CDATA[Y.]]></middle_name>
+				<last_name><![CDATA[Schoene]]></last_name>
+				<suffix><![CDATA[]]></suffix>
+				<affiliation><![CDATA[Research Laboratories, General Motors Technical Center, General Motors Corporation, Warren, MI]]></affiliation>
+				<affil_inst_id><![CDATA[60000501]]></affil_inst_id>
+				<role><![CDATA[Author]]></role>
+				<email_address><![CDATA[]]></email_address>
+			</au>
+		</authors>
+		<references>
+			<ref>
+				<ref_obj_id>361959</ref_obj_id>
+				<ref_obj_pid>361953</ref_obj_pid>
+				<ref_seq_no>1</ref_seq_no>
+				<ref_text><![CDATA[GAUTSCHI, W, AND KLEIN, B J Recursive computatmn of certain denvatives--A study of error propagation Comm. ACM 13, 1 (Jan 1970), 7-9]]></ref_text>
+				<ref_id>1</ref_id>
+			</ref>
+		</references>
+		<fulltext>
+			<file>
+				<seq_no>1</seq_no>
+				<fname>355803\p296-schoene.pdf</fname>
+			</file>
+		</fulltext>
+		<ccc>
+			<copyright_holder>
+				<copyright_holder_name>ACM</copyright_holder_name>
+				<copyright_holder_year>1978</copyright_holder_year>
+			</copyright_holder>
+		</ccc>
+	</article_rec>
+</content>
+</periodical>

@@ -1,0 +1,49 @@
+<resource xmlns="http://datacite.org/schema/kernel-2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-2.1 http://schema.datacite.org/meta/kernel-2.1/metadata.xsd">
+   <identifier identifierType="DOI">10.4230/LIPIcs.ICLP.2011.16</identifier>
+   <creators>
+      <creator>
+         <creatorName>Ostrowski, Max</creatorName>
+      </creator>
+      <creator>
+         <creatorName>Flouris, Giorgos</creatorName>
+      </creator>
+      <creator>
+         <creatorName>Schaub, Torsten</creatorName>
+      </creator>
+      <creator>
+         <creatorName>Antoniou, Grigoris</creatorName>
+      </creator>
+   </creators>
+   <titles>
+ 	    <title>Evolution of Ontologies using ASP</title>
+   </titles>
+   <publisher>Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany</publisher>
+   <publicationYear>2011</publicationYear>
+   <subjects>
+ 	    <subject>Computer Science</subject>
+ 	    <subject subjectScheme="DDC">000 Computer science, knowledge, general works</subject>
+   </subjects>
+   <contributors>
+ 	    <contributor contributorType="Editor">
+ 		      <contributorName>Herbstritt, Marc</contributorName>
+ 	    </contributor>
+   </contributors>
+   <dates>
+ 	    <date dateType="Available">2011-06-27</date>
+   </dates>
+   <language>eng</language>
+   <resourceType resourceTypeGeneral="Text">ConferencePaper</resourceType>
+   <sizes>
+ 	    <size>12 pages</size>
+   </sizes>
+   <formats>
+ 	    <format>application/pdf</format>
+   </formats>
+   <version>1.0</version>
+   <rights>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported license (CC-BY-NC-ND)</rights>
+   <descriptions>
+ 	    <description descriptionType="Other">
+ 	RDF/S ontologies are often used in e-science to express domain knowledge regarding the respective field of investigation (e.g., cultural informatics, bioinformatics etc). Such ontologies need to change often to reflect the latest scientific understanding on the domain at hand, and are usually associated with constraints expressed using various declarative formalisms to express domain-specific requirements, such as cardinality or acyclicity constraints. Addressing the evolution of ontologies in the presence of ontological constraints imposes extra difficulties, because it forces us to respect the associated constraints during evolution. While these issues were addressed in previous work, this is the first work to examine how ASP techniques can be applied to model and implement the evolution process. ASP was chosen for its advantages in terms of a principled, rather than ad hoc implementation, its modularity and flexibility, and for being a state-of-the-art technique to tackle hard combinatorial problems. In particular, our approach consists in providing a general translation of the problem into ASP, thereby reducing it to an instance of an ASP program that can be solved by an ASP solver. Our experiments are promising, even for large ontologies, and also show that the scalability of the approach depends on the morphology of the input.
+ 	</description>
+   </descriptions>
+ </resource>

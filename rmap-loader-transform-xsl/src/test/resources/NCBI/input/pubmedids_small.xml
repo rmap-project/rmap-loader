@@ -1,0 +1,20 @@
+<eSearchResult>
+    <Count>277240</Count>
+    <RetMax>10</RetMax>
+    <RetStart>0</RetStart>
+    <IdList>
+        <Id>26268193</Id><!--anzctr-->
+        <Id>26109111</Id><!--bioproject-->
+    </IdList>
+    <TranslationSet/>
+    <TranslationStack>
+        <TermSet>
+            <Term>hasdatabanklist[All Fields]</Term>
+            <Field>All Fields</Field>
+            <Count>277240</Count>
+            <Explode>N</Explode>
+        </TermSet>
+        <OP>GROUP</OP>
+    </TranslationStack>
+    <QueryTranslation>hasdatabanklist[All Fields]</QueryTranslation>
+</eSearchResult>
