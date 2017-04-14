@@ -1,9 +1,23 @@
+/*
+ * Copyright 2017 Johns Hopkins University
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package info.rmapproject.loader.validation;
 
 import java.io.InputStream;
 import java.io.StringWriter;
-
 import java.util.List;
 
 import org.apache.jena.rdf.model.Model;
@@ -19,61 +33,65 @@ public class DiscoValidator {
     static final String DCTERMS_NS = "http://purl.org/dc/terms/";
 
     static final String RMAP_NS = "http://rmap-project.org/rmap/terms/";
-    
+
     static final String ORE_NS = "http://www.openarchives.org/ore/terms/";
 
     static final String RDF_NS = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 
     public static void validate(InputStream rdf, Format format) {
-        Model model = ModelFactory.createDefaultModel();
+        final Model model = ModelFactory.createDefaultModel();
         model.read(rdf, "", format.toString());
 
-        List<Statement> discoResources =
+        final List<Statement> discoResources =
                 cut(model,
-                    new SimpleSelector(null, model.getProperty(RDF_NS + "type"), model.getResource(RMAP_NS + "DiSCO")))
-                            .listStatements().toList();
+                        new SimpleSelector(null, model.getProperty(RDF_NS + "type"), model.getResource(RMAP_NS +
+                                "DiSCO")))
+                                        .listStatements().toList();
 
-        if (discoResources.size() != 1)
-            throw new ValidationException("Wrong number of DiSCO resources.  Should be 1, is " + discoResources.size());
+        if (discoResources.size() != 1) {
+            throw new ValidationException("Wrong number of DiSCO resources.  Should be 1, is " + discoResources
+                    .size());
+        }
 
-        Model discoTriples = cut(model, new SimpleSelector(discoResources.get(0).getSubject(), null, (RDFNode) null));
+        final Model discoTriples = cut(model, new SimpleSelector(discoResources.get(0).getSubject(), null,
+                (RDFNode) null));
 
         /* Any number of creators, so we don't care */
         cut(discoTriples, new SimpleSelector(null, discoTriples.getProperty(DCTERMS_NS + "creator"), (RDFNode) null));
 
         /* Zero or one descriptions */
         if (1 < cut(discoTriples,
-                    new SimpleSelector(null, discoTriples.getProperty(DCTERMS_NS + "description"), (RDFNode) null))
-                            .listStatements().toList().size()) {
+                new SimpleSelector(null, discoTriples.getProperty(DCTERMS_NS + "description"), (RDFNode) null))
+                        .listStatements().toList().size()) {
             throw new ValidationException("More than one description detected");
         }
 
         /* The rest need to be aggregated resources */
-        List<Resource> aggregatedResources =
+        final List<Resource> aggregatedResources =
                 cut(discoTriples,
-                    new SimpleSelector(null, discoTriples.getProperty(ORE_NS + "aggregates"), (RDFNode) null))
-                            .listObjects().mapWith(n -> n.asResource()).filterKeep(r -> {
-                                if (r.isAnon()) {
-                                    throw new ValidationException("Cannot aggregate blank nodes");
-                                }
-                                return true;
-                            }).toList();
+                        new SimpleSelector(null, discoTriples.getProperty(ORE_NS + "aggregates"), (RDFNode) null))
+                                .listObjects().mapWith(n -> n.asResource()).filterKeep(r -> {
+                                    if (r.isAnon()) {
+                                        throw new ValidationException("Cannot aggregate blank nodes");
+                                    }
+                                    return true;
+                                }).toList();
 
         /* Make sure DiSCO resource triples have been exhausted */
         if (!discoTriples.isEmpty()) {
-            StringWriter writer = new StringWriter();
+            final StringWriter writer = new StringWriter();
             discoTriples.write(writer, "N-TRIPLE");
             throw new ValidationException("DiSCO has extra triples " + writer.toString());
         }
 
         /* Remove all triples with our aggregated resources as subject */
-        for (Resource aggregated : aggregatedResources) {
+        for (final Resource aggregated : aggregatedResources) {
             removeTree(aggregated, model);
         }
 
         /* Now verify that there are none left */
         if (!model.isEmpty()) {
-            StringWriter writer = new StringWriter();
+            final StringWriter writer = new StringWriter();
             model.write(writer, "N-TRIPLE");
             throw new ValidationException("Unconnected triples found" + writer.toString());
         }
@@ -93,6 +111,7 @@ public class DiscoValidator {
             jena_name = name;
         }
 
+        @Override
         public String toString() {
             return jena_name;
         }
@@ -109,17 +128,15 @@ public class DiscoValidator {
 
     /**
      * Remove a subset of a Model with the given Selector.
-     * 
-     * @param from
-     *        Model that will have statements removed
-     * @param selector
-     *        Selector for matching statements to remove
+     *
+     * @param from Model that will have statements removed
+     * @param selector Selector for matching statements to remove
      * @return a Model containing all the extracted triples.
      */
     public static Model cut(Model from, Selector selector) {
 
-        Model excised = ModelFactory.createDefaultModel();
-        List<Statement> toRemove = from.listStatements(selector).toList();
+        final Model excised = ModelFactory.createDefaultModel();
+        final List<Statement> toRemove = from.listStatements(selector).toList();
 
         excised.add(toRemove);
         from.remove(toRemove);

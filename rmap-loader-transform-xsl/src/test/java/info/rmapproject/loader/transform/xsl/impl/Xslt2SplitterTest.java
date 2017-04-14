@@ -1,3 +1,18 @@
+/*
+ * Copyright 2017 Johns Hopkins University
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package info.rmapproject.loader.transform.xsl.impl;
 
@@ -23,7 +38,7 @@ public class Xslt2SplitterTest
             basedir =
                     Paths.get(getClass().getResource("/xslt2").toURI())
                             .toString();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -38,9 +53,8 @@ public class Xslt2SplitterTest
     @Test
     public void outputFileCountTest() throws Exception {
 
-        Map<String, Object> headers = new HashMap<>();
-        headers.put(Xslt2Splitter.HEADER_XSLT_FILE_NAME, basedir
-                + "/transform.xsl");
+        final Map<String, Object> headers = new HashMap<>();
+        headers.put(Xslt2Splitter.HEADER_XSLT_FILE_NAME, basedir + "/transform.xsl");
 
         template.sendBodyAndHeaders("direct:in", getClass()
                 .getResourceAsStream("/xslt2/input.xml"), headers);
@@ -54,9 +68,8 @@ public class Xslt2SplitterTest
     @Test
     public void includeFileTest() throws Exception {
 
-        Map<String, Object> headers = new HashMap<>();
-        headers.put(Xslt2Splitter.HEADER_XSLT_FILE_NAME, basedir
-                + "/transform-include.xsl");
+        final Map<String, Object> headers = new HashMap<>();
+        headers.put(Xslt2Splitter.HEADER_XSLT_FILE_NAME, basedir + "/transform-include.xsl");
 
         template.sendBodyAndHeaders("direct:in", getClass()
                 .getResourceAsStream("/xslt2/input.xml"), headers);
@@ -69,9 +82,8 @@ public class Xslt2SplitterTest
     /* Verifies that plain old XSLT 1.0 transforms work too */
     @Test
     public void defaultResultOutputTest() throws Exception {
-        Map<String, Object> headers = new HashMap<>();
-        headers.put(Xslt2Splitter.HEADER_XSLT_FILE_NAME, basedir
-                + "/transform-simple.xsl");
+        final Map<String, Object> headers = new HashMap<>();
+        headers.put(Xslt2Splitter.HEADER_XSLT_FILE_NAME, basedir + "/transform-simple.xsl");
 
         template.sendBodyAndHeaders("direct:in", getClass()
                 .getResourceAsStream("/xslt2/input.xml"), headers);
@@ -84,10 +96,11 @@ public class Xslt2SplitterTest
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {
 
-        Xslt2Splitter xslt = new Xslt2Splitter();
+        final Xslt2Splitter xslt = new Xslt2Splitter();
 
         return new RouteBuilder() {
 
+            @Override
             public void configure() {
 
                 try {
@@ -95,7 +108,7 @@ public class Xslt2SplitterTest
                     from("direct:in").process(xslt).split(body())
                             .to("mock:out");
 
-                } catch (Exception e) {
+                } catch (final Exception e) {
                     throw new RuntimeException(e);
                 }
 

@@ -1,8 +1,26 @@
+/*
+ * Copyright 2017 Johns Hopkins University
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package info.rmapproject.loader.transform.xsl.impl;
 
-import java.io.InputStream;
+import static info.rmapproject.loader.transform.xsl.impl.Xslt2Splitter.HEADER_XSLT_FILE_NAME;
+import static info.rmapproject.loader.validation.DiscoValidator.validate;
+import static info.rmapproject.loader.validation.DiscoValidator.Format.RDF_XML;
 
+import java.io.InputStream;
 import java.nio.file.Paths;
 
 import org.apache.camel.EndpointInject;
@@ -14,11 +32,6 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-import static info.rmapproject.loader.validation.DiscoValidator.validate;
-import static info.rmapproject.loader.validation.DiscoValidator.Format.RDF_XML;
-
-import static info.rmapproject.loader.transform.xsl.impl.Xslt2Splitter.HEADER_XSLT_FILE_NAME;
-
 public class ACMTransformIT
         extends CamelTestSupport {
 
@@ -27,7 +40,7 @@ public class ACMTransformIT
     public ACMTransformIT() {
         try {
             basedir = Paths.get(getClass().getResource("/ACM").toURI()).toString();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -56,12 +69,13 @@ public class ACMTransformIT
 
             Xslt2Splitter xslt2 = new Xslt2Splitter();
 
+            @Override
             public void configure() {
 
                 try {
                     from("direct:in").setHeader(HEADER_XSLT_FILE_NAME, constant(basedir + "/acm_to_disco.xsl"))
                             .process(xslt2).split(body()).to("mock:out");
-                } catch (Exception e) {
+                } catch (final Exception e) {
                     throw new RuntimeException(e);
                 }
 

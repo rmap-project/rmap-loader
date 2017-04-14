@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Johns Hopkins University
+ * Copyright 2017 Johns Hopkins University
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,13 @@
 
 package info.rmapproject.loader.validation;
 
+import static info.rmapproject.loader.validation.DiscoValidator.validate;
+import static info.rmapproject.loader.validation.DiscoValidator.Format.RDF_XML;
+import static info.rmapproject.loader.validation.DiscoValidator.Format.TURTLE;
+
 import org.junit.Test;
 
 import info.rmapproject.loader.validation.DiscoValidator.ValidationException;
-
-import static info.rmapproject.loader.validation.DiscoValidator.validate;
-import static info.rmapproject.loader.validation.DiscoValidator.Format.TURTLE;
-import static info.rmapproject.loader.validation.DiscoValidator.Format.RDF_XML;
 
 public class ValidatorTest {
 
@@ -40,7 +40,6 @@ public class ValidatorTest {
     public void unconnectedTest() {
         validate(this.getClass().getResourceAsStream("/unconnected.ttl"), TURTLE);
     }
-    
 
     @Test
     public void ieeeTest() throws Exception {

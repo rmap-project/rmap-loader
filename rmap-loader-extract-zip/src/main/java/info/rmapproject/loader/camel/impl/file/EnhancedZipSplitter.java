@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Johns Hopkins University
+ * Copyright 2017 Johns Hopkins University
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,13 +24,13 @@ public class EnhancedZipSplitter
         implements Expression {
 
     public Object evaluate(Exchange exchange) {
-        Message inputMessage = exchange.getIn();
+        final Message inputMessage = exchange.getIn();
         return new EnhancedZipIterator(inputMessage);
     }
 
     @Override
     public <T> T evaluate(Exchange exchange, Class<T> type) {
-        Object result = evaluate(exchange);
+        final Object result = evaluate(exchange);
         return exchange.getContext().getTypeConverter().convertTo(type, exchange, result);
     }
 }

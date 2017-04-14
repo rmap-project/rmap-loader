@@ -1,5 +1,24 @@
+/*
+ * Copyright 2017 Johns Hopkins University
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package info.rmapproject.loader.camel.impl.oai;
+
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_RESUMPTION_TOKEN;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_VERB;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_RECORDS;
 
 import java.io.InputStream;
 
@@ -14,13 +33,8 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.impl.JndiRegistry;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.apache.http.client.utils.URIBuilder;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_RESUMPTION_TOKEN;
-import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_VERB;
-import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_RECORDS;
 
 public class OAIDriverTest
         extends CamelTestSupport {
@@ -43,7 +57,7 @@ public class OAIDriverTest
 
     @Test
     public void splitTest() throws Exception {
-        InputStream toSplit = OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+        final InputStream toSplit = OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
 
         mock_out.setExpectedCount(50);
 
@@ -54,7 +68,8 @@ public class OAIDriverTest
 
     @Test
     public void stopWhenNoResumptionTest() throws Exception {
-        InputStream oaiListRecords = OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_noResumption.xml");
+        final InputStream oaiListRecords = OAIDriverTest.class.getResourceAsStream(
+                "/oai/pubmed_50_oai_dc_noResumption.xml");
 
         mock_stop.setExpectedCount(1);
         mock_oai.setExpectedCount(0);
@@ -67,7 +82,7 @@ public class OAIDriverTest
 
     @Test
     public void stopWhenEmptyResumptionTest() throws Exception {
-        InputStream oaiListRecords =
+        final InputStream oaiListRecords =
                 OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
 
         mock_stop.setExpectedCount(1);
@@ -81,26 +96,27 @@ public class OAIDriverTest
 
     @Test
     public void resumeWhenResumptionTokenTest() throws Exception {
-        InputStream oaiListRecords = OAIDriverTest.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+        final InputStream oaiListRecords = OAIDriverTest.class.getResourceAsStream(
+                "/oai/pubmed_50_oai_dc_resumption.xml");
 
         mock_oai.setExpectedCount(1);
         mock_stop.setExpectedCount(0);
         mock_stop.setAssertPeriod(100);
 
-        URIBuilder uri = new URIBuilder("http://example.org");
+        final URIBuilder uri = new URIBuilder("http://example.org");
 
-        String RESUMPTION_TOKEN = "oai%3Apubmedcentral.nih.gov%3A139967!!!oai_dc!bmcbioc";
+        final String RESUMPTION_TOKEN = "oai%3Apubmedcentral.nih.gov%3A139967!!!oai_dc!bmcbioc";
 
         template.sendBodyAndHeader("direct:resumption", oaiListRecords, Exchange.HTTP_URI, uri.build().toString());
 
         assertMockEndpointsSatisfied();
 
-        String token = mock_oai.getExchanges().get(0).getIn().getHeader("oai.resumptionToken", String.class);
+        final String token = mock_oai.getExchanges().get(0).getIn().getHeader("oai.resumptionToken", String.class);
 
         assertEquals(RESUMPTION_TOKEN, token);
         assertEquals(uri.setParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
                 .setParameter(OAI_PARAM_RESUMPTION_TOKEN, RESUMPTION_TOKEN).build().toString(),
-                     mock_oai.getExchanges().get(0).getIn().getHeader(Exchange.HTTP_URI, String.class));
+                mock_oai.getExchanges().get(0).getIn().getHeader(Exchange.HTTP_URI, String.class));
     }
 
     @Before
@@ -110,9 +126,9 @@ public class OAIDriverTest
 
     @Override
     protected JndiRegistry createRegistry() throws Exception {
-        JndiRegistry registry = super.createRegistry();
+        final JndiRegistry registry = super.createRegistry();
 
-        DefaultCamelContext testShim = new DefaultCamelContext(registry);
+        final DefaultCamelContext testShim = new DefaultCamelContext(registry);
         testShim.setName("testShim");
         testShim.addRoutes(new OAIDriver());
 
@@ -137,6 +153,7 @@ public class OAIDriverTest
 
         return new RouteBuilder() {
 
+            @Override
             public void configure() {
 
                 /* For oai splitting */

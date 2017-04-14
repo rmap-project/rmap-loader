@@ -1,5 +1,24 @@
+/*
+ * Copyright 2017 Johns Hopkins University
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package info.rmapproject.loader.camel.impl.oai;
+
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_METADATA_PREFIX;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_VERB;
+import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_RECORDS;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -36,15 +55,10 @@ import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
 import org.apache.http.client.utils.URIBuilder;
-
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_VERB;
-import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_PARAM_METADATA_PREFIX;
-import static info.rmapproject.loader.camel.impl.oai.OAIDriver.OAI_VERB_LIST_RECORDS;
 
 public class OAIDriverIT
         extends CamelTestSupport {
@@ -90,7 +104,7 @@ public class OAIDriverIT
                 listener.onRequest(uri);
             }
 
-            ResponseBuilder response = Response.status(status);
+            final ResponseBuilder response = Response.status(status);
             headers.forEach((k, v) -> response.header(k, v));
             response.entity(content);
             return response.build();
@@ -100,7 +114,7 @@ public class OAIDriverIT
     /* Simple test for single-resource harvest with no resumption */
     @Test
     public void noResumptionTest() throws Exception {
-        String content = IOUtils.readStringFromStream(OAIDriverTest.class
+        final String content = IOUtils.readStringFromStream(OAIDriverTest.class
                 .getResourceAsStream("/oai/pubmed_50_oai_dc_noResumption.xml"));
         oai.content = new ByteArrayInputStream(content.getBytes());
 
@@ -110,18 +124,18 @@ public class OAIDriverIT
         mock_err.setAssertPeriod(500);
 
         template.sendBodyAndHeader("direct:start",
-                                   "",
-                                   Exchange.HTTP_URI,
-                                   new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
-                                           .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
-                                           .toString());
+                "",
+                Exchange.HTTP_URI,
+                new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
+                        .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
+                        .toString());
 
         mock_out.assertIsSatisfied();
     }
-    
+
     /*
-     * Harvester gets two records: The first one ends in a resumption token, the
-     * second one terminates the harvest with an empty token.
+     * Harvester gets two records: The first one ends in a resumption token, the second one terminates the harvest
+     * with an empty token.
      */
     @Test
     public void resumptionSequenceTest() throws Exception {
@@ -131,23 +145,23 @@ public class OAIDriverIT
 
             @Override
             public void onRequest(UriInfo uri) {
-                int request = requestNumber.getAndIncrement();
+                final int request = requestNumber.getAndIncrement();
 
                 System.out.println("Request: " + request);
                 switch (request) {
-                    case 0:
-                        /* First request, not from resumption token */
-                        assertNull(param(RESUMPTION_TOKEN, uri));
-                        oai.content = OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
-                        break;
-                    case 1:
-                        /* Second request, from resumption token */
-                        assertNotNull(param(RESUMPTION_TOKEN, uri));
-                        oai.content =
-                                OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
-                        break;
-                    default:
-                        fail("only should have been two requests!");
+                case 0:
+                    /* First request, not from resumption token */
+                    assertNull(param(RESUMPTION_TOKEN, uri));
+                    oai.content = OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+                    break;
+                case 1:
+                    /* Second request, from resumption token */
+                    assertNotNull(param(RESUMPTION_TOKEN, uri));
+                    oai.content =
+                            OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
+                    break;
+                default:
+                    fail("only should have been two requests!");
                 }
 
                 if (request == 0) {
@@ -163,11 +177,11 @@ public class OAIDriverIT
 
         /* Empty message */
         template.sendBodyAndHeader("direct:start",
-                                   "",
-                                   Exchange.HTTP_URI,
-                                   new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
-                                           .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
-                                           .toString());
+                "",
+                Exchange.HTTP_URI,
+                new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
+                        .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
+                        .toString());
 
         mock_out.assertIsSatisfied();
 
@@ -178,43 +192,43 @@ public class OAIDriverIT
     public void retryAfterTest() throws Exception {
         final AtomicInteger requestNumber = new AtomicInteger(0);
 
-        Integer retry_delay = 1;
-        AtomicLong retryAt = new AtomicLong();
+        final Integer retry_delay = 1;
+        final AtomicLong retryAt = new AtomicLong();
 
         oai.listener = new RequestListener() {
 
             @Override
             public void onRequest(UriInfo uri) {
-                int request = requestNumber.getAndIncrement();
+                final int request = requestNumber.getAndIncrement();
 
                 System.out.println("Request: " + request + ", " + uri.getRequestUri().toString());
                 switch (request) {
-                    case 0:
-                        /* First request, not from resumption token */
-                        assertNull(param(RESUMPTION_TOKEN, uri));
-                        oai.content = OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
-                        break;
-                    case 1:
-                        oai.status = Status.SERVICE_UNAVAILABLE.getStatusCode();
-                        oai.headers.put(HttpHeaders.RETRY_AFTER, retry_delay.toString());
-                        oai.content = new ByteArrayInputStream(new byte[0]);
-                        retryAt.set(new Date().getTime());
-                        break;
-                    case 2:
-                        /*
-                         * Third request; after delay, and from resumption token
-                         */
+                case 0:
+                    /* First request, not from resumption token */
+                    assertNull(param(RESUMPTION_TOKEN, uri));
+                    oai.content = OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_resumption.xml");
+                    break;
+                case 1:
+                    oai.status = Status.SERVICE_UNAVAILABLE.getStatusCode();
+                    oai.headers.put(HttpHeaders.RETRY_AFTER, retry_delay.toString());
+                    oai.content = new ByteArrayInputStream(new byte[0]);
+                    retryAt.set(new Date().getTime());
+                    break;
+                case 2:
+                    /*
+                     * Third request; after delay, and from resumption token
+                     */
 
-                        oai.status = Status.OK.getStatusCode();
-                        oai.headers.clear();
+                    oai.status = Status.OK.getStatusCode();
+                    oai.headers.clear();
 
-                        assertNotNull(param(RESUMPTION_TOKEN, uri));
+                    assertNotNull(param(RESUMPTION_TOKEN, uri));
 
-                        oai.content =
-                                OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
-                        break;
-                    default:
-                        fail("only should have been two requests!");
+                    oai.content =
+                            OAIDriverIT.class.getResourceAsStream("/oai/pubmed_50_oai_dc_emptyResumption.xml");
+                    break;
+                default:
+                    fail("only should have been two requests!");
                 }
 
                 if (request == 0) {
@@ -230,11 +244,11 @@ public class OAIDriverIT
 
         /* Empty message */
         template.sendBodyAndHeader("direct:start",
-                                   "",
-                                   Exchange.HTTP_URI,
-                                   new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
-                                           .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
-                                           .toString());
+                "",
+                Exchange.HTTP_URI,
+                new URIBuilder(url.toString()).addParameter(OAI_PARAM_VERB, OAI_VERB_LIST_RECORDS)
+                        .addParameter(OAI_PARAM_METADATA_PREFIX, METADATA_PREFIX).build()
+                        .toString());
 
         mock_out.assertIsSatisfied();
     }
@@ -242,9 +256,9 @@ public class OAIDriverIT
     @BeforeClass
     public static void startServer() throws Exception {
         url = new URL("http://localhost:8787/test/oai");
-        String ENDPOINT_ADDRESS = "http://localhost:8787/test";
+        final String ENDPOINT_ADDRESS = "http://localhost:8787/test";
 
-        JAXRSServerFactoryBean sf = new JAXRSServerFactoryBean();
+        final JAXRSServerFactoryBean sf = new JAXRSServerFactoryBean();
         sf.setResourceClasses(OaiServer.class);
 
         sf.setResourceProvider(OaiServer.class, new SingletonResourceProvider(oai, true));
@@ -270,12 +284,12 @@ public class OAIDriverIT
 
     @Override
     protected JndiRegistry createRegistry() throws Exception {
-        JndiRegistry registry = super.createRegistry();
+        final JndiRegistry registry = super.createRegistry();
 
-        DefaultCamelContext testShim = new DefaultCamelContext(registry);
+        final DefaultCamelContext testShim = new DefaultCamelContext(registry);
         testShim.setName("testShim");
 
-        OAIDriver oai = new OAIDriver();
+        final OAIDriver oai = new OAIDriver();
         testShim.addRoutes(oai);
 
         testShim.start();
@@ -290,6 +304,7 @@ public class OAIDriverIT
 
         return new RouteBuilder() {
 
+            @Override
             public void configure() {
 
                 /* In */
@@ -304,7 +319,7 @@ public class OAIDriverIT
     }
 
     private String param(String name, UriInfo uriInfo) {
-        List<String> values = uriInfo.getQueryParameters(true).get(name);
+        final List<String> values = uriInfo.getQueryParameters(true).get(name);
 
         if (values == null) {
             return null;
