@@ -20,6 +20,7 @@ package info.rmapproject.loader.transform.xsl.impl;
 
 import static info.rmapproject.loader.util.ConfigUtil.integer;
 import static info.rmapproject.loader.util.ConfigUtil.string;
+import static info.rmapproject.loader.util.LogUtil.adjustLogLevels;
 
 import javax.jms.ConnectionFactory;
 
@@ -40,6 +41,8 @@ public class Main {
     static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static void main(final String[] args) throws Exception {
+
+        adjustLogLevels();
 
         final ConnectionFactory conn = buildConnectionFactory();
 

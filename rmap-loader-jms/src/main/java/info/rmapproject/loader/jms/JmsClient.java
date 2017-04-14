@@ -118,7 +118,7 @@ public class JmsClient implements AutoCloseable {
     }
 
     public synchronized void write(String queue, Message message) {
-        LOG.info("Start write to {}", queue);
+        LOG.debug("Sending message to queue {}", queue);
         while (!connected) {
             try {
                 Thread.sleep(1000);
@@ -128,11 +128,8 @@ public class JmsClient implements AutoCloseable {
             }
         }
 
-        LOG.info("Continuing write to {}", queue);
-
         try {
             producer.send(session.createQueue(queue), message);
-            LOG.info("Sent to  {}", queue);
         } catch (final JMSException e) {
             throw new RuntimeException("Error writing to queue " + queue, e);
         }

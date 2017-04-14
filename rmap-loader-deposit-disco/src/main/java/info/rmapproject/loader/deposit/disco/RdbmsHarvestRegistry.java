@@ -27,6 +27,9 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import info.rmapproject.loader.HarvestRecordStatus;
 import info.rmapproject.loader.HarvestRegistry;
 import info.rmapproject.loader.model.RecordInfo;
@@ -40,6 +43,8 @@ import info.rmapproject.loader.model.RecordInfo;
  * @author apb@jhu.edu
  */
 public class RdbmsHarvestRegistry implements HarvestRegistry {
+
+    Logger LOG = LoggerFactory.getLogger(RdbmsHarvestRegistry.class);
 
     DataSource source;
 
@@ -72,6 +77,11 @@ public class RdbmsHarvestRegistry implements HarvestRegistry {
 
     @Override
     public void register(RecordInfo info, URI discoURI) {
+
+        if (info.getId() == null) {
+            LOG.debug("Empty record ID, not registering {}", discoURI);
+            return;
+        }
         try (Connection conn = source.getConnection()) {
             final PreparedStatement insertRecord = conn.prepareStatement(
                     "INSERT INTO recordInfo (uri, recordDate, disco) VALUES (?, ?, ?)");
@@ -91,7 +101,12 @@ public class RdbmsHarvestRegistry implements HarvestRegistry {
 
     @Override
     public HarvestRecordStatus getStatus(RecordInfo info) {
+
         final HarvestRecordStatus status = new HarvestRecordStatus();
+        if (info.getId() == null) {
+            LOG.debug("Empty record ID, returning empty record status");
+            return status;
+        }
 
         try (Connection conn = source.getConnection()) {
             final PreparedStatement findRecord = conn.prepareStatement(

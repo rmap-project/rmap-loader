@@ -62,6 +62,8 @@ public class ZipFileHarvestService
                 .otherwise().to("direct:recordInfo");
 
         from("direct:recordInfo")
+                .process(e -> LOG.debug("Sending record from {} to {}",
+                        e.getIn().getHeader(Exchange.FILE_NAME), dest))
                 .setHeader(Exchange.CONTENT_TYPE,
                         constant(contentType))
                 .to(dest);

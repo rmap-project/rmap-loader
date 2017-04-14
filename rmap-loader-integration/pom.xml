@@ -27,7 +27,7 @@
             <xsl.transform.jar>${info.rmapproject:rmap-loader-transform-xsl:jar:exe}</xsl.transform.jar>
             <xslt.file>${project.build.testOutputDirectory}/xsl/transform-include.xsl</xslt.file>
             <zip.extract.jar>${info.rmapproject:rmap-loader-extract-zip:jar:exe}</zip.extract.jar>
-            <input.data.dir>${project.build.sourceDirectory}/test/resources/data</input.data.dir>
+            <input.data.dir>${project.build.testOutputDirectory}/data</input.data.dir>
             <oai.extract.jar>${info.rmapproject:rmap-loader-extract-oai:jar:exe}</oai.extract.jar>
           </systemPropertyVariables>
           <configuration>

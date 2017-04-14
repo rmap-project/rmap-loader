@@ -60,7 +60,7 @@ public class DiscoDepositConsumerIT extends FakeRmap {
 
     @Before
     public void setUp() {
-        toTest.setRmapDiscoEndpoint(getRmapURI());
+        toTest.setRmapDiscoEndpoint(getRmapDiscoURI());
         toTest.setHarvestRegistry(harvestRegistry);
         toTest.setAuthToken(AUTH_TOKEN);
     }

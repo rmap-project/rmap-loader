@@ -27,9 +27,9 @@ import java.net.URI;
  */
 public class HarvestRecordStatus {
 
-    boolean recordExists;
+    boolean recordExists = false;
 
-    boolean isLatest;
+    boolean isLatest = false;
 
     URI latest;
 

@@ -20,9 +20,11 @@ package info.rmapproject.loader.jms;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import java.io.ByteArrayOutputStream;
 import java.net.URI;
 import java.util.Date;
 
+import javax.jms.BytesMessage;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
@@ -74,6 +76,17 @@ public class HarvestRecordConverter implements JmsHeaders {
     private static byte[] body(Message m) throws JMSException {
         if (m instanceof TextMessage) {
             return ((TextMessage) m).getText().getBytes(UTF_8);
+        } else if (m instanceof BytesMessage) {
+
+            final ByteArrayOutputStream out = new ByteArrayOutputStream();
+            final byte[] buf = new byte[1024];
+
+            int len;
+            while ((len = ((BytesMessage) m).readBytes(buf)) > -1) {
+                out.write(buf, 0, len);
+            }
+
+            return out.toByteArray();
         } else {
             throw new JMSException("Unknown message type " + m.getClass());
         }

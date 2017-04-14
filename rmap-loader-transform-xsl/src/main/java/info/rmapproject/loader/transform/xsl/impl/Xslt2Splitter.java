@@ -131,9 +131,10 @@ public class Xslt2Splitter
             throw new RuntimeException(e);
         }
 
-        for (final Map.Entry<String, Object> header : msg.getHeaders().entrySet()) {
-            xslt.setParameter(new QName(header.getKey()), new XdmAtomicValue(header.getValue().toString()));
-        }
+        msg.getHeaders().entrySet().stream()
+                .filter(h -> h.getValue() != null)
+                .forEach(h -> xslt.setParameter(
+                        new QName(h.getKey()), new XdmAtomicValue(h.getValue().toString())));
 
         return xslt;
 

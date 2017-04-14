@@ -40,7 +40,7 @@ public class FakeRmap {
 
     private static Server server;
 
-    protected static URI getRmapURI() {
+    protected static URI getRmapDiscoURI() {
         return URI.create("http://localhost:" + getRmapPort() + "/discos");
     }
 

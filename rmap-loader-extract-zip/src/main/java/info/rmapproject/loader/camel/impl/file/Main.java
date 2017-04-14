@@ -39,10 +39,10 @@ public class Main {
         final CamelContext cxt = buildCamelContext();
 
         final ZipFileHarvestService zipHarvest = new ZipFileHarvestService();
-        zipHarvest.setDestUri(string(JMS_QUEUE_DEST, "harvest.rmap.xml.zip"));
+        zipHarvest.setDestUri("msg:queue:" + string(JMS_QUEUE_DEST, "harvest.rmap.xml.zip"));
 
-        String fileName = string("input.file", null);
-        final String directory = string("input.directory", null);
+        String fileName = string("input.filename", null);
+        String directory = string("input.directory", null);
         if (fileName != null) {
             fileName = "&fileName=" + fileName;
         }
@@ -50,6 +50,11 @@ public class Main {
         if (fileName == null && directory == null) {
             LOG.warn("Please specify either input.file or input.directory, or both");
             return;
+        } else if (directory == null) {
+            directory = ".";
+            LOG.info("Consuming files named {} in {}", fileName, directory);
+        } else {
+            LOG.info("Consuming files from directory {}", directory);
         }
 
         zipHarvest.setSrcUri("file:" + directory + "?recursive=true&move=.done" + fileName);

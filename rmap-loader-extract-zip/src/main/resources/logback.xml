@@ -9,7 +9,11 @@
     </encoder>
   </appender>
 
-  <root additivity="false" level="INFO">
+  <logger name="info.rmapproject" additivity="false" level="INFO">
+    <appender-ref ref="STDOUT" />
+  </logger>
+
+  <root additivity="false" level="WARN">
     <appender-ref ref="STDOUT" />
   </root>
 

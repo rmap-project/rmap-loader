@@ -19,6 +19,7 @@
 package info.rmapproject.loader.integration;
 
 import static info.rmapproject.loader.integration.JarRunner.jar;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.net.URI;
@@ -27,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.activemq.broker.TransportConnector;
 import org.apache.activemq.junit.EmbeddedActiveMQBroker;
+import org.apache.http.HttpStatus;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -62,25 +64,50 @@ public class RmapIT extends FakeRmap {
 
     static Process unzip;
 
+    static File testDataDir = new File(System.getProperty("input.data.dir").toString());
+
+    private static final String AUTH_TOKEN = "myToken";
+
     @BeforeClass
     public static void start() throws Exception {
-        unzip = jar(new File(System.getProperty("zip.extract.jar")))
-                .logOutput(LoggerFactory.getLogger("extract-zip"))
-                .start();
 
         xslt = jar(new File(System.getProperty("xsl.transform.jar").toString()))
                 .logOutput(LoggerFactory.getLogger("transform"))
+                .withEnv("jms.queue.src", "rmap.harvest.test-xml.>")
+                .withEnv("jms.queue.dest", "rmap.harvest.disco.fromXslt")
+                .withEnv("xslt.file", System.getProperty("xslt.file").toString())
                 .start();
 
         load = jar(new File(System.getProperty("disco.loader.jar").toString()))
                 .logOutput(LoggerFactory.getLogger("load"))
+                .withEnv("rmap.api.auth.token", AUTH_TOKEN)
+                .withEnv("rmap.api.baseuri", getRmapDiscoURI().toString())
                 .start();
     }
 
     @Test
-    public void smokeTest() throws Exception {
-        final CountDownLatch x = new CountDownLatch(1);
-        x.await(10, TimeUnit.SECONDS);
+    public void unzipTest() throws Exception {
+        unzip = jar(new File(System.getProperty("zip.extract.jar")))
+                .logOutput(LoggerFactory.getLogger("extract-zip"))
+                .withEnv("input.directory", testDataDir.toString())
+                .withEnv("input.filename", "data.zip")
+                .withEnv("jms.queue.dest", "rmap.harvest.test-xml.fromZipFile")
+                .start();
+
+        final CountDownLatch expectedRecordCount = new CountDownLatch(3);
+
+        setHandler((req, resp) -> {
+            try {
+                expectedRecordCount.countDown();
+                resp.setStatus(HttpStatus.SC_CREATED);
+                resp.setHeader("Location", "file:/dev/null");
+
+            } catch (final Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        assertTrue(expectedRecordCount.await(10, TimeUnit.SECONDS));
     }
 
     @AfterClass

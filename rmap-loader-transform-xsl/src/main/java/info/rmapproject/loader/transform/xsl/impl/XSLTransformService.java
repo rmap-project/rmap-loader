@@ -3,9 +3,14 @@ package info.rmapproject.loader.transform.xsl.impl;
 
 import static info.rmapproject.loader.transform.xsl.impl.Xslt2Splitter.HEADER_XSLT_FILE_NAME;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import info.rmapproject.loader.model.RecordInfo;
 
@@ -20,6 +25,8 @@ import info.rmapproject.loader.model.RecordInfo;
  * @author apb18
  */
 public class XSLTransformService extends RouteBuilder {
+
+    static final Logger LOG = LoggerFactory.getLogger(XSLTransformService.class);
 
     public static final String PROP_HARVEST_RECORD_ID = "rmap.harvest.record.id";
 
@@ -61,6 +68,11 @@ public class XSLTransformService extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
+
+        if (xslt_file == null || !new File(xslt_file).exists()) {
+            throw new FileNotFoundException("XSLT file '" + xslt_file + "' does not exist");
+        }
+        LOG.info("Using xslt file {}", xslt_file);
 
         from(src)
                 .id("xslt-split")

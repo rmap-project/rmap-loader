@@ -44,11 +44,11 @@ public class Main {
 
         final RdbmsHarvestRegistry harvestRegistry = new RdbmsHarvestRegistry();
         harvestRegistry.setDataSource(ds);
+        harvestRegistry.init();
 
         final DiscoDepositConsumer depositor = new DiscoDepositConsumer();
         depositor.setAuthToken(string("rmap.api.auth.token", null));
-        depositor.setRmapDiscoEndpoint(URI.create(string("rmap.api.uri",
-                "https://test.rmap-project.org/apitest/discos/")));
+        depositor.setRmapDiscoEndpoint(makeDiscoEndpointUri());
         depositor.setHarvestRegistry(harvestRegistry);
 
         final DiscoDepositService depositWiring = new DiscoDepositService();
@@ -59,5 +59,10 @@ public class Main {
         depositWiring.start();
         Thread.currentThread().join();
         depositWiring.close();
+    }
+
+    private static URI makeDiscoEndpointUri() {
+        return URI.create(string("rmap.api.baseuri",
+                "https://test.rmap-project.org/apitest/").replaceFirst("/$", "") + "/discos/");
     }
 }
