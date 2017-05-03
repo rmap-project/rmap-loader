@@ -37,7 +37,7 @@ public class Main {
         final CamelContext cxt = buildCamelContext();
 
         final ZipFileHarvestService zipHarvest = new ZipFileHarvestService();
-        zipHarvest.setDestUri("msg:queue:" + string(JMS_QUEUE_DEST, "harvest.rmap.xml.zip"));
+        zipHarvest.setDestUri("msg:queue:" + string(JMS_QUEUE_DEST, "rmap.harvest.xml.zip"));
 
         String fileName = string("input.filename", null);
         String directory = string("input.directory", null);
@@ -55,7 +55,7 @@ public class Main {
             LOG.info("Consuming files from directory {}", directory);
         }
 
-        zipHarvest.setSrcUri("file:" + directory + "?recursive=true&move=.done" + fileName);
+        zipHarvest.setSrcUri("file:" + directory + "?recursive=false&move=.done" + fileName);
 
         zipHarvest.addRoutesToCamelContext(cxt);
 
