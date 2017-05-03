@@ -20,6 +20,22 @@ Specify a directory in which to look for zip files.  All files in this directory
 
 Specify a particular file to process.  Note, this is a _name_ and not a path, e.g. "whatever.zip" vs "/path/to/file.zip".
 
+### `jms.brokerUrl` 
+
+ActiveMQ broker URL.  Default is `tcp://localhost:61616`
+
+### `jms.username`
+
+JMS username.  Leave undefined if authentication is not used.
+
+### `jms.password`
+
+JMS password.  Leave undefined if authentication is not used.
+
+### `jms.maxConnections`
+
+Maximum number of JMS connections.  Default is 10.
+
 ### `LOG.*`
 
 Any environment variable or system propertu that begins with `LOG.` can be used to specify the logging level of 
