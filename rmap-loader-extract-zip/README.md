@@ -32,6 +32,10 @@ JMS username.  Leave undefined if authentication is not used.
 
 JMS password.  Leave undefined if authentication is not used.
 
+### `jms.queue.dest`
+
+Destination JMS queue to send unzipped documents to.  Default is `rmap.harvest.xml.zip`
+
 ### `jms.maxConnections`
 
 Maximum number of JMS connections.  Default is 10.
