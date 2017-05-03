@@ -36,7 +36,7 @@ public class Main implements ConfigProperties {
         final CamelContext cxt = buildCamelContext();
 
         final OneTimeOaiHarvest oai = new OneTimeOaiHarvest();
-        oai.setDestUri(string(JMS_QUEUE_SRC, "rmap.harvest.oai_dc"));
+        oai.setDestUri(string(JMS_QUEUE_DEST, "rmap.harvest.oai_dc"));
         oai.setOaiBaseUri(string("oai.baseURL", null));
         oai.setOaiSet(string("oai.setSpec", null));
         oai.setOaiFromDate(string("oai.from", null));
