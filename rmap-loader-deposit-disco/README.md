@@ -46,7 +46,8 @@ JDBC url, e.g `jdbc:postgresql://localhost/test`.  By default, it uses a non-dur
 Supported JSBC drivers include:
 * sqlite.  This is especially useful for simply persisting to a file, without installing a RDBMS, e.g. `jdbc:sqlite:/path/to/rmap.db`
 * postgresql
-* mysql
+
+To use other JDBC drivers, add their jar to the classpath when running the deposit service jar, and specify an appropriate jdbc URI.
 
 ### `jdbc.username`
 
