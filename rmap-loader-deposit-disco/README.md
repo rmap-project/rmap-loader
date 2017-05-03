@@ -54,6 +54,22 @@ RDBMS username
 
 ### `jdbc.password`
 
+### `jms.brokerUrl` 
+
+ActiveMQ broker URL.  Default is `tcp://localhost:61616`
+
+### `jms.username`
+
+JMS username.  Leave undefined if authentication is not used.
+
+### `jms.password`
+
+JMS password.  Leave undefined if authentication is not used.
+
+### `jms.maxConnections`
+
+Maximum number of JMS connections.  Default is 10.
+
 RDBMS password.
 
 ### `jms.queue.src`
