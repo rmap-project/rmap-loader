@@ -4,7 +4,7 @@ The RMap harvest/loader framework is a loosely coupled set of components for ext
 
 ## Message queues
 
-The harvest framework relies on message queues to store raw, intermediate, and final documents as they are harvested, transformed, and ultimately loaded.  Naming these queues follows a convention: `rmap.harvest.${format}.*`.  In other words, all queue names begin with `rmap.harvest`, followed by a string representing the "format" of document contained in the message, followed optionally by additional string(s) that provide meaning to humans in telling queues apart based upon source, procecessing method, etc.
+The harvest framework relies on message queues to store raw, intermediate, and final documents as they are harvested, transformed, and ultimately loaded.  Naming these queues follows a convention: `rmap.harvest.${format}.*`.  In other words, all queue names begin with `rmap.harvest`, followed by a string representing the "format" of document contained in the message, followed optionally by additional string(s) that provide meaning to humans in telling queues apart based upon source, processing method, etc.
 
 If records cannot be successfully processed, the convention is to put them in a queue named `rmap.harvest.error.${format}.*`
 
@@ -13,8 +13,6 @@ The RMap harvest/loader framework has been tested with the Apache ActiveMQ messa
     rmap.harvest.disco.>
     
 ### Example
-
-Suppose we havest
 
 Let's say that records are harvested from OAI, transformed into DiSCOs, and then loaded into RMap.
 
