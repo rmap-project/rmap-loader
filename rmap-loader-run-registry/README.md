@@ -1,4 +1,4 @@
-# RMap Loader Run Registry
+# RMap loader run registry
 
 The run registry is an optional tool that can be used to record and retrieve the most recent harvest date for a harvest run.  If used along side the [DiSCO deposit service](../rmap-loader-deposit-disco), the two will share a database. 
 
