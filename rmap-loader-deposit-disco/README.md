@@ -2,7 +2,7 @@
 
 The DiSCO deposit service consumes DiSCOs from message queues, and attempts to deposit them in RMap.  Records that end in a failure (for any reason, including network hiccups) will be sent to an error queue.  
 
-The deposit service maintains a database of records it deposited.  If messages in the queue contain [RecordInfo](rmap-loader-api/src/main/java/info/rmapproject/loader/model/RecordInfo.java) headers, this information will be used to determine if a DiSCO is new, or represents an update to an existing DiSCO.  Absent this information, all DiSCOs are assumed to be new.
+The deposit service maintains a database of records it deposited.  If messages in the queue contain [RecordInfo](../rmap-loader-api/src/main/java/info/rmapproject/loader/model/RecordInfo.java) headers, this information will be used to determine if a DiSCO is new, or represents an update to an existing DiSCO.  Absent this information, all DiSCOs are assumed to be new.
 
 Physically, the deposit service is an executable jar file that can be configured via system properties or environment variables.  It can be run continuously in the background to continuously monitor queues and deposit DiSCOs immediatly when available, or be run on-demand, or on a schedule (e.g. by using `cron`, etc).
 
@@ -20,7 +20,7 @@ If the message has a `Content-Type` header, it will use that media type when upl
 
     rmap.harvest.error.a.b.c.d
     
-Message headers relevant for DiSCO accounting are listed in [JmsHeaders](rmap-loader-jms/src/main/java/info/rmapproject/loader/jms/JmsHeaders.java).  If using the [JMSClient](rmap-loader-jms/src/main/java/info/rmapproject/loader/jms/JmsClient.java) with the [HarvestRecord](rmap-loader-api/src/main/java/info/rmapproject/loader/HarvestRecord.java) abstraction, mapping to or from JMS headers occurs automatically.
+Message headers relevant for DiSCO accounting are listed in [JmsHeaders](../rmap-loader-jms/src/main/java/info/rmapproject/loader/jms/JmsHeaders.java).  If using the [JMSClient](../rmap-loader-jms/src/main/java/info/rmapproject/loader/jms/JmsClient.java) with the [HarvestRecord](../rmap-loader-api/src/main/java/info/rmapproject/loader/HarvestRecord.java) abstraction, mapping to or from JMS headers occurs automatically.
 
 ## Accounting
 
