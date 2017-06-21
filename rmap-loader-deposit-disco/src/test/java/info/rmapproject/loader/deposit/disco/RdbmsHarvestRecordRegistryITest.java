@@ -36,7 +36,7 @@ import info.rmapproject.loader.model.RecordInfo;
 /**
  * @author apb@jhu.edu
  */
-public class RdbmsHarvestRegistryITest {
+public class RdbmsHarvestRecordRegistryITest {
 
     @Rule
     public EmbeddedDatabaseRule dbRule = EmbeddedDatabaseRule
@@ -47,7 +47,7 @@ public class RdbmsHarvestRegistryITest {
     @Rule
     public TestName name = new TestName();
 
-    RdbmsHarvestRegistry toTest = new RdbmsHarvestRegistry();
+    RdbmsHarvestRecordRegistry toTest = new RdbmsHarvestRecordRegistry();
 
     @Before
     public void setUp() {
@@ -117,11 +117,11 @@ public class RdbmsHarvestRegistryITest {
     // This simply needs to not throw an exception to succeed;
     @Test
     public void DDLTest() {
-        final RdbmsHarvestRegistry second = new RdbmsHarvestRegistry();
+        final RdbmsHarvestRecordRegistry second = new RdbmsHarvestRecordRegistry();
         second.setDataSource(dbRule.getDataSource());
         second.init();
 
-        final RdbmsHarvestRegistry third = new RdbmsHarvestRegistry();
+        final RdbmsHarvestRecordRegistry third = new RdbmsHarvestRecordRegistry();
         third.setDataSource(dbRule.getDataSource());
         third.init();
     }

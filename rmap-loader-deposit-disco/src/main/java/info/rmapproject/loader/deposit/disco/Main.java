@@ -40,7 +40,7 @@ public class Main {
         ds.setUsername(string("jdbc.username", null));
         ds.setPassword(string("jdbc.password", null));
 
-        final RdbmsHarvestRegistry harvestRegistry = new RdbmsHarvestRegistry();
+        final RdbmsHarvestRecordRegistry harvestRegistry = new RdbmsHarvestRecordRegistry();
         harvestRegistry.setDataSource(ds);
         harvestRegistry.init();
 

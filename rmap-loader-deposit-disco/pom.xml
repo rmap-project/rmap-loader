@@ -75,7 +75,6 @@
 
   <dependencies>
 
-
     <dependency>
       <groupId>info.rmapproject</groupId>
       <artifactId>rmap-loader-api</artifactId>
@@ -178,14 +177,6 @@
       <groupId>org.xerial</groupId>
       <artifactId>sqlite-jdbc</artifactId>
       <version>3.16.1</version>
-      <scope>runtime</scope>
-      <optional>true</optional>
-    </dependency>
-
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>42.0.0</version>
       <scope>runtime</scope>
       <optional>true</optional>
     </dependency>

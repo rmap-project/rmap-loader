@@ -83,6 +83,7 @@
     <module>rmap-loader-api</module>
     <module>rmap-loader-jms</module>
     <module>rmap-loader-validation</module>
+    <module>rmap-loader-run-registry</module>
     <module>rmap-loader-util</module>
     <module>rmap-loader-transform-xsl</module>
     <module>rmap-loader-deposit-disco</module>
