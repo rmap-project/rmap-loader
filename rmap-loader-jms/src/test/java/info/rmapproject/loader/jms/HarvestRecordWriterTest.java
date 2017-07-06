@@ -93,7 +93,7 @@ public class HarvestRecordWriterTest {
 
             final CountDownLatch errorReceived = new CountDownLatch(1);
             writer.write(queue, record);
-
+            TimeUnit.SECONDS.sleep(3);
             // Throw an error upon listen. Register an error handler that directs to the error queue.
             jms.listen(queue, onHarvestRecord(received -> {
                 throw new RuntimeException("processing failed");
