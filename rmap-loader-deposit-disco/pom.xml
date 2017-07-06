@@ -75,7 +75,6 @@
 
   <dependencies>
 
-
     <dependency>
       <groupId>info.rmapproject</groupId>
       <artifactId>rmap-loader-api</artifactId>
@@ -177,23 +176,23 @@
     <dependency>
       <groupId>org.xerial</groupId>
       <artifactId>sqlite-jdbc</artifactId>
-      <version>3.16.1</version>
+      <version>${sqllite.jdbc.version}</version>
       <scope>runtime</scope>
       <optional>true</optional>
     </dependency>
-
-    <dependency>
+    
+     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>42.0.0</version>
+      <version>${postgresql.jdbc.version}</version>
       <scope>runtime</scope>
       <optional>true</optional>
     </dependency>
-
+    
     <dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
-      <version>2.6.1</version>
+      <version>${hikaricp.version}</version>
       <optional>true</optional>
     </dependency>
 
