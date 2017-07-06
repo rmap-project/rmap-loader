@@ -23,7 +23,7 @@ import info.rmapproject.loader.model.RecordInfo;
 /**
  * @author apb@jhu.edu
  */
-public interface HarvestRegistry {
+public interface HarvestRecordRegistry {
 
     public void register(RecordInfo info, URI discoURI);
 

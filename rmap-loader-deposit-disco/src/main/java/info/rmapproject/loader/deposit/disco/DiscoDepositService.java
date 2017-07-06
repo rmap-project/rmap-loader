@@ -94,5 +94,6 @@ public class DiscoDepositService implements AutoCloseable {
     @Override
     public void close() throws Exception {
         jms.close();
+        
     }
 }

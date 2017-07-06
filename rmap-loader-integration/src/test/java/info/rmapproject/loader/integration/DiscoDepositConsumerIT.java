@@ -39,7 +39,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import info.rmapproject.loader.HarvestRecord;
 import info.rmapproject.loader.HarvestRecordStatus;
-import info.rmapproject.loader.HarvestRegistry;
+import info.rmapproject.loader.HarvestRecordRegistry;
 import info.rmapproject.loader.deposit.disco.DiscoDepositConsumer;
 import info.rmapproject.loader.model.RecordInfo;
 
@@ -50,7 +50,7 @@ import info.rmapproject.loader.model.RecordInfo;
 public class DiscoDepositConsumerIT extends FakeRmap {
 
     @Mock
-    public HarvestRegistry harvestRegistry;
+    public HarvestRecordRegistry harvestRegistry;
 
     private static final String AUTH_TOKEN = "myToken";
 

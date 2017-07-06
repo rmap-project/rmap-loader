@@ -47,7 +47,7 @@ import org.slf4j.LoggerFactory;
 
 import info.rmapproject.loader.HarvestRecord;
 import info.rmapproject.loader.HarvestRecordStatus;
-import info.rmapproject.loader.HarvestRegistry;
+import info.rmapproject.loader.HarvestRecordRegistry;
 import info.rmapproject.loader.model.RecordInfo;
 
 /**
@@ -71,9 +71,9 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
 
     private String authToken;
 
-    private HarvestRegistry harvestRegistry;
+    private HarvestRecordRegistry harvestRegistry;
 
-    public void setHarvestRegistry(HarvestRegistry registry) {
+    public void setHarvestRegistry(HarvestRecordRegistry registry) {
         this.harvestRegistry = registry;
     }
 
@@ -119,7 +119,6 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
         }
 
         URI uri = rmapDiscoEndpoint;
-
         if (status.recordExists()) {
             uri = getUpdateURI(status.latest());
         }
@@ -130,7 +129,7 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
 
         final HttpPost post = new HttpPost(uri);
         if (authToken != null) {
-            post.setHeader(AUTHORIZATION, "Basic: " + Base64.encodeBase64String(authToken.getBytes(UTF_8)));
+            post.setHeader(AUTHORIZATION, "Basic " + Base64.encodeBase64String(authToken.getBytes(UTF_8)));
         }
         post.setHeader(CONTENT_TYPE, contentType(record));
         post.setEntity(new ByteArrayEntity(record.getBody()));

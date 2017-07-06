@@ -29,7 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import info.rmapproject.loader.HarvestRecordStatus;
-import info.rmapproject.loader.HarvestRegistry;
+import info.rmapproject.loader.HarvestRecordRegistry;
 import info.rmapproject.loader.model.RecordInfo;
 
 /**
@@ -40,9 +40,9 @@ import info.rmapproject.loader.model.RecordInfo;
  *
  * @author apb@jhu.edu
  */
-public class RdbmsHarvestRegistry implements HarvestRegistry {
+public class RdbmsHarvestRecordRegistry implements HarvestRecordRegistry {
 
-    Logger LOG = LoggerFactory.getLogger(RdbmsHarvestRegistry.class);
+    Logger LOG = LoggerFactory.getLogger(RdbmsHarvestRecordRegistry.class);
 
     DataSource source;
 

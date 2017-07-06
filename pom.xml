@@ -26,6 +26,9 @@
     <activemq.version>5.14.4</activemq.version>
     <slf4j.version>1.7.25</slf4j.version>
     <logback.version>1.2.3</logback.version>
+    <sqllite.jdbc.version>3.16.1</sqllite.jdbc.version>
+    <postgresql.jdbc.version>42.0.0</postgresql.jdbc.version>
+    <hikaricp.version>2.6.1</hikaricp.version>
   </properties>
 
   <build>
@@ -83,6 +86,7 @@
     <module>rmap-loader-api</module>
     <module>rmap-loader-jms</module>
     <module>rmap-loader-validation</module>
+    <module>rmap-loader-run-registry</module>
     <module>rmap-loader-util</module>
     <module>rmap-loader-transform-xsl</module>
     <module>rmap-loader-deposit-disco</module>
