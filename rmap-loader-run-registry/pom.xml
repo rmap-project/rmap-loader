@@ -28,11 +28,27 @@
       <artifactId>rmap-loader-api</artifactId>
       <version>${project.version}</version>
     </dependency>
-   
+    
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>${sqllite.jdbc.version}</version>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+    
+     <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.jdbc.version}</version>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+    
     <dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
-      <version>2.6.1</version>
+      <version>${hikaricp.version}</version>
       <optional>true</optional>
     </dependency>
     
