@@ -203,16 +203,10 @@ public class DiscoValidator {
      * @return a Model containing all the extracted triples.
      */
     public static Model remove(Model from, Selector selector) {
-
-        final Model excised = ModelFactory.createDefaultModel();
         final List<Statement> toRemove = from.listStatements(selector).toList();
-
-        excised.add(toRemove);
         from.remove(toRemove);
-
         return from;
     }
-    
     
     
 }
