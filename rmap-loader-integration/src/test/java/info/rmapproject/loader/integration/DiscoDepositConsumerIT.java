@@ -29,6 +29,8 @@ import static org.mockito.Mockito.when;
 import java.net.URI;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
@@ -72,9 +74,9 @@ public class DiscoDepositConsumerIT extends FakeRmap {
 
         final HarvestRecord record = new HarvestRecord();
         final String CONTENT = "myContent";
-        final String LOCATION = "http://example.org/location";
         final String CONTENT_TYPE = "text/test";
         final RecordInfo recordInfo = new RecordInfo();
+        final String NEWDISCOURI = "rmap:abcdef";
 
         record.setRecordInfo(recordInfo);
         recordInfo.setContentType(CONTENT_TYPE);
@@ -89,8 +91,12 @@ public class DiscoDepositConsumerIT extends FakeRmap {
                 requestBody.append(IOUtils.toString(req.getInputStream(), UTF_8));
                 requestContentType.append(req.getContentType());
                 resp.setStatus(HttpStatus.SC_CREATED);
-                resp.setHeader("Location", LOCATION);
-
+                resp.setStatus(HttpServletResponse.SC_CREATED);
+                String responseToClient=NEWDISCOURI;
+                resp.getWriter().write(responseToClient);
+                resp.getWriter().flush();
+                resp.getWriter().close();
+                
             } catch (final Exception e) {
                 throw new RuntimeException(e);
             }
@@ -100,12 +106,12 @@ public class DiscoDepositConsumerIT extends FakeRmap {
         assertEquals(CONTENT, requestBody.toString());
         assertEquals(CONTENT_TYPE, requestContentType.toString());
 
-        verify(harvestRegistry).register(eq(recordInfo), eq(URI.create(LOCATION)));
+        verify(harvestRegistry).register(eq(recordInfo), eq(URI.create(NEWDISCOURI)));
     }
 
     @Test
     public void updateDiscoTest() throws Exception {
-        final URI OLD_DISCO_URI = URI.create("http://example.org/old");
+        final URI OLD_DISCO_URI = URI.create("rmap:olduri");
         final HarvestRecordStatus status = new HarvestRecordStatus();
         status.setRecordExists(true);
         status.setLatest(OLD_DISCO_URI);
@@ -115,7 +121,7 @@ public class DiscoDepositConsumerIT extends FakeRmap {
 
         final HarvestRecord record = new HarvestRecord();
         final String CONTENT = "myContent";
-        final String LOCATION = "http://example.org/location";
+        final String NEWDISCOURI = "rmap:abcdef";
         final String CONTENT_TYPE = "text/test";
         final RecordInfo recordInfo = new RecordInfo();
 
@@ -134,8 +140,12 @@ public class DiscoDepositConsumerIT extends FakeRmap {
                 requestContentType.append(req.getContentType());
                 requestPath.append(req.getPathInfo().replaceFirst("/", ""));
                 resp.setStatus(HttpStatus.SC_CREATED);
-                resp.setHeader("Location", LOCATION);
-
+                resp.setStatus(HttpServletResponse.SC_CREATED);
+                String responseToClient=NEWDISCOURI;
+                resp.getWriter().write(responseToClient);
+                resp.getWriter().flush();
+                resp.getWriter().close();
+                
             } catch (final Exception e) {
                 throw new RuntimeException(e);
             }
@@ -145,18 +155,21 @@ public class DiscoDepositConsumerIT extends FakeRmap {
         assertEquals(CONTENT, requestBody.toString());
         assertEquals(OLD_DISCO_URI.toString(), requestPath.toString());
         assertEquals(CONTENT_TYPE, requestContentType.toString());
-        verify(harvestRegistry).register(eq(recordInfo), eq(URI.create(LOCATION)));
+        verify(harvestRegistry).register(eq(recordInfo), eq(URI.create(NEWDISCOURI)));
     }
 
     @Test
     public void skipUpToDateTest() {
         final HarvestRecordStatus status = new HarvestRecordStatus();
+        final RecordInfo recordInfo = new RecordInfo();
+        
         status.setRecordExists(true);
         status.setIsUpToDate(true);
         when(harvestRegistry.getStatus(any())).thenReturn(status);
 
         final HarvestRecord record = new HarvestRecord();
-
+        record.setRecordInfo(recordInfo);
+                
         final AtomicBoolean handledRequest = new AtomicBoolean(false);
 
         setHandler((req, resp) -> {
