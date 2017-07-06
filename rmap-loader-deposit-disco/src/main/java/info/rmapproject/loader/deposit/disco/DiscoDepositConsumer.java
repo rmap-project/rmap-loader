@@ -110,12 +110,11 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
     public void accept(HarvestRecord record) {
 
         final HarvestRecordStatus status = harvestRegistry.getStatus(record.getRecordInfo());
-
-        if (status.isLatest()) {
-            if (record.getRecordInfo() != null) {
-                LOG.info("Skipping record {}, as it is already up to date", record.getRecordInfo().getId());
-            }
-            return;
+               
+        //if a newer record already exists, skip record, 
+        if (status.isUpToDate()) {
+           LOG.info("Skipping record {}, the latest version already exists.", record.getRecordInfo().getId());
+           return;
         }
 
         URI uri = rmapDiscoEndpoint;
@@ -139,8 +138,7 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
             if (response.getStatusLine().getStatusCode() == 201) {
                 harvestRegistry.register(
                         record.getRecordInfo(),
-                        URI.create(response.getFirstHeader("Location")
-                                .getValue()));
+                        URI.create(EntityUtils.toString(response.getEntity())));
                 EntityUtils.consume(response.getEntity());
             } else {
                 throw new RuntimeException(String.format("Unexpected status code %s; '%s'", response.getStatusLine()
@@ -152,7 +150,7 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
         }
     }
 
-    private URI getUpdateURI(URI disco) {
+    public URI getUpdateURI(URI disco) {
         String path = rmapDiscoEndpoint.toString();
         if (!path.endsWith("/")) {
             path += "/";

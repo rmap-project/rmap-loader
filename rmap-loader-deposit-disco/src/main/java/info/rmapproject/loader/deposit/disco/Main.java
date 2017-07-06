@@ -61,6 +61,6 @@ public class Main {
 
     private static URI makeDiscoEndpointUri() {
         return URI.create(string("rmap.api.baseuri",
-                "https://test.rmap-project.org/apitest/").replaceFirst("/$", "") + "/discos/");
+                "https://test.rmap-hub.org/api/").replaceFirst("/$", "") + "/discos/");
     }
 }

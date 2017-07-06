@@ -109,7 +109,7 @@ public class DiscoDepositConsumerIT extends FakeRmap {
         final HarvestRecordStatus status = new HarvestRecordStatus();
         status.setRecordExists(true);
         status.setLatest(OLD_DISCO_URI);
-        status.setIsLatest(false);
+        status.setIsUpToDate(false);
 
         when(harvestRegistry.getStatus(any(RecordInfo.class))).thenReturn(status);
 
@@ -152,7 +152,7 @@ public class DiscoDepositConsumerIT extends FakeRmap {
     public void skipUpToDateTest() {
         final HarvestRecordStatus status = new HarvestRecordStatus();
         status.setRecordExists(true);
-        status.setIsLatest(true);
+        status.setIsUpToDate(true);
         when(harvestRegistry.getStatus(any())).thenReturn(status);
 
         final HarvestRecord record = new HarvestRecord();

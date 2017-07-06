@@ -114,9 +114,10 @@ public class RdbmsHarvestRecordRegistry implements HarvestRecordRegistry {
                 if (results.next()) {
                     status.setRecordExists(true);
                     status.setLatest(URI.create(results.getString(1)));
-                    status.setIsLatest(date(info) >= results.getLong(2));
+                    status.setIsUpToDate(date(info) <= results.getLong(2));
                 } else {
                     status.setRecordExists(false);
+                    status.setIsUpToDate(false);
                 }
             }
         } catch (final SQLException e) {
