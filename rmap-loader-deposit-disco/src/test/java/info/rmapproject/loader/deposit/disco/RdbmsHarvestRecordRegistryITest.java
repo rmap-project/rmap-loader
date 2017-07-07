@@ -121,7 +121,7 @@ public class RdbmsHarvestRecordRegistryITest {
         //new info not yet recorded, so it should know the registry is not up to date compared to this new record info
         final HarvestRecordStatus v3Status = toTest.getStatus(v3RecordInfo);
         assertTrue(v3Status.recordExists());
-        assertFalse(v3Status.isUpToDate()); // comparing to new data also shows it's already up to date
+        assertFalse(v3Status.isUpToDate()); // comparing to even newer data now shows it is not up to date.
         assertEquals(v2DiscoUri, v3Status.latest());
         
     }
