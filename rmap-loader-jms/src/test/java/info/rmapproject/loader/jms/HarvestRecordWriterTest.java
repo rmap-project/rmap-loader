@@ -71,10 +71,10 @@ public class HarvestRecordWriterTest {
             final CountDownLatch messageReceived = new CountDownLatch(1);
 
             jms.listen(queue, onHarvestRecord(received -> {
-                messageReceived.countDown();
                 receivedRecord.set(received);
+                messageReceived.countDown();
             }));
-
+            
             assertTrue(messageReceived.await(10, TimeUnit.SECONDS));
             assertReflectionEquals(record, receivedRecord.get(), ReflectionComparatorMode.LENIENT_ORDER);
 
@@ -93,7 +93,7 @@ public class HarvestRecordWriterTest {
 
             final CountDownLatch errorReceived = new CountDownLatch(1);
             writer.write(queue, record);
-
+            
             // Throw an error upon listen. Register an error handler that directs to the error queue.
             jms.listen(queue, onHarvestRecord(received -> {
                 throw new RuntimeException("processing failed");

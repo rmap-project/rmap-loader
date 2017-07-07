@@ -27,7 +27,7 @@ public class HarvestRecordStatus {
 
     boolean recordExists = false;
 
-    boolean isLatest = false;
+    boolean isUpToDate = false;
 
     URI latest;
 
@@ -39,12 +39,12 @@ public class HarvestRecordStatus {
         this.recordExists = exists;
     }
 
-    public boolean isLatest() {
-        return isLatest;
+    public boolean isUpToDate() {
+        return isUpToDate;
     }
 
-    public void setIsLatest(boolean isLatest) {
-        this.isLatest = isLatest;
+    public void setIsUpToDate(boolean isUpToDate) {
+        this.isUpToDate = isUpToDate;
     }
 
     public URI latest() {
