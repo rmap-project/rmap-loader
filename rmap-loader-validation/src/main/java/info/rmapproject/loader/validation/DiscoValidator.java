@@ -96,6 +96,56 @@ public class DiscoValidator {
             throw new ValidationException("Unconnected triples found" + writer.toString());
         }
     }
+    
+    
+    /**
+     * Compares two sets of RDF passed in to determine whether they are different, and therefore an update is required.
+     * TODO: doesn't currently work for BNODES that aren't DiSCO ID
+     * @param rmapRdf
+     * @param newRdf
+     * @param format
+     * @return true if different
+     */
+	public static boolean different(InputStream rmapRdf, InputStream newRdf, Format format) {
+        final Model rmapModel = ModelFactory.createDefaultModel();
+        rmapModel.read(rmapRdf, "", format.toString());
+        
+        final Model newModel = ModelFactory.createDefaultModel();
+        newModel.read(newRdf, "", format.toString());
+                 
+        Selector idSelector = new SimpleSelector(null, rmapModel.getProperty(RDF_NS + "type"), rmapModel.getResource(RMAP_NS + "DiSCO"));
+
+        Resource rmapDiscoUri = rmapModel.listStatements(idSelector).toList().get(0).getSubject();
+		Selector discoPropsSelector = new SimpleSelector(rmapDiscoUri, null, (RDFNode) null);
+        List<Statement> rmapDiscoStmts = rmapModel.listStatements(discoPropsSelector).toList();
+
+        Resource newDiscoUri = newModel.listStatements(idSelector).toList().get(0).getSubject();
+        
+        Model newStmts = newModel.difference(rmapModel);
+                
+        for (Statement stmt : rmapDiscoStmts){
+        	newStmts = remove(newStmts, new SimpleSelector(newDiscoUri, stmt.getPredicate(), stmt.getObject()));
+        	newStmts = remove(newStmts, new SimpleSelector(rmapDiscoUri, stmt.getPredicate(), stmt.getObject()));        	
+        }
+        
+        /*
+        if (newStmts.size()>0) {
+        	//still some differences
+        	for (Statement stmt : newStmts.listStatements().toList()){
+        		if (stmt.getSubject() instanceof AnonId) {
+                	//check for non-bnode version        			
+        		}
+        	}        	
+        }
+        */
+        
+        if (newStmts.size()>0){
+        	return true;
+        } else {
+        	return false;
+        }
+	}
+    
 
     static void removeTree(Resource resource, Model model) {
         cut(model, new SimpleSelector(resource, null, (RDFNode) null)).listObjects().filterKeep(o -> o.isResource())
@@ -127,7 +177,7 @@ public class DiscoValidator {
     }
 
     /**
-     * Remove a subset of a Model with the given Selector.
+     * Remove and return a subset of a Model with the given Selector.
      *
      * @param from Model that will have statements removed
      * @param selector Selector for matching statements to remove
@@ -144,4 +194,19 @@ public class DiscoValidator {
         return excised;
     }
 
+
+    /**
+     *
+     * @param from Model that will have statements removed
+     * @param selector Selector for matching statements to remove
+     * @return a Model containing all the extracted triples.
+     */
+    public static Model remove(Model from, Selector selector) {
+        final List<Statement> toRemove = from.listStatements(selector).toList();
+        from.remove(toRemove);
+        return from;
+    }
+    
+    
+    
 }
