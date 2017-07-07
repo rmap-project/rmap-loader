@@ -1,4 +1,7 @@
+
 # RMap harvest/loader framework
+
+[![Build Status](https://travis-ci.org/rmap-project/rmap-loader.png?branch=master)](https://travis-ci.org/rmap-project/rmap-loader)
 
 The RMap harvest/loader framework is a loosely coupled set of components for extracting source data, transforming it into RMap DiSCOs, and adding or updating these DiSCOs in RMap.  Components may be read and write to durable message queues.  As such, they are loosely coupled and may be implement any logic in any language to perform individual tasks.  A simple and convenient java-based [JMS client](rmap-loader-jms/README.md) is provided, but clients may use any convenient messsaging library to interact with the queues (such as Apache Camel).
 
