@@ -97,7 +97,6 @@ public class DiscoValidator {
 		}
 	}
 
-
 	/**
 	 * Compares two sets of RDF passed in to determine whether they are different, and therefore an update is required.
 	 * TODO: doesn't currently work for BNODES that aren't DiSCO ID
@@ -129,14 +128,14 @@ public class DiscoValidator {
 		}
 
 		/*
-        if (newStmts.size()>0) {
-        	//still some differences
-        	for (Statement stmt : newStmts.listStatements().toList()){
-        		if (stmt.getSubject() instanceof AnonId) {
-                	//check for non-bnode version        			
-        		}
-        	}        	
-        }
+		if (newStmts.size()>0) {
+			//still some differences
+			for (Statement stmt : newStmts.listStatements().toList()){
+				if (stmt.getSubject() instanceof AnonId) {
+				//check for non-bnode version        			
+				}
+			}        	
+		}
 		 */
 
 		if (newStmts.size()>0){
@@ -145,7 +144,6 @@ public class DiscoValidator {
 			return false;
 		}
 	}
-
 
 	static void removeTree(Resource resource, Model model) {
 		cut(model, new SimpleSelector(resource, null, (RDFNode) null)).listObjects().filterKeep(o -> o.isResource())
@@ -194,7 +192,6 @@ public class DiscoValidator {
 		return excised;
 	}
 
-
 	/**
 	 * Remove a subset of a Model with the given Selector and return the rest.
 	 *
@@ -207,7 +204,5 @@ public class DiscoValidator {
 		from.remove(toRemove);
 		return from;
 	}
-
-
 
 }
