@@ -71,12 +71,11 @@ public class HarvestRecordWriterTest {
             final CountDownLatch messageReceived = new CountDownLatch(1);
 
             jms.listen(queue, onHarvestRecord(received -> {
-                messageReceived.countDown();
                 receivedRecord.set(received);
+                messageReceived.countDown();
             }));
-
+            
             assertTrue(messageReceived.await(10, TimeUnit.SECONDS));
-            TimeUnit.SECONDS.sleep(3);
             assertReflectionEquals(record, receivedRecord.get(), ReflectionComparatorMode.LENIENT_ORDER);
 
         }
