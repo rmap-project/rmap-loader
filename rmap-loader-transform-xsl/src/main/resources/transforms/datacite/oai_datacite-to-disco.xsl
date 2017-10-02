@@ -39,8 +39,8 @@
     
     <xsl:param name="agent_record_id" select="'unknown'"/>
     <xsl:param name="agent_name" select="'RMap-Datacite-Harvester'"/>
-    <xsl:param name="agent_id" select="'http://rmap-project.org/rmap/agent/RMap-Datacite-Harvester-0.9'"/>
-    <xsl:param name="disco_type" select="'http://rmap-project.org/rmap/terms/DiSCO'"/>
+    <xsl:param name="agent_id" select="'http://rmap-hub.org/agent/RMap-Datacite-Harvester-0.9'"/>
+    <xsl:param name="disco_type" select="'http://purl.org/ontology/rmap#DiSCO'"/>
     <xsl:param name="temp_disco_id" select="'temp_disco_uri'"/>
 
     <!-- <xsl:include href="Logging.xsl"/> -->
@@ -59,7 +59,7 @@
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
             xmlns:owl="http://www.w3.org/2002/07/owl#"
-            xmlns:rmap="http://rmap-project.org/rmap/terms/"
+            xmlns:rmap="http://purl.org/ontology/rmap#"
             xmlns:cito="http://purl.org/spar/cito/"
             xmlns:cito4data="http://purl.org/spar/cito4data/"
             xmlns:dc="http://purl.org/dc/elements/1.1/"
