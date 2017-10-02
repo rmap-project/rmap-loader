@@ -83,7 +83,7 @@ RMap authentication token.
 
 ### `rmap.api.baseuri`
 
-RMap API base URI.  The default is `https://test.rmap-project.org/apitest/`
+RMap API base URI.  The default is `https://test.rmap-hub.org/api/`
 
 ### `LOG.*`
 
