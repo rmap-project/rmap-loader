@@ -38,7 +38,7 @@ public class RecordInfo {
 
     @JsonProperty("@type")
     private final URI type = URI
-            .create("http://rmap-project.org/types/RecordInfo");
+            .create("http://rmap-hub.org/types/RecordInfo");
 
     URI src;
 

@@ -10,7 +10,7 @@
 @prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix bibo:    <http://purl.org/ontology/bibo/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
-@prefix rmap:    <http://rmap-project.org/rmap/terms/> .
+@prefix rmap:    <http://purl.org/ontology/rmap#> .
 
 <http://dl.acm.org/citation.cfm?id=806278>
       dcterms:bibliographicCitation
@@ -45,7 +45,7 @@
               "James H. Griesmer , Richard D. Jenks, The SCRATCHPAD system, Proceedings of the 1975 annual conference, p.266-267, January 1975" .
 
 []    a       rmap:DiSCO ;
-      dcterms:creator <http://rmap-project.org/rmap/agent/RMap-ACM-Harvester-0.1> ;
+      dcterms:creator <http://rmap-hub.org/agent/RMap-ACM-Harvester-0.1> ;
       dcterms:description "Description of ACM Transactions on Mathematical Software article." ;
       ore:aggregates <http://dx.doi.org/10.1145/355656.355660> .
 

@@ -15,8 +15,8 @@
     <xsl:strip-space elements="*"/>
     
     <!-- disco metadata parameters -->
-    <xsl:param name="agent_id" select="'http://rmap-project.org/rmap/agent/RMap-NCBI-Harvester-0.1'"/>
-    <xsl:param name="disco_type" select="'http://rmap-project.org/rmap/terms/DiSCO'"/>
+    <xsl:param name="agent_id" select="'http://rmap-hub.org/agent/RMap-NCBI-Harvester-0.1'"/>
+    <xsl:param name="disco_type" select="'http://purl.org/ontology/rmap#DiSCO'"/>
     <xsl:param name="description" select="'Connected identifiers for a PubMed article and any databank relationships.'"/>
     
     <xsl:include href="pubmed_article_to_disco_author_templates.xsl"/>
@@ -55,7 +55,7 @@
                 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
                 xmlns:owl="http://www.w3.org/2002/07/owl#" 
                 xmlns:foaf="http://xmlns.com/foaf/"
-                xmlns:rmap="http://rmap-project.org/rmap/terms/"
+                xmlns:rmap="http://purl.org/ontology/rmap#"
                 xmlns:dcterms="http://purl.org/dc/terms/" 
                 xmlns:pro="http://purl.org/spar/pro/"
                 xmlns:bibo="http://purl.org/ontology/bibo/"

@@ -32,7 +32,7 @@ public class DiscoValidator {
 
 	static final String DCTERMS_NS = "http://purl.org/dc/terms/";
 
-	static final String RMAP_NS = "http://rmap-project.org/rmap/terms/";
+	static final String RMAP_NS = "http://purl.org/ontology/rmap#";
 
 	static final String ORE_NS = "http://www.openarchives.org/ore/terms/";
 

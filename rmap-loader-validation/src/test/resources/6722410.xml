@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rmap="http://rmap-project.org/rmap/terms/1.0/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rmap="http://purl.org/ontology/rmap#"
   xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:cito="http://purl.org/spar/cito/"
   xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:fabio="http://purl.org/spar/fabio/"
   xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
   xmlns:ieee="http://data.ieee.org/ieee/terms/">
   <rdf:Description>
-    <rdf:type rdf:resource="http://rmap-project.org/rmap/terms/DiSCO" />
-    <dcterms:creator rdf:resource="http://rmap-project.org/rmap/agent/IEEELoader"/>
+    <rdf:type rdf:resource="http://purl.org/ontology/rmap#DiSCO" />
+    <dcterms:creator rdf:resource="http://rmap-hub.org/agent/IEEELoader"/>
     <ore:aggregates rdf:resource="http://dx.doi.org/10.1109/SMC.2013.657" />
   </rdf:Description>
   <rdf:Description rdf:about="http://dx.doi.org/10.1109/SMC.2013.657">

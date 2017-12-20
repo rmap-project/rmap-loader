@@ -32,7 +32,7 @@ public class HarvestInfo {
 
     @JsonProperty("@type")
     private final URI type = URI
-            .create("http://rmap-project.org/types/HarvestInfo");
+            .create("http://rmap-hub.org/types/HarvestInfo");
 
     URI src;
 
