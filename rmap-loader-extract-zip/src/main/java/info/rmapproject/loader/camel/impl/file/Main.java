@@ -37,16 +37,18 @@ public class Main {
         final CamelContext cxt = buildCamelContext();
 
         final ZipFileHarvestService zipHarvest = new ZipFileHarvestService();
+
+        zipHarvest.setOutputContentType(string("content.type", "application/xml"));
         zipHarvest.setDestUri("msg:queue:" + string(JMS_QUEUE_DEST, "rmap.harvest.xml.zip"));
 
-        String fileName = string("input.filename", null);
-        String directory = string("input.directory", null);
-        if (fileName != null) {
+        String fileName = string("file", null);
+        String directory = string("dir", null);
+        if (directory != null) {
             fileName = "&fileName=" + fileName;
         }
 
         if (fileName == null && directory == null) {
-            LOG.warn("Please specify either input.file or input.directory, or both");
+            LOG.warn("Please specify  'file', 'dir', or both");
             return;
         } else if (directory == null) {
             directory = ".";

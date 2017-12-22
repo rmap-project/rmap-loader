@@ -16,13 +16,26 @@
 
 package info.rmapproject.loader.camel.impl.file;
 
+import static info.rmapproject.loader.jms.HarvestRecordConverter.writeRecordInfo;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
+import java.net.URI;
+import java.util.Date;
+import java.util.zip.ZipEntry;
+
+import javax.jms.Message;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Expression;
-import org.apache.camel.Message;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.ZipFileDataFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import info.rmapproject.loader.model.HarvestInfo;
+import info.rmapproject.loader.model.RecordInfo;
 
 public class ZipFileHarvestService
         extends RouteBuilder {
@@ -53,6 +66,8 @@ public class ZipFileHarvestService
 
     @Override
     public void configure() throws Exception {
+        LOG.info("Generating records with content-type " + contentType);
+
         fmt.setUsingIterator(true);
 
         from(src).choice()
@@ -64,16 +79,40 @@ public class ZipFileHarvestService
         from("direct:recordInfo")
                 .process(e -> LOG.debug("Sending record from {} to {}",
                         e.getIn().getHeader(Exchange.FILE_NAME), dest))
-                .setHeader(Exchange.CONTENT_TYPE,
-                        constant(contentType))
+                .process(WRITE_RECORD_INFO)
                 .to(dest);
+    }
+
+    private final Processor WRITE_RECORD_INFO = e -> {
+
+        final ZipEntry zip = e.getIn().getHeader("zip.entry", ZipEntry.class);
+
+        final HarvestInfo hi = new HarvestInfo();
+        hi.setId(URI.create("file:" + e.getIn().getHeader(Exchange.FILE_NAME_CONSUMED)));
+        hi.setDate(new Date(e.getIn().getHeader(Exchange.FILE_LAST_MODIFIED, Long.class)));
+        hi.setSrc(URI.create("file:" + e.getIn().getHeader(Exchange.FILE_NAME_CONSUMED)));
+
+        final RecordInfo ri = new RecordInfo();
+        ri.setId(URI.create("file:" + zip.getName()));
+        ri.setContentType(contentType);
+        ri.setDate(new Date(zip.getLastModifiedTime().toMillis()));
+        ri.setSrc(URI.create("file:" + zip.getName()));
+        ri.setHarvestInfo(hi);
+
+        writeRecordInfo(ri, proxy((o, m, args) -> {
+            e.getIn().setHeader((String) args[0], args[1]);
+            return null;
+        }));
+    };
+
+    private static final Message proxy(InvocationHandler h) {
+        return (Message) Proxy.newProxyInstance(Message.class.getClassLoader(), new Class[] { Message.class }, h);
     }
 
     private static final Expression enhancedZipSplitter = new Expression() {
 
         public Object evaluate(Exchange exchange) {
-            final Message inputMessage = exchange.getIn();
-            return new EnhancedZipIterator(inputMessage);
+            return new EnhancedZipIterator(exchange.getIn());
         }
 
         @Override

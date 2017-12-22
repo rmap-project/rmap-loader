@@ -128,7 +128,7 @@ public class HarvestRecordConverter implements JmsHeaders {
 
     }
 
-    private static void writeRecordInfo(RecordInfo recordInfo, Message message) throws JMSException {
+    public static void writeRecordInfo(RecordInfo recordInfo, Message message) throws JMSException {
         if (recordInfo.getId() != null) {
             message.setStringProperty(PROP_HARVEST_RECORD_ID, recordInfo.getId().toString());
         }

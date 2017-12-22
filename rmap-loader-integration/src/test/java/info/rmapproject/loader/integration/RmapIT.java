@@ -88,8 +88,8 @@ public class RmapIT extends FakeRmap {
         final File zipDir = new File(testDataDir, "zip");
         unzip = jar(new File(System.getProperty("zip.extract.jar")))
                 .logOutput(LoggerFactory.getLogger("extract-zip"))
-                .withEnv("input.directory", zipDir.toString())
-                .withEnv("input.filename", "data.zip")
+                .withEnv("dir", zipDir.toString())
+                .withEnv("file", "data.zip")
                 .withEnv("jms.queue.dest", "rmap.harvest.test-xml.fromZipFile")
                 .start();
 
