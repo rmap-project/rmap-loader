@@ -181,6 +181,7 @@ public class JmsClient implements AutoCloseable {
     @Override
     public void close() {
         try {
+            LOG.info("Closing ActiveMQ Sessions");
             connected = false;
             producer.close();
             session.close();

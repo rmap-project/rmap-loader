@@ -19,7 +19,10 @@ package info.rmapproject.loader.util;
 import static info.rmapproject.loader.util.ConfigUtil.integer;
 import static info.rmapproject.loader.util.ConfigUtil.string;
 
+import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSContext;
+import javax.jms.JMSException;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.pool.PooledConnectionFactory;
@@ -29,7 +32,7 @@ import org.apache.activemq.pool.PooledConnectionFactory;
  */
 public abstract class ActiveMQConfig {
 
-    public static ConnectionFactory buildConnectionFactory() {
+    public static CloseableConnectionFactory buildConnectionFactory() {
         final ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
         factory.setBrokerURL(string("jms.brokerUrl", "tcp://localhost:61616"));
         factory.setUserName(string("jms.username", null));
@@ -39,6 +42,50 @@ public abstract class ActiveMQConfig {
         pool.setMaxConnections(integer("jms.maxConnections", 10));
         pool.start();
 
-        return pool;
+        return new CloseableConnectionFactoryImpl(pool);
+    }
+
+    private static class CloseableConnectionFactoryImpl implements CloseableConnectionFactory {
+
+        final ConnectionFactory pool;
+
+        CloseableConnectionFactoryImpl(PooledConnectionFactory pool) {
+            this.pool = pool;
+        }
+
+        @Override
+        public void close() throws Exception {
+            ((PooledConnectionFactory) pool).stop();
+        }
+
+        @Override
+        public JMSContext createContext(String userName, String password, int sessionMode) {
+            return pool.createContext(userName, password, sessionMode);
+        }
+
+        @Override
+        public JMSContext createContext(String userName, String password) {
+            return pool.createContext(userName, password);
+        }
+
+        @Override
+        public JMSContext createContext(int sessionMode) {
+            return pool.createContext(sessionMode);
+        }
+
+        @Override
+        public JMSContext createContext() {
+            return pool.createContext();
+        }
+
+        @Override
+        public Connection createConnection(String userName, String password) throws JMSException {
+            return pool.createConnection(userName, password);
+        }
+
+        @Override
+        public Connection createConnection() throws JMSException {
+            return pool.createConnection();
+        }
     }
 }
