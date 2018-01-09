@@ -1,9 +1,11 @@
 /*
- * Copyright 2017 Johns Hopkins University
+ * Licensed to DuraSpace under one or more contributor license agreements.
+ * See the NOTICE file distributed with this work for additional information
+ * regarding copyright ownership.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * DuraSpace licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -16,9 +18,7 @@
 
 package info.rmapproject.loader.impl.file;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,13 +27,9 @@ import java.util.Iterator;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
-import org.apache.commons.compress.archivers.ArchiveEntry;
-import org.apache.commons.compress.archivers.ArchiveException;
-import org.apache.commons.compress.archivers.ArchiveInputStream;
-import org.apache.commons.compress.archivers.ArchiveStreamFactory;
-import org.apache.commons.compress.compressors.CompressorException;
-import org.apache.commons.compress.compressors.CompressorStreamFactory;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,9 +41,9 @@ import info.rmapproject.loader.model.RecordInfo;
 /**
  * @author apb@jhu.edu
  */
-public class ArchiveRecordExtractor implements RecordExtractor {
+public class ZipRecordExtractor implements RecordExtractor {
 
-    static final Logger LOG = LoggerFactory.getLogger(ArchiveRecordExtractor.class);
+    static final Logger LOG = LoggerFactory.getLogger(ZipRecordExtractor.class);
 
     private Consumer<Path> doneAction = path -> {
     };
@@ -60,7 +56,6 @@ public class ArchiveRecordExtractor implements RecordExtractor {
         return this;
     }
 
-    @SuppressWarnings("resource")
     @Override
     public Stream<HarvestRecord> recordsFrom(Path file) {
 
@@ -72,15 +67,16 @@ public class ArchiveRecordExtractor implements RecordExtractor {
             harvest.setSrc(URI.create("file:" + file.getFileName().toString()));
             harvest.setId(URI.create(harvest.getSrc().toString() + "@" + new Date().getTime()));
 
-            final ArchiveInputStream is = archiveStream(Files.newInputStream(file));
+            final ZipInputStream is = new ZipInputStream(Files.newInputStream(file));
 
             final Iterable<HarvestRecord> records = () -> new Iterator<HarvestRecord>() {
 
-                ArchiveEntry entry;
+                ZipEntry entry;
 
                 @Override
                 public boolean hasNext() {
                     try {
+
                         entry = is.getNextEntry();
 
                         // Skip over directories
@@ -96,6 +92,11 @@ public class ArchiveRecordExtractor implements RecordExtractor {
                         }
                         return hasNext;
                     } catch (final Exception e) {
+                        try {
+                            is.close();
+                        } catch (final IOException x) {
+                            // Nothing
+                        }
                         throw new RuntimeException("Error reading from archive", e);
                     }
                 }
@@ -104,7 +105,7 @@ public class ArchiveRecordExtractor implements RecordExtractor {
                 public HarvestRecord next() {
                     final RecordInfo info = new RecordInfo();
                     info.setContentType(contentType);
-                    info.setDate(entry.getLastModifiedDate());
+                    info.setDate(new Date(entry.getTime()));
                     info.setId(URI.create("file:" + entry.getName()));
                     info.setSrc(URI.create(harvest.getSrc().toString() + "#" + entry.getName()));
                     info.setHarvestInfo(harvest);
@@ -114,7 +115,6 @@ public class ArchiveRecordExtractor implements RecordExtractor {
 
                     try {
                         LOG.debug("entry: " + entry);
-                        LOG.debug("size: " + entry.getSize());
                         if (entry.getSize() > -1) {
                             record.setBody(IOUtils.toByteArray(is, entry.getSize()));
                         } else {
@@ -138,37 +138,6 @@ public class ArchiveRecordExtractor implements RecordExtractor {
 
         } catch (final Exception e) {
             throw new RuntimeException("Error reading " + file, e);
-        }
-    }
-
-    private static InputStream buffered(final InputStream in) {
-        if (!in.markSupported()) {
-            return new BufferedInputStream(in);
-        }
-        return in;
-    }
-
-    private static InputStream decompress(final InputStream in) {
-        try {
-            return new CompressorStreamFactory().createCompressorInputStream(buffered(in));
-        } catch (final CompressorException e) {
-            return in;
-        }
-    }
-
-    @SuppressWarnings("resource")
-    private static ArchiveInputStream archiveStream(final InputStream in) throws ArchiveException {
-        final ArchiveStreamFactory af = new ArchiveStreamFactory();
-        final InputStream buffered = buffered(in);
-        try {
-            return af.createArchiveInputStream(buffered);
-        } catch (final ArchiveException e) {
-            try {
-                buffered.reset();
-                return af.createArchiveInputStream(buffered(decompress(buffered)));
-            } catch (final IOException x) {
-                throw new RuntimeException(x);
-            }
         }
     }
 

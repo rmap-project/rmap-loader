@@ -20,8 +20,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,24 +44,38 @@ public class OneTimeRecordSource implements RecordSource {
 
     private Predicate<Path> filter = path -> true;
 
+    Collection<Path> files = Collections.emptyList();
+
     private Path dir = null;
 
     @Override
     public void run() {
 
-        if (dir == null || !Files.exists(dir)) {
+        if ((dir == null || !Files.exists(dir)) && files.isEmpty()) {
             LOG.warn("Directory " + dir + " does not exist, exiting");
             return;
         }
 
-        try {
-            Files.walk(dir)
+        try (Stream<Path> fileStream = streamFiles()) {
+
+            fileStream
+                    .filter(Files::isRegularFile)
+                    .peek(p -> LOG.debug("Considering file " + p))
                     .filter(p -> filter.test(dir.relativize(p)))
                     .flatMap(extractor::recordsFrom)
                     .forEach(processRecord);
 
         } catch (final IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private Stream<Path> streamFiles() throws IOException {
+        if (!files.isEmpty()) {
+            return files.stream();
+        } else {
+            LOG.debug("Walking directory " + dir);
+            return Files.walk(dir);
         }
     }
 
@@ -81,6 +98,11 @@ public class OneTimeRecordSource implements RecordSource {
 
     public OneTimeRecordSource withFilter(Predicate<Path> filter) {
         this.filter = filter;
+        return this;
+    }
+
+    public OneTimeRecordSource withFiles(Collection<Path> files) {
+        this.files = files;
         return this;
     }
 }

@@ -20,11 +20,15 @@ import static info.rmapproject.loader.util.ActiveMQConfig.buildConnectionFactory
 import static info.rmapproject.loader.util.ConfigProperties.JMS_QUEUE_DEST;
 import static info.rmapproject.loader.util.ConfigUtil.string;
 import static info.rmapproject.loader.util.LogUtil.adjustLogLevels;
+import static java.util.stream.Collectors.toList;
 
 import java.io.File;
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -41,6 +45,8 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         adjustLogLevels();
 
+        final List<Path> cmdLinePaths = commandLineFiles(args);
+
         try (JmsClient client = new JmsClient(buildConnectionFactory())) {
 
             final HarvestRecordWriter writer = new HarvestRecordWriter(client);
@@ -48,7 +54,8 @@ public class Main {
             final String queue = string(JMS_QUEUE_DEST, "rmap.harvest.xml.zip");
 
             new OneTimeRecordSource()
-                    .ofDirectory(string("dir", null))
+                    .ofDirectory(fromCmdLineOrEnv(cmdLinePaths))
+                    .withFiles(cmdLinePaths.stream().filter(Files::isRegularFile).collect(toList()))
                     .withFilter(REGEX)
                     .withExtractor(extractor()
                             .contentType(string("content.type", "application/xml"))
@@ -57,6 +64,25 @@ public class Main {
                     .run();
 
         }
+    }
+
+    // If there is exactly one path specified and it's a directory, use it.
+    // Otherwise, look to system properties or environment variables
+    private static String fromCmdLineOrEnv(List<Path> candidates) {
+        if (candidates.size() == 1 && Files.isDirectory(candidates.get(0))) {
+            return candidates.get(0).toString();
+        } else {
+            return string("dir", null);
+        }
+    }
+
+    private static List<Path> commandLineFiles(String[] args) {
+
+        return Arrays.asList(args).stream()
+                .map(File::new)
+                .filter(File::exists)
+                .map(File::toPath)
+                .collect(toList());
     }
 
     private static Consumer<Path> RENAME_TO_DONE = path -> {
@@ -70,6 +96,6 @@ public class Main {
     };
 
     private static RecordExtractor extractor() {
-        return new ArchiveRecordExtractor();
+        return new ZipRecordExtractor();
     }
 }
