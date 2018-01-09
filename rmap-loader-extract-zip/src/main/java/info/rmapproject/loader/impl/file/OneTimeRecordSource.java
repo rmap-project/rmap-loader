@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -56,26 +57,29 @@ public class OneTimeRecordSource implements RecordSource {
             return;
         }
 
+        LOG.debug("Starting record source");
+
         try (Stream<Path> fileStream = streamFiles()) {
 
             fileStream
                     .filter(Files::isRegularFile)
-                    .peek(p -> LOG.debug("Considering file " + p))
-                    .filter(p -> filter.test(dir.relativize(p)))
                     .flatMap(extractor::recordsFrom)
                     .forEach(processRecord);
 
         } catch (final IOException e) {
             throw new RuntimeException(e);
         }
+
+        LOG.info("Done");
     }
 
     private Stream<Path> streamFiles() throws IOException {
         if (!files.isEmpty()) {
-            return files.stream();
+            return files.stream().filter(filter::test);
         } else {
             LOG.debug("Walking directory " + dir);
-            return Files.walk(dir);
+            return Files.walk(dir)
+                    .filter(p -> filter.test(dir.relativize(p)));
         }
     }
 
@@ -92,7 +96,7 @@ public class OneTimeRecordSource implements RecordSource {
     }
 
     public OneTimeRecordSource ofDirectory(String dir) {
-        this.dir = new File(dir).toPath();
+        this.dir = Optional.ofNullable(dir).map(File::new).map(File::toPath).orElse(null);
         return this;
     }
 

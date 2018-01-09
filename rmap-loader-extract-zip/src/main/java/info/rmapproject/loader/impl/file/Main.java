@@ -23,7 +23,6 @@ import static info.rmapproject.loader.util.LogUtil.adjustLogLevels;
 import static java.util.stream.Collectors.toList;
 
 import java.io.File;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
@@ -34,20 +33,22 @@ import java.util.function.Predicate;
 
 import info.rmapproject.loader.jms.HarvestRecordWriter;
 import info.rmapproject.loader.jms.JmsClient;
+import info.rmapproject.loader.util.CloseableConnectionFactory;
 
 /**
  * @author apb@jhu.edu
  */
 public class Main {
 
-    static final PathMatcher pathFilter = FileSystems.getDefault().getPathMatcher("glob:" + string("filter", "*"));
+    static final PathMatcher pathFilter = p -> true;
 
     public static void main(final String[] args) throws Exception {
         adjustLogLevels();
 
         final List<Path> cmdLinePaths = commandLineFiles(args);
 
-        try (JmsClient client = new JmsClient(buildConnectionFactory())) {
+        try (CloseableConnectionFactory factory = buildConnectionFactory();
+                JmsClient client = new JmsClient(factory)) {
 
             final HarvestRecordWriter writer = new HarvestRecordWriter(client);
 
@@ -62,7 +63,6 @@ public class Main {
                             .onDone(RENAME_TO_DONE))
                     .onRecord(r -> writer.write(queue, r))
                     .run();
-
         }
     }
 
@@ -96,6 +96,6 @@ public class Main {
     };
 
     private static RecordExtractor extractor() {
-        return new ZipRecordExtractor();
+        return new ArchiveRecordExtractor();
     }
 }

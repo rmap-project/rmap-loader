@@ -125,14 +125,5 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- For the executable jar -->
-
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.1.9</version>
-      <scope>optional</scope>
-    </dependency>
-
   </dependencies>
 </project>

@@ -125,6 +125,7 @@ public class ZipRecordExtractor implements RecordExtractor {
                         try {
                             is.close();
                         } catch (final Exception x) {
+                            // Don't care.
                         }
 
                         throw new RuntimeException("Could not read from archive", e);
