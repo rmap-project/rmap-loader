@@ -39,7 +39,7 @@ import info.rmapproject.loader.jms.JmsClient;
  *
  * @author apb@jhu.edu
  */
-public class DiscoDepositService implements AutoCloseable {
+public class DiscoDepositService implements Runnable, AutoCloseable {
 
     private static final Logger LOG = LoggerFactory.getLogger(DiscoDepositService.class);
 
@@ -63,7 +63,8 @@ public class DiscoDepositService implements AutoCloseable {
         this.discoDeposit = consumer;
     }
 
-    public void start() {
+    @Override
+    public void run() {
 
         jms = new JmsClient(connectionFactory);
 
@@ -85,6 +86,14 @@ public class DiscoDepositService implements AutoCloseable {
                         }));
 
         LOG.info("Disco deposit service started for " + queueSpec);
+
+        try {
+            Thread.currentThread().join();
+        } catch (final InterruptedException e) {
+            Thread.currentThread().interrupt();
+            LOG.info("Deposit service interrupted");
+        }
+
     }
 
     private String errorDestination(String src) {
@@ -94,6 +103,6 @@ public class DiscoDepositService implements AutoCloseable {
     @Override
     public void close() throws Exception {
         jms.close();
-        
+
     }
 }

@@ -16,6 +16,7 @@
 
 package info.rmapproject.loader.deposit.disco;
 
+import static info.rmapproject.loader.util.ConfigUtil.integer;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.apache.http.HttpHeaders.AUTHORIZATION;
 import static org.apache.http.HttpHeaders.CONTENT_TYPE;
@@ -46,8 +47,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import info.rmapproject.loader.HarvestRecord;
-import info.rmapproject.loader.HarvestRecordStatus;
 import info.rmapproject.loader.HarvestRecordRegistry;
+import info.rmapproject.loader.HarvestRecordStatus;
 import info.rmapproject.loader.model.RecordInfo;
 
 /**
@@ -62,6 +63,8 @@ import info.rmapproject.loader.model.RecordInfo;
  * @author apb@jhu.edu
  */
 public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
+
+    private static final int delay = integer("delay", 0);
 
     private static final Logger LOG = LoggerFactory.getLogger(DiscoDepositConsumer.class);
 
@@ -109,12 +112,23 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
     @Override
     public void accept(HarvestRecord record) {
 
+        LOG.debug("Accepted harvest record for deposit: {}", record.getRecordInfo().getId());
+
+        if (delay > 0) {
+            try {
+                Thread.sleep(delay);
+            } catch (final InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new RuntimeException(e);
+            }
+        }
+
         final HarvestRecordStatus status = harvestRegistry.getStatus(record.getRecordInfo());
-               
-        //if a newer record already exists, skip record, 
+
+        // if a newer record already exists, skip record,
         if (status.isUpToDate()) {
-           LOG.info("Skipping record {}, the latest version already exists.", record.getRecordInfo().getId());
-           return;
+            LOG.info("Skipping record {}, the latest version already exists.", record.getRecordInfo().getId());
+            return;
         }
 
         URI uri = rmapDiscoEndpoint;
@@ -130,12 +144,14 @@ public class DiscoDepositConsumer implements Consumer<HarvestRecord> {
         if (authToken != null) {
             post.setHeader(AUTHORIZATION, "Basic " + Base64.encodeBase64String(authToken.getBytes(UTF_8)));
         }
+        LOG.debug("POSTING to {} ({})", uri, contentType(record));
         post.setHeader(CONTENT_TYPE, contentType(record));
         post.setEntity(new ByteArrayEntity(record.getBody()));
 
         try (CloseableHttpResponse response = client.execute(post)) {
 
             if (response.getStatusLine().getStatusCode() == 201) {
+                LOG.debug("SUCCESSFUL POST to {}", uri);
                 harvestRegistry.register(
                         record.getRecordInfo(),
                         URI.create(EntityUtils.toString(response.getEntity())));

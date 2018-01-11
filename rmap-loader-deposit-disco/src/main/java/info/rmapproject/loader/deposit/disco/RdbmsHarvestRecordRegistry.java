@@ -28,8 +28,8 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import info.rmapproject.loader.HarvestRecordStatus;
 import info.rmapproject.loader.HarvestRecordRegistry;
+import info.rmapproject.loader.HarvestRecordStatus;
 import info.rmapproject.loader.model.RecordInfo;
 
 /**
@@ -43,6 +43,11 @@ import info.rmapproject.loader.model.RecordInfo;
 public class RdbmsHarvestRecordRegistry implements HarvestRecordRegistry {
 
     Logger LOG = LoggerFactory.getLogger(RdbmsHarvestRecordRegistry.class);
+
+    static final String INSERT_RECORD = "INSERT INTO recordInfo (uri, recordDate, disco) VALUES (?, ?, ?)";
+
+    static final String FIND_RECORD =
+            "SELECT disco, recordDate FROM recordInfo WHERE uri = ? ORDER BY recordDate DESC LIMIT 1";
 
     DataSource source;
 
@@ -64,6 +69,9 @@ public class RdbmsHarvestRecordRegistry implements HarvestRecordRegistry {
 
                 if (newTable) {
                     statement.execute("CREATE INDEX uri_idx ON recordInfo (uri)");
+                    LOG.info("Created new harvest registry database");
+                } else {
+                    LOG.info("Connected to existing harvest registry");
                 }
             }
 
@@ -77,12 +85,12 @@ public class RdbmsHarvestRecordRegistry implements HarvestRecordRegistry {
     public void register(RecordInfo info, URI discoURI) {
 
         if (info.getId() == null) {
-            LOG.debug("Empty record ID, not registering {}", discoURI);
+            LOG.info("Empty record ID, not registering {}", discoURI);
             return;
         }
-        try (Connection conn = source.getConnection()) {
-            final PreparedStatement insertRecord = conn.prepareStatement(
-                    "INSERT INTO recordInfo (uri, recordDate, disco) VALUES (?, ?, ?)");
+        try (Connection conn = source.getConnection();
+                final PreparedStatement insertRecord = conn.prepareStatement(
+                        INSERT_RECORD)) {
             insertRecord.setString(1, info.getId().toString());
             insertRecord.setLong(2, info.getDate().getTime());
             insertRecord.setString(3, discoURI.toString());
@@ -90,6 +98,8 @@ public class RdbmsHarvestRecordRegistry implements HarvestRecordRegistry {
             if (insertRecord.executeUpdate() < 1) {
                 throw new RuntimeException("Record did not insert into registry");
             }
+
+            LOG.debug("Registered record {} for disco {}", info.getId(), discoURI.toString());
 
         } catch (final SQLException e) {
             throw new RuntimeException(e);
@@ -102,13 +112,12 @@ public class RdbmsHarvestRecordRegistry implements HarvestRecordRegistry {
 
         final HarvestRecordStatus status = new HarvestRecordStatus();
         if (info.getId() == null) {
-            LOG.debug("Empty record ID, returning empty record status");
+            LOG.info("Empty record ID, returning empty record status");
             return status;
         }
 
-        try (Connection conn = source.getConnection()) {
-            final PreparedStatement findRecord = conn.prepareStatement(
-                    "SELECT disco, recordDate FROM recordInfo WHERE uri = ? ORDER BY recordDate DESC LIMIT 1");
+        try (Connection conn = source.getConnection();
+                final PreparedStatement findRecord = conn.prepareStatement(FIND_RECORD)) {
             findRecord.setString(1, info.getId().toString());
             try (ResultSet results = findRecord.executeQuery()) {
                 if (results.next()) {
