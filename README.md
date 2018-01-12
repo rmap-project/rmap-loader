@@ -89,7 +89,7 @@ Pick an RMap instance, or [start one](https://github.com/rmap-project/rmap/blob/
 
     mvn validate docker:start cargo:run
 
-Later on, load them into RMap with the loader application
+Later on, load them into RMap with the loader application (debug logging enabled in the example so request attempts can be seen)
 
     java -Djdbc.url=jdbc:postgresql://localhost/loader \
          -Djdbc.username=pguser
@@ -97,6 +97,7 @@ Later on, load them into RMap with the loader application
          -Dthreads=4
          -Drmap.api.auth.token=abc123
          -Drmap.api.baseuri=http://rmap.host:port/api/
+         -DLOG.info.rmapproject=DEBUG
          -jar rmap-loader-deposit-disco-0.0.1-SNAPSHOT-exe.jar
 
 At any time, the state of the queues (how many messages are in which queue; how many consumers are processing, etc) can be seen via the ActiveMQ management console http://localhost:8161 (user: admin, pass: admin)
