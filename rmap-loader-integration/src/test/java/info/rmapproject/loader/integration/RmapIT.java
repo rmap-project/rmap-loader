@@ -71,6 +71,7 @@ public class RmapIT extends FakeRmap {
 
         xslt = jar(new File(System.getProperty("xsl.transform.jar").toString()))
                 .logOutput(LoggerFactory.getLogger("transform"))
+                .withEnv("LOG.info.rmapproject", "DEBUG")
                 .withEnv("jms.queue.src", "rmap.harvest.test-xml.>")
                 .withEnv("jms.queue.dest", "rmap.harvest.disco.fromXslt")
                 .withEnv("xslt.file", System.getProperty("xslt.file").toString())
@@ -78,6 +79,7 @@ public class RmapIT extends FakeRmap {
 
         load = jar(new File(System.getProperty("disco.loader.jar").toString()))
                 .logOutput(LoggerFactory.getLogger("load"))
+                .withEnv("LOG.info.rmapproject", "DEBUG")
                 .withEnv("rmap.api.auth.token", AUTH_TOKEN)
                 .withEnv("rmap.api.baseuri", getRmapDiscoURI().toString())
                 .start();
@@ -88,8 +90,9 @@ public class RmapIT extends FakeRmap {
         final File zipDir = new File(testDataDir, "zip");
         unzip = jar(new File(System.getProperty("zip.extract.jar")))
                 .logOutput(LoggerFactory.getLogger("extract-zip"))
-                .withEnv("input.directory", zipDir.toString())
-                .withEnv("input.filename", "data.zip")
+                .withEnv("LOG.info.rmapproject", "DEBUG")
+                .withEnv("dir", zipDir.toString())
+                .withEnv("filter", "*.zip")
                 .withEnv("jms.queue.dest", "rmap.harvest.test-xml.fromZipFile")
                 .start();
 

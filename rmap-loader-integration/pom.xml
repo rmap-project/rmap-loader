@@ -77,14 +77,6 @@
     </dependency>
 
     <dependency>
-      <groupId>info.rmapproject</groupId>
-      <artifactId>rmap-loader-extract-oai</artifactId>
-      <version>${project.version}</version>
-      <classifier>exe</classifier>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
       <groupId>org.eclipse.jetty.http2</groupId>
       <artifactId>http2-server</artifactId>
       <version>9.4.0.v20161208</version>

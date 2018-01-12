@@ -23,6 +23,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doAnswer;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
@@ -57,6 +60,8 @@ public class DiscoDepositServiceIT {
     @Mock
     Consumer<HarvestRecord> consumer;
 
+    ExecutorService exe = Executors.newCachedThreadPool();
+
     static final String LISTEN_QUEUE = "rmap.harvest.disco.>";
 
     String SEND_QUEUE;
@@ -70,6 +75,8 @@ public class DiscoDepositServiceIT {
     HarvestRecordWriter writer = new HarvestRecordWriter();
 
     JmsClient jms;
+
+    Future<AutoCloseable> runner;
 
     @Before
     public void setUp() {
@@ -86,11 +93,12 @@ public class DiscoDepositServiceIT {
         SEND_QUEUE = "rmap.harvest.disco." + name.getMethodName();
 
         ERROR_QUEUE = "rmap.harvest.error.disco." + name.getMethodName();
+
+        runner = exe.submit(toTest, toTest);
     }
 
     @Test
     public void simpleDepositTest() throws Exception {
-        toTest.start();
 
         final CountDownLatch depositRecievedByRmap = new CountDownLatch(1);
 
@@ -113,7 +121,6 @@ public class DiscoDepositServiceIT {
 
     @Test
     public void multipleQueueTest() throws Exception {
-        toTest.start();
 
         final CountDownLatch depositRecievedByRmap = new CountDownLatch(2);
 
@@ -139,7 +146,6 @@ public class DiscoDepositServiceIT {
 
     @Test
     public void errorTest() throws Exception {
-        toTest.start();
 
         try (JmsClient client = new JmsClient(connectionFactory)) {
 
@@ -169,6 +175,7 @@ public class DiscoDepositServiceIT {
 
     @After
     public void disconnect() throws Exception {
+        runner.cancel(true);
         jms.close();
         toTest.close();
     }

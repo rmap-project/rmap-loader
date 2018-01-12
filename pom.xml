@@ -91,7 +91,6 @@
     <module>rmap-loader-transform-xsl</module>
     <module>rmap-loader-deposit-disco</module>
     <module>rmap-loader-integration</module>
-    <module>rmap-loader-extract-oai</module>
     <module>rmap-loader-extract-zip</module>
   </modules>
 </project>

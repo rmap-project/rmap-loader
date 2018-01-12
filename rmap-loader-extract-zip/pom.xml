@@ -32,7 +32,7 @@
                   implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                 <transformer
                   implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>info.rmapproject.loader.camel.impl.file.Main</mainClass>
+                  <mainClass>info.rmapproject.loader.impl.file.Main</mainClass>
                 </transformer>
               </transformers>
               <filters>
@@ -67,25 +67,62 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-camel</artifactId>
-      <version>${activemq.version}</version>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-compress</artifactId>
+      <version>1.15</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-test</artifactId>
-      <version>${camel.version}</version>
-      <scope>test</scope>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
     </dependency>
 
-    <!-- For the executable jar -->
+    <dependency>
+      <groupId>info.rmapproject</groupId>
+      <artifactId>rmap-loader-jms</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-client</artifactId>
+      <version>${activemq.version}</version>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-pool</artifactId>
+      <version>5.14.4</version>
+      <optional>true</optional>
+    </dependency>
 
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.1.9</version>
-      <scope>optional</scope>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>2.13.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>

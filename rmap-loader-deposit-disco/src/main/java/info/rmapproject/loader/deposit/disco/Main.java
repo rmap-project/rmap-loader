@@ -17,12 +17,20 @@
 package info.rmapproject.loader.deposit.disco;
 
 import static info.rmapproject.loader.util.ActiveMQConfig.buildConnectionFactory;
+import static info.rmapproject.loader.util.ConfigUtil.integer;
 import static info.rmapproject.loader.util.ConfigUtil.string;
 import static info.rmapproject.loader.util.LogUtil.adjustLogLevels;
 
 import java.net.URI;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.jms.ConnectionFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -31,7 +39,17 @@ import com.zaxxer.hikari.HikariDataSource;
  */
 public class Main {
 
+    static final Logger LOG = LoggerFactory.getLogger(Main.class);
+
+    @SuppressWarnings("resource")
     public static void main(final String[] args) throws Exception {
+
+        final ExecutorService exe = Executors.newCachedThreadPool();
+
+        final CompletionService<AutoCloseable> tasks = new ExecutorCompletionService<>(exe);
+
+        final int nthreads = integer("threads", 1);
+
         adjustLogLevels();
         final ConnectionFactory factory = buildConnectionFactory();
 
@@ -49,14 +67,23 @@ public class Main {
         depositor.setRmapDiscoEndpoint(makeDiscoEndpointUri());
         depositor.setHarvestRegistry(harvestRegistry);
 
-        final DiscoDepositService depositWiring = new DiscoDepositService();
-        depositWiring.setConnectionFactory(factory);
-        depositWiring.setDiscoConsumer(depositor);
-        depositWiring.setQueueSpec(string("jms.queue.src", "rmap.harvest.disco.>"));
+        for (int i = 0; i < nthreads; i++) {
 
-        depositWiring.start();
-        Thread.currentThread().join();
-        depositWiring.close();
+            LOG.info("Starting deposit thread " + i);
+
+            final DiscoDepositService depositService = new DiscoDepositService();
+            depositService.setConnectionFactory(factory);
+            depositService.setDiscoConsumer(depositor);
+            depositService.setQueueSpec(string("jms.queue.src", "rmap.harvest.disco.>"));
+
+            tasks.submit(depositService, depositService);
+        }
+
+        for (int i = 0; i < nthreads; i++) {
+            tasks.take().get().close();
+
+            LOG.info("Stopped deposit thread " + i);
+        }
     }
 
     private static URI makeDiscoEndpointUri() {

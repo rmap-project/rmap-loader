@@ -85,6 +85,10 @@ RMap authentication token.
 
 RMap API base URI.  The default is `https://test.rmap-hub.org/api/`
 
+### `threads`
+
+The number of worked threads for taking DiSCOs off the queue, and depositing to RMap
+
 ### `LOG.*`
 
 Any environment variable or system propertu that begins with `LOG.` can be used to specify the logging level of 
