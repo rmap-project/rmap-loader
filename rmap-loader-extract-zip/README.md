@@ -1,24 +1,32 @@
-# Zip extractor service
+# Archive extractor service
 
-This iterates through all entries in a zip file, and places them into a queue for further processing.  Physically, the it is an executable jar file that can be configured via system properties or environment variables.
+This iterates through all entries in a zip, tar, or other sort of archive file, and places them into a queue for further processing.  Physically, the it is an executable jar file that can be configured via system properties or environment variables.
 
-Once a zip file has been consumed, it is placed into a `.done` folder in the current directory
+Once a zip/tar file has been consumed, it is renamed with a `.done` appended to the file name.
 
 ## Configuration and Deployment
 
-The zip extractor service is just an executable jar, the jar artifact for this module is executable. Configuration is provided by using environment variables, or system properties (it doesn't matter which).
+The archive extractor service is just an executable jar, the jar artifact for this module is executable.  A list of files to consume (or a directory containing such files) is passed as an argument to the executable
+
+Additional configuration is provided by using environment variables, or system properties (it doesn't matter which).  
+
 For example,
 
-    export import.directory=/path/to/dir
-    java -jar target/rmap-loader-extract-zip-0.0.1-SNAPSHOT.jar -Dimport.file=stuff.zip
+    java -jar target/rmap-loader-extract-zip-0.0.1-SNAPSHOT.jar 
+    /path/to/zips/*.zip
 
-### `import.directory`
+or
+    java -Ddir=/path/to/zip -Dfilter='*.zip' 
 
-Specify a directory in which to look for zip files.  All files in this directory will be consumed, unless otherwise restricted by `input.file`.  If not suecified, then the current workinf directory will be used.
+### `dir`
 
-### `import.file` 
+Specify a directory in which to look for zip files.  All files in this directory will be consumed, unless otherwise filtered by `filter`.  This is used as an alternative to specifying the files
+on the command line.
 
-Specify a particular file to process.  Note, this is a _name_ and not a path, e.g. "whatever.zip" vs "/path/to/file.zip".
+### `filter`
+Filter the input zip/tar files based on a [glob](https://javapapers.com/java/glob-with-java-nio/) pattern, for example
+`*.zip`, or `**/*.zip` (for recursive behaviour in a complex ).  Only 
+necessary if _not_ specifying files on the command line (e.g. by using the `dir` property)
 
 ### `jms.brokerUrl` 
 

@@ -23,6 +23,7 @@ import static info.rmapproject.loader.util.LogUtil.adjustLogLevels;
 import static java.util.stream.Collectors.toList;
 
 import java.io.File;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
@@ -40,11 +41,15 @@ import info.rmapproject.loader.util.CloseableConnectionFactory;
  */
 public class Main {
 
-    static final PathMatcher pathFilter = p -> true;
+    static PathMatcher pathFilter = p -> true;
 
     public static void main(final String[] args) throws Exception {
         adjustLogLevels();
 
+        if (string("filter", null) != null) {
+            pathFilter = FileSystems.getDefault().getPathMatcher("glob:" + string("filter", null));
+        }
+        
         final List<Path> cmdLinePaths = commandLineFiles(args);
 
         try (CloseableConnectionFactory factory = buildConnectionFactory();

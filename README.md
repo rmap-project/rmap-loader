@@ -55,8 +55,6 @@ Services are the things that read or write to queues.  In this repository, they 
 
 ### Extractors
 
-* [OAI](rmap-loader-extract-oai/README.md) - simple OAI harvester that slurps in records from an OAI endpoint, and places the records into the desired queue.  
-
 * [zip](rmap-loader-extract-zip/README.md) - places all files contained within a zip file onto a queue
 
 ### Transformers
@@ -65,9 +63,36 @@ Services are the things that read or write to queues.  In this repository, they 
 
 ### Loaders
 
-* [disco](rmap-loader-deposit-disco/README.md) - Loads records from disco queues into RMap.  Maintains a registry of deposited records so that it can decide whether an update is appropriate, or an add.  
+* [disco](rmap-loader-deposit-disco/README.md) - Loads records from disco queues into RMap.  Maintains a registry of deposited records so that it can decide whether an update is appropriate, or an add.
 
 ## Deployment
 
-* Install an instance of ActiveMQ.  The easiest way to do this would be to [download](http://activemq.apache.org/download.html) the binary distribution.  
-* Run any of the above services when desired.
+The loader components are standalone applications that can be run as-necessary.  State is kept in (a) activeMQ queues, and (b) a relational database which backs the harvest registry (to keep track of what has already been deposited, and map to DiSCO IDs for the purpose of updating discos, or skipping updates because).
+
+You can use the provided [docker-compose](docker-compose.yml) file to launch an instance of Apache ActiveMQ, and postgresql for local development, or for permanent infrastructure.
+
+### Example for development
+This example shows how to use the rmap loader to deposit DiSCOs that have been externally generated, and provided to the loader in the form of zip files containing thousands of DiSCO files in rdf/xml format.
+
+
+Run Docker
+    docker-compose up -d
+
+Load the DiSCOs into a queue
+    java -Dcontent.type='application/vnd.rmap-project.disco+rdf+xml' \
+         -Djms.queue.dest=rmap.harvest.disco.ieee.2018-01-11 \
+         -jar /rmap-loader-extract-zip-0.0.1-SNAPSHOT.jar /path/to/directory/*.zip
+
+Pick an RMap instance, or [start one](https://github.com/rmap-project/rmap/blob/master/DEVELOPER.md#running-rmap) from the integration module of RMap
+    mvn validate docker:start cargo:run
+
+Later on, load them into RMap with the loader application
+    java -Djdbc.url=jdbc:postgresql://localhost/loader \
+         -Djdbc.username=pguser
+         -Djdbc.password=pguser
+         -Dthreads=4
+         -Drmap.api.auth.token=abc123
+         -Drmap.api.baseuri=http://rmap.host:port/api/
+         -jar rmap-loader-deposit-disco-0.0.1-SNAPSHOT-exe.jar
+
+At any time, the state of the queues (how many messages are in which queue; how many consumers are processing, etc) can be seen via the ActiveMQ management console http://localhost:8161 (user: admin, pass: admin)
