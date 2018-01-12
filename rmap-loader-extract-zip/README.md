@@ -12,11 +12,16 @@ Additional configuration is provided by using environment variables, or system p
 
 For example,
 
-    java -jar target/rmap-loader-extract-zip-0.0.1-SNAPSHOT.jar 
-    /path/to/zips/*.zip
+    java -Dcontent.type='application/vnd.rmap-project.disco+rdf+xml' \
+         -Djms.queue.dest=rmap.harvest.disco.ieee.2018-01-11 \
+         -jar /rmap-loader-extract-zip-0.0.1-SNAPSHOT.jar /path/to/directory/*.zip
 
 or
-    java -Ddir=/path/to/zip -Dfilter='*.zip' 
+
+    java -Dcontent.type='application/vnd.rmap-project.disco+rdf+xml' \
+         -Djms.queue.dest=rmap.harvest.disco.ieee.2018-01-11 
+         -Ddir=/path/to/zip 
+         -Dfilter='*.zip' 
 
 ### `dir`
 
