@@ -76,17 +76,21 @@ This example shows how to use the rmap loader to deposit DiSCOs that have been e
 
 
 Run Docker
+
     docker-compose up -d
 
 Load the DiSCOs into a queue
+
     java -Dcontent.type='application/vnd.rmap-project.disco+rdf+xml' \
          -Djms.queue.dest=rmap.harvest.disco.ieee.2018-01-11 \
          -jar /rmap-loader-extract-zip-0.0.1-SNAPSHOT.jar /path/to/directory/*.zip
 
 Pick an RMap instance, or [start one](https://github.com/rmap-project/rmap/blob/master/DEVELOPER.md#running-rmap) from the integration module of RMap
+
     mvn validate docker:start cargo:run
 
 Later on, load them into RMap with the loader application
+
     java -Djdbc.url=jdbc:postgresql://localhost/loader \
          -Djdbc.username=pguser
          -Djdbc.password=pguser
