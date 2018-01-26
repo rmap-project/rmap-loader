@@ -20,6 +20,7 @@ import static info.rmapproject.loader.util.ActiveMQConfig.buildConnectionFactory
 import static info.rmapproject.loader.util.ConfigProperties.JMS_QUEUE_DEST;
 import static info.rmapproject.loader.util.ConfigUtil.string;
 import static info.rmapproject.loader.util.LogUtil.adjustLogLevels;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.stream.Collectors.toList;
 
 import java.io.File;
@@ -29,9 +30,14 @@ import java.nio.file.Path;
 import java.nio.file.PathMatcher;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import info.rmapproject.loader.HarvestRecord;
 import info.rmapproject.loader.jms.HarvestRecordWriter;
 import info.rmapproject.loader.jms.JmsClient;
 import info.rmapproject.loader.util.CloseableConnectionFactory;
@@ -41,7 +47,11 @@ import info.rmapproject.loader.util.CloseableConnectionFactory;
  */
 public class Main {
 
+    static Logger LOG = LoggerFactory.getLogger(Main.class);
+
     static PathMatcher pathFilter = p -> true;
+
+    static Predicate<HarvestRecord> grep = setupGrep();
 
     public static void main(final String[] args) throws Exception {
         adjustLogLevels();
@@ -49,7 +59,7 @@ public class Main {
         if (string("filter", null) != null) {
             pathFilter = FileSystems.getDefault().getPathMatcher("glob:" + string("filter", null));
         }
-        
+
         final List<Path> cmdLinePaths = commandLineFiles(args);
 
         try (CloseableConnectionFactory factory = buildConnectionFactory();
@@ -66,7 +76,11 @@ public class Main {
                     .withExtractor(extractor()
                             .contentType(string("content.type", "application/xml"))
                             .onDone(RENAME_TO_DONE))
-                    .onRecord(r -> writer.write(queue, r))
+                    .onRecord(r -> {
+                        if (grep.test(r)) {
+                            writer.write(queue, r);
+                        }
+                    })
                     .run();
         }
     }
@@ -102,5 +116,17 @@ public class Main {
 
     private static RecordExtractor extractor() {
         return new ArchiveRecordExtractor();
+    }
+
+    private static Predicate<HarvestRecord> setupGrep() {
+        final String grep = Optional.ofNullable(string("grep", null)).map(String::toLowerCase).orElse(null);
+
+        return r -> {
+            if (grep == null) {
+                return true;
+            } else {
+                return new String(r.getBody(), UTF_8).toLowerCase().contains(grep);
+            }
+        };
     }
 }

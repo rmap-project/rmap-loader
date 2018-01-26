@@ -29,11 +29,20 @@ Specify a directory in which to look for zip files.  All files in this directory
 on the command line.
 
 ### `filter`
+
 Filter the input zip/tar files based on a [glob](https://javapapers.com/java/glob-with-java-nio/) pattern, for example
 `*.zip`, or `**/*.zip` (for recursive behaviour in a complex ).  Only 
 necessary if _not_ specifying files on the command line (e.g. by using the `dir` property)
 
-### `jms.brokerUrl` 
+### `grep`
+
+Specify text that must be present in extracted records as a prerequisite for them to be enqueued.  Records that fail to match will be dropped.  Performs a simple case-insensitive match
+
+For example
+
+    -Dgrep='to be or not'
+
+### `jms.brokerUrl`
 
 ActiveMQ broker URL.  Default is `tcp://localhost:61616`
 
